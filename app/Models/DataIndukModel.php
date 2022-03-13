@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class DataInduk extends Model
+class DataIndukModel extends Model
 {
     protected $table            = 'data_induk';
     protected $primaryKey       = 'induk_id';

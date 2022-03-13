@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Tahun extends Model
+class TahunModel extends Model
 {
     protected $table            = 'tahun';
     protected $primaryKey       = 'tahun_id';

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Units extends Model
+class UnitsModel extends Model
 {
     protected $table            = 'units';
     protected $primaryKey       = 'unit_id';
