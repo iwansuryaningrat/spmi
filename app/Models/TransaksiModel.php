@@ -17,4 +17,16 @@ class TransaksiModel extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+
+    // function to get data by user
+    public function getTransaksiUser($user_id)
+    {
+        return $this->where('user_id', $user_id)->first();
+    }
+
+    // function to get data by unit
+    public function getTransaksiUnit($unit_id)
+    {
+        return $this->where('unit_id', $unit_id)->first();
+    }
 }
