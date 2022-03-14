@@ -11,4 +11,10 @@ class KategoriModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $allowedFields    = ["nama_kategori"];
+
+    // get data by id
+    public function getKategoriId($kategori_id)
+    {
+        return $this->where('kategori_id', $kategori_id)->first();
+    }
 }
