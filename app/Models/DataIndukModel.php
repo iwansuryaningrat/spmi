@@ -41,4 +41,10 @@ class DataIndukModel extends Model
     {
         return $this->where('unit_id', $unit_id)->first();
     }
+
+    // function to get data by unit and tahun
+    public function getDataIndukUnitTahun($unit_id, $tahun_id)
+    {
+        return $this->where('unit_id', $unit_id)->where('tahun_id', $tahun_id)->first();
+    }
 }

@@ -36,6 +36,32 @@ class Home extends BaseController
 
     public function index()
     {
-        return view('welcome_message');
+        $tahun = (int)date('Y');
+        $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+        $dataInduk = $this->dataIndukModel->getDataIndukUnitTahun($this->session->get('unit_id'), $tahun_id);
+        dd($dataInduk);
+
+        $data = [
+            'title' => 'Dashboard | SPMI UNDIP 2022',
+        ];
+
+        // return view('welcome_message');
+    }
+
+    public function dataInduk($tahun_id = null)
+    {
+        if ($tahun_id == null) {
+            $tahun = (int)date('Y');
+            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+        }
+
+        $data = [
+            'title' => 'Data Induk | SPMI UNDIP 2022',
+            'tahun_id' => $tahun_id,
+            'tahun' => $this->tahunModel->getTahun($tahun_id)['tahun'],
+            'data_induk' => $this->dataIndukModel->getDataIndukUnitTahun($this->session->get('unit_id'), $tahun_id),
+            'indikator' => $this->indikatorModel->getIndikator(),
+            'standar' => $this->standarModel->getStandar(),
+        ];
     }
 }

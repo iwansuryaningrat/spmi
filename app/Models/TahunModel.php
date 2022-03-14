@@ -11,4 +11,10 @@ class TahunModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $allowedFields    = ["tahun"];
+
+    // get data tahun aktif
+    public function getTahunAktif($tahun)
+    {
+        return $this->where('tahun', $tahun)->first();
+    }
 }
