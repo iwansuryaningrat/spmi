@@ -17,4 +17,22 @@ class UnitsModel extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+
+    // function to get data by id
+    public function getUnitId($unit_id)
+    {
+        return $this->where('unit_id', $unit_id)->first();
+    }
+
+    // function to get data by kategori
+    public function getUnitKategori($kategori_id)
+    {
+        return $this->where('kategori_id', $kategori_id)->first();
+    }
+
+    // function to get data by tahun
+    public function getUnitTahun($tahun_id)
+    {
+        return $this->where('tahun_id', $tahun_id)->first();
+    }
 }
