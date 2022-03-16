@@ -35,4 +35,15 @@ class UnitsModel extends Model
     {
         return $this->where('tahun_id', $tahun_id)->first();
     }
+
+    //  joining table kategori and tahun
+    public function getUnitKategoriTahun($kategori_id, $tahun_id)
+    {
+        return $this->select('units.*, kategori.nama_kategori, tahun.tahun')
+            ->join('kategori', 'kategori.kategori_id = units.kategori_id')
+            ->join('tahun', 'tahun.tahun_id = units.tahun_id')
+            ->where('units.kategori_id', $kategori_id)
+            ->where('units.tahun_id', $tahun_id)
+            ->first();
+    }
 }

@@ -36,6 +36,9 @@ class Home extends BaseController
 
     public function index()
     {
+        // $data = $this->unitsModel->getUnitKategoriTahun(1, 1);
+        $data = $this->unitsModel->findAll();
+        dd($data);
         $tahun = (int)date('Y');
         $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
         $dataInduk = $this->dataIndukModel->getDataIndukUnitTahun($this->session->get('unit_id'), $tahun_id);

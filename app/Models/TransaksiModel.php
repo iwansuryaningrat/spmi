@@ -29,4 +29,15 @@ class TransaksiModel extends Model
     {
         return $this->where('unit_id', $unit_id)->first();
     }
+
+    // joining table users and units
+    public function getTransaksiUserUnit($user_id, $unit_id)
+    {
+        return $this->select('transaksi.*, users.nama_lengkap, users.email, users.no_hp, users.alamat, users.foto, units.nama_unit, units.kode_unit')
+            ->join('users', 'users.user_id = transaksi.user_id')
+            ->join('units', 'units.unit_id = transaksi.unit_id')
+            ->where('transaksi.user_id', $user_id)
+            ->where('transaksi.unit_id', $unit_id)
+            ->first();
+    }
 }
