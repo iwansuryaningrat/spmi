@@ -10,7 +10,7 @@ class StandarModel extends Model
     protected $primaryKey       = 'standar_id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
-    protected $allowedFields    = ["nama_standar", "status", "nilai", "kategori_id", "tahun_id", "unit_id", "created_at", "updated_at"];
+    protected $allowedFields    = ["kode_standar", "nama_standar", "status", "nilai", "kategori_id", "tahun_id", "unit_id", "created_at", "updated_at"];
 
     // Dates
     protected $useTimestamps = true;

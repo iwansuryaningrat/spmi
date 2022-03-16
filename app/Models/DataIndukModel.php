@@ -10,7 +10,7 @@ class DataIndukModel extends Model
     protected $primaryKey       = 'induk_id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
-    protected $allowedFields    = ["kategori", "kebutuhan", "nilai", "tahun_id", "unit_id", "created_at", "updated_at"];
+    protected $allowedFields    = ["kode_induk", "kategori", "kebutuhan", "nilai", "tahun_id", "unit_id", "created_at", "updated_at"];
 
     // Dates
     protected $useTimestamps = true;
