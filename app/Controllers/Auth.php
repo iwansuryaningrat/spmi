@@ -28,87 +28,94 @@ class Auth extends BaseController
     // Valid Login
     public function validLogin()
     {
-        if ($this->request->getMethod() == 'post') {
-            $validation = $this->validate([
-                'username' => [
-                    'label' => 'Username',
-                    'rules' => 'required',
-                ],
-                'password' => [
-                    'label' => 'Password',
-                    'rules' => 'required',
-                ],
-            ]);
+        if (!$this->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ])) {
+            return redirect()->to('/login')->withInput()->with('validation', $this->validation);
+        } else {
+            $email = $this->request->getVar('email');
+            $password = $this->request->getVar('password');
 
-            if ($validation) {
-                $username = $this->request->getVar('username');
-                $password = $this->request->getVar('password');
+            $user = $this->usersModel->where('email', $email)->first();
 
-                $user = $this->usersModel->where('username', $username)->first();
+            if ($user) {
+                if (password_verify($password, $user['password'])) {
+                    $data = [
+                        'id' => $user['id'],
+                        'email' => $user['email'],
+                        'role' => $user['role'],
+                        'name' => $user['name'],
+                        'email' => $user['email'],
+                        'foto' => $user['foto'],
+                        'is_login' => true,
+                    ];
 
-                if ($user) {
-                    if (password_verify($password, $user['password'])) {
-                        $data = [
-                            'id' => $user['id'],
-                            'username' => $user['username'],
-                            'role_id' => $user['role_id'],
-                            'unit_id' => $user['unit_id'],
-                        ];
+                    $this->session->set($data);
 
-                        $this->session->set($data);
-                        return redirect()->to('/');
-                    } else {
-                        $validation->setError('password', 'Password salah');
-                        return redirect()->to('/auth/login')->withInput()->with('validation', $validation);
-                    }
+                    return redirect()->to('/');
                 } else {
-                    $validation->setError('username', 'Username tidak ditemukan');
-                    return redirect()->to('/auth/login')->withInput()->with('validation', $validation);
+                    $data = [
+                        'title' => 'Login | SPMI UNDIP 2022',
+                        'validation' => [
+                            'Email' => 'Email atau Password salah',
+                        ],
+                    ];
+
+                    return view('auth/login', $data);
                 }
             } else {
-                return redirect()->to('/auth/login')->withInput()->with('validation', $validation);
+                $data = [
+                    'title' => 'Login | SPMI UNDIP 2022',
+                    'validation' => [
+                        'Email' => 'Email atau Password salah',
+                    ],
+                ];
+
+                return view('auth/login', $data);
             }
-        } else {
-            return redirect()->to('/auth/login');
         }
+    }
+
+    // Register Page
+    public function register()
+    {
+        $data = [
+            'title' => 'Register | SPMI UNDIP 2022',
+        ];
+
+        return view('auth/register', $data);
     }
 
     // valid register
     public function validRegister()
     {
-        if ($this->request->getMethod() == 'post') {
-            $validation = $this->validate([
-                'username' => [
-                    'label' => 'Username',
-                    'rules' => 'required|is_unique[users.username]',
-                ],
-                'password' => [
-                    'label' => 'Password',
-                    'rules' => 'required',
-                ],
-                'password_confirm' => [
-                    'label' => 'Password Confirm',
-                    'rules' => 'required|matches[password]',
-                ],
-            ]);
-
-            if ($validation) {
-                $username = $this->request->getVar('username');
-                $password = $this->request->getVar('password');
-
-                $data = [
-                    'username' => $username,
-                    'password' => password_hash($password, PASSWORD_DEFAULT),
-                    'role_id' => 2,
-                ];
-
-                $this->usersModel->insert($data);
-                return redirect()->to('/auth/login');
-            } else {
-                return redirect()->to('/auth/register')->withInput()->with('validation', $validation);
-            }
+        if (!$this->validate([
+            'name' => 'required',
+            'email' => 'required|valid_email|is_unique[users.email]',
+            'password' => 'required|min_length[8]',
+            'password2' => 'required|matches[password]',
+        ])) {
+            return redirect()->to('/register')->withInput()->with('validation', $this->validation);
         } else {
-            return redirect()->to('/auth/register');
+            $data = [
+                'name' => $this->request->getVar('name'),
+                'email' => $this->request->getVar('email'),
+                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+                'role' => 'admin',
+                'foto' => 'default.png',
+            ];
+
+            $this->usersModel->insert($data);
+
+            $data = [
+                'title' => 'Login | SPMI UNDIP 2022',
+                'validation' => [
+                    'message' => 'Akun berhasil dibuat, silahkan login',
+                ],
+            ];
+
+            return view('auth/login', $data);
         }
     }
 }
