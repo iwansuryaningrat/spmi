@@ -4,14 +4,17 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\UsersModel;
+use App\Models\TransaksiModel;
 
 class Auth extends BaseController
 {
     protected $usersModel;
+    protected $transaksiModel;
 
     public function __construct()
     {
         $this->usersModel = new UsersModel();
+        $this->transaksiModel = new TransaksiModel();
         $this->validation = \Config\Services::validation();
         $this->session = \Config\Services::session();
     }
@@ -117,5 +120,36 @@ class Auth extends BaseController
 
             return view('auth/login', $data);
         }
+    }
+
+    // Logout
+    public function logout()
+    {
+        $this->session->destroy();
+
+        return redirect()->to('/login');
+    }
+
+    // Generate User
+    public function generateUser()
+    {
+        $data = [
+            'name' => $this->getVar('name'),
+            'email' => $this->getVar('email'),
+            'password' => password_hash($this->getVar('password'), PASSWORD_DEFAULT),
+            'role' => $this->getVar('role'),
+            'foto' => 'default.png',
+        ];
+        $this->usersModel->insert($data);
+    }
+
+    // Form Generate User
+    public function formGenerateUser()
+    {
+        $data = [
+            'title' => 'Generate User | SPMI UNDIP 2022',
+        ];
+
+        return view('auth/generateUser', $data);
     }
 }
