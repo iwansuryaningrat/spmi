@@ -21,13 +21,13 @@ class TransaksiModel extends Model
     // function to get data by user
     public function getTransaksiUser($user_id)
     {
-        return $this->where('user_id', $user_id)->first();
+        return $this->where('user_id', $user_id)->findAll();
     }
 
     // function to get data by unit
     public function getTransaksiUnit($unit_id)
     {
-        return $this->where('unit_id', $unit_id)->first();
+        return $this->where('unit_id', $unit_id)->findAll();
     }
 
     // joining table users and units
