@@ -27,36 +27,36 @@ class StandarModel extends Model
     // function to get data by kategori
     public function getStandarKategori($kategori_id)
     {
-        return $this->where('kategori_id', $kategori_id)->first();
+        return $this->where('kategori_id', $kategori_id)->findAll();
     }
 
     // function to get data by tahun
     public function getStandarTahun($tahun_id)
     {
-        return $this->where('tahun_id', $tahun_id)->first();
+        return $this->where('tahun_id', $tahun_id)->findAll();
     }
 
     // function to get data by unit
     public function getStandarUnit($unit_id)
     {
-        return $this->where('unit_id', $unit_id)->first();
+        return $this->where('unit_id', $unit_id)->findAll();
     }
 
     // function to get data by unit and tahun
     public function getStandarUnitTahun($unit_id, $tahun_id)
     {
-        return $this->where('unit_id', $unit_id)->where('tahun_id', $tahun_id)->first();
+        return $this->where('unit_id', $unit_id)->where('tahun_id', $tahun_id)->findAll();
     }
 
     // function to get data by unit and kategori
     public function getStandarUnitKategori($unit_id, $kategori_id)
     {
-        return $this->where('unit_id', $unit_id)->where('kategori_id', $kategori_id)->first();
+        return $this->where('unit_id', $unit_id)->where('kategori_id', $kategori_id)->findAll();
     }
 
     // function to get data by unit and tahun and kategori
     public function getStandarUnitTahunKategori($unit_id, $tahun_id, $kategori_id)
     {
-        return $this->where('unit_id', $unit_id)->where('tahun_id', $tahun_id)->where('kategori_id', $kategori_id)->first();
+        return $this->where('unit_id', $unit_id)->where('tahun_id', $tahun_id)->where('kategori_id', $kategori_id)->findAll();
     }
 }
