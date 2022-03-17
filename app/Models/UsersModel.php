@@ -10,7 +10,7 @@ class UsersModel extends Model
     protected $primaryKey       = "user_id";
     protected $returnType       = "array";
     protected $protectFields    = true;
-    protected $allowedFields    = ["nama", "email", "password", "role", "foto", "created_at", "updated_at"];
+    protected $allowedFields    = ["nama", "username", "email", "nip", "password", "role", "foto", "created_at", "updated_at"];
 
     // Dates
     protected $useTimestamps = true;
