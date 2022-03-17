@@ -59,4 +59,10 @@ class StandarModel extends Model
     {
         return $this->where('unit_id', $unit_id)->where('tahun_id', $tahun_id)->where('kategori_id', $kategori_id)->findAll();
     }
+
+    //  function to get data by status
+    public function getStandarStatus($status)
+    {
+        return $this->where('status', $status)->findAll();
+    }
 }
