@@ -5,16 +5,19 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\UsersModel;
 use App\Models\TransaksiModel;
+use App\Models\SupercodeModel;
 
 class Auth extends BaseController
 {
     protected $usersModel;
     protected $transaksiModel;
+    protected $supercodeModel;
 
     public function __construct()
     {
         $this->usersModel = new UsersModel();
         $this->transaksiModel = new TransaksiModel();
+        $this->supercodeModel = new SupercodeModel();
         $this->validation = \Config\Services::validation();
         $this->session = \Config\Services::session();
     }
@@ -93,16 +96,21 @@ class Auth extends BaseController
     // valid register
     public function validRegister()
     {
+        $supercode = $this->supercodeModel->findAll();
+        $supercode = $supercode[0]['supercode'];
+        $inputcode = $this->request->getVar('superpass');
+        $verify = password_verify($inputcode, $supercode);
+
         if (!$this->validate([
-            'name' => 'required',
+            'username' => 'required',
             'email' => 'required|valid_email|is_unique[users.email]',
             'password' => 'required|min_length[8]',
-            'password2' => 'required|matches[password]',
-        ])) {
-            return redirect()->to('/register')->withInput()->with('validation', $this->validation);
+            'superpass' => 'required',
+        ]) && $verify == false) {
+            return redirect()->to('auth/register')->withInput()->with('validation', $this->validation);
         } else {
             $data = [
-                'name' => $this->request->getVar('name'),
+                'username' => $this->request->getVar('username'),
                 'email' => $this->request->getVar('email'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
                 'role' => 'admin',
@@ -127,17 +135,17 @@ class Auth extends BaseController
     {
         $this->session->destroy();
 
-        return redirect()->to('/login');
+        return redirect()->to('auth/login');
     }
 
     // Generate User
     public function generateUser()
     {
         $data = [
-            'name' => $this->getVar('name'),
-            'email' => $this->getVar('email'),
-            'password' => password_hash($this->getVar('password'), PASSWORD_DEFAULT),
-            'role' => $this->getVar('role'),
+            'username' => $this->request->getVar('username'),
+            'email' => $this->request->getVar('email'),
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+            'role' => $this->request->getVar('role'),
             'foto' => 'default.png',
         ];
         $this->usersModel->insert($data);
