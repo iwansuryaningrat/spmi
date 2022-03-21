@@ -52,7 +52,7 @@ class Home extends BaseController
             }
         }
 
-        $data = [
+        $data_user = [
             'nama' => session()->get('nama'),
             'role' => session()->get('role'),
             'email' => session()->get('email'),
@@ -60,7 +60,7 @@ class Home extends BaseController
             'id_user' => session()->get('id_user'),
             'foto' => session()->get('foto'),
         ];
-        dd($data);
+        // dd($data_user);
         // $data = $this->unitsModel->getUnitKategoriTahun(1, 1);
         // $unit = $this->standarModel->getStandarAll(1, 4, 1);
         // $unit = $this->indikatorModel->getIndikatorAll(1);
@@ -73,6 +73,7 @@ class Home extends BaseController
 
         $data = [
             'title' => 'Dashboard SIPMPP | SPMI UNDIP 2022',
+            'data_user' => $data_user,
         ];
 
         return view('user/index', $data);

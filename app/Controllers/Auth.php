@@ -60,6 +60,7 @@ class Auth extends BaseController
                     'email' => $user['email'],
                     'role' => $user['role'],
                     'nama' => $user['nama'],
+                    'username' => $user['username'],
                     'email' => $user['email'],
                     'foto' => $user['foto'],
                     'isLoggedIn' => true,

@@ -14,11 +14,15 @@
     </div>
     <div class="header__main-nav-profile">
       <div class="nav-profile__photo">
-        <img src="/assets/img/adi-wibowo-img.png" alt="profile-picture" id="photo-dropdown" />
+        <img src="/profile/<?= $data_user['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
       </div>
       <div class="nav-profile__desc">
-        <p id="profileName">Adi Wibowo</p>
-        <p id="profileEmail">adiwibowo@lecturer.undip.ac.id</p>
+        <p id="profileName"><?php if ($data_user['nama'] != null && $data_user['nama'] != "") {
+                              echo $data_user['nama'];
+                            } else {
+                              echo $data_user['username'];
+                            } ?></p>
+        <p id="profileEmail"><?= $data_user['email']; ?></p>
       </div>
       <div class="nav-profile__btn">
         <i class="fi-br-angle-down" id="btn-dropdown"></i>
