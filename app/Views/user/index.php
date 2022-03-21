@@ -7,9 +7,9 @@
     <div class="header__main-nav-btn">
       <!-- <i class="fi-br-menu-burger" id="header-main-nav-btn-i"></i> -->
       <div id="header-main-nav-btn-i" class="line__humberger">
-        <span class="line__menu line-1"></span>
-        <span class="line__menu line-2"></span>
-        <span class="line__menu line-3"></span>
+        <span class="line__menu line-1" id="line1"></span>
+        <span class="line__menu line-2" id="line2"></span>
+        <span class="line__menu line-3" id="line3"></span>
       </div>
     </div>
     <div class="header__main-nav-profile">
