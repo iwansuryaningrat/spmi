@@ -57,11 +57,21 @@ ul {
 }
 
 /* utility */
+.header__mini {
+  height: 15.25rem !important;
+}
+
 .ellipsis__text {
   overflow: hidden;
 
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+/* pagination */
+.header__main-title__pagination a:hover {
+  color: var(--black);
+  text-decoration: underline;
 }
 
 /* humberger meu */

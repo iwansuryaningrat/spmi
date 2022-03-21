@@ -36,6 +36,31 @@ class Home extends BaseController
 
     public function index()
     {
+        // Check Login status
+        if (!session()->get('isLoggedIn')) {
+            session()->setFlashdata('gagal', 'Anda harus login terlebih dahulu');
+            return redirect()->to('auth/login');
+        }
+
+        if (session()->get('role') != 'user') {
+            if (session()->get('role') == 'admin') {
+                return redirect()->to('/admin');
+            } elseif (session()->get('role') == 'auditor') {
+                return redirect()->to('/auditor');
+            } elseif (session()->get('role') == 'leader') {
+                return redirect()->to('/leader');
+            }
+        }
+
+        $data = [
+            'nama' => session()->get('nama'),
+            'role' => session()->get('role'),
+            'email' => session()->get('email'),
+            'username' => session()->get('username'),
+            'id_user' => session()->get('id_user'),
+            'foto' => session()->get('foto'),
+        ];
+        dd($data);
         // $data = $this->unitsModel->getUnitKategoriTahun(1, 1);
         // $unit = $this->standarModel->getStandarAll(1, 4, 1);
         // $unit = $this->indikatorModel->getIndikatorAll(1);

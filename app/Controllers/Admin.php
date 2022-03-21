@@ -39,6 +39,30 @@ class Admin extends BaseController
 
     public function index()
     {
-        //
+        // Check Login status
+        if (!session()->get('isLoggedIn')) {
+            session()->setFlashdata('gagal', 'Anda harus login terlebih dahulu');
+            return redirect()->to('auth/login');
+        }
+
+        if (session()->get('role') != 'admin') {
+            if (session()->get('role') == 'leader') {
+                return redirect()->to('/leader');
+            } elseif (session()->get('role') == 'auditor') {
+                return redirect()->to('/auditor');
+            } elseif (session()->get('role') == 'user') {
+                return redirect()->to('/user');
+            }
+        }
+
+        $data = [
+            'nama' => session()->get('nama'),
+            'role' => session()->get('role'),
+            'email' => session()->get('email'),
+            'username' => session()->get('username'),
+            'id_user' => session()->get('id_user'),
+            'foto' => session()->get('foto'),
+        ];
+        dd($data);
     }
 }

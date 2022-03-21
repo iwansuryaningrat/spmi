@@ -18,10 +18,10 @@ class UsersModel extends Model
     protected $createdField  = "created_at";
     protected $updatedField  = "updated_at";
 
-    // function to get data by email
-    public function getUserEmail($email)
+    // function to get data by username
+    public function getUserByUsername($username)
     {
-        return $this->where('email', $email)->first();
+        return $this->where('username', $username)->first();
     }
 
     // function to get data by role

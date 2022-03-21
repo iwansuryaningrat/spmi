@@ -34,52 +34,50 @@ class Auth extends BaseController
     // Valid Login
     public function validLogin()
     {
-        if (!$this->validate([
-            'email' => 'required',
-            'password' => 'required'
-        ])) {
-            return redirect()->to('/login')->withInput()->with('validation', $this->validation);
-        } else {
-            $email = $this->request->getVar('email');
-            $password = $this->request->getVar('password');
 
-            $user = $this->usersModel->where('email', $email)->first();
+        $username = $this->request->getVar('username');
+        $password = $this->request->getVar('password');
 
-            if ($user) {
-                if (password_verify($password, $user['password'])) {
-                    $data = [
-                        'id' => $user['id'],
-                        'email' => $user['email'],
-                        'role' => $user['role'],
-                        'name' => $user['name'],
-                        'email' => $user['email'],
-                        'foto' => $user['foto'],
-                        'is_login' => true,
-                    ];
+        $user = $this->usersModel->getUserByUsername($username);
+        // dd($user);
 
-                    $this->session->set($data);
-
-                    return redirect()->to('/');
-                } else {
-                    $data = [
-                        'title' => 'Login | SPMI UNDIP 2022',
-                        'validation' => [
-                            'Email' => 'Email atau Password salah',
-                        ],
-                    ];
-
-                    return view('auth/login', $data);
-                }
-            } else {
+        if ($user) {
+            if (password_verify($password, $user['password'])) {
                 $data = [
-                    'title' => 'Login | SPMI UNDIP 2022',
-                    'validation' => [
-                        'Email' => 'Email atau Password salah',
-                    ],
+                    'id_user' => $user['user_id'],
+                    'email' => $user['email'],
+                    'role' => $user['role'],
+                    'nama' => $user['nama'],
+                    'email' => $user['email'],
+                    'foto' => $user['foto'],
+                    'isLoggedIn' => true,
                 ];
 
-                return view('auth/login', $data);
+                $this->session->set($data);
+
+                if ($user['role'] == 'admin') {
+                    return redirect()->to('/admin');
+                } elseif ($user['role'] == 'user') {
+                    return redirect()->to('/user');
+                } elseif ($user['role'] == 'auditor') {
+                    return redirect()->to('/auditor');
+                } else {
+                    return redirect()->to('/leader');
+                }
+            } else {
+                session()->setFlashdata('gagal', 'Gagal melakukan proses autentikasi. Mohon maaf untuk mengisi email & password dengan benar.');
+
+                return redirect()->to('/auth/login');
             }
+        } else {
+            $data = [
+                'title' => 'Login | SPMI UNDIP 2022',
+                'validation' => [
+                    'Email' => 'Email atau Password salah',
+                ],
+            ];
+
+            return view('auth/login', $data);
         }
     }
 
@@ -101,13 +99,10 @@ class Auth extends BaseController
         $inputcode = $this->request->getVar('superpass');
         $verify = password_verify($inputcode, $supercode);
 
-        if (!$this->validate([
-            'username' => 'required',
-            'email' => 'required|valid_email|is_unique[users.email]',
-            'password' => 'required|min_length[8]',
-            'superpass' => 'required',
-        ]) && $verify == false) {
-            return redirect()->to('auth/register')->withInput()->with('validation', $this->validation);
+        if ($verify == false) {
+            session()->setFlashdata('error', 'Gagal melakukan proses registrasi. Mohon maaf untuk mengisi supercode dengan benar.');
+
+            return redirect()->to('auth/register');
         } else {
             $data = [
                 'username' => $this->request->getVar('username'),
@@ -159,5 +154,11 @@ class Auth extends BaseController
         ];
 
         return view('auth/generateUser', $data);
+    }
+
+    public function generatepassword($password)
+    {
+        $data = password_hash($password, PASSWORD_DEFAULT);
+        dd($data);
     }
 }

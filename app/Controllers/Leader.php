@@ -38,6 +38,23 @@ class Leader extends BaseController
 
     public function index()
     {
-        //
+        // Check Login status
+        if (!session()->get('isLoggedIn')) {
+            session()->setFlashdata('gagal', 'Anda harus login terlebih dahulu');
+            return redirect()->to('auth/login');
+        }
+
+        if (session()->get('role') != 'leader') {
+            if (session()->get('role') == 'admin') {
+                return redirect()->to('/admin');
+            } elseif (session()->get('role') == 'auditor') {
+                return redirect()->to('/auditor');
+            } elseif (session()->get('role') == 'user') {
+                return redirect()->to('/user');
+            }
+        }
+
+        $user = session()->get('email');
+        dd($user);
     }
 }
