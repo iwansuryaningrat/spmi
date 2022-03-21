@@ -13,6 +13,7 @@ use App\Filters\UsersFilter;
 use App\Filters\AdminFilter;
 use App\Filters\AuditorFilter;
 use App\Filters\LeaderFilter;
+use App\Filters\LoginPageFilter;
 
 class Filters extends BaseConfig
 {
@@ -33,6 +34,7 @@ class Filters extends BaseConfig
         'admin'         => AdminFilter::class,
         'auditor'       => AuditorFilter::class,
         'leader'        => LeaderFilter::class,
+        'loginpage'     => LoginPageFilter::class,
     ];
 
     /**
@@ -111,6 +113,11 @@ class Filters extends BaseConfig
             'before' => [
                 'leader',
                 'leader/*',
+            ],
+        ],
+        'loginpage' => [
+            'before' => [
+                'login',
             ],
         ],
     ];

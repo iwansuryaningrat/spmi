@@ -104,6 +104,7 @@ class Auth extends BaseController
                 return redirect()->to('/home');
             }
         }
+
         $data = [
             'title' => 'Register SIPMPP | SPMI UNDIP 2022',
         ];
