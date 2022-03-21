@@ -78,19 +78,14 @@ class Auth extends BaseController
                     return redirect()->to('/leader');
                 }
             } else {
-                session()->setFlashdata('gagal', 'Gagal melakukan proses autentikasi. Mohon maaf untuk mengisi email & password dengan benar.');
+                session()->setFlashdata('gagal', 'Gagal melakukan proses autentikasi. Mohon untuk mengisi password dengan benar.');
 
                 return redirect()->to('/login');
             }
         } else {
-            $data = [
-                'title' => 'Login | SPMI UNDIP 2022',
-                'validation' => [
-                    'Email' => 'Email atau Password salah',
-                ],
-            ];
+            session()->setFlashdata('gagal', 'Gagal melakukan proses autentikasi. Mohon maaf akun belum terdaftar. Silakan menghubungi admin untuk mendaftar.');
 
-            return view('auth/login', $data);
+            return redirect()->to('/login');
         }
     }
 
