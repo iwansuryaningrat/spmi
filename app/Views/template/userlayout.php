@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
     <!-- custom -->
     <link rel="stylesheet" href="/assets/css/styles.css" />
-    <link rel="stylesheet" href="/assets/css/styles-dashboard.css" />
+    <!-- Custom Page Style -->
+    <link rel="stylesheet" href="/assets/css/<?= $css; ?>" />
 </head>
 
 <body>
@@ -38,13 +39,15 @@
                 <div class="sidebar__content-nav">
                     <ul class="sidebar-nav__list">
                         <li>
-                            <a href="#" class="nav__list__link active">
+                            <a href="/" class="nav__list__link <?php if ($tab == "home") : echo 'active';
+                                                                endif; ?>">
                                 <i class="fa-solid fa-house"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
                         <li>
-                            <a class="nav__list__link-dropdown" data-bs-toggle="collapse" href="#data-induk-collapse" role="button" aria-expanded="false" aria-controls="data-induk-collapse">
+                            <a class="nav__list__link-dropdown  <?php if ($tab == "datainduk") : echo 'active';
+                                                                endif; ?>" data-bs-toggle="collapse" href="#data-induk-collapse" role="button" aria-expanded="false" aria-controls="data-induk-collapse">
                                 <div class="link-dropdown__sidebar">
                                     <i class="fa-solid fa-book"></i>
                                     <span>Data Induk</span>
@@ -77,7 +80,8 @@
                             </div>
                         </li>
                         <li>
-                            <a class="nav__list__link-dropdown" data-bs-toggle="collapse" href="#spmi-collapse" role="button" aria-expanded="false" aria-controls="spmi-collapse">
+                            <a class="nav__list__link-dropdown<?php if ($tab == "spmi") : echo 'active';
+                                                                endif; ?>" data-bs-toggle="collapse" href="#spmi-collapse" role="button" aria-expanded="false" aria-controls="spmi-collapse">
                                 <div class="link-dropdown__sidebar">
                                     <i class="fa-solid fa-file-signature"></i>
                                     <span>Nilai SPMI</span>
@@ -110,7 +114,8 @@
                             </div>
                         </li>
                         <li>
-                            <a href="#" class="nav__list__link">
+                            <a href="#" class="nav__list__link <?php if ($tab == "report") : echo 'active';
+                                                                endif; ?>">
                                 <i class="fa-solid fa-print"></i>
                                 <span>Report</span>
                             </a>

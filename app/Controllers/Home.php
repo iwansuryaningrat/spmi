@@ -74,9 +74,12 @@ class Home extends BaseController
         $data = [
             'title' => 'Dashboard SIPMPP | SPMI UNDIP 2022',
             'data_user' => $data_user,
+            'tab' => 'home',
+            'css' => 'styles-dashboard.css'
         ];
 
         return view('user/index', $data);
+        // return view('user/coba', $data);
     }
 
     public function dataInduk($tahun = null)
