@@ -46,11 +46,11 @@ class Home extends BaseController
         // $dataInduk = $this->dataIndukModel->getDataIndukUnitTahun($this->session->get('unit_id'), $tahun_id);
         // dd($dataInduk);
 
-        // $data = [
-        //     'title' => 'Dashboard | SPMI UNDIP 2022',
-        // ];
+        $data = [
+            'title' => 'Dashboard SIPMPP | SPMI UNDIP 2022',
+        ];
 
-        return view('user/index');
+        return view('user/index', $data);
     }
 
     public function dataInduk($tahun = null)
