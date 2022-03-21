@@ -47,4 +47,17 @@ class DataIndukModel extends Model
     {
         return $this->where('unit_id', $unit_id)->where('tahun_id', $tahun_id)->findAll();
     }
+
+    // Join all data from all tabel
+    public function getDataIndukAll($kategori_id, $unit_id, $tahun_id)
+    {
+        return $this->select('data_induk.*, kategori.nama_kategori, tahun.tahun, units.nama_unit')
+            ->join('kategori', 'kategori.kategori_id = data_induk.kategori_id')
+            ->join('tahun', 'tahun.tahun_id = data_induk.tahun_id')
+            ->join('units', 'units.unit_id = data_induk.unit_id')
+            ->where('data_induk.kategori_id', $kategori_id)
+            ->where('data_induk.unit_id', $unit_id)
+            ->where('data_induk.tahun_id', $tahun_id)
+            ->findAll();
+    }
 }
