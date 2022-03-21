@@ -33,7 +33,7 @@
       <hr />
       <p class="d-flex align-items-center">
         <i class="fa-solid fa-arrow-right-from-bracket d-flex"></i>
-        <a href="index.html" class="d-block">Log out</a>
+        <a href="/logout" class="d-block">Log out</a>
       </p>
     </div>
   </div>
