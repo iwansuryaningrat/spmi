@@ -4,8 +4,13 @@
 
 <div class="container-fluid container__fluid">
   <div class="header__main-nav">
-    <div class="header__main-nav-btn" id="header-main-nav-btn">
-      <i class="fi-br-menu-burger" id="header-main-nav-btn-i"></i>
+    <div class="header__main-nav-btn">
+      <!-- <i class="fi-br-menu-burger" id="header-main-nav-btn-i"></i> -->
+      <div id="header-main-nav-btn-i" class="line__humberger">
+        <span class="line__menu line-1"></span>
+        <span class="line__menu line-2"></span>
+        <span class="line__menu line-3"></span>
+      </div>
     </div>
     <div class="header__main-nav-profile">
       <div class="nav-profile__photo">

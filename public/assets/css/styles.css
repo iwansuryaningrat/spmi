@@ -64,6 +64,37 @@ ul {
   text-overflow: ellipsis;
 }
 
+/* humberger meu */
+.line__humberger {
+  display: flex;
+  flex-direction: column;
+
+  width: 1.75rem;
+  height: 1.375rem;
+
+  justify-content: space-between;
+}
+
+.line__menu {
+  display: block;
+
+  width: 100%;
+  height: 4px;
+
+  transition: var(--trans-m);
+
+  border-radius: 12px !important;
+  background: var(--black);
+}
+
+.main__content.minimize__sidebar .line__humberger .line-1 {
+  width: 50%;
+}
+
+.main__content.minimize__sidebar .line__humberger .line-3 {
+  width: 65%;
+}
+
 .card__title {
   font-size: 1.125rem;
   font-weight: 600;
@@ -439,7 +470,37 @@ footer .container-fluid.container__fluid {
     padding: 0.875rem 2.125rem;
   }
 
+  /* main content */
+  .main__content {
+    width: calc(100% - 12.375rem) !important;
+  }
+
+  .main__content.minimize__sidebar {
+    width: calc(100% - 4.75rem) !important;
+  }
+
   /* sidebar */
+  .sidebar__content {
+    width: 12.375rem;
+  }
+
+  .sidebar__content.minimize__sidebar {
+    width: 4.75rem;
+  }
+
+  .sidebar__content-nav,
+  .sidebar__content.minimize__sidebar .sidebar__content-nav {
+    padding: 0 0.5rem;
+  }
+
+  .sidebar__content-brand h4 {
+    font-size: 1.125rem;
+
+    width: 4.625rem;
+
+    white-space: normal;
+    hyphens: manual;
+  }
 
   /* footer */
   .footer__caption {
