@@ -57,6 +57,6 @@
     <!-- JS -->
     <script src="/register/vendor/jquery/jquery.min.js"></script>
     <script src="/register/js/main.js"></script>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
 
 </html>
