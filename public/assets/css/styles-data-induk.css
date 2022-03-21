@@ -1,0 +1,139 @@
+@import url(styles.css);
+
+/* filter */
+.filter__datainduk {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.filter__datainduk-filter {
+  display: flex;
+  align-items: center;
+}
+
+.filter__datainduk-filter label {
+  font-weight: 500;
+  margin-right: 1rem;
+  color: var(--black);
+  margin-bottom: 0;
+}
+
+.filter__datainduk-filter select {
+  padding: 0.75rem 1rem;
+  width: 12.5rem;
+  margin-right: 1.5rem;
+}
+
+.terapkan__btn {
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--border-m);
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(38, 48, 77, 0.9);
+}
+
+.terapkan__btn:hover {
+  color: var(--white);
+  background-color: var(--dark-main-color);
+}
+
+.datainduk__table {
+  border: var(--border-regular);
+}
+
+.table__datainduk tbody tr:last-child {
+  border-bottom: none;
+  border-bottom-style: hidden;
+}
+
+.table__datainduk-number,
+.table__datainduk-nilai,
+.table__datainduk-aksi,
+.table__datainduk-kode {
+  width: 10%;
+}
+
+.table__datainduk-kategori {
+  width: 15%;
+}
+
+.table__datainduk-kebutuhandata {
+  width: 45%;
+}
+
+.table__datainduk thead tr th,
+.table__datainduk tbody tr td {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.datainduk__table tr td .edit__data__induk__icon svg {
+  color: rgba(21, 114, 232, 1);
+}
+
+@media screen and (max-width: 1024px) {
+  .filter__datainduk {
+    flex-direction: column;
+  }
+
+  .filter__datainduk-panel {
+    margin-bottom: 1.5rem;
+  }
+
+  .filter__datainduk-filter select {
+    width: 16rem;
+  }
+
+  .terapkan__btn,
+  .filter__datainduk-filter select {
+    padding: 0.5rem 0.875rem !important;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .filter__datainduk,
+  .filter__datainduk-panel {
+    margin-bottom: 1.125rem;
+  }
+
+  .filter__datainduk-filter select,
+  .filter__datainduk-filter label {
+    margin-right: 1rem;
+  }
+
+  .filter__datainduk-filter select {
+    width: unset;
+    min-width: 10rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .filter__datainduk-panel {
+    flex-direction: column;
+    margin-bottom: 0.75rem;
+  }
+
+  .filter__btn {
+    width: 100%;
+  }
+
+  .filter__btn:first-child {
+    margin-bottom: 0.75rem;
+  }
+
+  .filter__datainduk-filter {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .filter__datainduk-filter label,
+  .filter__datainduk-filter select,
+  .filter__datainduk-filter button {
+    margin-bottom: 0.75rem;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+    text-align: center;
+  }
+}

@@ -210,6 +210,7 @@
 
 .title__subtitle-desc p {
   color: var(--second-color);
+  margin-bottom: 1.875rem;
 }
 
 .report__link {
@@ -402,16 +403,20 @@
   padding: 0 1.875rem 1.875rem;
 }
 
-.table__unit__content thead {
+.table__unit__content thead,
+.table__datainduk thead {
   background-color: rgba(230, 235, 250, 1);
 }
 
 .table__unit__content thead tr,
-.table__unit__content thead tr th {
+.table__unit__content thead tr th,
+.table__datainduk thead tr,
+.table__datainduk thead tr th {
   border: none !important;
 }
 
-.table__unit__content thead tr th {
+.table__unit__content thead tr th,
+.table__datainduk thead tr th {
   font-weight: 700;
 
   text-transform: uppercase;
@@ -420,22 +425,36 @@
 }
 
 .table__unit__content thead tr th,
-.table__unit__content tbody tr td {
+.table__unit__content tbody tr td,
+.table__datainduk thead tr th,
+.table__datainduk tbody tr td {
   padding: 1.375rem 0;
 }
 
-.table__unit__content tbody tr td {
+.table__unit__content tbody tr td,
+.table__datainduk tbody tr td {
   color: var(--black);
 }
 
-.table__unit__content tbody tr:hover {
+.table__unit__content tbody tr:hover,
+.table__datainduk tbody tr:hover {
   background-color: rgba(38, 48, 77, 0.1) !important;
 }
 
 .table__unit__content tr th:first-child,
 .table__unit__content tr td:first-child,
 .table__unit__content tr th:last-child,
-.table__unit__content tr td:last-child {
+.table__unit__content tr td:last-child,
+.table__datainduk tr th:first-child,
+.table__datainduk tr td:first-child,
+.table__datainduk tr th:last-child,
+.table__datainduk tr td:last-child,
+.table__datainduk tr th:nth-child(2),
+.table__datainduk tr th:nth-child(3),
+.table__datainduk tr th:nth-child(5),
+.table__datainduk tr td:nth-child(2),
+.table__datainduk tr td:nth-child(3),
+.table__datainduk tr td:nth-child(5) {
   text-align: center;
 }
 
@@ -645,12 +664,16 @@
   }
 
   .table__unit__content thead tr th,
-  .table__unit__content tbody tr td {
+  .table__unit__content tbody tr td,
+  .table__datainduk thead tr th,
+  .table__datainduk tbody tr td {
     padding: 1.125rem 0;
   }
 
   .table__unit__content tr th:last-child,
-  .table__unit__content tr td:last-child {
+  .table__unit__content tr td:last-child,
+  .table__datainduk tr th:last-child,
+  .table__datainduk tr td:last-child {
     padding-right: 1.125rem;
     padding-left: 1.125rem;
   }
