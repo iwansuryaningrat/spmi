@@ -65,4 +65,17 @@ class StandarModel extends Model
     {
         return $this->where('status', $status)->findAll();
     }
+
+    // Join all data from all tabel
+    public function getStandarAll($unit_id, $tahun_id, $kategori_id)
+    {
+        return $this->select('standar.*, kategori.nama_kategori, tahun.tahun, units.nama_unit')
+            ->join('kategori', 'kategori.kategori_id = standar.kategori_id')
+            ->join('tahun', 'tahun.tahun_id = standar.tahun_id')
+            ->join('units', 'units.unit_id = standar.unit_id')
+            ->where('standar.unit_id', $unit_id)
+            ->where('standar.tahun_id', $tahun_id)
+            ->where('standar.kategori_id', $kategori_id)
+            ->findAll();
+    }
 }
