@@ -116,7 +116,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav__list__link">
+                            <a href="/logout" class="nav__list__link">
                                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                                 <span>Log Out</span>
                             </a>
