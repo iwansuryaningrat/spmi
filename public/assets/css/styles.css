@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+  /* font and typography */
+  --body-font: "Work Sans", sans-serif;
+  --reg-size: 14px;
+
+  /* color */
+  --dark-main-color: rgba(38, 48, 77, 1);
+  --white: rgba(255, 255, 255);
+  --second-color: rgba(79, 79, 79, 1);
+  --light-color: rgba(230, 235, 250, 1);
+  --black: rgba(0, 0, 0, 1);
+  --danger-color: rgba(242, 89, 97, 1);
+
+  /* utility */
+  --border-m: 6px;
+  --border-l: 9px;
+  --border-xl: 18px;
+  --trans-m: all 0.3s ease-in-out;
+
+  --border-regular: 1px solid rgba(0, 0, 0, 0.1);
+  --border-medium: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* general */
+body {
+  font-family: var(--body-font);
+  font-size: var(--reg-size);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2.5rem !important;
+}
+
+a {
+  text-decoration: none;
+
+  color: unset;
+}
+
+ul {
+  list-style: none;
+}
+
+/* utility */
+.ellipsis__text {
+  overflow: hidden;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.card__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.big__btn {
+  padding: 1.25rem 3.375rem;
+
+  border-radius: var(--border-l);
+}
+
+.bg__dark-main {
+  background-color: var(--dark-main-color);
+}
+
+/* form */
+.form-label.form__label {
+  font-weight: 600;
+
+  margin-bottom: 9px;
+
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.form-control.form__control {
+  font-size: 0.875rem;
+
+  padding: 0.875rem 1.25rem;
+
+  transition: var(--trans-m);
+
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+}
+
+.form-control.form__control:focus {
+  border: 1px solid #1a42b8;
+}
+
+input::placeholder {
+  color: rgba(79, 79, 79, 0.6) !important;
+}
+
+/* tablet view */
+@media screen and (max-width: 991px) {
+  /* utility */
+  .big__btn {
+    padding: 1rem 2.75rem;
+  }
+}
+
+/* mobile view */
+@media screen and (max-width: 576px) {
+  /* utility */
+  .big__btn {
+    padding: 0.875rem 2.125rem;
+  }
+}

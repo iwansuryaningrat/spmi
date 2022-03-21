@@ -37,9 +37,9 @@ class Home extends BaseController
     public function index()
     {
         // $data = $this->unitsModel->getUnitKategoriTahun(1, 1);
-        $unit = $this->standarModel->getStandarAll(1, 4, 1);
-        // $unit = $this->standarModel->findAll();
-        dd($unit);
+        // $unit = $this->standarModel->getStandarAll(1, 4, 1);
+        // $unit = $this->indikatorModel->getIndikatorAll(1);
+        // dd($unit);
 
         // $tahun = (int)date('Y');
         // $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
@@ -53,13 +53,19 @@ class Home extends BaseController
         // return view('welcome_message');
     }
 
-    public function dataInduk($tahun_id = null)
+    public function dataInduk($tahun = null)
     {
-        if ($tahun_id == null) {
+
+        if ($tahun == null) {
             $tahun = (int)date('Y');
             $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+        } else {
+            $tahun = (int)$tahun;
+            // dd($tahun_id);
+            $tahun = $this->tahunModel->getTahunAktif($tahun);
         }
 
+        dd($tahun);
         $data = [
             'title' => 'Data Induk | SPMI UNDIP 2022',
             'tahun_id' => $tahun_id,
