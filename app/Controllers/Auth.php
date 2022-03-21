@@ -24,6 +24,20 @@ class Auth extends BaseController
 
     public function login()
     {
+        // Check Login status
+
+        if (session()->get('isLoggedIn')) {
+            if (session()->get('role') == 'admin') {
+                return redirect()->to('/admin');
+            } elseif (session()->get('role') == 'auditor') {
+                return redirect()->to('/auditor');
+            } elseif (session()->get('role') == 'leader') {
+                return redirect()->to('/leader');
+            } elseif (session()->get('role') == 'user') {
+                return redirect()->to('/home');
+            }
+        }
+
         $data = [
             'title' => 'Login SIPMPP | SPMI UNDIP 2022',
         ];
@@ -34,7 +48,6 @@ class Auth extends BaseController
     // Valid Login
     public function validLogin()
     {
-
         $username = $this->request->getVar('username');
         $password = $this->request->getVar('password');
 
@@ -58,7 +71,7 @@ class Auth extends BaseController
                 if ($user['role'] == 'admin') {
                     return redirect()->to('/admin');
                 } elseif ($user['role'] == 'user') {
-                    return redirect()->to('/user');
+                    return redirect()->to('/home');
                 } elseif ($user['role'] == 'auditor') {
                     return redirect()->to('/auditor');
                 } else {
