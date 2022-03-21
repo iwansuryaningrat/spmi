@@ -25,7 +25,7 @@ class Auth extends BaseController
     public function login()
     {
         $data = [
-            'title' => 'Login | SPMI UNDIP 2022',
+            'title' => 'Login SIPMPP | SPMI UNDIP 2022',
         ];
 
         return view('auth/login', $data);
@@ -87,7 +87,7 @@ class Auth extends BaseController
     public function register()
     {
         $data = [
-            'title' => 'Register | SPMI UNDIP 2022',
+            'title' => 'Register SIPMPP | SPMI UNDIP 2022',
         ];
 
         return view('auth/register', $data);
