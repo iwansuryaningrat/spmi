@@ -47,7 +47,7 @@
                     <?php endif; ?>
 
 
-                    <form class="form__login" method="POST" action="/auth/validlogin">
+                    <form class="form__login" method="POST" action="/auth/loginprocess">
                         <div class="mb-4 position-relative">
                             <label for="username" class="form-label form__label">Username</label>
                             <input type="username" class="form-control form__control shadow-none" name="username" id="username" placeholder="Masukkan username" required />

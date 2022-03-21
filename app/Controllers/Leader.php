@@ -41,7 +41,7 @@ class Leader extends BaseController
         // Check Login status
         if (!session()->get('isLoggedIn')) {
             session()->setFlashdata('gagal', 'Anda harus login terlebih dahulu');
-            return redirect()->to('auth/login');
+            return redirect()->to('/login');
         }
 
         if (session()->get('role') != 'leader') {

@@ -25,17 +25,17 @@ class Auth extends BaseController
     public function login()
     {
         // Check Login status
-        if (session()->get('isLoggedIn')) {
-            if (session()->get('role') == 'admin') {
-                return redirect()->to('/admin');
-            } elseif (session()->get('role') == 'auditor') {
-                return redirect()->to('/auditor');
-            } elseif (session()->get('role') == 'leader') {
-                return redirect()->to('/leader');
-            } elseif (session()->get('role') == 'user') {
-                return redirect()->to('/home');
-            }
-        }
+        // if (session()->get('isLoggedIn')) {
+        //     if (session()->get('role') == 'admin') {
+        //         return redirect()->to('/admin');
+        //     } elseif (session()->get('role') == 'auditor') {
+        //         return redirect()->to('/auditor');
+        //     } elseif (session()->get('role') == 'leader') {
+        //         return redirect()->to('/leader');
+        //     } elseif (session()->get('role') == 'user') {
+        //         return redirect()->to('/home');
+        //     }
+        // }
 
         $data = [
             'title' => 'Login SIPMPP | SPMI UNDIP 2022',
@@ -45,7 +45,7 @@ class Auth extends BaseController
     }
 
     // Valid Login
-    public function validLogin()
+    public function loginProcess()
     {
         $username = $this->request->getVar('username');
         $password = $this->request->getVar('password');
@@ -79,7 +79,7 @@ class Auth extends BaseController
             } else {
                 session()->setFlashdata('gagal', 'Gagal melakukan proses autentikasi. Mohon maaf untuk mengisi email & password dengan benar.');
 
-                return redirect()->to('/auth/login');
+                return redirect()->to('/login');
             }
         } else {
             $data = [
@@ -116,7 +116,7 @@ class Auth extends BaseController
     }
 
     // valid register
-    public function validRegister()
+    public function registerProcess()
     {
         $supercode = $this->supercodeModel->findAll();
         $supercode = $supercode[0]['supercode'];
@@ -145,7 +145,7 @@ class Auth extends BaseController
                 ],
             ];
 
-            return view('auth/login', $data);
+            return view('/login', $data);
         }
     }
 
@@ -154,7 +154,7 @@ class Auth extends BaseController
     {
         $this->session->destroy();
 
-        return redirect()->to('auth/login');
+        return redirect()->to('/login');
     }
 
     // Generate User
