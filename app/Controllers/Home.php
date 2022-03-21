@@ -37,20 +37,20 @@ class Home extends BaseController
     public function index()
     {
         // Check Login status
-        if (!session()->get('isLoggedIn')) {
-            session()->setFlashdata('gagal', 'Anda harus login terlebih dahulu');
-            return redirect()->to('/login');
-        }
+        // if (!session()->get('isLoggedIn')) {
+        //     session()->setFlashdata('gagal', 'Anda harus login terlebih dahulu');
+        //     return redirect()->to('/login');
+        // }
 
-        if (session()->get('role') != 'user') {
-            if (session()->get('role') == 'admin') {
-                return redirect()->to('/admin');
-            } elseif (session()->get('role') == 'auditor') {
-                return redirect()->to('/auditor');
-            } elseif (session()->get('role') == 'leader') {
-                return redirect()->to('/leader');
-            }
-        }
+        // if (session()->get('role') != 'user') {
+        //     if (session()->get('role') == 'admin') {
+        //         return redirect()->to('/admin');
+        //     } elseif (session()->get('role') == 'auditor') {
+        //         return redirect()->to('/auditor');
+        //     } elseif (session()->get('role') == 'leader') {
+        //         return redirect()->to('/leader');
+        //     }
+        // }
 
         $data_user = [
             'nama' => session()->get('nama'),

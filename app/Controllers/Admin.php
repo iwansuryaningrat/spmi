@@ -40,20 +40,20 @@ class Admin extends BaseController
     public function index()
     {
         // Check Login status
-        if (!session()->get('isLoggedIn')) {
-            session()->setFlashdata('gagal', 'Anda harus login terlebih dahulu');
-            return redirect()->to('/login');
-        }
+        // if (!session()->get('isLoggedIn')) {
+        //     session()->setFlashdata('gagal', 'Anda harus login terlebih dahulu');
+        //     return redirect()->to('/login');
+        // }
 
-        if (session()->get('role') != 'admin') {
-            if (session()->get('role') == 'leader') {
-                return redirect()->to('/leader');
-            } elseif (session()->get('role') == 'auditor') {
-                return redirect()->to('/auditor');
-            } elseif (session()->get('role') == 'user') {
-                return redirect()->to('/user');
-            }
-        }
+        // if (session()->get('role') != 'admin') {
+        //     if (session()->get('role') == 'leader') {
+        //         return redirect()->to('/leader');
+        //     } elseif (session()->get('role') == 'auditor') {
+        //         return redirect()->to('/auditor');
+        //     } elseif (session()->get('role') == 'user') {
+        //         return redirect()->to('/user');
+        //     }
+        // }
 
         $data = [
             'nama' => session()->get('nama'),

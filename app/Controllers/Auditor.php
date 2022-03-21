@@ -39,20 +39,20 @@ class Auditor extends BaseController
     public function index()
     {
         // Check Login status
-        if (!session()->get('isLoggedIn')) {
-            session()->setFlashdata('gagal', 'Anda harus login terlebih dahulu');
-            return redirect()->to('/login');
-        }
+        // if (!session()->get('isLoggedIn')) {
+        //     session()->setFlashdata('gagal', 'Anda harus login terlebih dahulu');
+        //     return redirect()->to('/login');
+        // }
 
-        if (session()->get('role') != 'auditor') {
-            if (session()->get('role') == 'admin') {
-                return redirect()->to('/admin');
-            } elseif (session()->get('role') == 'leader') {
-                return redirect()->to('/leader');
-            } elseif (session()->get('role') == 'user') {
-                return redirect()->to('/user');
-            }
-        }
+        // if (session()->get('role') != 'auditor') {
+        //     if (session()->get('role') == 'admin') {
+        //         return redirect()->to('/admin');
+        //     } elseif (session()->get('role') == 'leader') {
+        //         return redirect()->to('/leader');
+        //     } elseif (session()->get('role') == 'user') {
+        //         return redirect()->to('/home');
+        //     }
+        // }
         $user = session()->get('email');
         dd($user);
     }

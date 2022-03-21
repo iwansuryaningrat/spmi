@@ -8,6 +8,11 @@ use CodeIgniter\Filters\DebugToolbar;
 use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
+use App\Filters\LoginFilter;
+use App\Filters\UsersFilter;
+use App\Filters\AdminFilter;
+use App\Filters\AuditorFilter;
+use App\Filters\LeaderFilter;
 
 class Filters extends BaseConfig
 {
@@ -23,6 +28,11 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'login'         => LoginFilter::class,
+        'users'         => UsersFilter::class,
+        'admin'         => AdminFilter::class,
+        'auditor'       => AuditorFilter::class,
+        'leader'        => LeaderFilter::class,
     ];
 
     /**
@@ -64,5 +74,44 @@ class Filters extends BaseConfig
      *
      * @var array
      */
-    public $filters = [];
+    public $filters = [
+        'login' => [
+            'before' => [
+                '/',
+                'home',
+                'home/*',
+                'admin',
+                'admin/*',
+                'auditor',
+                'auditor/*',
+                'leader',
+                'leader/*',
+            ],
+        ],
+        'users' => [
+            'before' => [
+                '/',
+                'home',
+                'home/*',
+            ],
+        ],
+        'admin' => [
+            'before' => [
+                'admin',
+                'admin/*',
+            ],
+        ],
+        'auditor' => [
+            'before' => [
+                'auditor',
+                'auditor/*',
+            ],
+        ],
+        'leader' => [
+            'before' => [
+                'leader',
+                'leader/*',
+            ],
+        ],
+    ];
 }
