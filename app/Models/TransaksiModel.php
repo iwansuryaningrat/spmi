@@ -33,7 +33,7 @@ class TransaksiModel extends Model
     // joining table users and units
     public function getTransaksiUserUnit($user_id, $unit_id)
     {
-        return $this->select('transaksi.*, users.nama, users.email, users.username, users.foto, units.nama_unit')
+        return $this->select('transaksi.*, users.nama, users.email, users.nip, users.username, users.foto, units.nama_unit')
             ->join('users', 'users.user_id = transaksi.user_id')
             ->join('units', 'units.unit_id = transaksi.unit_id')
             ->where('transaksi.user_id', $user_id)
