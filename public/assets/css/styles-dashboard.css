@@ -44,6 +44,19 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#98ADEB', endColorstr='#E8EDFA', GradientType=0);
 }
 
+.main__content {
+  position: relative;
+  top: 0;
+
+  float: right;
+
+  width: calc(100% - 18rem);
+  height: 100vh;
+  min-height: 100%;
+
+  transition: var(--trans-m);
+}
+
 .container-fluid.container__fluid {
   padding: 2.5rem 2.625rem;
 }
@@ -476,16 +489,6 @@
   justify-content: end;
 }
 
-footer .container-fluid.container__fluid {
-  padding-top: 0;
-  padding-bottom: 1.5rem;
-}
-
-.footer__caption p i,
-.footer__caption p svg {
-  color: var(--danger-color);
-}
-
 /* ==========tablet view========== */
 @media screen and (max-width: 991px) {
   .container-fluid.container__fluid {
@@ -630,10 +633,6 @@ footer .container-fluid.container__fluid {
   .table__unit__content tr td:last-child {
     padding-right: 1.125rem;
     padding-left: 1.125rem;
-  }
-
-  .footer__caption {
-    justify-content: center;
   }
 }
 

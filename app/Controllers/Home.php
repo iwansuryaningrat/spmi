@@ -50,7 +50,7 @@ class Home extends BaseController
         //     'title' => 'Dashboard | SPMI UNDIP 2022',
         // ];
 
-        // return view('welcome_message');
+        return view('user/index');
     }
 
     public function dataInduk($tahun = null)
