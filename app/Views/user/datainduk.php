@@ -14,11 +14,15 @@
     </div>
     <div class="header__main-nav-profile">
       <div class="nav-profile__photo">
-        <img src="/assets/img/adi-wibowo-img.png" alt="profile-picture" id="photo-dropdown" />
+        <img src="/profile/<?= $data_user['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
       </div>
       <div class="nav-profile__desc">
-        <p id="profileName">Adi Wibowo</p>
-        <p id="profileEmail">adiwibowo@lecturer.undip.ac.id</p>
+        <p id="profileName"><?php if ($data_user['nama'] != null && $data_user['nama'] != "") {
+                              echo $data_user['nama'];
+                            } else {
+                              echo $data_user['username'];
+                            } ?></p>
+        <p id="profileEmail" class="ellipsis__text"><?= $data_user['email']; ?></p>
       </div>
       <div class="nav-profile__btn">
         <i class="fi-br-angle-down" id="btn-dropdown"></i>
@@ -33,14 +37,14 @@
       <hr />
       <p class="d-flex align-items-center">
         <i class="fa-solid fa-arrow-right-from-bracket d-flex"></i>
-        <a href="index.html" class="d-block">Log out</a>
+        <a href="/logout" class="d-block">Log out</a>
       </p>
     </div>
   </div>
 
   <div class="header__main-title">
     <div class="header__main-title__pagination">
-      <a href="dashboard.html">Dashboard</a>
+      <a href="/">Dashboard</a>
       / Data Induk
     </div>
     <div class="header__main-title__subtitle">
@@ -67,6 +71,7 @@
       </button>
     </div>
 
+    <!-- Belum dalam bentuk form -->
     <div class="filter__datainduk-filter">
       <label for="year-filter" class="form-label">Tahun</label>
       <select class="form-select shadow-none" aria-label="year-filter" id="year-filter">
@@ -173,6 +178,53 @@
             </tbody>
           </table>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<?= $this->endSection(); ?>
+
+<?= $this->section('modal'); ?>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-data-induk" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modal__content">
+      <div class="modal-header modal__header">
+        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal__body">
+        <h4 class="modal-title" id="modal-data-induk">Nilai Data Induk</h4>
+
+        <!-- form -->
+        <form class="modal__form">
+          <div class="modal__form-content">
+            <label for="kode" class="form-label form__label">Kode</label>
+            <input type="text" class="form-control shadow-none form__control text-uppercase" id="kode" value="perpus" disabled />
+          </div>
+          <div class="modal__form-content">
+            <label for="kategori" class="form-label form__label">Kategori</label>
+            <input type="text" class="form-control shadow-none form__control" id="kategori" value="Kemahasiswaan" disabled />
+          </div>
+          <div class="modal__form-content">
+            <label for="kebutuhan-data" class="form-label form__label">Kebutuhan Data</label>
+            <textarea id="kebutuhan-data" class="form-control shadow-none form__control" cols="30" rows="3" disabled>
+Target jumlah mahasiswa yang terlibat dalam penelitian dan pengabdian kepada masyarakat
+              </textarea>
+          </div>
+          <div class="modal__form-content">
+            <label for="nilai" class="form-label form__label">Nilai</label>
+            <input type="text" class="form-control shadow-none form__control" id="nilai" />
+          </div>
+
+          <div class="modal__form-btn">
+            <button type="button" class="btn cancel__btn" data-bs-dismiss="modal">
+              Batal
+            </button>
+            <button type="submit" class="btn small__btn">Kirim</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
