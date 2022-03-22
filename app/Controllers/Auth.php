@@ -135,14 +135,9 @@ class Auth extends BaseController
 
             $this->usersModel->insert($data);
 
-            $data = [
-                'title' => 'Login | SPMI UNDIP 2022',
-                'validation' => [
-                    'message' => 'Akun berhasil dibuat, silahkan login',
-                ],
-            ];
+            session()->setFlashdata('success', 'Akun berhasil dibuat, silahkan login sebagai administrator.');
 
-            return view('/login', $data);
+            return redirect()->to('/login');
         }
     }
 

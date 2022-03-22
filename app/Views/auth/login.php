@@ -46,6 +46,19 @@
                         <!-- end alert danger -->
                     <?php endif; ?>
 
+                    <?php if (session()->getFlashdata('success')) : ?>
+                        <!-- alert success -->
+                        <div class="alert alert-success d-flex alert-dismissible" role="alert" style="padding-right: 2.5rem">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="padding: 1.25rem"></button>
+                            <i class="bi bi-check-circle-fill d-block pe-3" style="font-size: 1.25rem"></i>
+                            <div>
+                                <!-- Menampilkan flashdata success -->
+                                <?= session()->getFlashdata('success'); ?>
+                            </div>
+                        </div>
+                        <!-- end alert success -->
+                    <?php endif; ?>
+
 
                     <form class="form__login" method="POST" action="/auth/loginprocess">
                         <div class="mb-4 position-relative">
