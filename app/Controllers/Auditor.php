@@ -34,26 +34,102 @@ class Auditor extends BaseController
         $this->dataIndukModel = new DataIndukModel();
         $this->indikatorModel = new IndikatorModel();
         $this->standarModel = new StandarModel();
+        $this->data_user = [
+            'nama' => session()->get('nama'),
+            'role' => session()->get('role'),
+            'email' => session()->get('email'),
+            'username' => session()->get('username'),
+            'id_user' => session()->get('id_user'),
+            'foto' => session()->get('foto'),
+        ];
+        $this->unitData = $this->transaksiModel->getTransaksiUserJoin($this->data_user['id_user']);
     }
 
+    // Dashboard Method
     public function index()
     {
-        // Check Login status
-        // if (!session()->get('isLoggedIn')) {
-        //     session()->setFlashdata('gagal', 'Anda harus login terlebih dahulu');
-        //     return redirect()->to('/login');
-        // }
+        $data_user = $this->data_user;
 
-        // if (session()->get('role') != 'auditor') {
-        //     if (session()->get('role') == 'admin') {
-        //         return redirect()->to('/admin');
-        //     } elseif (session()->get('role') == 'leader') {
-        //         return redirect()->to('/leader');
-        //     } elseif (session()->get('role') == 'user') {
-        //         return redirect()->to('/home');
-        //     }
-        // }
-        $user = session()->get('email');
-        dd($user);
+        $unitData = $this->unitData;
+        $i = 1;
+
+        $data = [
+            'title' => 'Dashboard SIPMPP | SPMI UNDIP 2022',
+            'data_user' => $data_user,
+            'unitData' => $unitData,
+            'i' => $i,
+            'tab' => 'home',
+            'css' => 'styles-dashboard.css'
+        ];
+
+        return view('user/index', $data);
+    }
+
+    // Data Induk Method
+    public function dataInduk($unit_id)
+    {
+        $tahun = $this->request->getVar('tahun');
+        $data_user = $this->data_user;
+
+        $unitData = $this->unitData;
+
+        $unit = $this->unitsModel->getUnitId($unit_id);
+
+        if ($tahun == null) {
+            $tahun = (int)date('Y');
+            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+            $tahun_id = (int)$tahun_id;
+        } else {
+            $tahun = (int)$tahun;
+            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+            $tahun_id = (int)$tahun_id;
+        }
+
+        $data = [
+            'title' => 'Data Induk | SPMI UNDIP 2022',
+            'data_user' => $data_user,
+            'unitData' => $unitData,
+            'unit' => $unit,
+            'tab' => 'datainduk',
+            'css' => 'styles-data-induk.css',
+            'tahun' => $tahun,
+            'data_induk' => $this->dataIndukModel->getDataIndukJoin($unit_id, $tahun_id),
+        ];
+
+        return view('user/datainduk', $data);
+    }
+
+    // Standar Method
+    public function standar($unit_id)
+    {
+        $tahun = $this->request->getVar('tahun');
+        $data_user = $this->data_user;
+
+        $unitData = $this->unitData;
+
+        $unit = $this->unitsModel->getUnitId($unit_id);
+
+        if ($tahun == null) {
+            $tahun = (int)date('Y');
+            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+            $tahun_id = (int)$tahun_id;
+        } else {
+            $tahun = (int)$tahun;
+            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+            $tahun_id = (int)$tahun_id;
+        }
+
+        $data = [
+            'title' => 'Standar | SPMI UNDIP 2022',
+            'data_user' => $data_user,
+            'unitData' => $unitData,
+            'unit' => $unit,
+            'tab' => 'standar',
+            'css' => 'styles-standar.css',
+            'tahun' => $tahun,
+            'standar' => $this->standarModel->getStandarJoin($unit_id, $tahun_id),
+        ];
+
+        return view('user/standar', $data);
     }
 }
