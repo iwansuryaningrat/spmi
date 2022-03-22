@@ -45,59 +45,21 @@ class Home extends BaseController
 
     public function index()
     {
-        // Check Login status
-        // if (!session()->get('isLoggedIn')) {
-        //     session()->setFlashdata('gagal', 'Anda harus login terlebih dahulu');
-        //     return redirect()->to('/login');
-        // }
-
-        // if (session()->get('role') != 'user') {
-        //     if (session()->get('role') == 'admin') {
-        //         return redirect()->to('/admin');
-        //     } elseif (session()->get('role') == 'auditor') {
-        //         return redirect()->to('/auditor');
-        //     } elseif (session()->get('role') == 'leader') {
-        //         return redirect()->to('/leader');
-        //     }
-        // }
-
         $data_user = $this->data_user;
-        // dd($data_user);
 
         $unitData = $this->unitData;
-        // foreach ($unitData as $units) {
-        //     dd($units);
-        // }
-        // dd($unitData);
-        // $data_user = [
-        //     'nama' => session()->get('nama'),
-        //     'role' => session()->get('role'),
-        //     'email' => session()->get('email'),
-        //     'username' => session()->get('username'),
-        //     'id_user' => session()->get('id_user'),
-        //     'foto' => session()->get('foto'),
-        // ];
-        // dd($data_user);
-        // $data = $this->unitsModel->getUnitKategoriTahun(1, 1);
-        // $unit = $this->standarModel->getStandarAll(1, 4, 1);
-        // $unit = $this->indikatorModel->getIndikatorAll(1);
-        // dd($unit);
-
-        // $tahun = (int)date('Y');
-        // $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
-        // $dataInduk = $this->dataIndukModel->getDataIndukUnitTahun($this->session->get('unit_id'), $tahun_id);
-        // dd($dataInduk);
+        $i = 1;
 
         $data = [
             'title' => 'Dashboard SIPMPP | SPMI UNDIP 2022',
             'data_user' => $data_user,
             'unitData' => $unitData,
+            'i' => $i,
             'tab' => 'home',
             'css' => 'styles-dashboard.css'
         ];
 
         return view('user/index', $data);
-        // return view('user/coba', $data);
     }
 
     public function dataInduk($unit_id, $tahun = null)
