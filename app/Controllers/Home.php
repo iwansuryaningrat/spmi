@@ -43,6 +43,7 @@ class Home extends BaseController
         $this->unitData = $this->transaksiModel->getTransaksiUserJoin($this->data_user['id_user']);
     }
 
+    // Dashboard Method
     public function index()
     {
         $data_user = $this->data_user;
@@ -62,16 +63,15 @@ class Home extends BaseController
         return view('user/index', $data);
     }
 
-    public function dataInduk($unit_id, $tahun = null)
+    // Data Induk Method
+    public function dataInduk($unit_id)
     {
-        $path = $this->request->getPath();
-        // dd($path);
+        $tahun = $this->request->getVar('tahun');
         $data_user = $this->data_user;
 
         $unitData = $this->unitData;
 
         $unit = $this->unitsModel->getUnitId($unit_id);
-        // dd($unit);
 
         if ($tahun == null) {
             $tahun = (int)date('Y');
@@ -79,26 +79,55 @@ class Home extends BaseController
             $tahun_id = (int)$tahun_id;
         } else {
             $tahun = (int)$tahun;
-            // dd($tahun_id);
             $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
             $tahun_id = (int)$tahun_id;
         }
-
-        // dd($tahun);
 
         $data = [
             'title' => 'Data Induk | SPMI UNDIP 2022',
             'data_user' => $data_user,
             'unitData' => $unitData,
             'unit' => $unit,
-            'path' => $path,
             'tab' => 'datainduk',
             'css' => 'styles-data-induk.css',
             'tahun' => $tahun,
             'data_induk' => $this->dataIndukModel->getDataIndukJoin($unit_id, $tahun_id),
         ];
-        // dd($data);
 
         return view('user/datainduk', $data);
+    }
+
+    // Standar Method
+    public function standar($unit_id)
+    {
+        $tahun = $this->request->getVar('tahun');
+        $data_user = $this->data_user;
+
+        $unitData = $this->unitData;
+
+        $unit = $this->unitsModel->getUnitId($unit_id);
+
+        if ($tahun == null) {
+            $tahun = (int)date('Y');
+            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+            $tahun_id = (int)$tahun_id;
+        } else {
+            $tahun = (int)$tahun;
+            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+            $tahun_id = (int)$tahun_id;
+        }
+
+        $data = [
+            'title' => 'Standar | SPMI UNDIP 2022',
+            'data_user' => $data_user,
+            'unitData' => $unitData,
+            'unit' => $unit,
+            'tab' => 'standar',
+            'css' => 'styles-standar.css',
+            'tahun' => $tahun,
+            'standar' => $this->standarModel->getStandarJoin($unit_id, $tahun_id),
+        ];
+
+        return view('user/standar', $data);
     }
 }
