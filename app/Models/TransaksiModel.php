@@ -24,6 +24,16 @@ class TransaksiModel extends Model
         return $this->where('user_id', $user_id)->findAll();
     }
 
+    // join table units and users
+    public function getTransaksiUserJoin($user_id)
+    {
+        return $this->select('transaksi.*, units.*, users.username')
+            ->join('units', 'units.unit_id = transaksi.unit_id')
+            ->join('users', 'users.user_id = transaksi.user_id')
+            ->where('transaksi.user_id', $user_id)
+            ->findAll();
+    }
+
     // function to get data by unit
     public function getTransaksiUnit($unit_id)
     {

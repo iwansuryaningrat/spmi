@@ -61,12 +61,12 @@
   <!-- body main -->
   <!-- progress pengisian -->
   <div class="progress__content">
-    <div class="progress__content-card mb-3 mb-sm-0" id="progress-data-induk">
-      <div class="d-flex align-items-center mb-4">
+    <div class="progress__content-card mb-3 mb-sm-4 mb-md-0" id="progress-data-induk">
+      <div class="d-flex align-items-center mb-2">
         <div class="progress__icon-warp">
           <img src="/assets/img/logo-data-induk.svg" alt="logo-data-induk" />
         </div>
-        <h5 class="mb-0 card__title">Pengisian Data Induk</h5>
+        <h5 class="mb-0 card__title mb-2">Pengisian Data Induk</h5>
       </div>
 
       <div class="progress__content-progress">
@@ -151,61 +151,13 @@
               </tr>
             </thead>
             <tbody>
+
               <tr>
                 <td>1</td>
                 <td><a href="#" class="unit__link">S1 Informatika</a></td>
                 <td>
                   <div class="progress table__unit__progress">
                     <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%" data-bs-toggle="tooltip" data-bs-placement="top" title="60%"></div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td><a href="#" class="unit__link">S1 Matematika</a></td>
-                <td>
-                  <div class="progress table__unit__progress">
-                    <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%" data-bs-toggle="tooltip" data-bs-placement="top" title="90%"></div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td><a href="#" class="unit__link">S1 Statistika</a></td>
-                <td>
-                  <div class="progress table__unit__progress">
-                    <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%" data-bs-toggle="tooltip" data-bs-placement="top" title="75%"></div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>
-                  <a href="#" class="unit__link">S1 Teknik Lingkungan</a>
-                </td>
-                <td>
-                  <div class="progress table__unit__progress">
-                    <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%" data-bs-toggle="tooltip" data-bs-placement="top" title="30%"></div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td><a href="#" class="unit__link">S1 Kedokteran</a></td>
-                <td>
-                  <div class="progress table__unit__progress">
-                    <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%" data-bs-toggle="tooltip" data-bs-placement="top" title="45%"></div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>
-                  <a href="#" class="unit__link">S1 Kesehatan Masyarakat</a>
-                </td>
-                <td>
-                  <div class="progress table__unit__progress">
-                    <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%" data-bs-toggle="tooltip" data-bs-placement="top" title="100%"></div>
                   </div>
                 </td>
               </tr>

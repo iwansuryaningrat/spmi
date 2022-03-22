@@ -54,7 +54,7 @@
   </div>
 
   <!--========== body main ==========-->
-  <h4 class="title__body__main">Unit: <span>S1 Informatika</span></h4>
+  <h4 class="title__body__main">Unit: <span><?= $unit['nama_unit']; ?></span></h4>
 
   <!-- filter -->
   <div class="filter__datainduk">
@@ -80,8 +80,8 @@
     </div>
   </div>
 
+  <!-- =====data table induk =====-->
   <div class="tab-content" id="pills-tabContent">
-    <!-- data table induk -->
     <!-- penelitian -->
     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
       <div class="datainduk__table">
@@ -107,7 +107,7 @@
                 <td>Mata Kuliah</td>
                 <td>100</td>
                 <td>
-                  <a data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" href="edit-data-induk.html" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
+                  <a role="button" data-bs-toggle="modal" data-bs-placement="top" title="Edit" href="#staticBackdrop" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
                 </td>
               </tr>
               <tr>
@@ -120,7 +120,7 @@
                 </td>
                 <td>100</td>
                 <td>
-                  <a data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" href="edit-data-induk.html" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
+                  <a role="button" data-bs-toggle="modal" data-bs-placement="top" title="Edit" href="#staticBackdrop" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
                 </td>
               </tr>
             </tbody>
@@ -154,7 +154,7 @@
                 <td>Mata Kuliah</td>
                 <td>100</td>
                 <td>
-                  <a data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" href="edit-data-induk.html" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
+                  <a role="button" data-bs-toggle="modal" data-bs-placement="top" title="Edit" href="#staticBackdrop" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
                 </td>
               </tr>
               <tr>
@@ -167,7 +167,7 @@
                 </td>
                 <td>100</td>
                 <td>
-                  <a data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" href="edit-data-induk.html" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
+                  <a role="button" data-bs-toggle="modal" data-bs-placement="top" title="Edit" href="#staticBackdrop" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
                 </td>
               </tr>
             </tbody>

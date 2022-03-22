@@ -1,19 +1,24 @@
+// change button carousel index video
 // sidebar open-close
 $(document).click((e) => {
   if (
-    e.target.id !== "header-main-nav-btn" &&
-    e.target.id !== "sidebar-content" &&
-    e.target.id !== "header-main-nav-btn-i" &&
-    e.target.id !== "header-main-nav-dropdown" &&
-    e.target.id !== "btn-dropdown" &&
-    e.target.id !== "photo-dropdown" &&
-    e.target.id !== "line1" &&
-    e.target.id !== "line2" &&
-    e.target.id !== "line3"
+    // e.target.id !== "header-main-nav-btn" &&
+    // e.target.id !== "sidebar-content" &&
+    // e.target.id !== "header-main-nav-btn-i" &&
+    // e.target.id !== "header-main-nav-dropdown" &&
+    // e.target.id !== "btn-dropdown" &&
+    // e.target.id !== "photo-dropdown" &&
+    // e.target.id !== "line1" &&
+    // e.target.id !== "line2" &&
+    // e.target.id !== "line3"
+    e.target.id === "sidebar-main-icon" ||
+    e.target.nodeName === "path"
   ) {
     $("#sidebar-content").removeClass("minimize__sidebar");
     $("#main-content").removeClass("minimize__sidebar");
   }
+
+  console.log(e.target.nodeName);
 });
 
 $("#header-main-nav-btn-i").click(() => {

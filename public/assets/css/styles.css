@@ -88,6 +88,33 @@ ul {
   background-color: var(--dark-main-color) !important;
 }
 
+.cancel__btn {
+  color: #858585;
+  padding: 9px 1.875rem;
+  border-radius: var(--border-m);
+  font-weight: 500;
+  transition: var(--trans-m);
+}
+
+.cancel__btn:hover {
+  color: var(--black);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.small__btn {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(38, 48, 77, 0.94);
+  padding: 9px 1.875rem;
+  font-weight: 500;
+  border-radius: var(--border-m);
+  transition: var(--trans-m);
+}
+
+.small__btn:hover {
+  color: var(--white);
+  background-color: var(--dark-main-color);
+}
+
 /* utility */
 .header__mini {
   height: 16rem !important;
@@ -104,6 +131,58 @@ ul {
 
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+/* modal */
+.modal__content {
+  border: none;
+  border-radius: var(--border-xl);
+}
+
+.modal__header {
+  border: none;
+  padding: 1.875rem 2.25rem 0;
+}
+
+.modal__body {
+  border: none;
+  padding: 1rem 2.25rem 1.5rem;
+}
+
+.modal__body h5,
+.modal__body h4 {
+  margin-bottom: 1.875rem;
+}
+
+.modal__footer {
+  border: none;
+}
+
+.modal__form .form-label.form__label {
+  font-size: 1rem;
+}
+.modal__form .form-control.form__control {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+}
+
+.modal__form .modal__form-content {
+  margin-bottom: 1.25rem;
+}
+
+.modal__form-btn {
+  margin-top: 1.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.modal__form-btn button {
+  font-size: 1rem;
+}
+
+.modal__form-btn button:first-child {
+  margin-right: 2rem;
 }
 
 /* pagination */

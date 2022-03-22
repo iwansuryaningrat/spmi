@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
     <!-- custom -->
     <link rel="stylesheet" href="/assets/css/styles.css" />
+    <link rel="stylesheet" href="/assets/css/styles-dashboard.css" />
     <!-- Custom Page Style -->
     <link rel="stylesheet" href="/assets/css/<?= $css; ?>" />
 </head>
@@ -58,24 +59,11 @@
                             <!-- dropdown -->
                             <div class="collapse collapse__dropside" id="data-induk-collapse">
                                 <ul class="sidebar-nav__list-collapse">
-                                    <li>
-                                        <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Informatika</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Matematika</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Statistika</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Teknik Lingkungan</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Kedokteran</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Kesehatan Masyarakat</a>
-                                    </li>
+                                    <?php foreach ($unitData as $units) : ?>
+                                        <li>
+                                            <a href="/home/datainduk/<?= $units['unit_id'] ?>" class="nav__list__link-collapse ellipsis__text"><?= $units['nama_unit']; ?></a>
+                                        </li>
+                                    <?php endforeach; ?>
                                 </ul>
                             </div>
                         </li>
@@ -92,24 +80,11 @@
                             <!-- dropdown -->
                             <div class="collapse collapse__dropside" id="spmi-collapse">
                                 <ul class="sidebar-nav__list-collapse">
-                                    <li>
-                                        <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Informatika</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Matematika</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Statistika</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Teknik Lingkungan</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Kedokteran</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Kesehatan Masyarakat</a>
-                                    </li>
+                                    <?php foreach ($unitData as $units) : ?>
+                                        <li>
+                                            <a href="/home/standar/<?= $units['unit_id'] ?>" class="nav__list__link-collapse ellipsis__text"><?= $units['nama_unit']; ?></a>
+                                        </li>
+                                    <?php endforeach; ?>
                                 </ul>
                             </div>
                         </li>

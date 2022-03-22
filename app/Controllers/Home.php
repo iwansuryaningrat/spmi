@@ -32,6 +32,15 @@ class Home extends BaseController
         $this->dataIndukModel = new DataIndukModel();
         $this->indikatorModel = new IndikatorModel();
         $this->standarModel = new StandarModel();
+        $this->data_user = [
+            'nama' => session()->get('nama'),
+            'role' => session()->get('role'),
+            'email' => session()->get('email'),
+            'username' => session()->get('username'),
+            'id_user' => session()->get('id_user'),
+            'foto' => session()->get('foto'),
+        ];
+        $this->unitData = $this->transaksiModel->getTransaksiUserJoin($this->data_user['id_user']);
     }
 
     public function index()
@@ -52,14 +61,22 @@ class Home extends BaseController
         //     }
         // }
 
-        $data_user = [
-            'nama' => session()->get('nama'),
-            'role' => session()->get('role'),
-            'email' => session()->get('email'),
-            'username' => session()->get('username'),
-            'id_user' => session()->get('id_user'),
-            'foto' => session()->get('foto'),
-        ];
+        $data_user = $this->data_user;
+        // dd($data_user);
+
+        $unitData = $this->unitData;
+        // foreach ($unitData as $units) {
+        //     dd($units);
+        // }
+        // dd($unitData);
+        // $data_user = [
+        //     'nama' => session()->get('nama'),
+        //     'role' => session()->get('role'),
+        //     'email' => session()->get('email'),
+        //     'username' => session()->get('username'),
+        //     'id_user' => session()->get('id_user'),
+        //     'foto' => session()->get('foto'),
+        // ];
         // dd($data_user);
         // $data = $this->unitsModel->getUnitKategoriTahun(1, 1);
         // $unit = $this->standarModel->getStandarAll(1, 4, 1);
@@ -74,6 +91,7 @@ class Home extends BaseController
         $data = [
             'title' => 'Dashboard SIPMPP | SPMI UNDIP 2022',
             'data_user' => $data_user,
+            'unitData' => $unitData,
             'tab' => 'home',
             'css' => 'styles-dashboard.css'
         ];
@@ -84,6 +102,14 @@ class Home extends BaseController
 
     public function dataInduk($unit_id, $tahun = null)
     {
+        $path = $this->request->getPath();
+        // dd($path);
+        $data_user = $this->data_user;
+
+        $unitData = $this->unitData;
+
+        $unit = $this->unitsModel->getUnitId($unit_id);
+        // dd($unit);
 
         if ($tahun == null) {
             $tahun = (int)date('Y');
@@ -98,18 +124,12 @@ class Home extends BaseController
 
         // dd($tahun);
 
-        $data_user = [
-            'nama' => session()->get('nama'),
-            'role' => session()->get('role'),
-            'email' => session()->get('email'),
-            'username' => session()->get('username'),
-            'id_user' => session()->get('id_user'),
-            'foto' => session()->get('foto'),
-        ];
-
         $data = [
             'title' => 'Data Induk | SPMI UNDIP 2022',
             'data_user' => $data_user,
+            'unitData' => $unitData,
+            'unit' => $unit,
+            'path' => $path,
             'tab' => 'datainduk',
             'css' => 'styles-data-induk.css',
             'tahun' => $tahun,
