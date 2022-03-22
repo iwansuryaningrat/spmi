@@ -16,13 +16,15 @@ $(document).click((e) => {
   ) {
     $("#sidebar-content").removeClass("minimize__sidebar");
     $("#main-content").removeClass("minimize__sidebar");
+    $(".header__mini").removeClass("active");
+    $(".header__big").removeClass("active");
   }
-
-  console.log(e.target.nodeName);
 });
 
 $("#header-main-nav-btn-i").click(() => {
   $("#sidebar-content").toggleClass("minimize__sidebar");
   $("#main-content").toggleClass("minimize__sidebar");
+  $(".header__mini").toggleClass("active");
+  $(".header__big").toggleClass("active");
   $(".collapse.collapse__dropside").removeClass("show");
 });

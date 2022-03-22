@@ -57,7 +57,7 @@
   transition: var(--trans-m);
 
   color: rgba(255, 255, 255, 0.8);
-  border-radius: var(--border-m);
+  border-radius: var(--radius-sm);
   background-color: rgba(38, 48, 77, 0.9);
 }
 
