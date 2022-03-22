@@ -47,7 +47,7 @@
     <div class="header__main-title__subtitle">
       <div class="title__subtitle-desc">
         <h1>Dashboard Overview</h1>
-        <p>Halo <span>Adi</span>, selamat datang kembali!</p>
+        <p>Halo <span><?= $data_user['nama']; ?></span>, selamat datang kembali!</p>
       </div>
       <div class="title__subtitle-btn">
         <a href="report.html" class="report__link big__btn">

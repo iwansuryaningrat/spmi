@@ -82,26 +82,41 @@ class Home extends BaseController
         // return view('user/coba', $data);
     }
 
-    public function dataInduk($tahun = null)
+    public function dataInduk($unit_id, $tahun = null)
     {
 
         if ($tahun == null) {
             $tahun = (int)date('Y');
             $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+            $tahun_id = (int)$tahun_id;
         } else {
             $tahun = (int)$tahun;
             // dd($tahun_id);
-            $tahun = $this->tahunModel->getTahunAktif($tahun);
+            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+            $tahun_id = (int)$tahun_id;
         }
 
-        dd($tahun);
+        // dd($tahun);
+
+        $data_user = [
+            'nama' => session()->get('nama'),
+            'role' => session()->get('role'),
+            'email' => session()->get('email'),
+            'username' => session()->get('username'),
+            'id_user' => session()->get('id_user'),
+            'foto' => session()->get('foto'),
+        ];
+
         $data = [
             'title' => 'Data Induk | SPMI UNDIP 2022',
-            'tahun_id' => $tahun_id,
-            'tahun' => $this->tahunModel->getTahun($tahun_id)['tahun'],
-            'data_induk' => $this->dataIndukModel->getDataIndukUnitTahun($this->session->get('unit_id'), $tahun_id),
-            'indikator' => $this->indikatorModel->getIndikator(),
-            'standar' => $this->standarModel->getStandar(),
+            'data_user' => $data_user,
+            'tab' => 'datainduk',
+            'css' => 'styles-data-induk.css',
+            'tahun' => $tahun,
+            'data_induk' => $this->dataIndukModel->getDataIndukJoin($unit_id, $tahun_id),
         ];
+        // dd($data);
+
+        return view('user/datainduk', $data);
     }
 }

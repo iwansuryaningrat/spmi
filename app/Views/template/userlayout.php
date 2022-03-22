@@ -149,7 +149,7 @@
     <!-- main -->
     <div class="main__content" id="main-content">
         <!-- header main -->
-        <div class="header__main-color"></div>
+        <div class="header__main-color <?php if ('tab' != 'home') echo ' header__mini' ?>"></div>
 
         <?= $this->renderSection('user'); ?>
 
