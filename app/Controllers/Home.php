@@ -248,8 +248,18 @@ class Home extends BaseController
         $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
         $tahun_id = (int)$tahun_id;
 
-        // $data = [
+        $induk = $this->dataIndukModel->getDataIndukId($id);
+        $induk['nilai'] = (int)$this->request->getVar('nilai');
+        $induk['induk_id'] = (int)$induk['induk_id'];
+        $induk['kategori_id'] = (int)$induk['kategori_id'];
+        $induk['tahun_id'] = (int)$induk['tahun_id'];
+        $induk['unit_id'] = (int)$induk['unit_id'];
+        // dd($induk);
 
-        // ]
+        // Update Data
+        $this->dataIndukModel->update($id, $induk);
+        // $msg = "Data Berhasil Diubah";
+        // dd($msg);
+        return redirect()->to('/home/datainduk/' . $unit_id . '/' . $tahun);
     }
 }
