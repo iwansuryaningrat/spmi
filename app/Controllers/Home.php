@@ -52,7 +52,7 @@ class Home extends BaseController
         $i = 1;
 
         $data = [
-            'title' => 'Dashboard SIPMPP | SPMI UNDIP 2022',
+            'title' => 'Dashboard SIPMPP | SIPMPP UNDIP 2022',
             'data_user' => $data_user,
             'unitData' => $unitData,
             'i' => $i,
@@ -67,6 +67,11 @@ class Home extends BaseController
     public function dataInduk($unit_id)
     {
         $tahun = $this->request->getVar('tahun');
+
+        // getting path
+        $path = $this->request->getPath();
+        $path = base_url($path);
+
         $data_user = $this->data_user;
 
         $unitData = $this->unitData;
@@ -84,10 +89,11 @@ class Home extends BaseController
         }
 
         $data = [
-            'title' => 'Data Induk | SPMI UNDIP 2022',
+            'title' => 'Data Induk | SIPMPP UNDIP 2022',
             'data_user' => $data_user,
             'unitData' => $unitData,
             'unit' => $unit,
+            'path' => $path,
             'tab' => 'datainduk',
             'css' => 'styles-data-induk.css',
             'tahun' => $tahun,
@@ -99,6 +105,57 @@ class Home extends BaseController
 
     // Standar Method
     public function standar($unit_id)
+    {
+        $tahun = $this->request->getVar('tahun');
+        // getting path
+        $path = $this->request->getPath();
+        $path = base_url($path);
+        // dd($path);
+        $data_user = $this->data_user;
+
+        $unitData = $this->unitData;
+
+        $unit = $this->unitsModel->getUnitId($unit_id);
+
+        if ($tahun == null) {
+            $tahun = (int)date('Y');
+            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+            $tahun_id = (int)$tahun_id;
+        } else {
+            $tahun = (int)$tahun;
+            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+            $tahun_id = (int)$tahun_id;
+        }
+
+        $data = [
+            'title' => 'Standar | SIPMPP UNDIP 2022',
+            'data_user' => $data_user,
+            'unitData' => $unitData,
+            'unit' => $unit,
+            'path' => $path,
+            'tab' => 'standar',
+            'css' => 'styles-standar.css',
+            'tahun' => $tahun,
+            'standar' => $this->standarModel->getStandarUnitTahun($unit_id, $tahun_id),
+        ];
+
+        // dd($data);
+
+        return view('user/standar', $data);
+    }
+
+    // Send Penilaian Method
+    public function sendPenilaian($unit_id, $tahun)
+    {
+        $data_user = $this->data_user;
+
+        $unitData = $this->unitData;
+
+        $unit = $this->unitsModel->getUnitId($unit_id);
+    }
+
+    // Indikator Method
+    public function indikator($unit_id)
     {
         $tahun = $this->request->getVar('tahun');
         $data_user = $this->data_user;
@@ -118,16 +175,18 @@ class Home extends BaseController
         }
 
         $data = [
-            'title' => 'Standar | SPMI UNDIP 2022',
+            'title' => 'Indikator | SIPMPP UNDIP 2022',
             'data_user' => $data_user,
             'unitData' => $unitData,
             'unit' => $unit,
-            'tab' => 'standar',
-            'css' => 'styles-standar.css',
+            'tab' => 'indikator',
+            'css' => 'styles-indikator.css',
             'tahun' => $tahun,
-            'standar' => $this->standarModel->getStandarJoin($unit_id, $tahun_id),
+            'indikator' => $this->indikatorModel->getIndikatorUnitTahun($unit_id, $tahun_id),
         ];
 
-        return view('user/standar', $data);
+        // dd($data);
+
+        return view('user/indikator', $data);
     }
 }

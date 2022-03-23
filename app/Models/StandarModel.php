@@ -42,12 +42,6 @@ class StandarModel extends Model
         return $this->where('unit_id', $unit_id)->findAll();
     }
 
-    // function to get data by unit and tahun
-    public function getStandarUnitTahun($unit_id, $tahun_id)
-    {
-        return $this->where('unit_id', $unit_id)->where('tahun_id', $tahun_id)->findAll();
-    }
-
     // function to get data by unit and kategori
     public function getStandarUnitKategori($unit_id, $kategori_id)
     {
@@ -76,6 +70,18 @@ class StandarModel extends Model
             ->where('standar.unit_id', $unit_id)
             ->where('standar.tahun_id', $tahun_id)
             ->where('standar.kategori_id', $kategori_id)
+            ->findAll();
+    }
+
+    // join standar unit tahun
+    public function getStandarUnitTahun($unit_id, $tahun_id)
+    {
+        return $this->select('standar.*, kategori.nama_kategori, tahun.tahun, units.nama_unit')
+            ->join('kategori', 'kategori.kategori_id = standar.kategori_id')
+            ->join('tahun', 'tahun.tahun_id = standar.tahun_id')
+            ->join('units', 'units.unit_id = standar.unit_id')
+            ->where('standar.unit_id', $unit_id)
+            ->where('standar.tahun_id', $tahun_id)
             ->findAll();
     }
 }
