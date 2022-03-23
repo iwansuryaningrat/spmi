@@ -58,13 +58,13 @@
   <!--========== body main ==========-->
   <div class="status__spmi__content">
     <div class="spmi__content-desc">
-      <h4 class="title__body__main">Unit: <span>S1 Informatika</span></h4>
+      <h4 class="title__body__main">Unit: <span><?= $unit['nama_unit']; ?></span></h4>
       <p class="status__spmi">
-        Status Penliaian: <span id="status-spmi">Belum Dikirim</span>
+        Status Penilaian: <span id="status-spmi"><?= $status; ?></span>
       </p>
     </div>
     <div class="spmi__content-btn">
-      <a href="#" class="btn kirim__btn">
+      <a href="/home/sendpenilaian/<?= $unit_id . '/' . $tahun; ?>" class="btn kirim__btn">
         <i class="fa-solid fa-file-import"></i>
         Kirim Penilaian
       </a>
@@ -98,6 +98,7 @@
 
   <!-- =====data table spmi =====-->
   <div class="tab-content" id="pills-tabContent">
+    <?= session()->getFlashdata('message'); ?>
     <!-- penelitian -->
     <div class="tab-pane fade show active" id="pills-table-spmi-penelitian" role="tabpanel" aria-labelledby="pills-spmi-penelitian">
       <div class="sipmpp__table">
