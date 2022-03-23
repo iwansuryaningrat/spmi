@@ -82,12 +82,12 @@
       </button>
     </div>
 
-    <form class="filter__table-year" method="POST" action="">
+    <form class="filter__table-year" method="POST" action="<?= $path; ?>">
       <label for="year-filter" class="form-label">Tahun</label>
-      <select class="form-select shadow-none" aria-label="year-filter" id="year-filter">
+      <select class="form-select shadow-none" aria-label="year-filter" id="year-filter" name="tahun">
         <option selected disabled>Pilih Tahun</option>
         <?php foreach ($dataTahun as $year) : ?>
-          <option value="<?= $year['tahun_id']; ?>" <?php if ($tahun == $year['tahun']) echo 'selected' ?>><?= $year['tahun']; ?></option>
+          <option value="<?= $year['tahun']; ?>" <?php if ($tahun == $year['tahun']) echo 'selected' ?>><?= $year['tahun']; ?></option>
         <?php endforeach; ?>
       </select>
       <button class="btn terapkan__btn shadow-none" type="submit">
@@ -114,38 +114,21 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td class="text-uppercase">S1</td>
-                <td>Standar Sarana dan Prasarana Pembelajaran</td>
-                <td>Badge</td>
-                <td>100%</td>
-                <td>
-                  <a data-bs-placement="top" title="Edit" href="indikator-spmi.html" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
-                </td>
-              </tr>
 
-              <tr>
-                <td>2</td>
-                <td class="text-uppercase">S2</td>
-                <td>Standar Kerjasama Pendidikan</td>
-                <td>Badge</td>
-                <td>0%</td>
-                <td>
-                  <a data-bs-placement="top" title="Edit" href="indikator-spmi.html" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
-                </td>
-              </tr>
+              <?php foreach ($penelitian as $penelitian) : ?>
+                <tr>
+                  <td><?= $i; ?></td>
+                  <td class="text-uppercase"><?= $penelitian['kode_standar']; ?></td>
+                  <td><?= $penelitian['nama_standar']; ?></td>
+                  <td><?= $penelitian['status']; ?></td>
+                  <td><?= $penelitian['nilai']; ?></td>
+                  <td>
+                    <a data-bs-placement="top" title="Edit" href="indikator-spmi.html" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
+                  </td>
+                </tr>
+              <?php $i++;
+              endforeach; ?>
 
-              <tr>
-                <td>2</td>
-                <td class="text-uppercase">S2</td>
-                <td>Standar Kerjasama Pendidikan</td>
-                <td>Badge</td>
-                <td>0%</td>
-                <td>
-                  <a data-bs-placement="top" title="Edit" href="indikator-spmi.html" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -168,37 +151,21 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td class="text-uppercase">S1</td>
-                <td>Standar Sarana dan Prasarana Pembelajaran</td>
-                <td>Badge</td>
-                <td>100%</td>
-                <td>
-                  <a data-bs-placement="top" title="Edit" href="indikator-spmi.html" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
-                </td>
-              </tr>
 
-              <tr>
-                <td>3</td>
-                <td class="text-uppercase">S3</td>
-                <td>Standar Isi Pembelajaran</td>
-                <td>Badge</td>
-                <td>20%</td>
-                <td>
-                  <a data-bs-placement="top" title="Edit" href="indikator-spmi.html" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td class="text-uppercase">S2</td>
-                <td>Standar Kerjasama Pendidikan</td>
-                <td>Badge</td>
-                <td>0%</td>
-                <td>
-                  <a data-bs-placement="top" title="Edit" href="indikator-spmi.html" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
-                </td>
-              </tr>
+              <?php foreach ($pengabdian as $pengabdian) : ?>
+                <tr>
+                  <td><?= $i; ?></td>
+                  <td class="text-uppercase"><?= $pengabdian['kode_standar']; ?></td>
+                  <td><?= $pengabdian['nama_standar']; ?></td>
+                  <td><?= $pengabdian['status']; ?></td>
+                  <td><?= $pengabdian['nilai']; ?></td>
+                  <td>
+                    <a data-bs-placement="top" title="Edit" href="indikator-spmi.html" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
+                  </td>
+                </tr>
+              <?php $i++;
+              endforeach; ?>
+
             </tbody>
           </table>
         </div>

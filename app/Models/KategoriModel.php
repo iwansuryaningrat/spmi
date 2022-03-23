@@ -17,4 +17,10 @@ class KategoriModel extends Model
     {
         return $this->where('kategori_id', $kategori_id)->first();
     }
+
+    // get data by nama kategori
+    public function getKategoriNama($nama_kategori)
+    {
+        return $this->where('nama_kategori', $nama_kategori)->first();
+    }
 }

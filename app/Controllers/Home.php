@@ -124,7 +124,6 @@ class Home extends BaseController
         // getting path
         $path = $this->request->getPath();
         $path = base_url($path);
-        // dd($path);
         $data_user = $this->data_user;
 
         $unitData = $this->unitData;
@@ -141,6 +140,20 @@ class Home extends BaseController
             $tahun_id = (int)$tahun_id;
         }
 
+        $i = 1;
+
+        // Penelitian 
+        $penelitian_id = $this->kategoriModel->getKategoriNama('Penelitian')['kategori_id'];
+        $penelitian_id = (int)$penelitian_id;
+        $penelitian = $this->standarModel->getStandarAll($unit_id, $tahun_id, $penelitian_id);
+        // dd($penelitian);
+
+        // Pengabdian Masyarakat
+        $pengabdian_id = $this->kategoriModel->getKategoriNama('Pengabdian Masyarakat')['kategori_id'];
+        $pengabdian_id = (int)$pengabdian_id;
+        $pengabdian = $this->standarModel->getStandarAll($unit_id, $tahun_id, $pengabdian_id);
+        // dd($pengabdian);
+
         $data = [
             'title' => 'Standar | SIPMPP UNDIP 2022',
             'data_user' => $data_user,
@@ -151,11 +164,13 @@ class Home extends BaseController
             'header' => 'header__mini',
             'css' => 'styles-standar.css',
             'tahun' => $tahun,
+            'i' => $i,
             'dataTahun' => $data_tahun,
-            'standar' => $this->standarModel->getStandarUnitTahun($unit_id, $tahun_id),
+            'penelitian' => $penelitian,
+            'pengabdian' => $pengabdian,
         ];
-
         // dd($data);
+        // dd($data['standar'][5]['nama_kategori'] == 'Pengabdian Masyarakat');
 
         return view('user/standar', $data);
     }
@@ -239,7 +254,7 @@ class Home extends BaseController
         $unit = $this->unitsModel->getUnitId($unit_id);
     }
 
-    // Edit Data Induk Method
+    // Edit Data Induk Method (Done)
     public function editDataInduk($unit_id, $tahun)
     {
         $id = $this->request->getVar('induk_id');
@@ -254,12 +269,10 @@ class Home extends BaseController
         $induk['kategori_id'] = (int)$induk['kategori_id'];
         $induk['tahun_id'] = (int)$induk['tahun_id'];
         $induk['unit_id'] = (int)$induk['unit_id'];
-        // dd($induk);
 
         // Update Data
         $this->dataIndukModel->update($id, $induk);
-        // $msg = "Data Berhasil Diubah";
-        // dd($msg);
+
         return redirect()->to('/home/datainduk/' . $unit_id . '/' . $tahun);
     }
 }
