@@ -64,10 +64,11 @@ class Home extends BaseController
         return view('user/index', $data);
     }
 
-    // Data Induk Method
+    // Data Induk Method (Done)
     public function dataInduk($unit_id)
     {
         $tahun = $this->request->getVar('tahun');
+        // dd($tahun);
 
         $data_tahun = $this->tahunModel->findAll();
 
@@ -91,15 +92,20 @@ class Home extends BaseController
             $tahun_id = (int)$tahun_id;
         }
 
+        $i = 1;
+        // $datainduk = $this->dataIndukModel->getDataIndukJoin($unit_id, $tahun_id);
+        // dd($datainduk);
+
         $data = [
             'title' => 'Data Induk | SIPMPP UNDIP 2022',
-            'data_user' => $data_user,
-            'unitData' => $unitData,
-            'unit' => $unit,
             'path' => $path,
             'tab' => 'datainduk',
             'header' => 'header__mini',
             'css' => 'styles-data-induk.css',
+            'i' => $i,
+            'data_user' => $data_user,
+            'unit' => $unit,
+            'unitData' => $unitData,
             'tahun' => $tahun,
             'dataTahun' => $data_tahun,
             'data_induk' => $this->dataIndukModel->getDataIndukJoin($unit_id, $tahun_id),
@@ -154,16 +160,6 @@ class Home extends BaseController
         return view('user/standar', $data);
     }
 
-    // Send Penilaian Method
-    public function sendPenilaian($unit_id, $tahun, $path)
-    {
-        $data_user = $this->data_user;
-
-        $unitData = $this->unitData;
-
-        $unit = $this->unitsModel->getUnitId($unit_id);
-    }
-
     // Indikator Method
     public function indikator($unit_id)
     {
@@ -201,14 +197,6 @@ class Home extends BaseController
         return view('user/indikator', $data);
     }
 
-    // Indikator Form Method
-    public function indikatorForm()
-    {
-
-
-        return view('user/indikatorform');
-    }
-
     // Report Method
     public function report()
     {
@@ -228,5 +216,40 @@ class Home extends BaseController
         ];
 
         return view('user/report', $data);
+    }
+
+    // FORM METHOD // 
+
+    // Indikator Form Method
+    public function indikatorForm()
+    {
+        return view('user/indikatorform');
+    }
+
+
+    // ACTION METHOD // 
+
+    // Send Penilaian Method
+    public function sendPenilaian($unit_id, $tahun, $path)
+    {
+        $data_user = $this->data_user;
+
+        $unitData = $this->unitData;
+
+        $unit = $this->unitsModel->getUnitId($unit_id);
+    }
+
+    // Edit Data Induk Method
+    public function editDataInduk($unit_id, $tahun)
+    {
+        $id = $this->request->getVar('induk_id');
+        $id = (int)$id;
+        $tahun = (int)$tahun;
+        $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+        $tahun_id = (int)$tahun_id;
+
+        // $data = [
+
+        // ]
     }
 }

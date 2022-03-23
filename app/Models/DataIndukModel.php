@@ -42,12 +42,6 @@ class DataIndukModel extends Model
         return $this->where('unit_id', $unit_id)->findAll();
     }
 
-    // function to get data by unit and tahun
-    // public function getDataIndukUnitTahun($unit_id, $tahun_id)
-    // {
-    //     return $this->where('unit_id', $unit_id)->where('tahun_id', $tahun_id)->findAll();
-    // }
-
     // Join table data induk with unit, kategori, and tahun table
     public function getDataIndukJoin($unit_id, $tahun_id)
     {

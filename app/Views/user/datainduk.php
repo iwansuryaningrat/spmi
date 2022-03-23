@@ -71,12 +71,12 @@
       </button>
     </div>
 
-    <form class="filter__table-year" method="POST" action="">
+    <form class="filter__table-year" method="POST" action="<?= $path; ?>">
       <label for="year-filter" class="form-label">Tahun</label>
-      <select class="form-select shadow-none" aria-label="year-filter" id="year-filter">
+      <select class="form-select shadow-none" aria-label="year-filter" id="year-filter" name="tahun">
         <option selected disabled>Pilih Tahun</option>
         <?php foreach ($dataTahun as $year) : ?>
-          <option value="<?= $year['tahun_id']; ?>" <?php if ($tahun == $year['tahun']) echo 'selected' ?>><?= $year['tahun']; ?></option>
+          <option value="<?= $year['tahun']; ?>" <?php if ($tahun == $year['tahun']) echo 'selected' ?>><?= $year['tahun']; ?></option>
         <?php endforeach; ?>
       </select>
       <button class="btn terapkan__btn shadow-none" type="submit">
@@ -103,29 +103,21 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td class="text-uppercase">MK</td>
-                <td>Akademik</td>
-                <td>Mata Kuliah</td>
-                <td>100</td>
-                <td>
-                  <a role="button" data-bs-toggle="modal" data-bs-placement="top" title="Edit" href="#staticBackdrop" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td class="text-uppercase">perpus</td>
-                <td>Kemahasiswaan</td>
-                <td>
-                  Target jumlah mahasiswa yang terlibat dalam penelitian
-                  dan pengabdian kepada masyarakat
-                </td>
-                <td>100</td>
-                <td>
-                  <a role="button" data-bs-toggle="modal" data-bs-placement="top" title="Edit" href="#staticBackdrop" class="edit__data__induk__icon" data-id="1" data-kode="KKK" data-kategori="uawawa" data-kebutuhan-data="Nope" data-nilai="1000"><i class="fa-solid fa-pen-to-square"></i></a>
-                </td>
-              </tr>
+              <?php foreach ($data_induk as $datainduk) :
+                if ($datainduk['nama_kategori'] == 'Penelitian') : ?>
+                  <tr>
+                    <td><?= $i; ?></td>
+                    <td class="text-uppercase"><?= $datainduk['kode_induk']; ?></td>
+                    <td><?= $datainduk['nama_kategori']; ?></td>
+                    <td><?= $datainduk['kebutuhan']; ?></td>
+                    <td><?= $datainduk['nilai']; ?></td>
+                    <td>
+                      <a role="button" data-bs-toggle="modal" data-bs-placement="top" title="Edit" href="#staticBackdrop" class="edit__data__induk__icon" data-id="<?= $datainduk['induk_id']; ?>" data-kode="<?= $datainduk['kode_induk']; ?>" data-kategori="<?= $datainduk['nama_kategori']; ?>" data-kebutuhan-data="<?= $datainduk['kebutuhan']; ?>" data-nilai="<?= $datainduk['nilai']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                    </td>
+                  </tr>
+              <?php $i++;
+                endif;
+              endforeach; ?>
             </tbody>
           </table>
         </div>
@@ -148,29 +140,21 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td class="text-uppercase">MK</td>
-                <td>Akademik</td>
-                <td>Mata Kuliah</td>
-                <td>100</td>
-                <td>
-                  <a role="button" data-bs-toggle="modal" data-bs-placement="top" title="Edit" href="#staticBackdrop" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td class="text-uppercase">perpus</td>
-                <td>Kemahasiswaan</td>
-                <td>
-                  Target jumlah mahasiswa yang terlibat dalam penelitian
-                  dan pengabdian kepada masyarakat
-                </td>
-                <td>100</td>
-                <td>
-                  <a role="button" data-bs-toggle="modal" data-bs-placement="top" title="Edit" href="#staticBackdrop" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
-                </td>
-              </tr>
+              <?php foreach ($data_induk as $datainduk) :
+                if ($datainduk['nama_kategori'] == 'Pengabdian Masyarakat') : ?>
+                  <tr>
+                    <td><?= $i; ?></td>
+                    <td class="text-uppercase"><?= $datainduk['kode_induk']; ?></td>
+                    <td><?= $datainduk['nama_kategori']; ?></td>
+                    <td><?= $datainduk['kebutuhan']; ?></td>
+                    <td><?= $datainduk['nilai']; ?></td>
+                    <td>
+                      <a role="button" data-bs-toggle="modal" data-bs-placement="top" title="Edit" href="#staticBackdrop" class="edit__data__induk__icon" data-id="<?= $datainduk['induk_id']; ?>" data-kode="<?= $datainduk['kode_induk']; ?>" data-kategori="<?= $datainduk['nama_kategori']; ?>" data-kebutuhan-data="<?= $datainduk['kebutuhan']; ?>" data-nilai="<?= $datainduk['nilai']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                    </td>
+                  </tr>
+              <?php $i++;
+                endif;
+              endforeach; ?>
             </tbody>
           </table>
         </div>
@@ -194,25 +178,25 @@
         <h4 class="modal-title" id="modal-data-induk">Nilai Data Induk</h4>
 
         <!-- form -->
-        <form class="modal__form">
+        <form class="modal__form" method="POST" action="/home/editdatainduk/<?= $unit['unit_id'] . '/' . $tahun ?>">
           <div class="modal__form-content">
             <!-- id input -->
-            <input type="hidden" id="id" />
+            <input type="hidden" id="id" name="induk_id" />
             <label for="kode" class="form-label form__label">Kode</label>
-            <input type="text" class="form-control shadow-none form__control text-uppercase" id="kode" disabled required />
+            <input type="text" class="form-control shadow-none form__control text-uppercase" id="kode" name="kode" disabled required />
           </div>
           <div class="modal__form-content">
             <label for="kategori" class="form-label form__label">Kategori</label>
-            <input type="text" class="form-control shadow-none form__control" id="kategori" disabled required />
+            <input type="text" class="form-control shadow-none form__control" id="kategori" name="kategori" disabled required />
           </div>
           <div class="modal__form-content">
             <label for="kebutuhan-data" class="form-label form__label">Kebutuhan Data</label>
-            <textarea id="kebutuhan-data" class="form-control shadow-none form__control" cols="30" rows="3" disabled required>
+            <textarea id="kebutuhan-data" class="form-control shadow-none form__control" cols="30" rows="3" name="kebutuhan" disabled required>
                 </textarea>
           </div>
           <div class="modal__form-content">
             <label for="nilai" class="form-label form__label">Nilai</label>
-            <input type="text" class="form-control shadow-none form__control" id="nilai" required />
+            <input type="text" class="form-control shadow-none form__control" id="nilai" name="nilai" required />
           </div>
 
           <div class="modal__form-btn">
