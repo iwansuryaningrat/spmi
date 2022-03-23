@@ -32,7 +32,7 @@
     <div class="header__main-nav-dropdown" id="header-main-nav-dropdown">
       <p class="nav-dropdown__title">Pengaturan Profil</p>
       <p class="d-flex align-items-center">
-        <a href="profil.html" class="d-block">Lihat Profil</a>
+        <a href="/home/profile" class="d-block">Lihat Profil</a>
       </p>
       <hr />
       <p class="d-flex align-items-center">
@@ -58,26 +58,26 @@
   <!--========== body main ==========-->
   <div class="status__spmi__content">
     <div class="spmi__content-desc">
-      <h4 class="title__body__main">Unit: <span><?= $unit['nama_unit']; ?></span></h4>
+      <h4 class="title__body__main">Unit: <span>S1 Informatika</span></h4>
       <p class="status__spmi">
         Status Penliaian: <span id="status-spmi">Belum Dikirim</span>
       </p>
     </div>
     <div class="spmi__content-btn">
-      <button class="btn kirim__btn">
+      <a href="#" class="btn kirim__btn">
         <i class="fa-solid fa-file-import"></i>
         Kirim Penilaian
-      </button>
+      </a>
     </div>
   </div>
 
   <!-- filter -->
   <div class="filter__table">
     <div class="nav nav-pills" id="pills-tab" role="tablist">
-      <button class="btn filter__btn me-0 me-md-3 shadow-none active nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+      <button class="btn filter__btn me-0 me-md-3 shadow-none active nav-link active" id="pills-spmi-penelitian" data-bs-toggle="pill" data-bs-target="#pills-table-spmi-penelitian" type="button" role="tab" aria-controls="pills-table-spmi-penelitian" aria-selected="true">
         Penelitian
       </button>
-      <button class="btn filter__btn shadow-none nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+      <button class="btn filter__btn shadow-none nav-link" id="pills-spmi-pm" data-bs-toggle="pill" data-bs-target="#pills-table-spmi-pm" type="button" role="tab" aria-controls="pills-table-spmi-pm" aria-selected="false">
         Pengabdian Masyarakat
       </button>
     </div>
@@ -98,7 +98,7 @@
   <!-- =====data table spmi =====-->
   <div class="tab-content" id="pills-tabContent">
     <!-- penelitian -->
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+    <div class="tab-pane fade show active" id="pills-table-spmi-penelitian" role="tabpanel" aria-labelledby="pills-spmi-penelitian">
       <div class="sipmpp__table">
         <div class="table-responsive">
           <table class="table table__spmi__content sipmpp__table-content table-hover" id="spmi-penelitian">
@@ -152,7 +152,7 @@
     </div>
 
     <!-- pengabdian masyarakat -->
-    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+    <div class="tab-pane fade" id="pills-table-spmi-pm" role="tabpanel" aria-labelledby="pills-spmi-pm">
       <div class="sipmpp__table">
         <div class="table-responsive">
           <table class="table table__spmi__content sipmpp__table-content table-hover" id="spmi-pm">
