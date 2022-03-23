@@ -56,13 +56,13 @@
               <div class="collapse collapse__dropside" id="user-collapse">
                 <ul class="sidebar-nav__list-collapse">
                   <li>
-                    <a href="/admin/users" class="nav__list__link-collapse ellipsis__text">Base User</a>
+                    <a href="/admin/user" class="nav__list__link-collapse ellipsis__text">Base User</a>
                   </li>
                   <li>
-                    <a href="/admin/user-auditor" class="nav__list__link-collapse ellipsis__text">Auditor</a>
+                    <a href="/admin/auditor" class="nav__list__link-collapse ellipsis__text">Auditor</a>
                   </li>
                   <li>
-                    <a href="/admin/user-leader" class="nav__list__link-collapse ellipsis__text">Leader</a>
+                    <a href="/admin/leader" class="nav__list__link-collapse ellipsis__text">Leader</a>
                   </li>
                 </ul>
               </div>
@@ -92,7 +92,7 @@
               </a>
             </li>
             <li>
-              <a href="#" class="nav__list__link">
+              <a href="/logout" class="nav__list__link">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 <span>Log Out</span>
               </a>
@@ -153,7 +153,7 @@
           <hr />
           <p class="d-flex align-items-center">
             <i class="fa-solid fa-arrow-right-from-bracket d-flex"></i>
-            <a href="#" class="d-block">Log out</a>
+            <a href="/logout" class="d-block">Log out</a>
           </p>
         </div>
       </div>
@@ -191,30 +191,30 @@
                 <tbody>
                   <tr>
                     <td>1</td>
-                    <td><a href="#" class="unit__link">S1 Informatika</a></td>
+                    <td>S1 informatika</td>
                   </tr>
                   <tr>
                     <td>2</td>
-                    <td><a href="#" class="unit__link">S1 Matematika</a></td>
+                    <td>S1 Matematika</td>
                   </tr>
                   <tr>
                     <td>3</td>
-                    <td><a href="#" class="unit__link">S1 Statistika</a></td>
+                    <td>S1 Statistika</td>
                   </tr>
                   <tr>
                     <td>4</td>
                     <td>
-                      <a href="#" class="unit__link">S1 Teknik Lingkungan</a>
+                      S1 Teknik Lingkungan
                     </td>
                   </tr>
                   <tr>
                     <td>5</td>
-                    <td><a href="#" class="unit__link">S1 Kedokteran</a></td>
+                    <td>S1 Kedokteran</td>
                   </tr>
                   <tr>
                     <td>6</td>
                     <td>
-                      <a href="#" class="unit__link">S1 Kesehatan Masyarakat</a>
+                      S1 Kesehatan Masyarakat
                     </td>
                   </tr>
                 </tbody>

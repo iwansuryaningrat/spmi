@@ -27,7 +27,7 @@
       <div>
         <!-- brand -->
         <div class="sidebar__content-brand">
-          <a href="admin-dashboard.html" class="d-flex align-items-center">
+          <a href="/admin" class="d-flex align-items-center">
             <img src="/admin/assets/img/undip-logo-color.png" alt="logo-undip" />
             <h4>SIPMPP UNDIP</h4>
           </a>
@@ -37,7 +37,7 @@
         <div class="sidebar__content-nav">
           <ul class="sidebar-nav__list">
             <li>
-              <a href="admin-dashboard.html" class="nav__list__link">
+              <a href="/admin" class="nav__list__link">
                 <i class="fa-solid fa-house"></i>
                 <span>Dashboard</span>
               </a>
@@ -56,43 +56,43 @@
               <div class="collapse collapse__dropside" id="user-collapse">
                 <ul class="sidebar-nav__list-collapse">
                   <li>
-                    <a href="admin-base-user.html" class="nav__list__link-collapse ellipsis__text">Base User</a>
+                    <a href="/admin/user" class="nav__list__link-collapse ellipsis__text">Base User</a>
                   </li>
                   <li>
-                    <a href="admin-auditor.html" class="nav__list__link-collapse ellipsis__text">Auditor</a>
+                    <a href="/admin/auditor" class="nav__list__link-collapse ellipsis__text">Auditor</a>
                   </li>
                   <li>
-                    <a href="admin-leader.html" class="nav__list__link-collapse ellipsis__text">Leader</a>
+                    <a href="/admin/leader" class="nav__list__link-collapse ellipsis__text">Leader</a>
                   </li>
                 </ul>
               </div>
             </li>
             <li>
-              <a href="admin-unit.html" class="nav__list__link">
+              <a href="admin/units" class="nav__list__link">
                 <i class="fa-solid fa-building-columns"></i>
                 <span>Unit</span>
               </a>
             </li>
             <li>
-              <a href="admin-data-induk.html" class="nav__list__link">
+              <a href="/admin/dataInduk" class="nav__list__link">
                 <i class="fa-solid fa-book"></i>
                 <span>Data Induk</span>
               </a>
             </li>
             <li>
-              <a href="admin-standar.html" class="nav__list__link">
+              <a href="/admin/standar" class="nav__list__link">
                 <i class="fa-solid fa-chart-pie"></i>
                 <span>Standar</span>
               </a>
             </li>
             <li>
-              <a href="admin-report.html" class="nav__list__link">
+              <a href="/admin/report" class="nav__list__link">
                 <i class="fa-solid fa-print"></i>
                 <span>Report</span>
               </a>
             </li>
             <li>
-              <a href="#" class="nav__list__link">
+              <a href="/logout" class="nav__list__link">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 <span>Log Out</span>
               </a>
@@ -148,12 +148,12 @@
         <div class="header__main-nav-dropdown" id="header-main-nav-dropdown">
           <p class="nav-dropdown__title">Pengaturan Profil</p>
           <p class="d-flex align-items-center">
-            <a href="profil.html" class="d-block">Lihat Profil</a>
+            <a href="/admin/profile" class="d-block">Lihat Profil</a>
           </p>
           <hr />
           <p class="d-flex align-items-center">
             <i class="fa-solid fa-arrow-right-from-bracket d-flex"></i>
-            <a href="#" class="d-block">Log out</a>
+            <a href="/logout" class="d-block">Log out</a>
           </p>
         </div>
       </div>
