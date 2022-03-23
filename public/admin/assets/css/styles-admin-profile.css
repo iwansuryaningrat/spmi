@@ -1,0 +1,24 @@
+@import url(styles-admin.css);
+
+.profile__section {
+  display: flex;
+}
+
+.profile__section-profile {
+  flex: 0.6;
+  border-radius: 0.75rem;
+  border: var(--border-sm);
+  padding: 1.5rem 2.625rem 1.875rem;
+  margin-right: 0.75rem;
+}
+
+.profile__section-password {
+  flex: 0.4;
+  margin-left: 0.75rem;
+}
+
+.section-password__border {
+  border-radius: 0.75rem;
+  border: var(--border-sm);
+  padding: 1.5rem 2.625rem 1.875rem;
+}

@@ -145,7 +145,7 @@ class Home extends BaseController
     }
 
     // Send Penilaian Method
-    public function sendPenilaian($unit_id, $tahun)
+    public function sendPenilaian($unit_id, $tahun, $path)
     {
         $data_user = $this->data_user;
 
