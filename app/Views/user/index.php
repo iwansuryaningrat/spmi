@@ -176,6 +176,7 @@
 <?= $this->endSection(); ?>
 
 <?= $this->section('userscript'); ?>
+
 <script>
   // dropdown
   $(document).click((e) => {
@@ -202,4 +203,5 @@
     new bootstrap.Tooltip(t);
   });
 </script>
+
 <?= $this->endSection(); ?>

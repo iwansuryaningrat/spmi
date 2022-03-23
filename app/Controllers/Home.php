@@ -183,6 +183,7 @@ class Home extends BaseController
             'unitData' => $unitData,
             'unit' => $unit,
             'tab' => 'indikator',
+            'header' => 'header__mini',
             'css' => 'styles-indikator.css',
             'tahun' => $tahun,
             'indikator' => $this->indikatorModel->getIndikatorUnitTahun($unit_id, $tahun_id),
@@ -191,5 +192,34 @@ class Home extends BaseController
         // dd($data);
 
         return view('user/indikator', $data);
+    }
+
+    // Indikator Form Method
+    public function indikatorForm()
+    {
+
+
+        return view('user/indikatorform');
+    }
+
+    // Report Method
+    public function report()
+    {
+        $data_user = $this->data_user;
+
+        $unitData = $this->unitData;
+        $i = 1;
+
+        $data = [
+            'title' => 'Dashboard SIPMPP | SIPMPP UNDIP 2022',
+            'data_user' => $data_user,
+            'unitData' => $unitData,
+            'i' => $i,
+            'tab' => 'report',
+            'header' => 'header__mini',
+            'css' => 'styles-report.css'
+        ];
+
+        return view('user/report', $data);
     }
 }

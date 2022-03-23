@@ -14,9 +14,9 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/solid.css" integrity="sha384-ltWlpN+Dl8XfKEnC9oW+dDRF8Z7jsYkxQ/WMRoJ2VHH5G2nQZ4if2NWwmV0ybzZ7" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/fontawesome.css" integrity="sha384-RLM8Rxp/DcBfCfSI3bGwwoMMxxy34D2e58WAqXmmdnh0WYlAQ8jeOB3A1ed5KUSm" crossorigin="anonymous" />
   <!-- uicons icon -->
-  <link rel="stylesheet" href="assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
+  <link rel="stylesheet" href="/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
   <!-- custom -->
-  <link rel="stylesheet" href="assets/css/styles-profile.css" />
+  <link rel="stylesheet" href="/assets/css/styles-profile.css" />
 </head>
 
 <body>
@@ -28,7 +28,7 @@
         <!-- brand -->
         <div class="sidebar__content-brand">
           <a href="dashboard.html" class="d-flex align-items-center">
-            <img src="assets/img/undip-logo-color.png" alt="logo-undip" />
+            <img src="/assets/img/undip-logo-color.png" alt="logo-undip" />
             <h4>SIPMPP UNDIP</h4>
           </a>
         </div>
@@ -155,7 +155,7 @@
         </div>
         <div class="header__main-nav-profile">
           <div class="nav-profile__photo">
-            <img src="assets/img/adi-wibowo-img.png" alt="profile-picture" id="photo-dropdown" />
+            <img src="/assets/img/adi-wibowo-img.png" alt="profile-picture" id="photo-dropdown" />
           </div>
           <div class="nav-profile__desc">
             <p id="profileName">Adi Wibowo</p>
@@ -281,7 +281,7 @@
   <!-- fontawesome -->
   <script defer src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" integrity="sha384-vLLEq/Un/eZFmXAu4Xxf8F00RSSMzPcI7iDiT6hpB4zFpezCEGhb5daeR8PLyrLI" crossorigin="anonymous"></script>
   <!-- custom -->
-  <script src="assets/js/scripts.js"></script>
+  <script src="/assets/js/scripts.js"></script>
   <script>
     // dropdown
     $(document).click((e) => {
