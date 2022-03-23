@@ -61,18 +61,17 @@
   <h4 class="title__body__main">Unit: <span><?= $unit['nama_unit']; ?></span></h4>
 
   <!-- filter -->
-  <div class="filter__datainduk">
-    <div class="filter__datainduk-panel nav nav-pills" id="pills-tab" role="tablist">
-      <button class="btn filter__btn me-0 me-md-4 shadow-none active nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+  <div class="filter__table">
+    <div class="nav nav-pills" id="pills-tab" role="tablist">
+      <button class="btn filter__btn me-0 me-md-3 shadow-none active nav-link active" id="pills-datainduk-penelitian" data-bs-toggle="pill" data-bs-target="#pills-table-datainduk-penelitian" type="button" role="tab" aria-controls="pills-table-datainduk-penelitian" aria-selected="true">
         Penelitian
       </button>
-      <button class="btn filter__btn shadow-none nav-link ellipsis__text" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+      <button class="btn filter__btn shadow-none nav-link" id="pills-datainduk-pm" data-bs-toggle="pill" data-bs-target="#pills-table-datainduk-pm" type="button" role="tab" aria-controls="pills-table-datainduk-pm" aria-selected="false">
         Pengabdian Masyarakat
       </button>
     </div>
 
-    <!-- Belum dalam bentuk form -->
-    <div class="filter__datainduk-filter">
+    <form class="filter__table-year">
       <label for="year-filter" class="form-label">Tahun</label>
       <select class="form-select shadow-none" aria-label="year-filter" id="year-filter">
         <option selected disabled>Pilih Tahun</option>
@@ -81,18 +80,20 @@
         <option value="2021">2021</option>
         <option value="2022">2022</option>
       </select>
-      <button class="btn terapkan__btn shadow-none">Terapkan</button>
-    </div>
+      <button class="btn terapkan__btn shadow-none" type="submit">
+        Terapkan
+      </button>
+    </form>
   </div>
 
   <!-- =====data table induk =====-->
   <div class="tab-content" id="pills-tabContent">
     <!-- penelitian -->
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-      <div class="datainduk__table">
+    <div class="tab-pane fade show active" id="pills-table-datainduk-penelitian" role="tabpanel" aria-labelledby="pills-datainduk-penelitian">
+      <div class="sipmpp__table">
         <div class="table-responsive">
-          <table class="table table__datainduk table-hover">
-            <thead>
+          <table class="table table__datainduk__content sipmpp__table-content table-hover" id="datainduk-penelitian">
+            <thead class="bg__light">
               <tr>
                 <th class="table__datainduk-number">no</th>
                 <th class="table__datainduk-kode">kode</th>
@@ -125,7 +126,7 @@
                 </td>
                 <td>100</td>
                 <td>
-                  <a role="button" data-bs-toggle="modal" data-bs-placement="top" title="Edit" href="#staticBackdrop" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
+                  <a role="button" data-bs-toggle="modal" data-bs-placement="top" title="Edit" href="#staticBackdrop" class="edit__data__induk__icon" data-id="1" data-kode="KKK" data-kategori="uawawa" data-kebutuhan-data="Nope" data-nilai="1000"><i class="fa-solid fa-pen-to-square"></i></a>
                 </td>
               </tr>
             </tbody>
@@ -135,11 +136,11 @@
     </div>
 
     <!-- pengabdian masyarakat -->
-    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-      <div class="datainduk__table">
+    <div class="tab-pane fade" id="pills-table-datainduk-pm" role="tabpanel" aria-labelledby="pills-datainduk-pm">
+      <div class="sipmpp__table">
         <div class="table-responsive">
-          <table class="table table__datainduk table-hover">
-            <thead>
+          <table class="table table__datainduk__content sipmpp__table-content table-hover" id="datainduk-pm">
+            <thead class="bg__light">
               <tr>
                 <th class="table__datainduk-number">no</th>
                 <th class="table__datainduk-kode">kode</th>
@@ -188,7 +189,7 @@
 <?= $this->section('modal'); ?>
 
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-data-induk" aria-hidden="true">
+<div class="modal fade edit__datainduk__modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-data-induk" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content modal__content">
       <div class="modal-header modal__header">
@@ -200,29 +201,30 @@
         <!-- form -->
         <form class="modal__form">
           <div class="modal__form-content">
+            <!-- id input -->
+            <input type="hidden" id="id" />
             <label for="kode" class="form-label form__label">Kode</label>
-            <input type="text" class="form-control shadow-none form__control text-uppercase" id="kode" value="perpus" disabled />
+            <input type="text" class="form-control shadow-none form__control text-uppercase" id="kode" disabled required />
           </div>
           <div class="modal__form-content">
             <label for="kategori" class="form-label form__label">Kategori</label>
-            <input type="text" class="form-control shadow-none form__control" id="kategori" value="Kemahasiswaan" disabled />
+            <input type="text" class="form-control shadow-none form__control" id="kategori" disabled required />
           </div>
           <div class="modal__form-content">
             <label for="kebutuhan-data" class="form-label form__label">Kebutuhan Data</label>
-            <textarea id="kebutuhan-data" class="form-control shadow-none form__control" cols="30" rows="3" disabled>
-Target jumlah mahasiswa yang terlibat dalam penelitian dan pengabdian kepada masyarakat
-              </textarea>
+            <textarea id="kebutuhan-data" class="form-control shadow-none form__control" cols="30" rows="3" disabled required>
+                </textarea>
           </div>
           <div class="modal__form-content">
             <label for="nilai" class="form-label form__label">Nilai</label>
-            <input type="text" class="form-control shadow-none form__control" id="nilai" />
+            <input type="text" class="form-control shadow-none form__control" id="nilai" required />
           </div>
 
           <div class="modal__form-btn">
             <button type="button" class="btn cancel__btn" data-bs-dismiss="modal">
               Batal
             </button>
-            <button type="submit" class="btn small__btn">Kirim</button>
+            <button type="submit" class="btn modal__btn">Kirim</button>
           </div>
         </form>
       </div>
@@ -271,6 +273,27 @@ Target jumlah mahasiswa yang terlibat dalam penelitian dan pengabdian kepada mas
   );
   tooltipsEdit.forEach((t) => {
     new bootstrap.Tooltip(t);
+  });
+
+  // data trigger
+  $(document).ready(() => {
+    // get Edit Product
+    $(".edit__data__induk__icon").on("click", function() {
+      // get data from button edit
+      const id = $(this).data("id");
+      const kode = $(this).data("kode");
+      const kategori = $(this).data("kategori");
+      const kebutuhanData = $(this).data("kebutuhan-data");
+      const nilai = $(this).data("nilai");
+      // Set data to Form Edit
+      $("#id").val(id);
+      $("#kode").val(kode);
+      $("#kategori").val(kategori);
+      $("#kebutuhan-data").val(kebutuhanData);
+      $("#nilai").val(nilai);
+      // Call Modal Edit
+      $(".edit__datainduk__modal").modal("show");
+    });
   });
 </script>
 
