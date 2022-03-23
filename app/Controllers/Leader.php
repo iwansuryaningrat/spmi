@@ -34,6 +34,15 @@ class Leader extends BaseController
         $this->dataIndukModel = new DataIndukModel();
         $this->indikatorModel = new IndikatorModel();
         $this->standarModel = new StandarModel();
+        $this->data_user = [
+            'nama' => session()->get('nama'),
+            'role' => session()->get('role'),
+            'email' => session()->get('email'),
+            'username' => session()->get('username'),
+            'id_user' => session()->get('id_user'),
+            'foto' => session()->get('foto'),
+        ];
+        $this->unitData = $this->transaksiModel->getTransaksiUserJoin($this->data_user['id_user']);
     }
 
     public function index()
