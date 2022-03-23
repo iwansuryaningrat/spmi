@@ -82,7 +82,7 @@
               <td><?= $indikator['nama_indikator'] ?></td>
               <td><?= $indikator['target'] ?></td>
               <td>
-                <a data-bs-placement="top" title="Edit" href="form-indikator-spmi.html" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
+                <a data-bs-placement="top" title="Edit" href="/home/indikatorform/<?= $indikator['indikator_id'] ?>" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
               </td>
             </tr>
           <?php $i++;

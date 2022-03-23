@@ -251,7 +251,7 @@ class Home extends BaseController
     // FORM METHOD // 
 
     // Indikator Form Method
-    public function indikatorForm()
+    public function indikatorForm($indikator_id)
     {
         return view('user/indikatorform');
     }
@@ -325,5 +325,26 @@ class Home extends BaseController
         $this->dataIndukModel->update($id, $induk);
 
         return redirect()->to('/home/datainduk/' . $unit_id . '/' . $tahun);
+    }
+
+    // Save Indikator
+    public function saveIndikator($unit_id, $tahun)
+    {
+        $indikator = $this->request->getVar('indikator');
+        $indikator_id = $this->request->getVar('indikator_id');
+        $indikator_id = (int)$indikator_id;
+        $tahun = (int)$tahun;
+        $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+        $tahun_id = (int)$tahun_id;
+
+        $indikator['indikator'] = $indikator;
+        $indikator['indikator_id'] = $indikator_id;
+        $indikator['tahun_id'] = $tahun_id;
+        $indikator['unit_id'] = $unit_id;
+
+        // Update Data
+        $this->indikatorModel->update($indikator_id, $indikator);
+
+        return redirect()->to('/home/standar/' . $unit_id . '/' . $tahun);
     }
 }
