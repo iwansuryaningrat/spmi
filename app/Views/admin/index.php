@@ -27,7 +27,7 @@
       <div>
         <!-- brand -->
         <div class="sidebar__content-brand">
-          <a href="admin-dashboard.html" class="d-flex align-items-center">
+          <a href="/admin" class="d-flex align-items-center">
             <img src="/admin/assets/img/undip-logo-color.png" alt="logo-undip" />
             <h4>SIPMPP UNDIP</h4>
           </a>
@@ -37,7 +37,7 @@
         <div class="sidebar__content-nav">
           <ul class="sidebar-nav__list">
             <li>
-              <a href="admin-dashboard.html" class="nav__list__link active">
+              <a href="/admin" class="nav__list__link active">
                 <i class="fa-solid fa-house"></i>
                 <span>Dashboard</span>
               </a>
@@ -56,37 +56,37 @@
               <div class="collapse collapse__dropside" id="user-collapse">
                 <ul class="sidebar-nav__list-collapse">
                   <li>
-                    <a href="admin-base-user.html" class="nav__list__link-collapse ellipsis__text">Base User</a>
+                    <a href="/admin/users" class="nav__list__link-collapse ellipsis__text">Base User</a>
                   </li>
                   <li>
-                    <a href="admin-auditor.html" class="nav__list__link-collapse ellipsis__text">Auditor</a>
+                    <a href="/admin/user-auditor" class="nav__list__link-collapse ellipsis__text">Auditor</a>
                   </li>
                   <li>
-                    <a href="admin-leader.html" class="nav__list__link-collapse ellipsis__text">Leader</a>
+                    <a href="/admin/user-leader" class="nav__list__link-collapse ellipsis__text">Leader</a>
                   </li>
                 </ul>
               </div>
             </li>
             <li>
-              <a href="admin-unit.html" class="nav__list__link">
+              <a href="/admin/units" class="nav__list__link">
                 <i class="fa-solid fa-building-columns"></i>
                 <span>Unit</span>
               </a>
             </li>
             <li>
-              <a href="admin-data-induk.html" class="nav__list__link">
+              <a href="/admin/dataInduk" class="nav__list__link">
                 <i class="fa-solid fa-book"></i>
                 <span>Data Induk</span>
               </a>
             </li>
             <li>
-              <a href="admin-standar.html" class="nav__list__link">
+              <a href="/admin/standar" class="nav__list__link">
                 <i class="fa-solid fa-chart-pie"></i>
                 <span>Standar</span>
               </a>
             </li>
             <li>
-              <a href="admin-report.html" class="nav__list__link">
+              <a href="/admin/report" class="nav__list__link">
                 <i class="fa-solid fa-print"></i>
                 <span>Report</span>
               </a>
@@ -148,7 +148,7 @@
         <div class="header__main-nav-dropdown" id="header-main-nav-dropdown">
           <p class="nav-dropdown__title">Pengaturan Profil</p>
           <p class="d-flex align-items-center">
-            <a href="admin-profile.html" class="d-block">Lihat Profil</a>
+            <a href="/admin/profile" class="d-block">Lihat Profil</a>
           </p>
           <hr />
           <p class="d-flex align-items-center">
@@ -166,7 +166,7 @@
             <p>Halo <span>Adi</span>, selamat datang kembali!</p>
           </div>
           <div class="title__subtitle-btn">
-            <a href="admin-report.html" class="report__link big__btn btn__dark">
+            <a href="/admin/report" class="report__link big__btn btn__dark">
               <img src="/admin/assets/img/icon/report-icon.svg" alt="icon-report" />
               <span>Report</span>
             </a>
@@ -175,40 +175,7 @@
       </div>
 
       <!-- body main -->
-      <!-- rekap content -->
       <div class="recap__content">
-        <!-- left -->
-        <div class="recap__content-link">
-          <div class="recap__link-card">
-            <div class="recap__link-card__body">
-              <img src="/admin/assets/img/penelitian-logo.svg" alt="penelitian-logo" />
-              <h5 class="card__title mb-0 ellipsis__text">Penelitian</h5>
-            </div>
-            <div class="recap__link-card__footer">
-              <a href="#">
-                <span class="ellipsis__text">Selengkapnya</span>
-                <i class="bi bi-arrow-right-circle d-flex"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="recap__link-card">
-            <div class="recap__link-card__body">
-              <img src="/admin/assets/img/pengabdian-masyarakat-logo.svg" alt="penelitian-logo" />
-              <h5 class="card__title mb-0 ellipsis__text">
-                Pengabdian Masyarakat
-              </h5>
-            </div>
-            <div class="recap__link-card__footer">
-              <a href="#">
-                <span class="ellipsis__text">Selengkapnya</span>
-                <i class="bi bi-arrow-right-circle d-flex"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- right -->
         <!-- table unit -->
         <div class="recap__content-unit">
           <div class="sipmpp__table radius__lg">
@@ -219,67 +186,72 @@
                   <tr>
                     <th class="table__unit__head__number">no</th>
                     <th class="table__unit__head__unit">unit</th>
-                    <th class="table__unit__head__progress">progress</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>1</td>
                     <td><a href="#" class="unit__link">S1 Informatika</a></td>
-                    <td>
-                      <div class="progress table__unit__progress">
-                        <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%" data-bs-toggle="tooltip" data-bs-placement="top" title="60%"></div>
-                      </div>
-                    </td>
                   </tr>
                   <tr>
                     <td>2</td>
                     <td><a href="#" class="unit__link">S1 Matematika</a></td>
-                    <td>
-                      <div class="progress table__unit__progress">
-                        <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%" data-bs-toggle="tooltip" data-bs-placement="top" title="90%"></div>
-                      </div>
-                    </td>
                   </tr>
                   <tr>
                     <td>3</td>
                     <td><a href="#" class="unit__link">S1 Statistika</a></td>
-                    <td>
-                      <div class="progress table__unit__progress">
-                        <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%" data-bs-toggle="tooltip" data-bs-placement="top" title="75%"></div>
-                      </div>
-                    </td>
                   </tr>
                   <tr>
                     <td>4</td>
                     <td>
                       <a href="#" class="unit__link">S1 Teknik Lingkungan</a>
                     </td>
-                    <td>
-                      <div class="progress table__unit__progress">
-                        <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%" data-bs-toggle="tooltip" data-bs-placement="top" title="30%"></div>
-                      </div>
-                    </td>
                   </tr>
                   <tr>
                     <td>5</td>
                     <td><a href="#" class="unit__link">S1 Kedokteran</a></td>
-                    <td>
-                      <div class="progress table__unit__progress">
-                        <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%" data-bs-toggle="tooltip" data-bs-placement="top" title="45%"></div>
-                      </div>
-                    </td>
                   </tr>
                   <tr>
                     <td>6</td>
                     <td>
                       <a href="#" class="unit__link">S1 Kesehatan Masyarakat</a>
                     </td>
-                    <td>
-                      <div class="progress table__unit__progress">
-                        <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%" data-bs-toggle="tooltip" data-bs-placement="top" title="100%"></div>
-                      </div>
-                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- table unit -->
+        <div class="recap__content-unit">
+          <div class="sipmpp__table radius__lg">
+            <h5 class="card__title mb-0">Daftar Kategori</h5>
+            <div class="table__unit table-responsive">
+              <table class="table table__kategori__content sipmpp__table-content table-hover">
+                <thead class="bg__light">
+                  <tr>
+                    <th class="table__kategori-number">no</th>
+                    <th class="table__kategori-nama">nama</th>
+                    <th class="table__kategori-datainduk">Jumlah Data Induk</th>
+                    <th class="table__kategori-standar">Jumlah Standar</th>
+                    <th class="table__kategori-indikator">Jumlah Indikator</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Penelitian</td>
+                    <td>20</td>
+                    <td>15</td>
+                    <td>30</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Pengabdian Masyarakat</td>
+                    <td>18</td>
+                    <td>12</td>
+                    <td>24</td>
                   </tr>
                 </tbody>
               </table>

@@ -131,4 +131,10 @@ class Admin extends BaseController
     {
         return view('admin/user-auditor');
     }
+
+    // Report Method
+    public function report()
+    {
+        return view('admin/report');
+    }
 }
