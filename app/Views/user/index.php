@@ -5,7 +5,6 @@
 <div class="container-fluid container__fluid">
   <div class="header__main-nav">
     <div class="header__main-nav-btn">
-      <!-- <i class="fi-br-menu-burger" id="header-main-nav-btn-i"></i> -->
       <div id="header-main-nav-btn-i" class="line__humberger">
         <span class="line__menu line-1" id="line1"></span>
         <span class="line__menu line-2" id="line2"></span>
@@ -32,7 +31,7 @@
     <div class="header__main-nav-dropdown" id="header-main-nav-dropdown">
       <p class="nav-dropdown__title">Pengaturan Profil</p>
       <p class="d-flex align-items-center">
-        <a href="profil.html" class="d-block">Lihat Profil</a>
+        <a href="/home/profile" class="d-block">Lihat Profil</a>
       </p>
       <hr />
       <p class="d-flex align-items-center">
@@ -50,7 +49,7 @@
         <p>Halo <span><?= $data_user['nama']; ?></span>, selamat datang kembali!</p>
       </div>
       <div class="title__subtitle-btn">
-        <a href="report.html" class="report__link big__btn">
+        <a href="/home/report" class="report__link big__btn">
           <img src="/assets/img/icon/report-icon.svg" alt="icon-report" />
           <span>Report</span>
         </a>
