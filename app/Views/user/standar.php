@@ -86,12 +86,13 @@
       <label for="year-filter" class="form-label">Tahun</label>
       <select class="form-select shadow-none" aria-label="year-filter" id="year-filter">
         <option selected disabled>Pilih Tahun</option>
-        <option value="2019">2019</option>
-        <option value="2020">2020</option>
-        <option value="2021">2021</option>
-        <option value="2022">2022</option>
+        <?php foreach ($dataTahun as $year) : ?>
+          <option value="<?= $year['tahun_id']; ?>" <?php if ($tahun == $year['tahun']) echo 'selected' ?>><?= $year['tahun']; ?></option>
+        <?php endforeach; ?>
       </select>
-      <button class="btn terapkan__btn shadow-none">Terapkan</button>
+      <button class="btn terapkan__btn shadow-none" type="submit">
+        Terapkan
+      </button>
     </form>
   </div>
 

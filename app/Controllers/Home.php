@@ -69,6 +69,8 @@ class Home extends BaseController
     {
         $tahun = $this->request->getVar('tahun');
 
+        $data_tahun = $this->tahunModel->findAll();
+
         // getting path
         $path = $this->request->getPath();
         $path = base_url($path);
@@ -99,6 +101,7 @@ class Home extends BaseController
             'header' => 'header__mini',
             'css' => 'styles-data-induk.css',
             'tahun' => $tahun,
+            'dataTahun' => $data_tahun,
             'data_induk' => $this->dataIndukModel->getDataIndukJoin($unit_id, $tahun_id),
         ];
 
@@ -109,6 +112,9 @@ class Home extends BaseController
     public function standar($unit_id)
     {
         $tahun = $this->request->getVar('tahun');
+
+        $data_tahun = $this->tahunModel->findAll();
+
         // getting path
         $path = $this->request->getPath();
         $path = base_url($path);
@@ -139,6 +145,7 @@ class Home extends BaseController
             'header' => 'header__mini',
             'css' => 'styles-standar.css',
             'tahun' => $tahun,
+            'dataTahun' => $data_tahun,
             'standar' => $this->standarModel->getStandarUnitTahun($unit_id, $tahun_id),
         ];
 
