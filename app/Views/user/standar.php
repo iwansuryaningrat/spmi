@@ -124,7 +124,7 @@
                   <td><?= $penelitian['status']; ?></td>
                   <td><?= $penelitian['nilai']; ?></td>
                   <td>
-                    <a data-bs-placement="top" title="Edit" href="indikator-spmi.html" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a data-bs-placement="top" title="Edit" href="/home/indikator/<?= $unit_id . '/' . $penelitian['standar_id'] . '/' . $tahun ?>" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
                   </td>
                 </tr>
               <?php $i++;
@@ -161,7 +161,7 @@
                   <td><?= $pengabdian['status']; ?></td>
                   <td><?= $pengabdian['nilai']; ?></td>
                   <td>
-                    <a data-bs-placement="top" title="Edit" href="indikator-spmi.html" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a data-bs-placement="top" title="Edit" href="/home/indikator/<?= $unit_id . '/' . $penelitian['standar_id'] . '/' . $tahun ?>" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
                   </td>
                 </tr>
               <?php $i++;

@@ -189,36 +189,37 @@ class Home extends BaseController
         return view('user/standar', $data);
     }
 
-    // Indikator Method
-    public function indikator($unit_id)
+    // Indikator Method (Done)
+    public function indikator($unit_id, $standar_id, $tahun)
     {
-        $tahun = $this->request->getVar('tahun');
         $data_user = $this->data_user;
 
         $unitData = $this->unitData;
 
         $unit = $this->unitsModel->getUnitId($unit_id);
 
-        if ($tahun == null) {
-            $tahun = (int)date('Y');
-            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
-            $tahun_id = (int)$tahun_id;
-        } else {
-            $tahun = (int)$tahun;
-            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
-            $tahun_id = (int)$tahun_id;
-        }
+        $tahun = (int)$tahun;
+        $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+        $tahun_id = (int)$tahun_id;
+
+        $standar = $this->standarModel->getStandarId($standar_id);
+
+        $i = 1;
+
 
         $data = [
             'title' => 'Indikator | SIPMPP UNDIP 2022',
             'data_user' => $data_user,
             'unitData' => $unitData,
             'unit' => $unit,
-            'tab' => 'indikator',
-            'header' => 'header__mini',
+            'unit_id' => $unit_id,
+            'tab' => 'standar',
+            'standar' => $standar,
+            'i' => $i,
+            'header' => 'header__mini header__indikator',
             'css' => 'styles-indikator.css',
             'tahun' => $tahun,
-            'indikator' => $this->indikatorModel->getIndikatorUnitTahun($unit_id, $tahun_id),
+            'indikator' => $this->indikatorModel->getIndikatorStandarInduk($standar_id),
         ];
 
         // dd($data);
