@@ -291,13 +291,13 @@ class Home extends BaseController
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <strong>Peringatan!</strong> Semua standar belum diisi.
             </div>');
-            return redirect()->to(base_url('home/standar/' . $unit_id));
+            return redirect()->to(base_url('home/standar/' . $unit_id . '/' . $tahun));
         } else {
             $this->session->setFlashdata('message', '<div class="alert alert-success" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <strong>Berhasil!</strong> Penilaian telah dikirim.
             </div>');
-            return redirect()->to(base_url('home/standar/' . $unit_id));
+            return redirect()->to(base_url('home/standar/' . $unit_id . '/' . $tahun));
         }
     }
 
