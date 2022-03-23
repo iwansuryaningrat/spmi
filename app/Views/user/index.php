@@ -16,11 +16,11 @@
         <img src="/profile/<?= $data_user['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
       </div>
       <div class="nav-profile__desc">
-        <p id="profileName"><?php if ($data_user['nama'] != null && $data_user['nama'] != "") {
-                              echo $data_user['nama'];
-                            } else {
-                              echo $data_user['username'];
-                            } ?></p>
+        <p id="profileName" class="ellipsis__text"><?php if ($data_user['nama'] != null && $data_user['nama'] != "") {
+                                                      echo $data_user['nama'];
+                                                    } else {
+                                                      echo $data_user['username'];
+                                                    } ?></p>
         <p id="profileEmail" class="ellipsis__text"><?= $data_user['email']; ?></p>
       </div>
       <div class="nav-profile__btn">
@@ -137,12 +137,13 @@
     </div>
 
     <!-- right -->
+    <!-- table unit -->
     <div class="recap__content-unit">
-      <div class="recap__table">
+      <div class="sipmpp__table radius__lg">
         <h5 class="card__title mb-0">Daftar Unit</h5>
         <div class="table__unit table-responsive">
-          <table class="table table__unit__content table-hover">
-            <thead>
+          <table class="table table__unit__content sipmpp__table-content table-hover">
+            <thead class="bg__light">
               <tr>
                 <th class="table__unit__head__number">no</th>
                 <th class="table__unit__head__unit">unit</th>
@@ -150,6 +151,7 @@
               </tr>
             </thead>
             <tbody>
+
               <?php foreach ($unitData as $units) : ?>
                 <tr>
                   <td><?= $i; ?></td>
@@ -162,6 +164,7 @@
                 </tr>
               <?php $i++;
               endforeach; ?>
+
             </tbody>
           </table>
         </div>

@@ -57,6 +57,7 @@ class Home extends BaseController
             'unitData' => $unitData,
             'i' => $i,
             'tab' => 'home',
+            'header' => 'header__big',
             'css' => 'styles-dashboard.css'
         ];
 
@@ -95,6 +96,7 @@ class Home extends BaseController
             'unit' => $unit,
             'path' => $path,
             'tab' => 'datainduk',
+            'header' => 'header__mini',
             'css' => 'styles-data-induk.css',
             'tahun' => $tahun,
             'data_induk' => $this->dataIndukModel->getDataIndukJoin($unit_id, $tahun_id),
@@ -134,6 +136,7 @@ class Home extends BaseController
             'unit' => $unit,
             'path' => $path,
             'tab' => 'standar',
+            'header' => 'header__mini',
             'css' => 'styles-standar.css',
             'tahun' => $tahun,
             'standar' => $this->standarModel->getStandarUnitTahun($unit_id, $tahun_id),

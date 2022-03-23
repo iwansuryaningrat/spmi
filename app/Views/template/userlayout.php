@@ -15,9 +15,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/fontawesome.css" integrity="sha384-RLM8Rxp/DcBfCfSI3bGwwoMMxxy34D2e58WAqXmmdnh0WYlAQ8jeOB3A1ed5KUSm" crossorigin="anonymous" />
     <!-- uicons icon -->
     <link rel="stylesheet" href="/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
-    <!-- custom -->
-    <link rel="stylesheet" href="/assets/css/styles.css" />
-    <link rel="stylesheet" href="/assets/css/styles-dashboard.css" />
+
     <!-- Custom Page Style -->
     <link rel="stylesheet" href="/assets/css/<?= $css; ?>" />
 </head>
@@ -124,9 +122,7 @@
     <!-- main -->
     <div class="main__content" id="main-content">
         <!-- header main -->
-        <div class="header__main-color <?php if ('tab' != 'home') : echo ' header__mini';
-                                        else : echo ' header__big';
-                                        endif; ?>"></div>
+        <div class="header__main-color <?= $header; ?>"></div>
 
         <?= $this->renderSection('user'); ?>
 
