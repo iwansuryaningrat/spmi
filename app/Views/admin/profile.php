@@ -8,11 +8,14 @@
   <title>Profil | SIPMPP Admin UNDIP</title>
 
   <!-- bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
   <!-- fontawesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/solid.css" integrity="sha384-ltWlpN+Dl8XfKEnC9oW+dDRF8Z7jsYkxQ/WMRoJ2VHH5G2nQZ4if2NWwmV0ybzZ7" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/fontawesome.css" integrity="sha384-RLM8Rxp/DcBfCfSI3bGwwoMMxxy34D2e58WAqXmmdnh0WYlAQ8jeOB3A1ed5KUSm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/solid.css"
+    integrity="sha384-ltWlpN+Dl8XfKEnC9oW+dDRF8Z7jsYkxQ/WMRoJ2VHH5G2nQZ4if2NWwmV0ybzZ7" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/fontawesome.css"
+    integrity="sha384-RLM8Rxp/DcBfCfSI3bGwwoMMxxy34D2e58WAqXmmdnh0WYlAQ8jeOB3A1ed5KUSm" crossorigin="anonymous" />
   <!-- uicons icon -->
   <link rel="stylesheet" href="/admin/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
   <!-- custom -->
@@ -27,7 +30,7 @@
       <div>
         <!-- brand -->
         <div class="sidebar__content-brand">
-          <a href="/admin" class="d-flex align-items-center">
+          <a href="/admin/index" class="d-flex align-items-center">
             <img src="/admin/assets/img/undip-logo-color.png" alt="logo-undip" />
             <h4>SIPMPP UNDIP</h4>
           </a>
@@ -37,14 +40,15 @@
         <div class="sidebar__content-nav">
           <ul class="sidebar-nav__list">
             <li>
-              <a href="/admin" class="nav__list__link">
+              <a href="/admin/index" class="nav__list__link">
                 <i class="fa-solid fa-house"></i>
                 <span>Dashboard</span>
               </a>
             </li>
 
             <li>
-              <a class="nav__list__link-dropdown" data-bs-toggle="collapse" href="#user-collapse" role="button" aria-expanded="false" aria-controls="user-collapse">
+              <a class="nav__list__link-dropdown" data-bs-toggle="collapse" href="#user-collapse" role="button"
+                aria-expanded="false" aria-controls="user-collapse">
                 <div class="link-dropdown__sidebar">
                   <i class="fa-solid fa-id-card-clip"></i>
                   <span>User</span>
@@ -185,19 +189,23 @@
             </div>
             <div class="mb-3">
               <label for="full-name" class="form-label form__label">Nama Lengkap</label>
-              <input type="text" class="form-control form__control shadow-none" id="full-name" value="Adi Wibowo" required />
+              <input type="text" class="form-control form__control shadow-none" id="full-name" value="Adi Wibowo"
+                required />
             </div>
             <div class="mb-3">
               <label for="username" class="form-label form__label">Username</label>
-              <input type="text" class="form-control form__control shadow-none" id="username" value="bowo.informatika" required />
+              <input type="text" class="form-control form__control shadow-none" id="username" value="bowo.informatika"
+                required />
             </div>
             <div class="mb-3">
               <label for="email" class="form-label form__label">Email</label>
-              <input type="text" class="form-control form__control shadow-none" id="email" disabled value="adiwibowo@lecturer.undip.ac.id" required />
+              <input type="text" class="form-control form__control shadow-none" id="email" disabled
+                value="adiwibowo@lecturer.undip.ac.id" required />
             </div>
             <div class="mb-3">
               <label for="nip" class="form-label form__label">NIP</label>
-              <input type="text" class="form-control form__control shadow-none" id="nip" value="198203092006041002" required />
+              <input type="text" class="form-control form__control shadow-none" id="nip" value="198203092006041002"
+                required />
             </div>
             <button type="submit" class="btn btn-primary">
               Simpan Perubahan
@@ -217,14 +225,16 @@
               </div>
               <div class="mb-3">
                 <label for="new-password" class="form-label form__label">Password Baru</label>
-                <input type="password" class="form-control form__control shadow-none" id="new-password" aria-labelledby="new-password-notice" required />
+                <input type="password" class="form-control form__control shadow-none" id="new-password"
+                  aria-labelledby="new-password-notice" required />
                 <div id="new-password-notice" class="form-text form__text">
                   Gunakan minimal 8 karakter dengan kombinasi huruf dan angka.
                 </div>
               </div>
               <div class="mb-3">
                 <label for="new-password-confirm" class="form-label form__label">Konfirmasi Password Baru</label>
-                <input type="password" class="form-control form__control shadow-none" id="new-password-confirm" required />
+                <input type="password" class="form-control form__control shadow-none" id="new-password-confirm"
+                  required />
               </div>
               <button type="submit" class="btn btn-primary">
                 Ubah Password
@@ -251,12 +261,20 @@
 
   <!-- scripts -->
   <!-- jquery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+  </script>
   <!-- fontawesome -->
-  <script defer src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" integrity="sha384-vLLEq/Un/eZFmXAu4Xxf8F00RSSMzPcI7iDiT6hpB4zFpezCEGhb5daeR8PLyrLI" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
+    integrity="sha384-vLLEq/Un/eZFmXAu4Xxf8F00RSSMzPcI7iDiT6hpB4zFpezCEGhb5daeR8PLyrLI" crossorigin="anonymous">
+  </script>
   <!-- custom -->
   <script src="/admin/assets/js/scripts-admin.js"></script>
   <script>

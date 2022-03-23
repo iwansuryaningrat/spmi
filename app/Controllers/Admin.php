@@ -13,7 +13,6 @@ use App\Models\DataIndukModel;
 use App\Models\IndikatorModel;
 use App\Models\StandarModel;
 
-
 class Admin extends BaseController
 {
     protected $unitsModel;
@@ -142,5 +141,11 @@ class Admin extends BaseController
     public function addUser()
     {
         return view('admin/add-user');
+    }
+
+    //Add Unit Method
+    public function addUnit()
+    {
+        return view('admin/add-units');
     }
 }

@@ -116,7 +116,8 @@ button,
   color: rgba(0, 0, 0, 0.8);
 }
 
-.form-control.form__control {
+.form-control.form__control,
+.form-select.form__select {
   font-size: 0.875rem;
 
   padding: 0.875rem 1.25rem;
@@ -901,6 +902,31 @@ footer .container-fluid.container__fluid {
 /* ========== Radius ========== */
 .radius__lg {
   border-radius: var(--radius-lg);
+}
+
+/* ========== title admin some page ========== */
+
+.title__body__user {
+  font-weight: 600;
+}
+
+.title__table__add {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.65rem;
+  margin-bottom: 2rem;
+}
+
+.btn__add {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn__add svg {
+  margin-right: 0.625rem;
+  font-size: 0.875rem;
 }
 
 /******************************************/

@@ -1,11 +1,4 @@
 @import url(styles-admin.css);
-
-.title__body__user {
-  margin-bottom: 2rem;
-  font-weight: 600;
-  margin-top: 2.65rem;
-}
-
 /* table */
 .table__unit__content tbody tr:hover {
   background-color: rgba(38, 48, 77, 0.1) !important;
@@ -14,7 +7,9 @@
 .table__unit__content tr th:first-child,
 .table__unit__content tr td:first-child,
 .table__unit__content tr th:last-child,
-.table__unit__content tr td:last-child {
+.table__unit__content tr td:last-child,
+.table__unit__content tr th:nth-child(3),
+.table__unit__content tr td:nth-child(3) {
   text-align: center;
 }
 
@@ -27,4 +22,17 @@
 .table__unit__content tbody tr:last-child {
   border-bottom: none;
   border-bottom-style: hidden;
+}
+
+.table__unit-number,
+.table__unit-tahun {
+  width: 10%;
+}
+
+.table__unit-kategori {
+  width: 30%;
+}
+
+.table__unit-namaunit {
+  width: 50%;
 }

@@ -1,28 +1,4 @@
 @import url(styles-admin.css);
-
-.title__body__user {
-  font-weight: 600;
-}
-
-.title__table__add {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2.65rem;
-  margin-bottom: 2rem;
-}
-
-.btn__add {
-  display: flex;
-  align-items: center;
-  padding: 0.75rem 1.25rem;
-  border-radius: var(--radius-sm);
-}
-
-.btn__add svg {
-  margin-right: 0.625rem;
-  font-size: 0.875rem;
-}
-
 /* table */
 .table__user__content tbody tr:hover {
   background-color: rgba(38, 48, 77, 0.1) !important;

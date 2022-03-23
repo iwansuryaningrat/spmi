@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Base User | SIPMPP Admin UNDIP</title>
+  <title>Form Add User | SIPMPP Admin UNDIP</title>
 
   <!-- bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -30,7 +30,7 @@
       <div>
         <!-- brand -->
         <div class="sidebar__content-brand">
-          <a href="/admin" class="d-flex align-items-center">
+          <a href="/admin/index" class="d-flex align-items-center">
             <img src="/admin/assets/img/undip-logo-color.png" alt="logo-undip" />
             <h4>SIPMPP UNDIP</h4>
           </a>
@@ -40,7 +40,7 @@
         <div class="sidebar__content-nav">
           <ul class="sidebar-nav__list">
             <li>
-              <a href="/admin" class="nav__list__link">
+              <a href="/admin/index" class="nav__list__link">
                 <i class="fa-solid fa-house"></i>
                 <span>Dashboard</span>
               </a>
@@ -164,7 +164,7 @@
 
       <div class="header__main-title">
         <div class="header__main-title__pagination">
-          <a href="/admin">Dashboard</a>
+          <a href="/admin/index">Dashboard</a>
           / <a href="/admin/user">Base User</a> / Form Add User
         </div>
         <div class="header__main-title__subtitle">
@@ -205,7 +205,7 @@
           <!-- role -->
           <div class="mb-3">
             <label for="role" class="form-label form__label">Role</label>
-            <select class="form-control form__control" id="role">
+            <select class="form-select form__select" id="role">
               <option selected disabled>Pilih Role User</option>
               <option>Admin</option>
               <option>Auditor</option>

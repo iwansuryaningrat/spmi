@@ -8,11 +8,14 @@
   <title>Auditor | SIPMPP Admin UNDIP</title>
 
   <!-- bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
   <!-- fontawesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/solid.css" integrity="sha384-ltWlpN+Dl8XfKEnC9oW+dDRF8Z7jsYkxQ/WMRoJ2VHH5G2nQZ4if2NWwmV0ybzZ7" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/fontawesome.css" integrity="sha384-RLM8Rxp/DcBfCfSI3bGwwoMMxxy34D2e58WAqXmmdnh0WYlAQ8jeOB3A1ed5KUSm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/solid.css"
+    integrity="sha384-ltWlpN+Dl8XfKEnC9oW+dDRF8Z7jsYkxQ/WMRoJ2VHH5G2nQZ4if2NWwmV0ybzZ7" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/fontawesome.css"
+    integrity="sha384-RLM8Rxp/DcBfCfSI3bGwwoMMxxy34D2e58WAqXmmdnh0WYlAQ8jeOB3A1ed5KUSm" crossorigin="anonymous" />
   <!-- uicons icon -->
   <link rel="stylesheet" href="/admin/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
   <!-- custom -->
@@ -27,7 +30,7 @@
       <div>
         <!-- brand -->
         <div class="sidebar__content-brand">
-          <a href="admin-dashboard.html" class="d-flex align-items-center">
+          <a href="/admin/index" class="d-flex align-items-center">
             <img src="/admin/assets/img/undip-logo-color.png" alt="logo-undip" />
             <h4>SIPMPP UNDIP</h4>
           </a>
@@ -37,14 +40,15 @@
         <div class="sidebar__content-nav">
           <ul class="sidebar-nav__list">
             <li>
-              <a href="admin-dashboard.html" class="nav__list__link">
+              <a href="/admin/index" class="nav__list__link">
                 <i class="fa-solid fa-house"></i>
                 <span>Dashboard</span>
               </a>
             </li>
 
             <li>
-              <a class="nav__list__link-dropdown active" data-bs-toggle="collapse" href="#user-collapse" role="button" aria-expanded="false" aria-controls="user-collapse">
+              <a class="nav__list__link-dropdown active" data-bs-toggle="collapse" href="#user-collapse" role="button"
+                aria-expanded="false" aria-controls="user-collapse">
                 <div class="link-dropdown__sidebar">
                   <i class="fa-solid fa-id-card-clip"></i>
                   <span>User</span>
@@ -56,43 +60,43 @@
               <div class="collapse collapse__dropside" id="user-collapse">
                 <ul class="sidebar-nav__list-collapse">
                   <li>
-                    <a href="admin-base-user.html" class="nav__list__link-collapse ellipsis__text">Base User</a>
+                    <a href="/admin/user" class="nav__list__link-collapse ellipsis__text">Base User</a>
                   </li>
                   <li>
-                    <a href="admin-auditor.html" class="nav__list__link-collapse ellipsis__text">Auditor</a>
+                    <a href="/admin/auditor" class="nav__list__link-collapse ellipsis__text">Auditor</a>
                   </li>
                   <li>
-                    <a href="admin-leader.html" class="nav__list__link-collapse ellipsis__text">Leader</a>
+                    <a href="/admin/leader" class="nav__list__link-collapse ellipsis__text">Leader</a>
                   </li>
                 </ul>
               </div>
             </li>
             <li>
-              <a href="admin-unit.html" class="nav__list__link">
+              <a href="/admin/units" class="nav__list__link">
                 <i class="fa-solid fa-building-columns"></i>
                 <span>Unit</span>
               </a>
             </li>
             <li>
-              <a href="admin-data-induk.html" class="nav__list__link">
+              <a href="/admin/dataInduk" class="nav__list__link">
                 <i class="fa-solid fa-book"></i>
                 <span>Data Induk</span>
               </a>
             </li>
             <li>
-              <a href="admin-standar.html" class="nav__list__link">
+              <a href="/admin/standar" class="nav__list__link">
                 <i class="fa-solid fa-chart-pie"></i>
                 <span>Standar</span>
               </a>
             </li>
             <li>
-              <a href="admin-report.html" class="nav__list__link">
+              <a href="/admin/report" class="nav__list__link">
                 <i class="fa-solid fa-print"></i>
                 <span>Report</span>
               </a>
             </li>
             <li>
-              <a href="#" class="nav__list__link">
+              <a href="/logout" class="nav__list__link">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 <span>Log Out</span>
               </a>
@@ -148,19 +152,19 @@
         <div class="header__main-nav-dropdown" id="header-main-nav-dropdown">
           <p class="nav-dropdown__title">Pengaturan Profil</p>
           <p class="d-flex align-items-center">
-            <a href="admin-profile.html" class="d-block">Lihat Profil</a>
+            <a href="/admin/profile" class="d-block">Lihat Profil</a>
           </p>
           <hr />
           <p class="d-flex align-items-center">
             <i class="fa-solid fa-arrow-right-from-bracket d-flex"></i>
-            <a href="#" class="d-block">Log out</a>
+            <a href="/logout" class="d-block">Log out</a>
           </p>
         </div>
       </div>
 
       <div class="header__main-title">
         <div class="header__main-title__pagination">
-          <a href="admin-dashboard.html">Dashboard</a>
+          <a href="/admin/index">Dashboard</a>
           / Auditor
         </div>
         <div class="header__main-title__subtitle">
@@ -172,7 +176,13 @@
       </div>
 
       <!--========== body main ==========-->
-      <h4 class="title__body__user">Daftar Auditor</h4>
+      <div class="title__table__add">
+        <h4 class="title__body__user">Daftar Auditor</h4>
+        <a href="/admin/addUser" class="btn shadow-none btn__add btn__dark">
+          <i class="fa-solid fa-plus"></i>
+          Add User
+        </a>
+      </div>
 
       <!-- table indikator -->
       <div class="sipmpp__table">
@@ -224,12 +234,20 @@
 
   <!-- scripts -->
   <!-- jquery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+  </script>
   <!-- fontawesome -->
-  <script defer src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" integrity="sha384-vLLEq/Un/eZFmXAu4Xxf8F00RSSMzPcI7iDiT6hpB4zFpezCEGhb5daeR8PLyrLI" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
+    integrity="sha384-vLLEq/Un/eZFmXAu4Xxf8F00RSSMzPcI7iDiT6hpB4zFpezCEGhb5daeR8PLyrLI" crossorigin="anonymous">
+  </script>
   <!-- custom -->
   <script src="/admin/assets/js/scripts-admin.js"></script>
   <script>
