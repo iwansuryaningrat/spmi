@@ -82,7 +82,7 @@
       </button>
     </div>
 
-    <form class="filter__table-year">
+    <form class="filter__table-year" method="POST" action="">
       <label for="year-filter" class="form-label">Tahun</label>
       <select class="form-select shadow-none" aria-label="year-filter" id="year-filter">
         <option selected disabled>Pilih Tahun</option>
