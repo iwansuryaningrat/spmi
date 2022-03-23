@@ -13,7 +13,7 @@
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/solid.css" integrity="sha384-ltWlpN+Dl8XfKEnC9oW+dDRF8Z7jsYkxQ/WMRoJ2VHH5G2nQZ4if2NWwmV0ybzZ7" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/fontawesome.css" integrity="sha384-RLM8Rxp/DcBfCfSI3bGwwoMMxxy34D2e58WAqXmmdnh0WYlAQ8jeOB3A1ed5KUSm" crossorigin="anonymous" />
-    <!-- akar icon -->
+    <!-- uicons icon -->
     <link rel="stylesheet" href="/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
     <!-- custom -->
     <link rel="stylesheet" href="/assets/css/styles.css" />
@@ -124,7 +124,9 @@
     <!-- main -->
     <div class="main__content" id="main-content">
         <!-- header main -->
-        <div class="header__main-color <?php if ('tab' != 'home') echo ' header__mini' ?>"></div>
+        <div class="header__main-color <?php if ('tab' != 'home') : echo ' header__mini';
+                                        else : echo ' header__big';
+                                        endif; ?>"></div>
 
         <?= $this->renderSection('user'); ?>
 

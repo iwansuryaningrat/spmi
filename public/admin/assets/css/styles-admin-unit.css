@@ -1,0 +1,30 @@
+@import url(styles-admin.css);
+
+.title__body__user {
+  margin-bottom: 2rem;
+  font-weight: 600;
+  margin-top: 2.65rem;
+}
+
+/* table */
+.table__unit__content tbody tr:hover {
+  background-color: rgba(38, 48, 77, 0.1) !important;
+}
+
+.table__unit__content tr th:first-child,
+.table__unit__content tr td:first-child,
+.table__unit__content tr th:last-child,
+.table__unit__content tr td:last-child {
+  text-align: center;
+}
+
+.table__unit__content thead tr th,
+.table__unit__content tbody tr td {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.table__unit__content tbody tr:last-child {
+  border-bottom: none;
+  border-bottom-style: hidden;
+}

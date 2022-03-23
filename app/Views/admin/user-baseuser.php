@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard SIPMPP Admin | UNDIP</title>
+  <title>Base User | SIPMPP Admin UNDIP</title>
 
   <!-- bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
@@ -16,7 +16,7 @@
   <!-- uicons icon -->
   <link rel="stylesheet" href="/admin/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
   <!-- custom -->
-  <link rel="stylesheet" href="/admin/assets/css/styles-admin-dashboard.css" />
+  <link rel="stylesheet" href="/admin/assets/css/styles-admin-user.css" />
 </head>
 
 <body>
@@ -37,14 +37,14 @@
         <div class="sidebar__content-nav">
           <ul class="sidebar-nav__list">
             <li>
-              <a href="admin-dashboard.html" class="nav__list__link active">
+              <a href="admin-dashboard.html" class="nav__list__link">
                 <i class="fa-solid fa-house"></i>
                 <span>Dashboard</span>
               </a>
             </li>
 
             <li>
-              <a class="nav__list__link-dropdown" data-bs-toggle="collapse" href="#user-collapse" role="button" aria-expanded="false" aria-controls="user-collapse">
+              <a class="nav__list__link-dropdown active" data-bs-toggle="collapse" href="#user-collapse" role="button" aria-expanded="false" aria-controls="user-collapse">
                 <div class="link-dropdown__sidebar">
                   <i class="fa-solid fa-id-card-clip"></i>
                   <span>User</span>
@@ -120,8 +120,8 @@
   <!-- main -->
   <div class="main__content" id="main-content">
     <!-- header main -->
-    <div class="header__main-color header__big"></div>
-    <div class="container-fluid container__fluid">
+    <div class="header__main-color header__mini"></div>
+    <div class="container-fluid container__fluid pb-0">
       <div class="header__main-nav">
         <div class="header__main-nav-btn">
           <div id="header-main-nav-btn-i" class="line__humberger">
@@ -135,10 +135,10 @@
             <img src="/admin/assets/img/adi-wibowo-img.png" alt="profile-picture" id="photo-dropdown" />
           </div>
           <div class="nav-profile__desc">
-            <p id="profileName" class="ellipsis__text">
-              Adi Wibosowo Kusumo Handayani Kusumaningrat
+            <p id="profileName">Adi Wibowo</p>
+            <p id="profileEmail" class="ellipsis__text">
+              iwansuryaningrat@students.undip.ac.id
             </p>
-            <p id="profileStatus" class="ellipsis__text">Administrator</p>
           </div>
           <div class="nav-profile__btn">
             <i class="fi-br-angle-down" id="btn-dropdown"></i>
@@ -159,132 +159,53 @@
       </div>
 
       <div class="header__main-title">
-        <div class="header__main-title__pagination">Dashboard</div>
+        <div class="header__main-title__pagination">
+          <a href="admin-dashboard.html">Dashboard</a>
+          / Base User
+        </div>
         <div class="header__main-title__subtitle">
           <div class="title__subtitle-desc">
-            <h1>Dashboard Admin Overview</h1>
-            <p>Halo <span>Adi</span>, selamat datang kembali!</p>
-          </div>
-          <div class="title__subtitle-btn">
-            <a href="admin-report.html" class="report__link big__btn btn__dark">
-              <img src="/admin/assets/img/icon/report-icon.svg" alt="icon-report" />
-              <span>Report</span>
-            </a>
+            <h1>Base User</h1>
+            <p>
+              Halo <span>Adi</span>, selamat datang di dashboard base user
+            </p>
           </div>
         </div>
       </div>
 
-      <!-- body main -->
-      <!-- rekap content -->
-      <div class="recap__content">
-        <!-- left -->
-        <div class="recap__content-link">
-          <div class="recap__link-card">
-            <div class="recap__link-card__body">
-              <img src="/admin/assets/img/penelitian-logo.svg" alt="penelitian-logo" />
-              <h5 class="card__title mb-0 ellipsis__text">Penelitian</h5>
-            </div>
-            <div class="recap__link-card__footer">
-              <a href="#">
-                <span class="ellipsis__text">Selengkapnya</span>
-                <i class="bi bi-arrow-right-circle d-flex"></i>
-              </a>
-            </div>
-          </div>
+      <!--========== body main ==========-->
+      <h4 class="title__body__user">Daftar Base User</h4>
 
-          <div class="recap__link-card">
-            <div class="recap__link-card__body">
-              <img src="/admin/assets/img/pengabdian-masyarakat-logo.svg" alt="penelitian-logo" />
-              <h5 class="card__title mb-0 ellipsis__text">
-                Pengabdian Masyarakat
-              </h5>
-            </div>
-            <div class="recap__link-card__footer">
-              <a href="#">
-                <span class="ellipsis__text">Selengkapnya</span>
-                <i class="bi bi-arrow-right-circle d-flex"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- right -->
-        <!-- table unit -->
-        <div class="recap__content-unit">
-          <div class="sipmpp__table radius__lg">
-            <h5 class="card__title mb-0">Daftar Unit</h5>
-            <div class="table__unit table-responsive">
-              <table class="table table__unit__content sipmpp__table-content table-hover">
-                <thead class="bg__light">
-                  <tr>
-                    <th class="table__unit__head__number">no</th>
-                    <th class="table__unit__head__unit">unit</th>
-                    <th class="table__unit__head__progress">progress</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td><a href="#" class="unit__link">S1 Informatika</a></td>
-                    <td>
-                      <div class="progress table__unit__progress">
-                        <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%" data-bs-toggle="tooltip" data-bs-placement="top" title="60%"></div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td><a href="#" class="unit__link">S1 Matematika</a></td>
-                    <td>
-                      <div class="progress table__unit__progress">
-                        <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%" data-bs-toggle="tooltip" data-bs-placement="top" title="90%"></div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td><a href="#" class="unit__link">S1 Statistika</a></td>
-                    <td>
-                      <div class="progress table__unit__progress">
-                        <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%" data-bs-toggle="tooltip" data-bs-placement="top" title="75%"></div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>
-                      <a href="#" class="unit__link">S1 Teknik Lingkungan</a>
-                    </td>
-                    <td>
-                      <div class="progress table__unit__progress">
-                        <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%" data-bs-toggle="tooltip" data-bs-placement="top" title="30%"></div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td><a href="#" class="unit__link">S1 Kedokteran</a></td>
-                    <td>
-                      <div class="progress table__unit__progress">
-                        <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%" data-bs-toggle="tooltip" data-bs-placement="top" title="45%"></div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td>
-                      <a href="#" class="unit__link">S1 Kesehatan Masyarakat</a>
-                    </td>
-                    <td>
-                      <div class="progress table__unit__progress">
-                        <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%" data-bs-toggle="tooltip" data-bs-placement="top" title="100%"></div>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+      <!-- table indikator -->
+      <div class="sipmpp__table">
+        <div class="table-responsive">
+          <table class="table table__user__content sipmpp__table-content table-hover">
+            <thead class="bg__light">
+              <tr>
+                <th class="table__user-number">no</th>
+                <th class="table__user-fullname">nama lengkap</th>
+                <th class="table__user-username">username</th>
+                <th class="table__user-email">email</th>
+                <th class="table__user-nip">nip</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Adi Wibowo</td>
+                <td>bowo.informatika</td>
+                <td>adiwibowo@lecturer.undip.ac.id</td>
+                <td>2406011912001234</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Iwan Budi Kusumaningrat Jayabaya</td>
+                <td>iwanjayabaya.informatika</td>
+                <td>iwanjayabaya@lecturer.undip.ac.id</td>
+                <td>2406011912001289</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -331,11 +252,24 @@
       $("#header-main-nav-dropdown").toggleClass("active");
     });
 
+    // active filer button
+    $(function() {
+      $(".filter__btn").click(function() {
+        // remove classes from all
+        $(".filter__btn").removeClass("active");
+        // add class to the one we clicked
+        $(this).addClass("active");
+        // stop the page from jumping to the top
+        return false;
+      });
+    });
+
     // tooltips
     // progress bar unit
-    const tooltipsUnitProgress =
-      document.querySelectorAll(".unit__progressbar");
-    tooltipsUnitProgress.forEach((t) => {
+    const tooltipsEdit = document.querySelectorAll(
+      ".edit__data__induk__icon"
+    );
+    tooltipsEdit.forEach((t) => {
       new bootstrap.Tooltip(t);
     });
   </script>

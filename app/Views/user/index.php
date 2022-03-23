@@ -49,7 +49,7 @@
         <p>Halo <span><?= $data_user['nama']; ?></span>, selamat datang kembali!</p>
       </div>
       <div class="title__subtitle-btn">
-        <a href="/home/report" class="report__link big__btn">
+        <a href="/home/report" class="report__link big__btn btn__dark">
           <img src="/assets/img/icon/report-icon.svg" alt="icon-report" />
           <span>Report</span>
         </a>

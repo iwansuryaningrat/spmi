@@ -101,4 +101,34 @@ class Admin extends BaseController
     {
         return view('admin/dataInduk');
     }
+
+    // units Method
+    public function units()
+    {
+        return view('admin/units');
+    }
+
+    // Profile Method
+    public function profile()
+    {
+        return view('admin/profile');
+    }
+
+    // User Method
+    public function user()
+    {
+        return view('admin/user-baseuser');
+    }
+
+    // Leader Method
+    public function leader()
+    {
+        return view('admin/user-leader');
+    }
+
+    // Auditor Method
+    public function auditor()
+    {
+        return view('admin/user-auditor');
+    }
 }

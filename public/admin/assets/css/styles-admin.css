@@ -393,6 +393,7 @@ select.form__select {
 .nav-profile__desc {
   margin-right: 1rem;
   max-width: 12.5rem;
+  min-width: 8rem;
 }
 
 .nav-profile__desc #profileName {
@@ -402,7 +403,8 @@ select.form__select {
   margin-bottom: 0.15rem;
 }
 
-.nav-profile__desc #profileEmail {
+.nav-profile__desc #profileEmail,
+.nav-profile__desc #profileStatus {
   font-size: 0.75rem;
 
   margin-bottom: 0;
