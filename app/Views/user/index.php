@@ -145,9 +145,9 @@
           <table class="table table__unit__content sipmpp__table-content table-hover">
             <thead class="bg__light">
               <tr>
-                <th class="table__unit__head__number">no</th>
-                <th class="table__unit__head__unit">unit</th>
-                <th class="table__unit__head__progress">progress</th>
+                <th class="table__unit__head__number">No</th>
+                <th class="table__unit__head__unit">Unit</th>
+                <th class="table__unit__head__progress">Progress</th>
               </tr>
             </thead>
             <tbody>

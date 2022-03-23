@@ -105,12 +105,12 @@
           <table class="table table__spmi__content sipmpp__table-content table-hover" id="spmi-penelitian">
             <thead class="bg__light">
               <tr>
-                <th class="table__spmi-number">no</th>
-                <th class="table__spmi-standar">standar</th>
-                <th class="table__spmi-nama">nama</th>
-                <th class="table__spmi-status">status</th>
-                <th class="table__spmi-nilai">nilai akhir</th>
-                <th class="table__spmi-aksi">aksi</th>
+                <th class="table__spmi-number">No</th>
+                <th class="table__spmi-standar">Standar</th>
+                <th class="table__spmi-nama">Nama</th>
+                <th class="table__spmi-status">Status</th>
+                <th class="table__spmi-nilai">Nilai Akhir</th>
+                <th class="table__spmi-aksi">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -159,12 +159,12 @@
           <table class="table table__spmi__content sipmpp__table-content table-hover" id="spmi-pm">
             <thead class="bg__light">
               <tr>
-                <th class="table__spmi-number">no</th>
-                <th class="table__spmi-standar">standar</th>
-                <th class="table__spmi-nama">nama</th>
-                <th class="table__spmi-status">status</th>
-                <th class="table__spmi-nilai">nilai akhir</th>
-                <th class="table__spmi-aksi">aksi</th>
+                <th class="table__spmi-number">No</th>
+                <th class="table__spmi-standar">Standar</th>
+                <th class="table__spmi-nama">Nama</th>
+                <th class="table__spmi-status">Status</th>
+                <th class="table__spmi-nilai">Nilai Akhir</th>
+                <th class="table__spmi-aksi">Aksi</th>
               </tr>
             </thead>
             <tbody>

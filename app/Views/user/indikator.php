@@ -208,10 +208,10 @@
           <table class="table table__indikator__content sipmpp__table-content table-hover">
             <thead class="bg__light">
               <tr>
-                <th class="table__indikator-number">no</th>
-                <th class="table__indikator-indikator">indikator</th>
-                <th class="table__indikator-target">target</th>
-                <th class="table__indikator-aksi">aksi</th>
+                <th class="table__indikator-number">No</th>
+                <th class="table__indikator-indikator">Indikator</th>
+                <th class="table__indikator-target">Target</th>
+                <th class="table__indikator-aksi">Aksi</th>
               </tr>
             </thead>
             <tbody>

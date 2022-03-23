@@ -94,14 +94,12 @@
           <table class="table table__datainduk__content sipmpp__table-content table-hover" id="datainduk-penelitian">
             <thead class="bg__light">
               <tr>
-                <th class="table__datainduk-number">no</th>
-                <th class="table__datainduk-kode">kode</th>
-                <th class="table__datainduk-kategori">kategori</th>
-                <th class="table__datainduk-kebutuhandata">
-                  kebutuhan data
-                </th>
-                <th class="table__datainduk-nilai">nilai</th>
-                <th class="table__datainduk-aksi">aksi</th>
+                <th class="table__datainduk-number">No</th>
+                <th class="table__datainduk-kode">Kode</th>
+                <th class="table__datainduk-kategori">Kategori</th>
+                <th class="table__datainduk-kebutuhandata">Kebutuhan Data</th>
+                <th class="table__datainduk-nilai">Nilai</th>
+                <th class="table__datainduk-aksi">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -141,14 +139,12 @@
           <table class="table table__datainduk__content sipmpp__table-content table-hover" id="datainduk-pm">
             <thead class="bg__light">
               <tr>
-                <th class="table__datainduk-number">no</th>
-                <th class="table__datainduk-kode">kode</th>
-                <th class="table__datainduk-kategori">kategori</th>
-                <th class="table__datainduk-kebutuhandata">
-                  kebutuhan data
-                </th>
-                <th class="table__datainduk-nilai">nilai</th>
-                <th class="table__datainduk-aksi">aksi</th>
+                <th class="table__datainduk-number">No</th>
+                <th class="table__datainduk-kode">Kode</th>
+                <th class="table__datainduk-kategori">Kategori</th>
+                <th class="table__datainduk-kebutuhandata">Kebutuhan Data</th>
+                <th class="table__datainduk-nilai">Nilai</th>
+                <th class="table__datainduk-aksi">Aksi</th>
               </tr>
             </thead>
             <tbody>
