@@ -8,11 +8,14 @@
   <title>Base User | SIPMPP Admin UNDIP</title>
 
   <!-- bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
   <!-- fontawesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/solid.css" integrity="sha384-ltWlpN+Dl8XfKEnC9oW+dDRF8Z7jsYkxQ/WMRoJ2VHH5G2nQZ4if2NWwmV0ybzZ7" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/fontawesome.css" integrity="sha384-RLM8Rxp/DcBfCfSI3bGwwoMMxxy34D2e58WAqXmmdnh0WYlAQ8jeOB3A1ed5KUSm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/solid.css"
+    integrity="sha384-ltWlpN+Dl8XfKEnC9oW+dDRF8Z7jsYkxQ/WMRoJ2VHH5G2nQZ4if2NWwmV0ybzZ7" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/fontawesome.css"
+    integrity="sha384-RLM8Rxp/DcBfCfSI3bGwwoMMxxy34D2e58WAqXmmdnh0WYlAQ8jeOB3A1ed5KUSm" crossorigin="anonymous" />
   <!-- uicons icon -->
   <link rel="stylesheet" href="/admin/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
   <!-- custom -->
@@ -44,7 +47,8 @@
             </li>
 
             <li>
-              <a class="nav__list__link-dropdown active" data-bs-toggle="collapse" href="#user-collapse" role="button" aria-expanded="false" aria-controls="user-collapse">
+              <a class="nav__list__link-dropdown active" data-bs-toggle="collapse" href="#user-collapse" role="button"
+                aria-expanded="false" aria-controls="user-collapse">
                 <div class="link-dropdown__sidebar">
                   <i class="fa-solid fa-id-card-clip"></i>
                   <span>User</span>
@@ -161,13 +165,13 @@
       <div class="header__main-title">
         <div class="header__main-title__pagination">
           <a href="/admin">Dashboard</a>
-          / Base User
+          / <a href="/admin/user">Base User</a> / Form Add User
         </div>
         <div class="header__main-title__subtitle">
           <div class="title__subtitle-desc">
-            <h1>Base User</h1>
+            <h1>Add Base User</h1>
             <p>
-              Halo <span>Adi</span>, selamat datang di dashboard base user
+              Form untuk menambahkan base user baru
             </p>
           </div>
         </div>
@@ -175,44 +179,101 @@
 
       <!--========== body main ==========-->
       <div class="title__table__add">
-      <h4 class="title__body__user">Daftar Base User</h4>
-      <a href="/admin/addUser" class="btn shadow-none btn__add btn__dark">
-      <i class="fa-solid fa-plus"></i>
-        Add User
-      </a>
+        <h4 class="title__body__user">Form Add Base User</h4>
       </div>
 
       <!-- table indikator -->
-      <div class="sipmpp__table">
-        <div class="table-responsive">
-          <table class="table table__user__content sipmpp__table-content table-hover">
-            <thead class="bg__light">
-              <tr>
-                <th class="table__user-number">no</th>
-                <th class="table__user-fullname">nama lengkap</th>
-                <th class="table__user-username">username</th>
-                <th class="table__user-email">email</th>
-                <th class="table__user-nip">nip</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Adi Wibowo</td>
-                <td>bowo.informatika</td>
-                <td>adiwibowo@lecturer.undip.ac.id</td>
-                <td>2406011912001234</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Iwan Budi Kusumaningrat Jayabaya</td>
-                <td>iwanjayabaya.informatika</td>
-                <td>iwanjayabaya@lecturer.undip.ac.id</td>
-                <td>2406011912001289</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="form__add__user">
+        <form>
+          <!-- fullname -->
+          <div class="mb-3">
+            <label for="fullname" class="form-label form__label">Nama Lengkap</label>
+            <input type="text" class="form-control form__control" id="fullname" placeholder="Masukkan Nama Lengkap"
+              required>
+          </div>
+          <!-- username -->
+          <div class="mb-3">
+            <label for="username" class="form-label form__label">Username</label>
+            <input type="text" class="form-control form__control" id="username" placeholder="Masukkan Username"
+              required>
+          </div>
+          <!-- email -->
+          <div class="mb-3">
+            <label for="email" class="form-label form__label">Email</label>
+            <input type="email" class="form-control form__control" id="email" placeholder="Masukkan Email" required>
+          </div>
+          <!-- role -->
+          <div class="mb-3">
+            <label for="role" class="form-label form__label">Role</label>
+            <select class="form-control form__control" id="role">
+              <option selected disabled>Pilih Role User</option>
+              <option>Admin</option>
+              <option>Auditor</option>
+              <option>Leader</option>
+            </select>
+          </div>
+          <!-- unit -->
+          <div class="mb-3">
+            <label for="unit" class="form-label form__label">Unit</label>
+            <div class="row row-cols-3 m-0" style="width: 100%;">
+              <div class="form-check col">
+                <input class="form-check-input" type="checkbox" value="" id="">
+                <label class="form-check-label" for="">
+                  S1 Teknik Lingkungan
+                </label>
+              </div>
+              <div class="form-check col">
+                <input class="form-check-input" type="checkbox" value="" id="">
+                <label class="form-check-label" for="">
+                  S1 Informatika
+                </label>
+              </div>
+              <div class="form-check col">
+                <input class="form-check-input" type="checkbox" value="" id="">
+                <label class="form-check-label" for="">
+                  S1 Kesehatan Masyarakat
+                </label>
+              </div>
+              <div class="form-check col">
+                <input class="form-check-input" type="checkbox" value="" id="">
+                <label class="form-check-label" for="">
+                  S1 Teknik Lingkungan
+                </label>
+              </div>
+              <div class="form-check col">
+                <input class="form-check-input" type="checkbox" value="" id="">
+                <label class="form-check-label" for="">
+                  S1 Informatika
+                </label>
+              </div>
+              <div class="form-check col">
+                <input class="form-check-input" type="checkbox" value="" id="">
+                <label class="form-check-label" for="">
+                  S1 Kesehatan Masyarakat
+                </label>
+              </div>
+              <div class="form-check col">
+                <input class="form-check-input" type="checkbox" value="" id="">
+                <label class="form-check-label" for="">
+                  S1 Informatika
+                </label>
+              </div>
+              <div class="form-check col">
+                <input class="form-check-input" type="checkbox" value="" id="">
+                <label class="form-check-label" for="">
+                  S1 Kesehatan Masyarakat
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- password -->
+          <div class="mb-3">
+            <label for="password" class="form-label form__label">Password</label>
+            <input type="password" class="form-control form__control" id="password" placeholder="Masukkan Password"
+              required>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
     </div>
 
@@ -232,12 +293,20 @@
 
   <!-- scripts -->
   <!-- jquery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+  </script>
   <!-- fontawesome -->
-  <script defer src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" integrity="sha384-vLLEq/Un/eZFmXAu4Xxf8F00RSSMzPcI7iDiT6hpB4zFpezCEGhb5daeR8PLyrLI" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
+    integrity="sha384-vLLEq/Un/eZFmXAu4Xxf8F00RSSMzPcI7iDiT6hpB4zFpezCEGhb5daeR8PLyrLI" crossorigin="anonymous">
+  </script>
   <!-- custom -->
   <script src="/admin/assets/js/scripts-admin.js"></script>
   <script>

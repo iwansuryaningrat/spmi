@@ -137,4 +137,10 @@ class Admin extends BaseController
     {
         return view('admin/report');
     }
+
+    //Add user method
+    public function addUser()
+    {
+        return view('admin/add-user');
+    }
 }
