@@ -149,15 +149,21 @@ class Admin extends BaseController
         return view('admin/add-units');
     }
 
-    //data induk method
+    //view data induk method
     public function viewDataInduk()
     {
         return view('admin/view-dataInduk');
     }
 
-    //data induk method
+    //add data induk method
     public function addDataInduk()
     {
         return view('admin/add-dataInduk');
+    }
+
+    //view standar method
+    public function viewStandar()
+    {
+        return view('admin/view-standar');
     }
 }

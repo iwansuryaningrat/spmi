@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Standar | SIPMPP Admin UNDIP</title>
+    <title>Form Add Data Induk | SIPMPP Admin UNDIP</title>
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -19,7 +19,7 @@
     <!-- uicons icon -->
     <link rel="stylesheet" href="/admin/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
     <!-- custom -->
-    <link rel="stylesheet" href="/admin/assets/css/styles-admin-data-induk.css" />
+    <link rel="stylesheet" href="/admin/assets/css/styles-admin-user.css" />
 </head>
 
 <body>
@@ -30,7 +30,7 @@
             <div>
                 <!-- brand -->
                 <div class="sidebar__content-brand">
-                    <a href="/admin/index" class="d-flex align-items-center">
+                    <a href="/admin" class="d-flex align-items-center">
                         <img src="/admin/assets/img/undip-logo-color.png" alt="logo-undip" />
                         <h4>SIPMPP UNDIP</h4>
                     </a>
@@ -40,7 +40,7 @@
                 <div class="sidebar__content-nav">
                     <ul class="sidebar-nav__list">
                         <li>
-                            <a href="/admin/index" class="nav__list__link">
+                            <a href="/admin" class="nav__list__link">
                                 <i class="fa-solid fa-house"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -81,13 +81,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/admin/dataInduk" class="nav__list__link">
+                            <a href="/admin/dataInduk" class="nav__list__link active">
                                 <i class="fa-solid fa-book"></i>
                                 <span>Data Induk</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/admin/standar" class="nav__list__link active">
+                            <a href="/admin/standar" class="nav__list__link">
                                 <i class="fa-solid fa-chart-pie"></i>
                                 <span>Standar</span>
                             </a>
@@ -167,69 +167,62 @@
 
             <div class="header__main-title">
                 <div class="header__main-title__pagination">
-                    <a href="/admin/index">Dashboard</a>
-                    / Standar
+                    <a href="/admin">Dashboard</a>
+                    / <a href="/admin/dataInduk">Data Induk</a> / <a href="/admin/viewDataInduk">Kategori Data Induk</a>
+                    / Form Add Data Induk
                 </div>
                 <div class="header__main-title__subtitle">
                     <div class="title__subtitle-desc">
-                        <h1>Standar</h1>
-                        <p>Halo <span>Adi</span>, selamat datang di dashboard Standar</p>
+                        <h1>Add Data Induk</h1>
+                        <p>
+                            Form untuk menambahkan data induk baru
+                        </p>
                     </div>
                 </div>
             </div>
 
             <!--========== body main ==========-->
             <div class="title__table__add">
-                <h4 class="title__body__user">Daftar Standar</h4>
+                <h4 class="title__body__user">Form Add Data Induk</h4>
             </div>
 
-            <!-- table indikator -->
-            <div class="sipmpp__table">
-                <div class="table-responsive">
-                    <table class="table table__datainduk__content sipmpp__table-content table-hover">
-                        <thead class="bg__light">
-                            <tr>
-                                <th class="table__user-number">no</th>
-                                <th class="table__user-namaunit">nama Unit</th>
-                                <th class="table__user-kategori">kategori</th>
-                                <th class="table__user-tahun">tahun</th>
-                                <th class="table__user-aksi">aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>S1 Informatika</td>
-                                <td>Penelitian</td>
-                                <td>2019</td>
-                                <td>
-                                    <a data-bs-placement="top" title="Lihat" href="/admin/viewStandar"
-                                        class="lihat__data__induk__icon"><i class="fa-solid fa-eye"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>S1 Teknik Lingkungan</td>
-                                <td>Pengabdian Masyarakat</td>
-                                <td>2021</td>
-                                <td>
-                                    <a data-bs-placement="top" title="Lihat" href="/admin/viewStandar"
-                                        class="lihat__data__induk__icon"><i class="fa-solid fa-eye"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>S1 Kesehatan Masyarakat</td>
-                                <td>Penelitian</td>
-                                <td>2020</td>
-                                <td>
-                                    <a data-bs-placement="top" title="Lihat" href="/admin/viewStandar"
-                                        class="lihat__data__induk__icon"><i class="fa-solid fa-eye"></i></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <!-- form add data induk -->
+            <div class="form__add__unit">
+                <form method="POST" action="">
+                    <!-- kode -->
+                    <div class="mb-3">
+                        <label for="kode" class="form-label form__label">Kode</label>
+                        <input type="text" class="form-control form__control" id="kode"
+                            placeholder="Masukkan Kode Data Induk" name="kode" required>
+                    </div>
+                    <!-- kategori -->
+                    <div class="mb-3">
+                        <label for="kategori" class="form-label form__label">Kategori</label>
+                        <select class="form-select form__select" id="kategori" name="kategori">
+                            <option selected disabled>Pilih Kategori</option>
+                            <option>Penelitian</option>
+                            <option>Pengabdian Masyarakat</option>
+                        </select>
+                    </div>
+                    <!-- kebutuhan data -->
+                    <div class="mb-3">
+                        <label for="kebutuhan-data" class="form-label form__label">Kebutuhan Data</label>
+                        <input type="text" class="form-control form__control" id="kebutuhan-data" name="kebutuhan-data"
+                            placeholder="Masukkan Kebutuhan Data" required>
+                    </div>
+                    <!-- tahun -->
+                    <div class="mb-3">
+                        <label for="tahun" class="form-label form__label">Tahun</label>
+                        <select class="form-select form__select" id="tahun" name="tahun">
+                            <option selected disabled>Pilih Tahun</option>
+                            <option>2019</option>
+                            <option>2020</option>
+                            <option>2021</option>
+                            <option>2022</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
         </div>
 
@@ -281,15 +274,6 @@
         });
         $("#photo-dropdown").click(() => {
             $("#header-main-nav-dropdown").toggleClass("active");
-        });
-
-        // tooltips
-        // progress bar unit
-        const tooltipsEdit = document.querySelectorAll(
-            ".lihat__data__induk__icon"
-        );
-        tooltipsEdit.forEach((t) => {
-            new bootstrap.Tooltip(t);
         });
     </script>
 </body>
