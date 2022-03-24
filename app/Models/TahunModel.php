@@ -17,4 +17,10 @@ class TahunModel extends Model
     {
         return $this->where('tahun', $tahun)->first();
     }
+
+    // get data tahun
+    public function getTahunId($tahun_id)
+    {
+        return $this->where('tahun_id', $tahun_id)->first();
+    }
 }

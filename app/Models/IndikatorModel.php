@@ -10,7 +10,7 @@ class IndikatorModel extends Model
     protected $primaryKey       = 'indikator_id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
-    protected $allowedFields    = ["nama_indikator", "target", "satuan", "tipe_hasil", "hasil", "dokumen", "keterangan", "catatan", "nilai", "kriteria", "standar_id", "induk_id", "created_at", "updated_at"];
+    protected $allowedFields    = ["nama_indikator", "target", "status", "satuan", "tipe_hasil", "hasil", "dokumen", "keterangan", "catatan", "nilai", "kriteria", "standar_id", "induk_id", "created_at", "updated_at"];
 
     // Dates
     protected $useTimestamps = true;
@@ -26,5 +26,25 @@ class IndikatorModel extends Model
             ->join('data_induk', 'data_induk.induk_id = indikator.induk_id')
             ->where('indikator.standar_id', $standar_id)
             ->findAll();;
+    }
+
+    // Join table standar and indikator
+    public function getIndikatorStandar($indikator_id)
+    {
+        return $this->select('indikator.*, standar.kode_standar, standar.nama_standar, indikator.induk_id, indikator.standar_id, indikator.indikator_id, indikator.nama_indikator, indikator.target, indikator.satuan, indikator.tipe_hasil, indikator.hasil, indikator.dokumen, indikator.keterangan, indikator.catatan, indikator.nilai, indikator.kriteria, indikator.created_at, indikator.updated_at')
+            ->join('standar', 'standar.standar_id = indikator.standar_id')
+            ->where('indikator.indikator_id', $indikator_id)
+            ->first();
+    }
+
+    // Update hasil, keterangan, dokumen
+    public function updateUser($indikator_id, $status, $hasil, $keterangan, $dokumen)
+    {
+        return $this->where('indikator_id', $indikator_id)
+            ->set('status', $status)
+            ->set('hasil', $hasil)
+            ->set('keterangan', $keterangan)
+            ->set('dokumen', $dokumen)
+            ->update();
     }
 }

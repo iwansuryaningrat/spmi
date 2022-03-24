@@ -66,7 +66,7 @@
                             </div>
                         </li>
                         <li>
-                            <a class="nav__list__link-dropdown<?php if ($tab == "spmi") : echo 'active';
+                            <a class="nav__list__link-dropdown <?php if ($tab == "standar") : echo 'active';
                                                                 endif; ?>" data-bs-toggle="collapse" href="#spmi-collapse" role="button" aria-expanded="false" aria-controls="spmi-collapse">
                                 <div class="link-dropdown__sidebar">
                                     <i class="fa-solid fa-file-signature"></i>

@@ -95,8 +95,6 @@ class Home extends BaseController
         }
 
         $i = 1;
-        // $datainduk = $this->dataIndukModel->getDataIndukJoin($unit_id, $tahun_id);
-        // dd($datainduk);
 
         $data = [
             'title' => 'Data Induk | SIPMPP UNDIP 2022',
@@ -222,8 +220,6 @@ class Home extends BaseController
             'indikator' => $this->indikatorModel->getIndikatorStandarInduk($standar_id),
         ];
 
-        // dd($data);
-
         return view('user/indikator', $data);
     }
 
@@ -250,10 +246,38 @@ class Home extends BaseController
 
     // FORM METHOD // 
 
-    // Indikator Form Method
+    // Indikator Form Method (Done)
     public function indikatorForm($indikator_id)
     {
-        return view('user/indikatorform');
+        $data_user = $this->data_user;
+
+        $unitData = $this->unitData;
+
+        // Data Indikator
+        $indikator = $this->indikatorModel->getIndikatorStandar($indikator_id);
+
+        // Data Standar
+        $standar_id = (int)$indikator['standar_id'];
+        $standar = $this->standarModel->getStandarId($standar_id);
+
+        // Data Unit 
+        $unit_id = (int)$standar['unit_id'];
+        $unit = $this->unitsModel->getUnitId($unit_id);
+
+        $data = [
+            'title' => 'Form Indikator SPMI - ' . $unit['nama_unit'] . ' | SIPMPP UNDIP',
+            'data_user' => $data_user,
+            'unitData' => $unitData,
+            'unit' => $unit,
+            'unit_id' => $unit_id,
+            'tab' => 'standar',
+            'standar' => $standar,
+            'header' => 'header__mini header__indikator',
+            'css' => 'styles-form-indikator-spmi.css',
+            'indikator' => $indikator,
+        ];
+
+        return view('user/indikatorform', $data);
     }
 
 
@@ -327,24 +351,44 @@ class Home extends BaseController
         return redirect()->to('/home/datainduk/' . $unit_id . '/' . $tahun);
     }
 
-    // Save Indikator
-    public function saveIndikator($unit_id, $tahun)
+    // Save Indikator Method (Done)
+    public function saveIndikator($indikator_id)
     {
-        $indikator = $this->request->getVar('indikator');
-        $indikator_id = $this->request->getVar('indikator_id');
         $indikator_id = (int)$indikator_id;
-        $tahun = (int)$tahun;
-        $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
-        $tahun_id = (int)$tahun_id;
+        $hasil = $this->request->getVar('hasil');
+        $keterangan = $this->request->getVar('keterangan');
+        $status = "Diisi";
 
-        $indikator['indikator'] = $indikator;
-        $indikator['indikator_id'] = $indikator_id;
-        $indikator['tahun_id'] = $tahun_id;
-        $indikator['unit_id'] = $unit_id;
+        // Dokumen handler
+        $dokumen = $this->request->getFile('dokumen');
+        if ($dokumen->getError() == 4) {
+            return redirect()->to('/home/indikatorform/' . $indikator_id);
+        } else {
+            $namadokumen = 'dokumen-' . $indikator_id;
+            $dokumen->move('dokumen/', $namadokumen);
+        };
+
+        // Ambil data dari database berdasarkan indikator_id
+        $indikator = $this->indikatorModel->getIndikatorStandar($indikator_id);
+        $indikator['indikator_id'] = (int)$indikator['indikator_id'];
+        $indikator['standar_id'] = (int)$indikator['standar_id'];
+        $indikator['induk_id'] = (int)$indikator['induk_id'];
+
+        // Data Standar
+        $standar_id = (int)$indikator['standar_id'];
+        $standar = $this->standarModel->getStandarId($standar_id);
+
+        // Tahun
+        $tahun_id = (int)$standar['tahun_id'];
+        $tahun = $this->tahunModel->getTahunId($tahun_id)['tahun'];
+
+        // Data Unit 
+        $unit_id = (int)$standar['unit_id'];
+        $unit = $this->unitsModel->getUnitId($unit_id);
 
         // Update Data
-        $this->indikatorModel->update($indikator_id, $indikator);
+        $this->indikatorModel->updateUser($indikator_id, $status, $hasil, $keterangan, $namadokumen);
 
-        return redirect()->to('/home/standar/' . $unit_id . '/' . $tahun);
+        return redirect()->to('/home/indikator/' . $unit_id . '/' . $standar_id . '/' . $tahun);
     }
 }
