@@ -84,4 +84,21 @@ class StandarModel extends Model
             ->where('standar.tahun_id', $tahun_id)
             ->findAll();
     }
+
+    // get status
+    public function getStatus($unit_id, $tahun_id)
+    {
+        return $this->select('standar.status')
+            ->where('standar.unit_id', $unit_id)
+            ->where('standar.tahun_id', $tahun_id)
+            ->findAll();
+    }
+
+    // update status
+    public function updateStatus($standar_id, $status)
+    {
+        return $this->where('standar_id', $standar_id)
+            ->set('status', $status)
+            ->update();
+    }
 }

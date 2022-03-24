@@ -41,6 +41,8 @@ class Home extends BaseController
             'foto' => session()->get('foto'),
         ];
         $this->unitData = $this->transaksiModel->getTransaksiUserJoin($this->data_user['id_user']);
+
+        $this->session = \Config\Services::session();
     }
 
     // Dashboard Method
@@ -114,7 +116,7 @@ class Home extends BaseController
         return view('user/datainduk', $data);
     }
 
-    // Standar Method
+    // Standar Method (Done)
     public function standar($unit_id)
     {
         $tahun = $this->request->getVar('tahun');
@@ -124,7 +126,6 @@ class Home extends BaseController
         // getting path
         $path = $this->request->getPath();
         $path = base_url($path);
-        // dd($path);
         $data_user = $this->data_user;
 
         $unitData = $this->unitData;
@@ -139,6 +140,32 @@ class Home extends BaseController
             $tahun = (int)$tahun;
             $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
             $tahun_id = (int)$tahun_id;
+        }
+
+        $i = 1;
+
+        // Penelitian 
+        $penelitian_id = $this->kategoriModel->getKategoriNama('Penelitian')['kategori_id'];
+        $penelitian_id = (int)$penelitian_id;
+        $penelitian = $this->standarModel->getStandarAll($unit_id, $tahun_id, $penelitian_id);
+
+        // Pengabdian Masyarakat
+        $pengabdian_id = $this->kategoriModel->getKategoriNama('Pengabdian Masyarakat')['kategori_id'];
+        $pengabdian_id = (int)$pengabdian_id;
+        $pengabdian = $this->standarModel->getStandarAll($unit_id, $tahun_id, $pengabdian_id);
+
+        $standardata = $this->standarModel->getStandarUnitTahun($unit_id, $tahun_id);
+
+        $status = [];
+        foreach ($standardata as $standar) {
+            array_push($status, $standar['status']);
+        }
+
+        // Cek apakah semua standar sudah diisi
+        if (in_array('Dikirim', $status)) {
+            $status = "Sudah Dikirim";
+        } else {
+            $status = "Belum Dikirim";
         }
 
         $data = [
@@ -146,50 +173,53 @@ class Home extends BaseController
             'data_user' => $data_user,
             'unitData' => $unitData,
             'unit' => $unit,
+            'unit_id' => $unit_id,
             'path' => $path,
             'tab' => 'standar',
             'header' => 'header__mini',
             'css' => 'styles-standar.css',
             'tahun' => $tahun,
+            'i' => $i,
+            'status' => $status,
             'dataTahun' => $data_tahun,
-            'standar' => $this->standarModel->getStandarUnitTahun($unit_id, $tahun_id),
+            'penelitian' => $penelitian,
+            'pengabdian' => $pengabdian,
         ];
-
-        // dd($data);
 
         return view('user/standar', $data);
     }
 
-    // Indikator Method
-    public function indikator($unit_id)
+    // Indikator Method (Done)
+    public function indikator($unit_id, $standar_id, $tahun)
     {
-        $tahun = $this->request->getVar('tahun');
         $data_user = $this->data_user;
 
         $unitData = $this->unitData;
 
         $unit = $this->unitsModel->getUnitId($unit_id);
 
-        if ($tahun == null) {
-            $tahun = (int)date('Y');
-            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
-            $tahun_id = (int)$tahun_id;
-        } else {
-            $tahun = (int)$tahun;
-            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
-            $tahun_id = (int)$tahun_id;
-        }
+        $tahun = (int)$tahun;
+        $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+        $tahun_id = (int)$tahun_id;
+
+        $standar = $this->standarModel->getStandarId($standar_id);
+
+        $i = 1;
+
 
         $data = [
             'title' => 'Indikator | SIPMPP UNDIP 2022',
             'data_user' => $data_user,
             'unitData' => $unitData,
             'unit' => $unit,
-            'tab' => 'indikator',
-            'header' => 'header__mini',
+            'unit_id' => $unit_id,
+            'tab' => 'standar',
+            'standar' => $standar,
+            'i' => $i,
+            'header' => 'header__mini header__indikator',
             'css' => 'styles-indikator.css',
             'tahun' => $tahun,
-            'indikator' => $this->indikatorModel->getIndikatorUnitTahun($unit_id, $tahun_id),
+            'indikator' => $this->indikatorModel->getIndikatorStandarInduk($standar_id),
         ];
 
         // dd($data);
@@ -221,7 +251,7 @@ class Home extends BaseController
     // FORM METHOD // 
 
     // Indikator Form Method
-    public function indikatorForm()
+    public function indikatorForm($indikator_id)
     {
         return view('user/indikatorform');
     }
@@ -229,17 +259,53 @@ class Home extends BaseController
 
     // ACTION METHOD // 
 
-    // Send Penilaian Method
-    public function sendPenilaian($unit_id, $tahun, $path)
+    // Send Penilaian Method (Done)
+    public function sendPenilaian($unit_id, $tahun)
     {
         $data_user = $this->data_user;
 
         $unitData = $this->unitData;
 
         $unit = $this->unitsModel->getUnitId($unit_id);
+
+        $unit_id = (int)$unit_id;
+
+        if ($tahun == null) {
+            $tahun = (int)date('Y');
+            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+            $tahun_id = (int)$tahun_id;
+        } else {
+            $tahun = (int)$tahun;
+            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+            $tahun_id = (int)$tahun_id;
+        }
+
+        $standar = $this->standarModel->getStandarUnitTahun($unit_id, $tahun_id);
+        $status = [];
+        foreach ($standar as $s) {
+            array_push($status, $s['status']);
+        }
+
+        // Cek apakah semua standar sudah diisi
+        if (in_array('Belum Diisi', $status) || in_array('Belum Lengkap', $status)) {
+            $this->session->setFlashdata('message', '<div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Peringatan!</strong> Semua standar belum diisi.
+            </div>');
+            return redirect()->to('/home/standar/' . $unit_id . '/' . $tahun);
+        } else {
+            foreach ($standar as $s) {
+                $this->standarModel->updateStatus($s['standar_id'], 'Dikirim');
+            }
+            $this->session->setFlashdata('message', '<div class="alert alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Berhasil!</strong> Penilaian telah dikirim.
+            </div>');
+            return redirect()->to('/home/standar/' . $unit_id . '/' . $tahun);
+        }
     }
 
-    // Edit Data Induk Method
+    // Edit Data Induk Method (Done)
     public function editDataInduk($unit_id, $tahun)
     {
         $id = $this->request->getVar('induk_id');
@@ -254,12 +320,31 @@ class Home extends BaseController
         $induk['kategori_id'] = (int)$induk['kategori_id'];
         $induk['tahun_id'] = (int)$induk['tahun_id'];
         $induk['unit_id'] = (int)$induk['unit_id'];
-        // dd($induk);
 
         // Update Data
         $this->dataIndukModel->update($id, $induk);
-        // $msg = "Data Berhasil Diubah";
-        // dd($msg);
+
         return redirect()->to('/home/datainduk/' . $unit_id . '/' . $tahun);
+    }
+
+    // Save Indikator
+    public function saveIndikator($unit_id, $tahun)
+    {
+        $indikator = $this->request->getVar('indikator');
+        $indikator_id = $this->request->getVar('indikator_id');
+        $indikator_id = (int)$indikator_id;
+        $tahun = (int)$tahun;
+        $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
+        $tahun_id = (int)$tahun_id;
+
+        $indikator['indikator'] = $indikator;
+        $indikator['indikator_id'] = $indikator_id;
+        $indikator['tahun_id'] = $tahun_id;
+        $indikator['unit_id'] = $unit_id;
+
+        // Update Data
+        $this->indikatorModel->update($indikator_id, $indikator);
+
+        return redirect()->to('/home/standar/' . $unit_id . '/' . $tahun);
     }
 }

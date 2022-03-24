@@ -18,21 +18,13 @@ class IndikatorModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    // function to get data by id
-    public function getIndikatorId($indikator_id)
+    //  Joining table standar and indikator and data_induk
+    public function getIndikatorStandarInduk($standar_id)
     {
-        return $this->where('indikator_id', $indikator_id)->first();
-    }
-
-    // function to get data by induk
-    public function getIndikatorInduk($induk_id)
-    {
-        return $this->where('induk_id', $induk_id)->findAll();
-    }
-
-    // function to get data by standar
-    public function getIndikatorStandar($standar_id)
-    {
-        return $this->where('standar_id', $standar_id)->findAll();
+        return $this->select('indikator.*, standar.kode_standar, standar.nama_standar, indikator.induk_id, indikator.standar_id, indikator.indikator_id, indikator.nama_indikator, indikator.target, indikator.satuan, indikator.tipe_hasil, indikator.hasil, indikator.dokumen, indikator.keterangan, indikator.catatan, indikator.nilai, indikator.kriteria, indikator.created_at, indikator.updated_at')
+            ->join('standar', 'standar.standar_id = indikator.standar_id')
+            ->join('data_induk', 'data_induk.induk_id = indikator.induk_id')
+            ->where('indikator.standar_id', $standar_id)
+            ->findAll();;
     }
 }
