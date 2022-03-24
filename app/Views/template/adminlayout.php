@@ -128,7 +128,7 @@
         <!-- header main -->
         <div class="header__main-color <?= $header; ?>"></div>
 
-        <?= $this->renderSection('user'); ?>
+        <?= $this->renderSection('admin'); ?>
 
         <!-- footer -->
         <footer>

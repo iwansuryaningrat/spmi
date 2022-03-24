@@ -42,39 +42,29 @@ class Admin extends BaseController
             'id_user' => session()->get('id_user'),
             'foto' => session()->get('foto'),
         ];
-        $this->unitData = $this->transaksiModel->getTransaksiUserJoin($this->data_user['id_user']);
+        $this->units = $this->unitsModel->findAll();
+        $this->i = 1;
     }
 
     // Admin Dashboard Method
     public function index()
     {
-        // Check Login status
-        // if (!session()->get('isLoggedIn')) {
-        //     session()->setFlashdata('gagal', 'Anda harus login terlebih dahulu');
-        //     return redirect()->to('/login');
-        // }
+        $usersession = $this->data_user;
 
-        // if (session()->get('role') != 'admin') {
-        //     if (session()->get('role') == 'leader') {
-        //         return redirect()->to('/leader');
-        //     } elseif (session()->get('role') == 'auditor') {
-        //         return redirect()->to('/auditor');
-        //     } elseif (session()->get('role') == 'user') {
-        //         return redirect()->to('/user');
-        //     }
-        // }
+        $data = [
+            'title' => 'Dashboard SIPMPP | SIPMPP UNDIP 2022',
+            'tab' => 'home',
+            'css' => 'styles-admin-dashboard.css',
+            'header' => 'header__big',
+            'i' => $this->i,
+            'usersession' => $usersession,
+            'units' => $this->units,
+            'kategori' => $this->kategoriModel->findAll(),
+            'tahun' => $this->tahunModel->findAll(),
+        ];
 
-        // $data = [
-        //     'nama' => session()->get('nama'),
-        //     'role' => session()->get('role'),
-        //     'email' => session()->get('email'),
-        //     'username' => session()->get('username'),
-        //     'id_user' => session()->get('id_user'),
-        //     'foto' => session()->get('foto'),
-        // ];
-        // dd($data);
 
-        return view('admin/index');
+        return view('admin/index', $data);
     }
 
     // User Method
