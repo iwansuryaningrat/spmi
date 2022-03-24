@@ -314,14 +314,6 @@
     $("#photo-dropdown").click(() => {
       $("#header-main-nav-dropdown").toggleClass("active");
     });
-
-    // tooltips
-    // progress bar unit
-    const tooltipsUnitProgress =
-      document.querySelectorAll(".unit__progressbar");
-    tooltipsUnitProgress.forEach((t) => {
-      new bootstrap.Tooltip(t);
-    });
   </script>
 </body>
 

@@ -139,9 +139,9 @@
             <img src="/admin/assets/img/adi-wibowo-img.png" alt="profile-picture" id="photo-dropdown" />
           </div>
           <div class="nav-profile__desc">
-            <p id="profileName">Adi Wibowo</p>
-            <p id="profileEmail" class="ellipsis__text">
-              iwansuryaningrat@students.undip.ac.id
+            <p id="profileName" class="ellipsis__text">Adi Wibowo</p>
+            <p id="profileStatus" class="ellipsis__text">
+              Administrator
             </p>
           </div>
           <div class="nav-profile__btn">
@@ -152,7 +152,7 @@
         <div class="header__main-nav-dropdown" id="header-main-nav-dropdown">
           <p class="nav-dropdown__title">Pengaturan Profil</p>
           <p class="d-flex align-items-center">
-            <a href="admin-profile.html" class="d-block">Lihat Profil</a>
+            <a href="/admin/profile" class="d-block">Lihat Profil</a>
           </p>
           <hr />
           <p class="d-flex align-items-center">
@@ -266,27 +266,6 @@
     });
     $("#photo-dropdown").click(() => {
       $("#header-main-nav-dropdown").toggleClass("active");
-    });
-
-    // active filer button
-    $(function() {
-      $(".filter__btn").click(function() {
-        // remove classes from all
-        $(".filter__btn").removeClass("active");
-        // add class to the one we clicked
-        $(this).addClass("active");
-        // stop the page from jumping to the top
-        return false;
-      });
-    });
-
-    // tooltips
-    // progress bar unit
-    const tooltipsEdit = document.querySelectorAll(
-      ".edit__data__induk__icon"
-    );
-    tooltipsEdit.forEach((t) => {
-      new bootstrap.Tooltip(t);
     });
   </script>
 </body>

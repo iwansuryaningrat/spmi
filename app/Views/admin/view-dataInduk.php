@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form Add Unit | SIPMPP Admin UNDIP</title>
+    <title>Kategori Data Induk | SIPMPP Admin UNDIP</title>
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -19,7 +19,7 @@
     <!-- uicons icon -->
     <link rel="stylesheet" href="/admin/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
     <!-- custom -->
-    <link rel="stylesheet" href="/admin/assets/css/styles-admin-user.css" />
+    <link rel="stylesheet" href="/admin/assets/css/styles-view-data-induk.css" />
 </head>
 
 <body>
@@ -30,7 +30,7 @@
             <div>
                 <!-- brand -->
                 <div class="sidebar__content-brand">
-                    <a href="/admin" class="d-flex align-items-center">
+                    <a href="/admin/index" class="d-flex align-items-center">
                         <img src="/admin/assets/img/undip-logo-color.png" alt="logo-undip" />
                         <h4>SIPMPP UNDIP</h4>
                     </a>
@@ -40,7 +40,7 @@
                 <div class="sidebar__content-nav">
                     <ul class="sidebar-nav__list">
                         <li>
-                            <a href="/admin" class="nav__list__link">
+                            <a href="/admin/index" class="nav__list__link">
                                 <i class="fa-solid fa-house"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -75,13 +75,13 @@
                             </div>
                         </li>
                         <li>
-                            <a href="/admin/units" class="nav__list__link active">
+                            <a href="/admin/units" class="nav__list__link">
                                 <i class="fa-solid fa-building-columns"></i>
                                 <span>Unit</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/admin/dataInduk" class="nav__list__link">
+                            <a href="/admin/dataInduk" class="nav__list__link active">
                                 <i class="fa-solid fa-book"></i>
                                 <span>Data Induk</span>
                             </a>
@@ -167,55 +167,73 @@
 
             <div class="header__main-title">
                 <div class="header__main-title__pagination">
-                    <a href="/admin">Dashboard</a>
-                    / <a href="/admin/units">Unit</a> / Form Add Unit
+                    <a href="/admin/index">Dashboard</a>
+                    / <a href="/admin/dataInduk">Data Induk</a> / Kategori Data Induk
                 </div>
                 <div class="header__main-title__subtitle">
                     <div class="title__subtitle-desc">
-                        <h1>Add Unit</h1>
-                        <p>
-                            Form untuk menambahkan unit baru
-                        </p>
+                        <h1>Kategori Data Induk</h1>
+                        <p>Halo <span>Adi</span>, selamat datang di dashboard Kategori Data Induk</p>
                     </div>
                 </div>
             </div>
 
             <!--========== body main ==========-->
             <div class="title__table__add">
-                <h4 class="title__body__user">Form Add Unit</h4>
+                <h4 class="title__body__user">S1. Teknik Lingkungan</h4>
+                <a href="/admin/addDataInduk" class="btn shadow-none btn__add btn__dark">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Data Induk
+                </a>
             </div>
 
-            <!-- table indikator -->
-            <div class="form__add__unit">
-                <form>
-                    <!-- nama unit -->
-                    <div class="mb-3">
-                        <label for="nama-unit" class="form-label form__label">Nama Unit</label>
-                        <input type="text" class="form-control form__control" id="nama-unit"
-                            placeholder="Masukkan Nama Unit" required>
-                    </div>
-                    <!-- kategor -->
-                    <div class="mb-3">
-                        <label for="kategori" class="form-label form__label">Kategori</label>
-                        <select class="form-select form__select" id="kategori">
-                            <option selected disabled>Pilih Kategori</option>
-                            <option>Penelitian</option>
-                            <option>Pengabdian Masyarakat</option>
-                        </select>
-                    </div>
-                    <!-- tahun -->
-                    <div class="mb-3">
-                        <label for="tahun" class="form-label form__label">Tahun</label>
-                        <select class="form-select form__select" id="tahun">
-                            <option selected disabled>Pilih Tahun</option>
-                            <option>2019</option>
-                            <option>2020</option>
-                            <option>2021</option>
-                            <option>2022</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+            <!-- table kategori data induk -->
+            <div class="sipmpp__table">
+                <div class="table-responsive">
+                    <table class="table table__view-datainduk__content sipmpp__table-content table-hover">
+                        <thead class="bg__light">
+                            <tr>
+                                <th class="table__viewDI-number">no</th>
+                                <th class="table__viewDI-kode">kode</th>
+                                <th class="table__viewDI-kategori">kategori</th>
+                                <th class="table__viewDI-kebutuhan-data">kebutuhan data</th>
+                                <th class="table__viewDI-tahun">tahun</th>
+                                <th class="table__viewDI-aksi">aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td class="text-uppercase">mk</td>
+                                <td>Penelitian</td>
+                                <td>Mata Kuliah</td>
+                                <td>2019</td>
+                                <td>
+                                    <a data-bs-placement="top" title="Edit" href="/admin/addDataInduk"
+                                        class="edit__data__induk__icon me-4"><i
+                                            class="fa-solid fa-pen-to-square"></i></a>
+                                    <a data-bs-placement="top" title="Delete" href="/admin/addDataInduk"
+                                        class="delete__data__induk__icon"><i class="fa-solid fa-trash"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td class="text-uppercase">perpus</td>
+                                <td>Pengabdian Masyarakat</td>
+                                <td>Target jumlah mahasiswa yang terlibat dalam penelitian dan pengabdian kepada
+                                    masyarakat</td>
+                                <td>2021</td>
+                                <td>
+                                    <a data-bs-placement="top" title="Edit" href="/admin/addDataInduk"
+                                        class="edit__data__induk__icon me-4"><i
+                                            class="fa-solid fa-pen-to-square"></i></a>
+                                    <a data-bs-placement="top" title="Delete" href="/admin/addDataInduk"
+                                        class="delete__data__induk__icon"><i class="fa-solid fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -267,6 +285,22 @@
         });
         $("#photo-dropdown").click(() => {
             $("#header-main-nav-dropdown").toggleClass("active");
+        });
+
+        // tooltips
+        // progress bar unit
+        const tooltipsEdit = document.querySelectorAll(
+            ".edit__data__induk__icon"
+        );
+        const tooltipsDelete = document.querySelectorAll(
+            ".delete__data__induk__icon"
+        );
+
+        tooltipsEdit.forEach((t) => {
+            new bootstrap.Tooltip(t);
+        });
+        tooltipsDelete.forEach((t) => {
+            new bootstrap.Tooltip(t);
         });
     </script>
 </body>

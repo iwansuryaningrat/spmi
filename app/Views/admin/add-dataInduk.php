@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form Add Unit | SIPMPP Admin UNDIP</title>
+    <title>Form Add Data Induk | SIPMPP Admin UNDIP</title>
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -75,13 +75,13 @@
                             </div>
                         </li>
                         <li>
-                            <a href="/admin/units" class="nav__list__link active">
+                            <a href="/admin/units" class="nav__list__link">
                                 <i class="fa-solid fa-building-columns"></i>
                                 <span>Unit</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/admin/dataInduk" class="nav__list__link">
+                            <a href="/admin/dataInduk" class="nav__list__link active">
                                 <i class="fa-solid fa-book"></i>
                                 <span>Data Induk</span>
                             </a>
@@ -168,13 +168,14 @@
             <div class="header__main-title">
                 <div class="header__main-title__pagination">
                     <a href="/admin">Dashboard</a>
-                    / <a href="/admin/units">Unit</a> / Form Add Unit
+                    / <a href="/admin/dataInduk">Data Induk</a> / <a href="/admin/viewDataInduk">Kategori Data Induk</a>
+                    / Form Add Data Induk
                 </div>
                 <div class="header__main-title__subtitle">
                     <div class="title__subtitle-desc">
-                        <h1>Add Unit</h1>
+                        <h1>Add Data Induk</h1>
                         <p>
-                            Form untuk menambahkan unit baru
+                            Form untuk menambahkan data induk baru
                         </p>
                     </div>
                 </div>
@@ -182,19 +183,19 @@
 
             <!--========== body main ==========-->
             <div class="title__table__add">
-                <h4 class="title__body__user">Form Add Unit</h4>
+                <h4 class="title__body__user">Form Add Data Induk</h4>
             </div>
 
             <!-- table indikator -->
             <div class="form__add__unit">
                 <form>
-                    <!-- nama unit -->
+                    <!-- kode -->
                     <div class="mb-3">
-                        <label for="nama-unit" class="form-label form__label">Nama Unit</label>
-                        <input type="text" class="form-control form__control" id="nama-unit"
-                            placeholder="Masukkan Nama Unit" required>
+                        <label for="kode" class="form-label form__label">Kode</label>
+                        <input type="text" class="form-control form__control" id="kode"
+                            placeholder="Masukkan Kode Data Induk" required>
                     </div>
-                    <!-- kategor -->
+                    <!-- kategori -->
                     <div class="mb-3">
                         <label for="kategori" class="form-label form__label">Kategori</label>
                         <select class="form-select form__select" id="kategori">
@@ -202,6 +203,12 @@
                             <option>Penelitian</option>
                             <option>Pengabdian Masyarakat</option>
                         </select>
+                    </div>
+                    <!-- kebutuhan data -->
+                    <div class="mb-3">
+                        <label for="kebutuhan-data" class="form-label form__label">Kebutuhan Data</label>
+                        <input type="text" class="form-control form__control" id="kebutuhan-data"
+                            placeholder="Masukkan Kebutuhan Data" required>
                     </div>
                     <!-- tahun -->
                     <div class="mb-3">

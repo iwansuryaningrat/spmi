@@ -90,10 +90,10 @@ class Admin extends BaseController
     }
 
     // Indikator Method
-    public function indikator()
-    {
-        return view('admin/indikator');
-    }
+    // public function indikator()
+    // {
+    //     return view('admin/indikator');
+    // }
 
     // Data Induk Method
     public function dataInduk()
@@ -147,5 +147,17 @@ class Admin extends BaseController
     public function addUnit()
     {
         return view('admin/add-units');
+    }
+
+    //data induk method
+    public function viewDataInduk()
+    {
+        return view('admin/view-dataInduk');
+    }
+
+    //data induk method
+    public function addDataInduk()
+    {
+        return view('admin/add-dataInduk');
     }
 }
