@@ -181,7 +181,7 @@
             <!--========== body main ==========-->
             <div class="title__table__add">
                 <h4 class="title__body__user">S1. Teknik Lingkungan</h4>
-                <a href="/admin/addDataInduk" class="btn shadow-none btn__add btn__dark">
+                <a href="/admin/addStandar" class="btn shadow-none btn__add btn__dark">
                     <i class="fa-solid fa-plus"></i>
                     Add Standar
                 </a>

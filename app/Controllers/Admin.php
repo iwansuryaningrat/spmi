@@ -73,12 +73,6 @@ class Admin extends BaseController
         return view('admin/standar');
     }
 
-    // Indikator Method
-    // public function indikator()
-    // {
-    //     return view('admin/indikator');
-    // }
-
     // Data Induk Method
     public function dataInduk()
     {
@@ -163,5 +157,11 @@ class Admin extends BaseController
     public function viewStandar()
     {
         return view('admin/view-standar');
+    }
+
+    //Add standar method
+    public function addStandar()
+    {
+        return view('admin/add-standar');
     }
 }

@@ -187,7 +187,7 @@
             </div>
 
             <!-- form add data induk -->
-            <div class="form__add__unit">
+            <div class="form__add__datainduk">
                 <form method="POST" action="">
                     <!-- kode -->
                     <div class="mb-3">

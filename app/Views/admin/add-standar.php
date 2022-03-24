@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form Add Data Induk | SIPMPP Admin UNDIP</title>
+    <title>Form Add Standar | SIPMPP Admin UNDIP</title>
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -81,13 +81,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/admin/dataInduk" class="nav__list__link active">
+                            <a href="/admin/dataInduk" class="nav__list__link">
                                 <i class="fa-solid fa-book"></i>
                                 <span>Data Induk</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/admin/standar" class="nav__list__link">
+                            <a href="/admin/standar" class="nav__list__link active">
                                 <i class="fa-solid fa-chart-pie"></i>
                                 <span>Standar</span>
                             </a>
@@ -168,14 +168,14 @@
             <div class="header__main-title">
                 <div class="header__main-title__pagination">
                     <a href="/admin">Dashboard</a>
-                    / <a href="/admin/dataInduk">Data Induk</a> / <a href="/admin/viewDataInduk">Kategori Data Induk</a>
-                    / Form Add Data Induk
+                    / <a href="/admin/standar">Standar</a> / <a href="/admin/viewStandar">Kategori Standar</a>
+                    / Form Add Standar
                 </div>
                 <div class="header__main-title__subtitle">
                     <div class="title__subtitle-desc">
-                        <h1>Add Data Induk</h1>
+                        <h1>Add Standar</h1>
                         <p>
-                            Form untuk menambahkan data induk baru
+                            Form untuk menambahkan data standar
                         </p>
                     </div>
                 </div>
@@ -183,17 +183,23 @@
 
             <!--========== body main ==========-->
             <div class="title__table__add">
-                <h4 class="title__body__user">Form Add Data Induk</h4>
+                <h4 class="title__body__user">Form Add Standar</h4>
             </div>
 
-            <!-- form add data induk -->
-            <div class="form__add__unit">
+            <!-- form add standar -->
+            <div class="form__add__standar">
                 <form method="POST" action="">
-                    <!-- kode -->
+                    <!-- standar -->
                     <div class="mb-3">
-                        <label for="kode" class="form-label form__label">Kode</label>
-                        <input type="text" class="form-control form__control" id="kode"
-                            placeholder="Masukkan Kode Data Induk" name="kode" required>
+                        <label for="standar" class="form-label form__label">Standar</label>
+                        <input type="text" class="form-control form__control" id="standar"
+                            placeholder="Masukkan Kode Standar" name="standar" required>
+                    </div>
+                    <!-- nama -->
+                    <div class="mb-3">
+                        <label for="nama-standar" class="form-label form__label">Nama</label>
+                        <input type="text" class="form-control form__control" id="nama-standar"
+                            placeholder="Masukkan Nama Standar" name="nama-standar" required>
                     </div>
                     <!-- kategori -->
                     <div class="mb-3">
@@ -203,12 +209,6 @@
                             <option>Penelitian</option>
                             <option>Pengabdian Masyarakat</option>
                         </select>
-                    </div>
-                    <!-- kebutuhan data -->
-                    <div class="mb-3">
-                        <label for="kebutuhan-data" class="form-label form__label">Kebutuhan Data</label>
-                        <input type="text" class="form-control form__control" id="kebutuhan-data" name="kebutuhan-data"
-                            placeholder="Masukkan Kebutuhan Data" required>
                     </div>
                     <!-- tahun -->
                     <div class="mb-3">
