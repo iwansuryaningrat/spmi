@@ -24,9 +24,12 @@
 
 .table__viewDI-number,
 .table__viewDI-kode,
-.table__viewDI-tahun,
-.table__viewDI-aksi {
+.table__viewDI-tahun {
   width: 10%;
+}
+
+.table__viewDI-aksi {
+  width: 15%;
 }
 
 .table__viewDI-kategori {
@@ -34,7 +37,7 @@
 }
 
 .table__viewDI-kebutuhan-data {
-  width: 45%;
+  width: 40%;
 }
 
 .table__view-datainduk__content thead tr th,

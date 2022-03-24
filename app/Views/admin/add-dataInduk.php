@@ -186,19 +186,19 @@
                 <h4 class="title__body__user">Form Add Data Induk</h4>
             </div>
 
-            <!-- table indikator -->
+            <!-- form add data induk -->
             <div class="form__add__unit">
-                <form>
+                <form method="POST" action="">
                     <!-- kode -->
                     <div class="mb-3">
                         <label for="kode" class="form-label form__label">Kode</label>
                         <input type="text" class="form-control form__control" id="kode"
-                            placeholder="Masukkan Kode Data Induk" required>
+                            placeholder="Masukkan Kode Data Induk" name="kode" required>
                     </div>
                     <!-- kategori -->
                     <div class="mb-3">
                         <label for="kategori" class="form-label form__label">Kategori</label>
-                        <select class="form-select form__select" id="kategori">
+                        <select class="form-select form__select" id="kategori" name="kategori">
                             <option selected disabled>Pilih Kategori</option>
                             <option>Penelitian</option>
                             <option>Pengabdian Masyarakat</option>
@@ -207,13 +207,13 @@
                     <!-- kebutuhan data -->
                     <div class="mb-3">
                         <label for="kebutuhan-data" class="form-label form__label">Kebutuhan Data</label>
-                        <input type="text" class="form-control form__control" id="kebutuhan-data"
+                        <input type="text" class="form-control form__control" id="kebutuhan-data" name="kebutuhan-data"
                             placeholder="Masukkan Kebutuhan Data" required>
                     </div>
                     <!-- tahun -->
                     <div class="mb-3">
                         <label for="tahun" class="form-label form__label">Tahun</label>
-                        <select class="form-select form__select" id="tahun">
+                        <select class="form-select form__select" id="tahun" name="tahun">
                             <option selected disabled>Pilih Tahun</option>
                             <option>2019</option>
                             <option>2020</option>

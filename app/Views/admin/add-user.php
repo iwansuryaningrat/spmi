@@ -184,28 +184,29 @@
 
       <!-- table indikator -->
       <div class="form__add__user">
-        <form>
+        <form method="POST" action="">
           <!-- fullname -->
           <div class="mb-3">
             <label for="fullname" class="form-label form__label">Nama Lengkap</label>
-            <input type="text" class="form-control form__control" id="fullname" placeholder="Masukkan Nama Lengkap"
-              required>
+            <input type="text" class="form-control form__control" id="fullname" name="fullname"
+              placeholder="Masukkan Nama Lengkap" required>
           </div>
           <!-- username -->
           <div class="mb-3">
             <label for="username" class="form-label form__label">Username</label>
-            <input type="text" class="form-control form__control" id="username" placeholder="Masukkan Username"
-              required>
+            <input type="text" class="form-control form__control" id="username" name="username"
+              placeholder="Masukkan Username" required>
           </div>
           <!-- email -->
           <div class="mb-3">
             <label for="email" class="form-label form__label">Email</label>
-            <input type="email" class="form-control form__control" id="email" placeholder="Masukkan Email" required>
+            <input type="email" class="form-control form__control" id="email" name="email" placeholder="Masukkan Email"
+              required>
           </div>
           <!-- role -->
           <div class="mb-3">
             <label for="role" class="form-label form__label">Role</label>
-            <select class="form-select form__select" id="role">
+            <select class="form-select form__select" id="role" name="role">
               <option selected disabled>Pilih Role User</option>
               <option>Admin</option>
               <option>Auditor</option>
@@ -217,50 +218,50 @@
             <label for="unit" class="form-label form__label">Unit</label>
             <div class="row row-cols-3 m-0" style="width: 100%;">
               <div class="form-check col">
-                <input class="form-check-input" type="checkbox" value="" id="">
-                <label class="form-check-label" for="">
+                <input class="form-check-input" type="checkbox" value="" id="" name="unit[]">
+                <label class="form-check-label" for="unit">
                   S1 Teknik Lingkungan
                 </label>
               </div>
               <div class="form-check col">
-                <input class="form-check-input" type="checkbox" value="" id="">
-                <label class="form-check-label" for="">
+                <input class="form-check-input" type="checkbox" value="" id="" name="unit[]">
+                <label class="form-check-label" for="unit">
                   S1 Informatika
                 </label>
               </div>
               <div class="form-check col">
-                <input class="form-check-input" type="checkbox" value="" id="">
-                <label class="form-check-label" for="">
+                <input class="form-check-input" type="checkbox" value="" id="" name="unit[]">
+                <label class="form-check-label" for="unit">
                   S1 Kesehatan Masyarakat
                 </label>
               </div>
               <div class="form-check col">
-                <input class="form-check-input" type="checkbox" value="" id="">
-                <label class="form-check-label" for="">
+                <input class="form-check-input" type="checkbox" value="" id="" name="unit[]">
+                <label class="form-check-label" for="unit">
                   S1 Teknik Lingkungan
                 </label>
               </div>
               <div class="form-check col">
-                <input class="form-check-input" type="checkbox" value="" id="">
-                <label class="form-check-label" for="">
+                <input class="form-check-input" type="checkbox" value="" id="" name="unit[]">
+                <label class="form-check-label" for="unit">
                   S1 Informatika
                 </label>
               </div>
               <div class="form-check col">
-                <input class="form-check-input" type="checkbox" value="" id="">
-                <label class="form-check-label" for="">
+                <input class="form-check-input" type="checkbox" value="" id="" name="unit[]">
+                <label class="form-check-label" for="unit">
                   S1 Kesehatan Masyarakat
                 </label>
               </div>
               <div class="form-check col">
-                <input class="form-check-input" type="checkbox" value="" id="">
-                <label class="form-check-label" for="">
+                <input class="form-check-input" type="checkbox" value="" id="" name="unit[]">
+                <label class="form-check-label" for="unit">
                   S1 Informatika
                 </label>
               </div>
               <div class="form-check col">
-                <input class="form-check-input" type="checkbox" value="" id="">
-                <label class="form-check-label" for="">
+                <input class="form-check-input" type="checkbox" value="" id="" name="unit[]">
+                <label class="form-check-label" for="unit">
                   S1 Kesehatan Masyarakat
                 </label>
               </div>
@@ -269,8 +270,8 @@
           <!-- password -->
           <div class="mb-3">
             <label for="password" class="form-label form__label">Password</label>
-            <input type="password" class="form-control form__control" id="password" placeholder="Masukkan Password"
-              required>
+            <input type="password" class="form-control form__control" id="password" name="password"
+              placeholder="Masukkan Password" required>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>

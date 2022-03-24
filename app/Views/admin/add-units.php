@@ -187,17 +187,17 @@
 
             <!-- table indikator -->
             <div class="form__add__unit">
-                <form>
+                <form method="POST" action="">
                     <!-- nama unit -->
                     <div class="mb-3">
                         <label for="nama-unit" class="form-label form__label">Nama Unit</label>
-                        <input type="text" class="form-control form__control" id="nama-unit"
+                        <input type="text" class="form-control form__control" id="nama-unit" name="nama-unit"
                             placeholder="Masukkan Nama Unit" required>
                     </div>
                     <!-- kategor -->
                     <div class="mb-3">
                         <label for="kategori" class="form-label form__label">Kategori</label>
-                        <select class="form-select form__select" id="kategori">
+                        <select class="form-select form__select" id="kategori" name="kategori">
                             <option selected disabled>Pilih Kategori</option>
                             <option>Penelitian</option>
                             <option>Pengabdian Masyarakat</option>
@@ -206,7 +206,7 @@
                     <!-- tahun -->
                     <div class="mb-3">
                         <label for="tahun" class="form-label form__label">Tahun</label>
-                        <select class="form-select form__select" id="tahun">
+                        <select class="form-select form__select" id="tahun" name="tahun">
                             <option selected disabled>Pilih Tahun</option>
                             <option>2019</option>
                             <option>2020</option>
