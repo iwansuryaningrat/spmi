@@ -164,4 +164,10 @@ class Admin extends BaseController
     {
         return view('admin/add-standar');
     }
+
+    //view indikator
+    public function viewIndikator()
+    {
+        return view('admin/view-indikator');
+    }
 }

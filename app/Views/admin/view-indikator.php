@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kategori Standar | SIPMPP Admin UNDIP</title>
+    <title>Indikator | SIPMPP Admin UNDIP</title>
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -19,7 +19,7 @@
     <!-- uicons icon -->
     <link rel="stylesheet" href="/admin/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
     <!-- custom -->
-    <link rel="stylesheet" href="/admin/assets/css/styles-view-standar.css" />
+    <link rel="stylesheet" href="/admin/assets/css/styles-view-indikator.css" />
 </head>
 
 <body>
@@ -168,56 +168,63 @@
             <div class="header__main-title">
                 <div class="header__main-title__pagination">
                     <a href="/admin/index">Dashboard</a>
-                    / <a href="/admin/standar">Standar</a> / Kategori Standar
+                    / <a href="/admin/standar">Standar</a> / <a href="/admin/viewStandar">Kategori Standar</a> /
+                    Indikator
                 </div>
                 <div class="header__main-title__subtitle">
                     <div class="title__subtitle-desc">
-                        <h1>Kategori Standar</h1>
-                        <p>Halo <span>Adi</span>, selamat datang di dashboard Kategori Standar</p>
+                        <h1>Indikator</h1>
+                        <p>Halo <span>Adi</span>, selamat datang di dashboard Indikator</p>
                     </div>
                 </div>
             </div>
 
             <!--========== body main ==========-->
             <div class="title__table__add">
-                <h4 class="title__body__user">S1. Teknik Lingkungan</h4>
-                <a href="/admin/addStandar" class="btn shadow-none btn__add btn__dark">
-                    <i class="fa-solid fa-plus"></i>
-                    Add Standar
-                </a>
+                <div>
+                    <h4 class="title__body__user mb-3">Unit <span>Teknik Lingkungan</span></h4>
+                    <h4 class="title__body__user"><span>S12</span>. <span>Standar Sarana dan Prasarana
+                            Pembelajaran</span></h4>
+                </div>
+                <div>
+                    <a href="#" class="btn shadow-none btn__add btn__dark">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Indikator
+                    </a>
+                </div>
             </div>
 
-            <!-- table kategori data induk -->
+            <!-- table indikator -->
             <div class="sipmpp__table">
                 <div class="table-responsive">
-                    <table class="table table__view-standar__content sipmpp__table-content table-hover">
+                    <table class="table table__indikator__content sipmpp__table-content table-hover">
                         <thead class="bg__light">
                             <tr>
-                                <th class="table__view__standar-number">no</th>
-                                <th class="table__view__standar-standar">standar</th>
-                                <th class="table__view__standar-nama">nama</th>
-                                <th class="table__view__standar-kategori">kategori</th>
-                                <th class="table__view__standar-status">status</th>
-                                <th class="table__view__standar-athun">tahun</th>
-                                <th class="table__view__standar-aksi">aksi</th>
+                                <th class="table__indikator-number">no</th>
+                                <th class="table__indikator-indikator">indikator</th>
+                                <th class="table__indikator-target">target</th>
+                                <th class="table__indikator-aksi">aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>S1</td>
-                                <td>Standar Saran dan Prasarana Pembelajaran</td>
-                                <td>Pengabdian Masyarakat</td>
-                                <td>Badge</td>
-                                <td>2019</td>
+                                <td>Tersedianya pedoman penyusunan profil lulusan program studi</td>
+                                <td>Tersusunnya profil program studi</td>
                                 <td>
-                                    <a data-bs-placement="top" title="lihat" href="/admin/viewIndikator"
-                                        class="edit__data__induk__icon me-4"><i class="fa-solid fa-eye"></i></a>
-                                    <a data-bs-placement="top" title="Edit" href="#"
-                                        class="edit__data__induk__icon me-4"><i
-                                            class="fa-solid fa-pen-to-square"></i></a>
-                                    <a data-bs-placement="top" title="Delete" href="#"
-                                        class="delete__data__induk__icon"><i class="fa-solid fa-trash"></i></a>
+                                    <a data-bs-placement="top" title="lihat" href="#" class="edit__data__induk__icon"><i
+                                            class="fa-solid fa-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Tersedia pedoman rumusan kualifikasi lulusan berupa Capaian Pembelajaran Lulusan
+                                    (CPL) mencakup aspek sikap, pengetahuan, dan keterampilan</td>
+                                <td>Adanya dokumen Capaian Pembelajaran Lulusan sesuai dengan SKL berdasarkan jenis dan
+                                    jenjang pendidikan berdasarkan KKNI serta SN-DIKTI</td>
+                                <td>
+                                    <a data-bs-placement="top" title="lihat" href="#" class="edit__data__induk__icon"><i
+                                            class="fa-solid fa-eye"></i></a>
                                 </td>
                             </tr>
                         </tbody>
