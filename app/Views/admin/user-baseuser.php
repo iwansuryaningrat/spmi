@@ -74,25 +74,23 @@
             <th class="table__user-number">No</th>
             <th class="table__user-fullname">Nama Lengkap</th>
             <th class="table__user-username">Username</th>
-            <th class="table__user-email">email</th>
-            <th class="table__user-nip">nip</th>
+            <th class="table__user-email">Email</th>
+            <th class="table__user-nip">NIP</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Adi Wibowo</td>
-            <td>bowo.informatika</td>
-            <td>adiwibowo@lecturer.undip.ac.id</td>
-            <td>2406011912001234</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Iwan Budi Kusumaningrat Jayabaya</td>
-            <td>iwanjayabaya.informatika</td>
-            <td>iwanjayabaya@lecturer.undip.ac.id</td>
-            <td>2406011912001289</td>
-          </tr>
+
+          <?php foreach ($users as $user) : ?>
+            <tr>
+              <td><?= $i; ?></td>
+              <td><?= $user['nama']; ?></td>
+              <td><?= $user['username']; ?></td>
+              <td><?= $user['email']; ?></td>
+              <td><?= $user['nip']; ?></td>
+            </tr>
+          <?php $i++;
+          endforeach; ?>
+
         </tbody>
       </table>
     </div>

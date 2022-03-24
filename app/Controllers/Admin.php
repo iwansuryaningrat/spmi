@@ -91,7 +91,7 @@ class Admin extends BaseController
         return view('admin/profile');
     }
 
-    // User Method
+    // User Method (Done)
     public function user()
     {
         $usersession = $this->data_user;
