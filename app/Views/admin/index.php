@@ -13,7 +13,7 @@
     </div>
     <div class="header__main-nav-profile">
       <div class="nav-profile__photo">
-        <img src="/admin/assets/img/adi-wibowo-img.png" alt="profile-picture" id="photo-dropdown" />
+        <img src="/profile/<?= $usersession['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
       </div>
       <div class="nav-profile__desc">
         <p id="profileName" class="ellipsis__text"><?php if ($usersession['nama'] != null && $usersession['nama'] != "") {

@@ -67,12 +67,6 @@ class Admin extends BaseController
         return view('admin/index', $data);
     }
 
-    // User Method
-    public function users()
-    {
-        return view('admin/users');
-    }
-
     // Standar Method
     public function standar()
     {
@@ -106,7 +100,21 @@ class Admin extends BaseController
     // User Method
     public function user()
     {
-        return view('admin/user-baseuser');
+        $usersession = $this->data_user;
+
+        $user = $this->usersModel->getUserRole('user');
+
+        $data = [
+            'title' => 'Base User | SIPMPP Admin UNDIP',
+            'tab' => 'user',
+            'css' => 'styles-admin-user.css',
+            'header' => 'header__mini',
+            'i' => $this->i,
+            'usersession' => $usersession,
+            'users' => $user
+        ];
+
+        return view('admin/user-baseuser', $data);
     }
 
     // Leader Method

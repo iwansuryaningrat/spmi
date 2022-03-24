@@ -27,7 +27,7 @@ class UsersModel extends Model
     // function to get data by role
     public function getUserRole($role)
     {
-        return $this->where('role', $role)->first();
+        return $this->where('role', $role)->findAll();
     }
 
     // function to get data by id
