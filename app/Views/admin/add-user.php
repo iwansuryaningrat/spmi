@@ -191,27 +191,17 @@
             <input type="text" class="form-control form__control" id="fullname" name="fullname"
               placeholder="Masukkan Nama Lengkap" required>
           </div>
-          <!-- username -->
-          <div class="mb-3">
-            <label for="username" class="form-label form__label">Username</label>
-            <input type="text" class="form-control form__control" id="username" name="username"
-              placeholder="Masukkan Username" required>
-          </div>
           <!-- email -->
           <div class="mb-3">
             <label for="email" class="form-label form__label">Email</label>
             <input type="email" class="form-control form__control" id="email" name="email" placeholder="Masukkan Email"
               required>
           </div>
-          <!-- role -->
+          <!-- nomor telepon -->
           <div class="mb-3">
-            <label for="role" class="form-label form__label">Role</label>
-            <select class="form-select form__select" id="role" name="role">
-              <option selected disabled>Pilih Role User</option>
-              <option>Admin</option>
-              <option>Auditor</option>
-              <option>Leader</option>
-            </select>
+            <label for="telp" class="form-label form__label">Nomor Telepon</label>
+            <input type="text" class="form-control form__control" id="telp" name="telp"
+              placeholder="Masukkan Nomor Telepon" required>
           </div>
           <!-- unit -->
           <div class="mb-3">
