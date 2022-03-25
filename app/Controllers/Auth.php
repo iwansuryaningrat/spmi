@@ -4,19 +4,16 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\UsersModel;
-use App\Models\TransaksiModel;
 use App\Models\SupercodeModel;
 
 class Auth extends BaseController
 {
     protected $usersModel;
-    protected $transaksiModel;
     protected $supercodeModel;
 
     public function __construct()
     {
         $this->usersModel = new UsersModel();
-        $this->transaksiModel = new TransaksiModel();
         $this->supercodeModel = new SupercodeModel();
         $this->validation = \Config\Services::validation();
         $this->session = \Config\Services::session();

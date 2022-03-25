@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Models\UnitsModel;
-use App\Models\TransaksiModel;
 use App\Models\KategoriModel;
 use App\Models\TahunModel;
 use App\Models\UsersModel;
@@ -14,7 +13,6 @@ use App\Models\StandarModel;
 class Home extends BaseController
 {
     protected $unitsModel;
-    protected $transaksiModel;
     protected $kategoriModel;
     protected $tahunModel;
     protected $usersModel;
@@ -25,7 +23,6 @@ class Home extends BaseController
     public function __construct()
     {
         $this->unitsModel = new UnitsModel();
-        $this->transaksiModel = new TransaksiModel();
         $this->kategoriModel = new KategoriModel();
         $this->tahunModel = new TahunModel();
         $this->usersModel = new UsersModel();
