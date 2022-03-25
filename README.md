@@ -1,63 +1,61 @@
-# CodeIgniter 4 Application Starter
+<br/>
+<div align="center">  
+  <p><img src="https://raw.githubusercontent.com/roziqinkhoeru/sipmpp.undip.github.io/main/assets/img/logo-sipmpp.png?token=GHSAT0AAAAAABSA36XCO34VJD4U7A27AIBOYSAURUQ" width=280/></p>
+  <p><strong>Dashboard SIPMPP</strong> Universitas Diponegoro</p>
+</div>
+<br/>
 
-## What is CodeIgniter?
+# 💻 SIPMPP UNDIP
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](http://codeigniter.com).
+A website-based information system that is used to manage documents as an accreditation assessment.. This program was created using **HTML (Hypertext Markup Language)**, **CSS (Cascading Style Sheet)**, **JavaScript**, **Bootstrap v.5**, etc.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## 🛠 Tools / Library Used
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+- **HTML (Hypertext Markup Language)**
+- **CSS (Cascading Style Sheet)**
+- **JS (Javascript)**
+- **PHP**
+- **Bootstrap V.5**
+- **JQuery**
+- **Visual Studio Code**
+- **Git**
+- **Github**
+- **MySQL**
+- **Figma**
+- **Codeigniter4**
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+## 📛 Badges
 
-## Installation & updates
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
+![Bootsrtap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)
+![Code-Igniter](https://img.shields.io/badge/CodeIgniter-%23EF4223.svg?style=for-the-badge&logo=codeIgniter&logoColor=white)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+```
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+## 💡 Features
 
-## Setup
+- Responsives all devices
+- Easy to use
+- Modern design
+- include admin, user, and audit dashboard
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+## 📃 Used By
 
-## Important Change with index.php
+[Diponegoro University](https://www.undip.ac.id/)
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+## 👨‍ Developed by
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+- [Iwan Suryaningrat](https://github.com/iwansuryaningrat)
+- [Khoeru Roziqin](https://github.com/roziqinkhoeru)
 
-**Please** read the user guide for a better explanation of how CI4 works!
 
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 7.3 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-- xml (enabled by default - don't turn it off)
+```
