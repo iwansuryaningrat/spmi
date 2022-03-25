@@ -26,7 +26,7 @@ class AdminFilter implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         if (session()->get('role') != 'admin') {
-            if (session()->get('role') == 'leader') {
+            if (session()->get('role') == 'pimpinan') {
                 return redirect()->to('/leader');
             } elseif (session()->get('role') == 'auditor') {
                 return redirect()->to('/auditor');

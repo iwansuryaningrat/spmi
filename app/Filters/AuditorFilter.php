@@ -28,7 +28,7 @@ class AuditorFilter implements FilterInterface
         if (session()->get('role') != 'auditor') {
             if (session()->get('role') == 'admin') {
                 return redirect()->to('/admin');
-            } elseif (session()->get('role') == 'leader') {
+            } elseif (session()->get('role') == 'pimpinan') {
                 return redirect()->to('/leader');
             } elseif (session()->get('role') == 'user') {
                 return redirect()->to('/home');

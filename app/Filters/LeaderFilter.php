@@ -25,7 +25,7 @@ class LeaderFilter implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (session()->get('role') != 'leader') {
+        if (session()->get('role') != 'pimpinan') {
             if (session()->get('role') == 'admin') {
                 return redirect()->to('/admin');
             } elseif (session()->get('role') == 'auditor') {

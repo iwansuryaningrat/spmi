@@ -30,7 +30,7 @@ class UsersFilter implements FilterInterface
                 return redirect()->to('/admin');
             } elseif (session()->get('role') == 'auditor') {
                 return redirect()->to('/auditor');
-            } elseif (session()->get('role') == 'leader') {
+            } elseif (session()->get('role') == 'pimpinan') {
                 return redirect()->to('/leader');
             }
         }
