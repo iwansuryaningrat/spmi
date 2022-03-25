@@ -4,33 +4,42 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
-use App\Models\UnitsModel;
-use App\Models\KategoriModel;
-use App\Models\TahunModel;
-use App\Models\UsersModel;
 use App\Models\DataIndukModel;
 use App\Models\IndikatorModel;
+use App\Models\KategoriModel;
+use App\Models\PenilaianModel;
 use App\Models\StandarModel;
+use App\Models\TahunModel;
+use App\Models\UnitIndukTahunModel;
+use App\Models\UnitsModel;
+use App\Models\UsersModel;
+use App\Models\UserUnitModel;
 
 class Auditor extends BaseController
 {
-    protected $unitsModel;
-    protected $kategoriModel;
-    protected $tahunModel;
-    protected $usersModel;
     protected $dataIndukModel;
     protected $indikatorModel;
+    protected $kategoriModel;
+    protected $penilaianModel;
     protected $standarModel;
+    protected $tahunModel;
+    protected $unitIndukTahunModel;
+    protected $unitsModel;
+    protected $usersModel;
+    protected $userunitModel;
 
     public function __construct()
     {
-        $this->unitsModel = new UnitsModel();
-        $this->kategoriModel = new KategoriModel();
-        $this->tahunModel = new TahunModel();
-        $this->usersModel = new UsersModel();
         $this->dataIndukModel = new DataIndukModel();
         $this->indikatorModel = new IndikatorModel();
+        $this->kategoriModel = new KategoriModel();
+        $this->penilaianModel = new PenilaianModel();
         $this->standarModel = new StandarModel();
+        $this->tahunModel = new TahunModel();
+        $this->unitIndukTahunModel = new UnitIndukTahunModel();
+        $this->unitsModel = new UnitsModel();
+        $this->usersModel = new UsersModel();
+        $this->userunitModel = new UserUnitModel();
         $this->data_user = [
             'nama' => session()->get('nama'),
             'role' => session()->get('role'),
