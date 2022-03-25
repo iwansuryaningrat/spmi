@@ -53,6 +53,7 @@ class Auth extends BaseController
         $user = $this->usersModel->getUserByUsername($username);
         // dd($user);
 
+        // Edit lagi bagian session
         if ($user) {
             if (password_verify($password, $user['password'])) {
                 $data = [
