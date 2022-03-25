@@ -50,11 +50,7 @@ A website-based information system that is used to manage documents as an accred
 
 [Diponegoro University](https://www.undip.ac.id/)
 
-## 👨‍ Developed by
+## 👨‍💻 Developed by
 
 - [Iwan Suryaningrat](https://github.com/iwansuryaningrat)
 - [Khoeru Roziqin](https://github.com/roziqinkhoeru)
-
-```
-
-```
