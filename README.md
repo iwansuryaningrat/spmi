@@ -39,8 +39,6 @@ A website-based information system that is used to manage documents as an accred
 ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 
-```
-
 ## 💡 Features
 
 - Responsives all devices
@@ -57,5 +55,6 @@ A website-based information system that is used to manage documents as an accred
 - [Iwan Suryaningrat](https://github.com/iwansuryaningrat)
 - [Khoeru Roziqin](https://github.com/roziqinkhoeru)
 
+```
 
 ```
