@@ -4,16 +4,25 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\UsersModel;
+use App\Models\UserUnitModel;
+use App\Models\UnitsModel;
+use App\Models\RoleModel;
 use App\Models\SupercodeModel;
 
 class Auth extends BaseController
 {
     protected $usersModel;
+    protected $userunitModel;
+    protected $unitsModel;
+    protected $roleModel;
     protected $supercodeModel;
 
     public function __construct()
     {
         $this->usersModel = new UsersModel();
+        $this->userunitModel = new UserUnitModel();
+        $this->unitsModel = new UnitsModel();
+        $this->roleModel = new RoleModel();
         $this->supercodeModel = new SupercodeModel();
         $this->validation = \Config\Services::validation();
         $this->session = \Config\Services::session();
