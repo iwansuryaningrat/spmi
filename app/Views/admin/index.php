@@ -13,14 +13,17 @@
     </div>
     <div class="header__main-nav-profile">
       <div class="nav-profile__photo">
-        <img src="/profile/<?= $usersession['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
+        <img
+          src="/profile/<?= $usersession['foto']; ?>"
+          alt="profile-picture" id="photo-dropdown" />
       </div>
       <div class="nav-profile__desc">
         <p id="profileName" class="ellipsis__text"><?php if ($usersession['nama'] != null && $usersession['nama'] != "") {
-                                                      echo $usersession['nama'];
-                                                    } else {
-                                                      echo $usersession['username'];
-                                                    } ?></p>
+    echo $usersession['nama'];
+} else {
+    echo $usersession['username'];
+} ?>
+        </p>
         <p id="profileStatus" class="ellipsis__text">Administrator</p>
       </div>
       <div class="nav-profile__btn">
@@ -46,7 +49,19 @@
     <div class="header__main-title__subtitle">
       <div class="title__subtitle-desc">
         <h1>Dashboard Admin Overview</h1>
-        <p>Halo <span><?= $usersession['nama']; ?></span>, selamat datang kembali!</p>
+        <p>Halo <span>
+            <?php // uses regex that accepts any word character or hyphen in last name
+        function split_name($name)
+        {
+            $name = trim($name);
+            $last_name = (strpos($name, ' ') === false) ? '' : preg_replace('#.*\s([\w-]*)$#', '$1', $name);
+            $first_name = trim(preg_replace('#'.preg_quote($last_name, '#').'#', '', $name));
+            return array($first_name, $last_name);
+        }
+        echo split_name($usersession['nama'])[0];
+        ?>
+          </span>, selamat
+          datang kembali!</p>
       </div>
       <div class="title__subtitle-btn">
         <a href="/admin/report" class="report__link big__btn btn__dark">
@@ -74,10 +89,12 @@
             <tbody>
 
               <?php foreach ($units as $unit) : ?>
-                <tr>
-                  <td><?= $i; ?></td>
-                  <td><?= $unit['nama_unit']; ?></td>
-                </tr>
+              <tr>
+                <td><?= $i; ?>
+                </td>
+                <td><?= $unit['nama_unit']; ?>
+                </td>
+              </tr>
               <?php $i++;
               endforeach; ?>
 
@@ -148,4 +165,4 @@
   });
 </script>
 
-<?= $this->endSection(); ?>
+<?= $this->endSection();
