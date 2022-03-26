@@ -46,7 +46,7 @@
                         <form method="POST" class="register-form" id="register-form" action="/auth/registerprocess">
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="username" id="username" placeholder="Username" required />
+                                <input type="text" name="nama" id="nama" placeholder="Nama" required />
                             </div>
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>

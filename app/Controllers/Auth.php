@@ -35,17 +35,17 @@ class Auth extends BaseController
     public function login()
     {
         // Check Login status
-        // if (session()->get('isLoggedIn')) {
-        //     if (session()->get('role') == 'admin') {
-        //         return redirect()->to('/admin');
-        //     } elseif (session()->get('role') == 'auditor') {
-        //         return redirect()->to('/auditor');
-        //     } elseif (session()->get('role') == 'leader') {
-        //         return redirect()->to('/leader');
-        //     } elseif (session()->get('role') == 'user') {
-        //         return redirect()->to('/home');
-        //     }
-        // }
+        if (session()->get('isLoggedIn')) {
+            if (session()->get('role') == 'admin') {
+                return redirect()->to('/admin');
+            } elseif (session()->get('role') == 'auditor') {
+                return redirect()->to('/auditor');
+            } elseif (session()->get('role') == 'pimpinan') {
+                return redirect()->to('/leader');
+            } elseif (session()->get('role') == 'user') {
+                return redirect()->to('/home');
+            }
+        }
 
         $data = [
             'title' => 'Login | SIPMPP UNDIP 2022',
@@ -100,7 +100,7 @@ class Auth extends BaseController
         }
     }
 
-    // Register Page
+    // Register Page (Done)
     public function register()
     {
         // Check Login status
@@ -109,7 +109,7 @@ class Auth extends BaseController
                 return redirect()->to('/admin');
             } elseif (session()->get('role') == 'auditor') {
                 return redirect()->to('/auditor');
-            } elseif (session()->get('role') == 'leader') {
+            } elseif (session()->get('role') == 'pimpinan') {
                 return redirect()->to('/leader');
             } elseif (session()->get('role') == 'user') {
                 return redirect()->to('/home');
@@ -123,7 +123,7 @@ class Auth extends BaseController
         return view('auth/register', $data);
     }
 
-    // valid register
+    // valid register (Done)
     public function registerProcess()
     {
         $supercode = $this->supercodeModel->findAll();
@@ -137,14 +137,23 @@ class Auth extends BaseController
             return redirect()->to('auth/register');
         } else {
             $data = [
-                'username' => $this->request->getVar('username'),
+                'nama' => $this->request->getVar('nama'),
                 'email' => $this->request->getVar('email'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-                'role' => 'admin',
                 'foto' => 'default.png',
             ];
 
             $this->usersModel->insert($data);
+
+            $role = $this->roleModel->getRole('admin');
+            $roleuser = [
+                'email' => $this->request->getVar('email'),
+                'role_id' => $role['role_id'],
+                'unit_id' => 'lppm',
+                'tahun' => $this->getTahun,
+            ];
+
+            $this->userroleunitModel->insert($roleuser);
 
             session()->setFlashdata('success', 'Akun berhasil dibuat, silahkan login sebagai administrator.');
 
