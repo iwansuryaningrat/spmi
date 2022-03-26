@@ -73,76 +73,103 @@
     <form method="POST"
       action="/home/saveindikator/<?= $indikator['indikator_id']; ?>"
       enctype="multipart/form-data">
+      <!-- indikator -->
       <div class="row mb-3">
-        <label for="indikator" class="col-sm-2 col-form-label form__label">Indikator</label>
-        <div class="col-sm-10">
-          <textarea class="form-control form__control" id="indikator" name="indikator" cols="30" rows="3" disabled
+        <label for="indikator" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Indikator</label>
+        <div class="col-lg-6 col-md-9 col-sm-8">
+          <textarea class="form-control form__control shadow-none" id="indikator" name="indikator" cols="30" rows="3"
+            disabled
             required><?= $indikator['nama_indikator']; ?></textarea>
         </div>
       </div>
+      <!-- target -->
       <div class="row mb-3">
-        <label for="target" class="col-sm-2 col-form-label form__label">Target</label>
-        <div class="col-sm-10">
-          <textarea class="form-control form__control" name="target" id="target" cols="30" rows="3" disabled
+        <label for="target" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Target</label>
+        <div class="col-lg-6 col-md-9 col-sm-8">
+          <textarea class="form-control form__control shadow-none" name="target" id="target" cols="30" rows="3" disabled
             required><?= $indikator['target']; ?></textarea>
         </div>
       </div>
-      <div class="row mb-3">
-        <label for="data-prodi" class="col-sm-2 col-form-label form__label">Data Prodi</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control form__control" name="dataprodi" id="data-prodi" value="-" disabled
-            required />
+      <!-- kebutuhan data -->
+      <div class="row mb-3 mb-sm-4">
+        <label for="kebutuhan-data" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Kebutuhan Data</label>
+        <div class="col-lg-6 col-md-9 col-sm-8">
+          <textarea class="form-control form__control shadow-none" id="kebutuhan-data" name="kebutuhan-data" cols="30"
+            rows="3" disabled
+            required> Target jumlah mahasiswa yang terlibat dalam penelitian dan pengabdian kepada masyarakat</textarea>
         </div>
       </div>
+      <!-- satuan -->
+      <div class="row mb-3 mb-sm-4">
+        <label for="satuan" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Satuan</label>
+        <div class="col-lg-6 col-md-9 col-sm-8">
+          <input class="form-control form__control shadow-none" id="satuan" name="satuan" disabled required
+            value="isi satuan" />
+        </div>
+      </div>
+      <!-- hasil -->
       <?php if ($indikator['tipe_hasil'] == 'Nilai') : ?>
-
       <div class="row mb-3">
-        <label for="hasil" class="col-sm-2 col-form-label form__label">Hasil</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control form__control" name="hasil" id="hasil"
+        <label for="hasil" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Hasil <span
+            class="color__danger">*</span></label>
+        <div class="col-lg-6 col-md-9 col-sm-8">
+          <input type="text" class="form-control form__control shadow-none" name="hasil" id="hasil"
             value="<?= $indikator['hasil'] ?>"
             required />
         </div>
       </div>
-
       <?php else : ?>
 
       <div class="row mb-3">
-        <label for="hasil" class="col-sm-2 col-form-label form__label">Hasil</label>
-        <div class="col-sm-10">
-          <select class="form-select form__select" name="hasil" id="hasil">
+        <label for="hasil" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Hasil <span
+            class="color__danger">*</span></label>
+        <div class="col-lg-6 col-md-9 col-sm-8">
+          <select class="form-select form__select shadow-none" name="hasil" id="hasil">
             <option selected disabled>Pilih hasil data</option>
             <option value="ADA / ESUAI">ADA / SESUAI</option>
             <option value="Tidak ADA / TIDAK SESUAI">Tidak ADA / TIDAK SESUAI</option>
           </select>
         </div>
       </div>
-
       <?php endif; ?>
+
+      <!-- dokumen -->
       <div class="row mb-3">
-        <label for="dokumen" class="col-sm-2 col-form-label form__label">Dokumen</label>
-        <div class="col-sm-10">
+        <label for="dokumen" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Dokumen <span
+            class="color__danger">*</span></label>
+        <div class="col-lg-6 col-md-9 col-sm-8">
           <div class="input-group">
-            <input type="file" class="form-control" name="dokumen" id="dokumen" required />
+            <input type="file" class="form-control form__control shadow-none" name="dokumen" id="dokumen" required />
             <label class="input-group-text" for="dokumen">Upload</label>
           </div>
         </div>
       </div>
+      <!-- keterangan -->
       <div class="row mb-3">
-        <label for="keterangan" class="col-sm-2 col-form-label form__label">Keterangan</label>
-        <div class="col-sm-10">
-          <textarea class="form-control form__control" id="keterangan" cols="30" rows="3"
+        <label for="keterangan" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Keterangan <span
+            class="color__danger">*</span></label>
+        <div class="col-lg-6 col-md-9 col-sm-8">
+          <textarea class="form-control form__control shadow-none" id="keterangan" cols="30" rows="3"
             name="keterangan"><?= $indikator['keterangan'] ?></textarea>
         </div>
       </div>
+      <!-- catatan -->
       <div class="row mb-3">
-        <label for="catatan" class="col-sm-2 col-form-label form__label">Catatan</label>
-        <div class="col-sm-10">
-          <textarea class="form-control form__control" name="catatan" id="catatan" cols="30" rows="3"
+        <label for="catatan" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Catatan</label>
+        <div class="col-lg-6 col-md-9 col-sm-8">
+          <textarea class="form-control form__control shadow-none" name="catatan" id="catatan" cols="30" rows="3"
             disabled><?= $indikator['catatan'] ?></textarea>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary">Simpan</button>
+      <!-- button -->
+      <div class="row">
+        <div class="col-lg-9 col-md-12 col-sm-12 button__section">
+          <a href="#" class="btn form__btn cancel__btn me-4" role="button">Batal</a>
+          <button type="submit" class="btn form__btn btn__dark">
+            Simpan
+          </button>
+        </div>
+      </div>
     </form>
   </div>
 </div>
