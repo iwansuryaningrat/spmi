@@ -201,52 +201,52 @@ class Auth extends BaseController
     // Form Login Unit
     public function formLoginUnit()
     {
-        $email = $this->request->getVar('email');
-        $password = $this->request->getVar('password');
+        // $email = $this->request->getVar('email');
+        // $password = $this->request->getVar('password');
 
-        $user = $this->usersModel->getUserByEmail($email);
+        // $user = $this->usersModel->getUserByEmail($email);
         // dd($user);
-        $tahun = $this->getTahun;
+        // $tahun = $this->getTahun;
 
         // Edit lagi bagian session
-        if ($user) {
-            if (password_verify($password, $user['password'])) {
-                $user = $this->userroleunitModel->getUserUnit($email, $tahun);
-                dd($user);
-                // $data = [
-                //     'id_user' => $user['user_id'],
-                //     'email' => $user['email'],
-                //     'role' => $user['role'],
-                //     'nama' => $user['nama'],
-                //     'username' => $user['username'],
-                //     'email' => $user['email'],
-                //     'foto' => $user['foto'],
-                //     'isLoggedIn' => true,
-                // ];
+        // if ($user) {
+        //     if (password_verify($password, $user['password'])) {
+        //         $user = $this->userroleunitModel->getUserUnit($email, $tahun);
+        // dd($user);
+        // $data = [
+        //     'id_user' => $user['user_id'],
+        //     'email' => $user['email'],
+        //     'role' => $user['role'],
+        //     'nama' => $user['nama'],
+        //     'username' => $user['username'],
+        //     'email' => $user['email'],
+        //     'foto' => $user['foto'],
+        //     'isLoggedIn' => true,
+        // ];
 
-                // $this->session->set($data);
+        // $this->session->set($data);
 
-                // if ($user['role'] == 'admin') {
-                //     return redirect()->to('/admin');
-                // } elseif ($user['role'] == 'user') {
-                //     return redirect()->to('/home');
-                // } elseif ($user['role'] == 'auditor') {
-                //     return redirect()->to('/auditor');
-                // } else {
-                //     return redirect()->to('/leader');
-                // }
-                $msg = "PASSWORD BENAR";
-                dd($msg);
-            } else {
-                session()->setFlashdata('gagal', 'Gagal melakukan proses autentikasi. Mohon untuk mengisi password dengan benar.');
+        // if ($user['role'] == 'admin') {
+        //     return redirect()->to('/admin');
+        // } elseif ($user['role'] == 'user') {
+        //     return redirect()->to('/home');
+        // } elseif ($user['role'] == 'auditor') {
+        //     return redirect()->to('/auditor');
+        // } else {
+        //     return redirect()->to('/leader');
+        // }
+        // $msg = "PASSWORD BENAR";
+        // dd($msg);
+        //     } else {
+        //         session()->setFlashdata('gagal', 'Gagal melakukan proses autentikasi. Mohon untuk mengisi password dengan benar.');
 
-                return redirect()->to('/login');
-            }
-        } else {
-            session()->setFlashdata('gagal', 'Gagal melakukan proses autentikasi. Mohon maaf akun belum terdaftar. Silakan menghubungi admin untuk mendaftar.');
+        //         return redirect()->to('/login');
+        //     }
+        // } else {
+        //     session()->setFlashdata('gagal', 'Gagal melakukan proses autentikasi. Mohon maaf akun belum terdaftar. Silakan menghubungi admin untuk mendaftar.');
 
-            return redirect()->to('/login');
-        }
+        //     return redirect()->to('/login');
+        // }
 
         $data = [
             'title' => 'Login | SIPMPP UNDIP 2022',
