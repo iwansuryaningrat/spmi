@@ -205,7 +205,7 @@
         <div class="profile__section-profile">
           <h5>Profile Pengguna</h5>
           <hr class="head__hr" />
-          <form class="form__profile">
+          <form class="form__profile" action="" method="POST">
             <!-- foto -->
             <div class="mb-3">
               <label for="photo-profile" class="form-label form__label">Foto Profil</label>
@@ -218,7 +218,7 @@
                 </div>
                 <div class="img__input-field">
                   <input type="file" class="form-control form__control__photo" id="photo-profile"
-                    aria-labelledby="photo-notice" onchange="previewImage(this)" />
+                    aria-labelledby="photo-notice" onchange="previewImage(this)" name="photo-profile" />
                   <label class="form__label__photo btn btn__dark" for="photo-profile">Ubah Profile</label>
                   <label id="photo-notice" class="form-text form__text">
                     Gambar profil Anda sebaiknya memiliki raiso 1:1 dan
@@ -229,27 +229,27 @@
             </div>
             <!-- Nama lengkap -->
             <div class="mb-3">
-              <label for="full-name" class="form-label form__label">Nama Lengkap</label>
-              <input type="text" class="form-control form__control shadow-none" id="full-name" value="Adi Wibowo"
-                required />
+              <label for="fullname" class="form-label form__label">Nama Lengkap</label>
+              <input type="text" class="form-control form__control shadow-none" id="fullname" value="Adi Wibowo"
+                name="fullname" required />
             </div>
             <!-- email -->
             <div class="mb-3">
               <label for="email" class="form-label form__label">Email</label>
-              <input type="text" class="form-control form__control shadow-none" id="email" disabled
+              <input type="text" class="form-control form__control shadow-none" id="email" name="email" disabled
                 value="adiwibowo@lecturer.undip.ac.id" required />
             </div>
             <!-- nip -->
             <div class="mb-3">
               <label for="nip" class="form-label form__label">NIP</label>
-              <input type="text" class="form-control form__control shadow-none" id="nip" value="198203092006041002"
-                required />
+              <input type="text" class="form-control form__control shadow-none" id="nip" name="nip"
+                value="198203092006041002" required />
             </div>
             <!-- nomor telepon -->
             <div class="mb-3 mb__big">
               <label for="no-telp" class="form-label form__label">Nomor telepon</label>
-              <input type="text" class="form-control form__control shadow-none" id="no-telp" value="082314497854"
-                required />
+              <input type="text" class="form-control form__control shadow-none" id="no-telp" name="no-telp"
+                value="082314497854" required />
             </div>
             <!-- button -->
             <div class="d-flex justify-content-end">
@@ -265,19 +265,20 @@
           <div class="section-password__border">
             <h5>Ubah Password</h5>
             <hr />
-            <form class="form__change__password">
+            <form class="form__change__password" action="" method="POST">
               <!-- password lama -->
               <div class="mb-3">
                 <label for="old-password" class="form-label form__label">Password Lama <span
                     class="color__danger">*</span></label>
-                <input type="password" class="form-control form__control shadow-none" id="old-password" required />
+                <input type="password" class="form-control form__control shadow-none" id="old-password"
+                  name="old-password" required />
               </div>
               <!-- password baru -->
               <div class="mb-3">
                 <label for="new-password" class="form-label form__label">Password Baru <span
                     class="color__danger">*</span></label>
                 <input type="password" class="form-control form__control shadow-none" id="new-password"
-                  aria-labelledby="new-password-notice" required />
+                  name="new-password" required aria-labelledby="new-password-notice" required />
                 <div id="new-password-notice" class="form-text form__text">
                   Gunakan minimal 8 karakter dengan kombinasi huruf dan angka.
                 </div>
@@ -287,7 +288,7 @@
                 <label for="new-password-confirm" class="form-label form__label">Konfirmasi Password Baru
                   <span class="color__danger">*</span></label>
                 <input type="password" class="form-control form__control shadow-none" id="new-password-confirm"
-                  required />
+                  name="new-password-confirm" required />
               </div>
               <!-- button -->
               <div class="d-flex justify-content-end">
@@ -351,6 +352,7 @@
       $("#header-main-nav-dropdown").toggleClass("active");
     });
 
+    // preview image and validation
     previewImage = (input) => {
       const fi = document.getElementById("photo-profile");
       // Check if any file is selected.
