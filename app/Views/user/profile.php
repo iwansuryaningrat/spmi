@@ -137,7 +137,7 @@
 
       <div class="header__main-title">
         <div class="header__main-title__pagination">
-          <a href="#">Dashboard</a>
+          <a id="unit-user" href="#" style="font-weight: 600;">S1 Informatika</a>
           / Profile
         </div>
         <div class="header__main-title__subtitle">
