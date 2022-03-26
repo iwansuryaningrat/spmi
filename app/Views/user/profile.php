@@ -30,8 +30,8 @@
       <div>
         <!-- brand -->
         <div class="sidebar__content-brand">
-          <a href="#" class="d-flex align-items-center">
-            <img src="/assets/img/undip-logo-color.png" alt="logo-undip" />
+          <a href="dashboard.html" class="d-flex align-items-center">
+            <img src="assets/img/undip-logo-color.png" alt="logo-undip" />
             <h4>SIPMPP UNDIP</h4>
           </a>
         </div>
@@ -39,88 +39,37 @@
         <!-- navigation -->
         <div class="sidebar__content-nav">
           <ul class="sidebar-nav__list">
+            <!-- dashboard -->
             <li>
-              <a href="#" class="nav__list__link">
+              <a href="dashboard.html" class="nav__list__link">
                 <i class="fa-solid fa-house"></i>
                 <span>Dashboard</span>
               </a>
             </li>
+            <!-- data induk -->
             <li>
-              <a id="sidebar-main-icon" class="nav__list__link-dropdown" data-bs-toggle="collapse"
-                href="#data-induk-collapse" aria-expanded="false" aria-controls="data-induk-collapse">
-                <div class="link-dropdown__sidebar">
-                  <i class="fa-solid fa-book"></i>
-                  <span>Data Induk</span>
-                </div>
-                <i class="fa-solid fa-chevron-down"></i>
+              <a href="data-induk.html" class="nav__list__link">
+                <i class="fa-solid fa-book"></i>
+                <span>Data Induk</span>
               </a>
-
-              <!-- dropdown -->
-              <div class="collapse collapse__dropside" id="data-induk-collapse">
-                <ul class="sidebar-nav__list-collapse">
-                  <li>
-                    <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Informatika</a>
-                  </li>
-                  <li>
-                    <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Matematika</a>
-                  </li>
-                  <li>
-                    <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Statistika</a>
-                  </li>
-                  <li>
-                    <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Teknik Lingkungan</a>
-                  </li>
-                  <li>
-                    <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Kedokteran</a>
-                  </li>
-                  <li>
-                    <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Kesehatan Masyarakat</a>
-                  </li>
-                </ul>
-              </div>
             </li>
+            <!-- Nilai SPMI -->
             <li>
-              <a class="nav__list__link-dropdown" data-bs-toggle="collapse" href="#spmi-collapse" aria-expanded="false"
-                aria-controls="spmi-collapse">
-                <div class="link-dropdown__sidebar">
-                  <i class="fa-solid fa-file-signature"></i>
-                  <span>Nilai SPMI</span>
-                </div>
-                <i class="fa-solid fa-chevron-down"></i>
+              <a href="spmi.html" class="nav__list__link">
+                <i class="fa-solid fa-chart-bar"></i>
+                <span>Nilai SPMI</span>
               </a>
-
-              <!-- dropdown -->
-              <div class="collapse collapse__dropside" id="spmi-collapse">
-                <ul class="sidebar-nav__list-collapse">
-                  <li>
-                    <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Informatika</a>
-                  </li>
-                  <li>
-                    <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Matematika</a>
-                  </li>
-                  <li>
-                    <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Statistika</a>
-                  </li>
-                  <li>
-                    <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Teknik Lingkungan</a>
-                  </li>
-                  <li>
-                    <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Kedokteran</a>
-                  </li>
-                  <li>
-                    <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Kesehatan Masyarakat</a>
-                  </li>
-                </ul>
-              </div>
             </li>
+            <!-- Report -->
             <li>
-              <a href="#" class="nav__list__link">
+              <a href="report.html" class="nav__list__link">
                 <i class="fa-solid fa-print"></i>
                 <span>Report</span>
               </a>
             </li>
+            <!-- Logout -->
             <li>
-              <a href="#" class="nav__list__link">
+              <a href="index.html" class="nav__list__link">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 <span>Log Out</span>
               </a>

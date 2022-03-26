@@ -30,8 +30,8 @@
       <div>
         <!-- brand -->
         <div class="sidebar__content-brand">
-          <a href="/admin/index" class="d-flex align-items-center">
-            <img src="/admin/assets/img/undip-logo-color.png" alt="logo-undip" />
+          <a href="dashboard.html" class="d-flex align-items-center">
+            <img src="assets/img/undip-logo-color.png" alt="logo-undip" />
             <h4>SIPMPP UNDIP</h4>
           </a>
         </div>
@@ -39,64 +39,37 @@
         <!-- navigation -->
         <div class="sidebar__content-nav">
           <ul class="sidebar-nav__list">
+            <!-- dashboard -->
             <li>
-              <a href="/admin/index" class="nav__list__link">
+              <a href="dashboard.html" class="nav__list__link">
                 <i class="fa-solid fa-house"></i>
                 <span>Dashboard</span>
               </a>
             </li>
-
+            <!-- data induk -->
             <li>
-              <a class="nav__list__link-dropdown" data-bs-toggle="collapse" href="#user-collapse" role="button"
-                aria-expanded="false" aria-controls="user-collapse">
-                <div class="link-dropdown__sidebar">
-                  <i class="fa-solid fa-id-card-clip"></i>
-                  <span>User</span>
-                </div>
-                <i class="fa-solid fa-chevron-down"></i>
-              </a>
-
-              <!-- dropdown -->
-              <div class="collapse collapse__dropside" id="user-collapse">
-                <ul class="sidebar-nav__list-collapse">
-                  <li>
-                    <a href="/admin/user" class="nav__list__link-collapse ellipsis__text">Base User</a>
-                  </li>
-                  <li>
-                    <a href="/admin/auditor" class="nav__list__link-collapse ellipsis__text">Auditor</a>
-                  </li>
-                  <li>
-                    <a href="/admin/leader" class="nav__list__link-collapse ellipsis__text">Leader</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <a href="admin/units" class="nav__list__link">
-                <i class="fa-solid fa-building-columns"></i>
-                <span>Unit</span>
-              </a>
-            </li>
-            <li>
-              <a href="/admin/dataInduk" class="nav__list__link">
+              <a href="data-induk.html" class="nav__list__link">
                 <i class="fa-solid fa-book"></i>
                 <span>Data Induk</span>
               </a>
             </li>
+            <!-- Nilai SPMI -->
             <li>
-              <a href="/admin/standar" class="nav__list__link">
-                <i class="fa-solid fa-chart-pie"></i>
-                <span>Standar</span>
+              <a href="spmi.html" class="nav__list__link">
+                <i class="fa-solid fa-chart-bar"></i>
+                <span>Nilai SPMI</span>
               </a>
             </li>
+            <!-- Report -->
             <li>
-              <a href="/admin/report" class="nav__list__link">
+              <a href="report.html" class="nav__list__link">
                 <i class="fa-solid fa-print"></i>
                 <span>Report</span>
               </a>
             </li>
+            <!-- Logout -->
             <li>
-              <a href="/logout" class="nav__list__link">
+              <a href="index.html" class="nav__list__link">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 <span>Log Out</span>
               </a>
@@ -107,7 +80,7 @@
 
       <!-- footer sidebar -->
       <div class="sidebar__content-footer">
-        <p class="mb-4">@admin.sipmppundip . 2019</p>
+        <p class="mb-4">@sipmppundip . 2019</p>
         <p>
           Sistem Informasi Penjaminan Mutu Penelitian dan Pengabdian
           Universitas Diponegoro
