@@ -44,7 +44,7 @@ class Auth extends BaseController
         // }
 
         $data = [
-            'title' => 'Login SIPMPP | SPMI UNDIP 2022',
+            'title' => 'Login | SIPMPP UNDIP 2022',
         ];
 
         return view('auth/login', $data);
@@ -113,7 +113,7 @@ class Auth extends BaseController
         }
 
         $data = [
-            'title' => 'Register SIPMPP | SPMI UNDIP 2022',
+            'title' => 'Register | SIPMPP UNDIP 2022',
         ];
 
         return view('auth/register', $data);
@@ -173,7 +173,7 @@ class Auth extends BaseController
     public function formGenerateUser()
     {
         $data = [
-            'title' => 'Generate User | SPMI UNDIP 2022',
+            'title' => 'Generate User | SIPMPP UNDIP 2022',
         ];
 
         return view('auth/generateUser', $data);
@@ -189,7 +189,7 @@ class Auth extends BaseController
     public function formLoginUnit()
     {
         $data = [
-            'title' => 'Login Unit | SPMI UNDIP 2022',
+            'title' => 'Login | SIPMPP UNDIP 2022',
         ];
 
         return view('auth/login-unit', $data);

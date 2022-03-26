@@ -8,11 +8,14 @@
   <title>Profil | SIPMPP UNDIP</title>
 
   <!-- bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
   <!-- fontawesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/solid.css" integrity="sha384-ltWlpN+Dl8XfKEnC9oW+dDRF8Z7jsYkxQ/WMRoJ2VHH5G2nQZ4if2NWwmV0ybzZ7" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/fontawesome.css" integrity="sha384-RLM8Rxp/DcBfCfSI3bGwwoMMxxy34D2e58WAqXmmdnh0WYlAQ8jeOB3A1ed5KUSm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/solid.css"
+    integrity="sha384-ltWlpN+Dl8XfKEnC9oW+dDRF8Z7jsYkxQ/WMRoJ2VHH5G2nQZ4if2NWwmV0ybzZ7" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/fontawesome.css"
+    integrity="sha384-RLM8Rxp/DcBfCfSI3bGwwoMMxxy34D2e58WAqXmmdnh0WYlAQ8jeOB3A1ed5KUSm" crossorigin="anonymous" />
   <!-- uicons icon -->
   <link rel="stylesheet" href="/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
   <!-- custom -->
@@ -27,7 +30,7 @@
       <div>
         <!-- brand -->
         <div class="sidebar__content-brand">
-          <a href="dashboard.html" class="d-flex align-items-center">
+          <a href="#" class="d-flex align-items-center">
             <img src="/assets/img/undip-logo-color.png" alt="logo-undip" />
             <h4>SIPMPP UNDIP</h4>
           </a>
@@ -37,13 +40,14 @@
         <div class="sidebar__content-nav">
           <ul class="sidebar-nav__list">
             <li>
-              <a href="dashboard.html" class="nav__list__link">
+              <a href="#" class="nav__list__link">
                 <i class="fa-solid fa-house"></i>
                 <span>Dashboard</span>
               </a>
             </li>
             <li>
-              <a id="sidebar-main-icon" class="nav__list__link-dropdown" data-bs-toggle="collapse" href="#data-induk-collapse" aria-expanded="false" aria-controls="data-induk-collapse">
+              <a id="sidebar-main-icon" class="nav__list__link-dropdown" data-bs-toggle="collapse"
+                href="#data-induk-collapse" aria-expanded="false" aria-controls="data-induk-collapse">
                 <div class="link-dropdown__sidebar">
                   <i class="fa-solid fa-book"></i>
                   <span>Data Induk</span>
@@ -55,7 +59,7 @@
               <div class="collapse collapse__dropside" id="data-induk-collapse">
                 <ul class="sidebar-nav__list-collapse">
                   <li>
-                    <a href="data-induk.html" class="nav__list__link-collapse ellipsis__text">S1 Informatika</a>
+                    <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Informatika</a>
                   </li>
                   <li>
                     <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Matematika</a>
@@ -76,7 +80,8 @@
               </div>
             </li>
             <li>
-              <a class="nav__list__link-dropdown" data-bs-toggle="collapse" href="#spmi-collapse" aria-expanded="false" aria-controls="spmi-collapse">
+              <a class="nav__list__link-dropdown" data-bs-toggle="collapse" href="#spmi-collapse" aria-expanded="false"
+                aria-controls="spmi-collapse">
                 <div class="link-dropdown__sidebar">
                   <i class="fa-solid fa-file-signature"></i>
                   <span>Nilai SPMI</span>
@@ -88,7 +93,7 @@
               <div class="collapse collapse__dropside" id="spmi-collapse">
                 <ul class="sidebar-nav__list-collapse">
                   <li>
-                    <a href="spmi.html" class="nav__list__link-collapse ellipsis__text">S1 Informatika</a>
+                    <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Informatika</a>
                   </li>
                   <li>
                     <a href="#" class="nav__list__link-collapse ellipsis__text">S1 Matematika</a>
@@ -109,13 +114,13 @@
               </div>
             </li>
             <li>
-              <a href="report.html" class="nav__list__link">
+              <a href="#" class="nav__list__link">
                 <i class="fa-solid fa-print"></i>
                 <span>Report</span>
               </a>
             </li>
             <li>
-              <a href="index.html" class="nav__list__link">
+              <a href="#" class="nav__list__link">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 <span>Log Out</span>
               </a>
@@ -171,19 +176,19 @@
         <div class="header__main-nav-dropdown" id="header-main-nav-dropdown">
           <p class="nav-dropdown__title">Pengaturan Profil</p>
           <p class="d-flex align-items-center">
-            <a href="profil.html" class="d-block">Lihat Profil</a>
+            <a href="#" class="d-block">Lihat Profil</a>
           </p>
           <hr />
           <p class="d-flex align-items-center">
             <i class="fa-solid fa-arrow-right-from-bracket d-flex"></i>
-            <a href="index.html" class="d-block">Log out</a>
+            <a href="#" class="d-block">Log out</a>
           </p>
         </div>
       </div>
 
       <div class="header__main-title">
         <div class="header__main-title__pagination">
-          <a href="dashboard.html">Dashboard</a>
+          <a href="#">Dashboard</a>
           / Profile
         </div>
         <div class="header__main-title__subtitle">
@@ -198,33 +203,60 @@
       <div class="profile__section">
         <!-- left -->
         <div class="profile__section-profile">
-          <form>
+          <h5>Profile Pengguna</h5>
+          <hr class="head__hr" />
+          <form class="form__profile">
+            <!-- foto -->
             <div class="mb-3">
               <label for="photo-profile" class="form-label form__label">Foto Profil</label>
-              <div class="input-group">
-                <input type="file" class="form-control" id="photo-profile" />
-                <label class="input-group-text" for="photo-profile">Upload</label>
+              <div class="input-group input-group__photo">
+                <div class="img__input-photo">
+                  <div class="img__photo-field">
+                    <img src="assets/img/adi-wibowo-img.png" alt="photo-profile" class="img__input"
+                      id="img-input-preview" />
+                  </div>
+                </div>
+                <div class="img__input-field">
+                  <input type="file" class="form-control form__control__photo" id="photo-profile"
+                    aria-labelledby="photo-notice" onchange="previewImage(this)" />
+                  <label class="form__label__photo btn btn__dark" for="photo-profile">Ubah Profile</label>
+                  <label id="photo-notice" class="form-text form__text">
+                    Gambar profil Anda sebaiknya memiliki raiso 1:1 dan
+                    berukuran tidak lebih dari 2 MB.</label>
+                </div>
               </div>
+              <div id="alert-wrong-photo"></div>
             </div>
+            <!-- Nama lengkap -->
             <div class="mb-3">
               <label for="full-name" class="form-label form__label">Nama Lengkap</label>
-              <input type="text" class="form-control form__control shadow-none" id="full-name" value="Adi Wibowo" required />
+              <input type="text" class="form-control form__control shadow-none" id="full-name" value="Adi Wibowo"
+                required />
             </div>
-            <div class="mb-3">
-              <label for="username" class="form-label form__label">Username</label>
-              <input type="text" class="form-control form__control shadow-none" id="username" value="bowo.informatika" required />
-            </div>
+            <!-- email -->
             <div class="mb-3">
               <label for="email" class="form-label form__label">Email</label>
-              <input type="text" class="form-control form__control shadow-none" id="email" disabled value="adiwibowo@lecturer.undip.ac.id" required />
+              <input type="text" class="form-control form__control shadow-none" id="email" disabled
+                value="adiwibowo@lecturer.undip.ac.id" required />
             </div>
+            <!-- nip -->
             <div class="mb-3">
               <label for="nip" class="form-label form__label">NIP</label>
-              <input type="text" class="form-control form__control shadow-none" id="nip" value="198203092006041002" required />
+              <input type="text" class="form-control form__control shadow-none" id="nip" value="198203092006041002"
+                required />
             </div>
-            <button type="submit" class="btn btn-primary">
-              Simpan Perubahan
-            </button>
+            <!-- nomor telepon -->
+            <div class="mb-3 mb__big">
+              <label for="no-telp" class="form-label form__label">Nomor telepon</label>
+              <input type="text" class="form-control form__control shadow-none" id="no-telp" value="082314497854"
+                required />
+            </div>
+            <!-- button -->
+            <div class="d-flex justify-content-end">
+              <button type="submit" class="btn btn__dark">
+                Simpan Perubahan
+              </button>
+            </div>
           </form>
         </div>
 
@@ -233,25 +265,36 @@
           <div class="section-password__border">
             <h5>Ubah Password</h5>
             <hr />
-            <form>
+            <form class="form__change__password">
+              <!-- password lama -->
               <div class="mb-3">
-                <label for="old-password" class="form-label form__label">Password Lama</label>
+                <label for="old-password" class="form-label form__label">Password Lama <span
+                    class="color__danger">*</span></label>
                 <input type="password" class="form-control form__control shadow-none" id="old-password" required />
               </div>
+              <!-- password baru -->
               <div class="mb-3">
-                <label for="new-password" class="form-label form__label">Password Baru</label>
-                <input type="password" class="form-control form__control shadow-none" id="new-password" aria-labelledby="new-password-notice" required />
+                <label for="new-password" class="form-label form__label">Password Baru <span
+                    class="color__danger">*</span></label>
+                <input type="password" class="form-control form__control shadow-none" id="new-password"
+                  aria-labelledby="new-password-notice" required />
                 <div id="new-password-notice" class="form-text form__text">
                   Gunakan minimal 8 karakter dengan kombinasi huruf dan angka.
                 </div>
               </div>
-              <div class="mb-3">
-                <label for="new-password-confirm" class="form-label form__label">Konfirmasi Password Baru</label>
-                <input type="password" class="form-control form__control shadow-none" id="new-password-confirm" required />
+              <!-- konfirmasi password baru -->
+              <div class="mb-3 mb__big">
+                <label for="new-password-confirm" class="form-label form__label">Konfirmasi Password Baru
+                  <span class="color__danger">*</span></label>
+                <input type="password" class="form-control form__control shadow-none" id="new-password-confirm"
+                  required />
               </div>
-              <button type="submit" class="btn btn-primary">
-                Ubah Password
-              </button>
+              <!-- button -->
+              <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn__light">
+                  Ubah Password
+                </button>
+              </div>
             </form>
           </div>
         </div>
@@ -274,12 +317,20 @@
 
   <!-- scripts -->
   <!-- jquery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+  </script>
   <!-- fontawesome -->
-  <script defer src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" integrity="sha384-vLLEq/Un/eZFmXAu4Xxf8F00RSSMzPcI7iDiT6hpB4zFpezCEGhb5daeR8PLyrLI" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
+    integrity="sha384-vLLEq/Un/eZFmXAu4Xxf8F00RSSMzPcI7iDiT6hpB4zFpezCEGhb5daeR8PLyrLI" crossorigin="anonymous">
+  </script>
   <!-- custom -->
   <script src="/assets/js/scripts.js"></script>
   <script>
