@@ -45,7 +45,9 @@
   </div>
 
   <div class="header__main-title">
-    <div class="header__main-title__pagination">Dashboard</div>
+    <div class="header__main-title__pagination">
+      <span id="unit-user" style="font-weight: 600">S1 Informatika</span>
+    </div>
     <div class="header__main-title__subtitle">
       <div class="title__subtitle-desc">
         <h1>Dashboard Admin Overview</h1>

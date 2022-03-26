@@ -13,15 +13,19 @@
     </div>
     <div class="header__main-nav-profile">
       <div class="nav-profile__photo">
-        <img src="/profile/<?= $data_user['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
+        <img
+          src="/profile/<?= $data_user['foto']; ?>"
+          alt="profile-picture" id="photo-dropdown" />
       </div>
       <div class="nav-profile__desc">
         <p id="profileName" class="ellipsis__text"><?php if ($data_user['nama'] != null && $data_user['nama'] != "") {
-                                                      echo $data_user['nama'];
-                                                    } else {
-                                                      echo $data_user['username'];
-                                                    } ?></p>
-        <p id="profileEmail" class="ellipsis__text"><?= $data_user['email']; ?></p>
+    echo $data_user['nama'];
+} else {
+    echo $data_user['username'];
+} ?>
+        </p>
+        <p id="profileEmail" class="ellipsis__text"><?= $data_user['email']; ?>
+        </p>
       </div>
       <div class="nav-profile__btn">
         <i class="fi-br-angle-down" id="btn-dropdown"></i>
@@ -42,11 +46,14 @@
   </div>
 
   <div class="header__main-title">
-    <div class="header__main-title__pagination">Dashboard</div>
+    <div class="header__main-title__pagination">
+      <span id="unit-user" style="font-weight: 600">S1 Informatika</span>
+    </div>
     <div class="header__main-title__subtitle">
       <div class="title__subtitle-desc">
         <h1>Dashboard Overview</h1>
-        <p>Halo <span><?= $data_user['nama']; ?></span>, selamat datang kembali!</p>
+        <p>Halo <span><?= $data_user['nama']; ?></span>, selamat
+          datang kembali!</p>
       </div>
       <div class="title__subtitle-btn">
         <a href="/home/report" class="report__link big__btn btn__dark">
@@ -75,7 +82,9 @@
         </div>
         <div>
           <div class="progress progress__content-progress-bar">
-            <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%" data-bs-toggle="tooltip" data-bs-placement="top" title="72%"></div>
+            <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="72"
+              aria-valuemin="0" aria-valuemax="100" style="width: 72%" data-bs-toggle="tooltip" data-bs-placement="top"
+              title="72%"></div>
           </div>
         </div>
       </div>
@@ -96,7 +105,9 @@
         </div>
         <div>
           <div class="progress progress__content-progress-bar">
-            <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100" style="width: 42%" data-bs-toggle="tooltip" data-bs-placement="top" title="42%"></div>
+            <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="42"
+              aria-valuemin="0" aria-valuemax="100" style="width: 42%" data-bs-toggle="tooltip" data-bs-placement="top"
+              title="42%"></div>
           </div>
         </div>
       </div>
@@ -153,15 +164,18 @@
             <tbody>
 
               <?php foreach ($unitData as $units) : ?>
-                <tr>
-                  <td><?= $i; ?></td>
-                  <td><a href="#" class="unit__link"><?= $units['nama_unit']; ?></a></td>
-                  <td>
-                    <div class="progress table__unit__progress">
-                      <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%" data-bs-toggle="tooltip" data-bs-placement="top" title="60%"></div>
-                    </div>
-                  </td>
-                </tr>
+              <tr>
+                <td><?= $i; ?>
+                </td>
+                <td><a href="#" class="unit__link"><?= $units['nama_unit']; ?></a></td>
+                <td>
+                  <div class="progress table__unit__progress">
+                    <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="60"
+                      aria-valuemin="0" aria-valuemax="100" style="width: 60%" data-bs-toggle="tooltip"
+                      data-bs-placement="top" title="60%"></div>
+                  </div>
+                </td>
+              </tr>
               <?php $i++;
               endforeach; ?>
 
@@ -204,4 +218,4 @@
   });
 </script>
 
-<?= $this->endSection(); ?>
+<?= $this->endSection();

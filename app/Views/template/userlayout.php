@@ -5,14 +5,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?= $title; ?></title>
+    <title><?= $title; ?>
+    </title>
 
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
     <!-- fontawesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/solid.css" integrity="sha384-ltWlpN+Dl8XfKEnC9oW+dDRF8Z7jsYkxQ/WMRoJ2VHH5G2nQZ4if2NWwmV0ybzZ7" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/fontawesome.css" integrity="sha384-RLM8Rxp/DcBfCfSI3bGwwoMMxxy34D2e58WAqXmmdnh0WYlAQ8jeOB3A1ed5KUSm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/solid.css"
+        integrity="sha384-ltWlpN+Dl8XfKEnC9oW+dDRF8Z7jsYkxQ/WMRoJ2VHH5G2nQZ4if2NWwmV0ybzZ7" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/fontawesome.css"
+        integrity="sha384-RLM8Rxp/DcBfCfSI3bGwwoMMxxy34D2e58WAqXmmdnh0WYlAQ8jeOB3A1ed5KUSm" crossorigin="anonymous" />
     <!-- uicons icon -->
     <link rel="stylesheet" href="/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
 
@@ -37,6 +41,7 @@
                 <!-- navigation -->
                 <div class="sidebar__content-nav">
                     <ul class="sidebar-nav__list">
+                        <!-- dashboard -->
                         <li>
                             <a href="/" class="nav__list__link <?php if ($tab == "home") : echo 'active';
                                                                 endif; ?>">
@@ -44,48 +49,21 @@
                                 <span>Dashboard</span>
                             </a>
                         </li>
+                        <!-- data induk -->
                         <li>
-                            <a class="nav__list__link-dropdown  <?php if ($tab == "datainduk") : echo 'active';
-                                                                endif; ?>" data-bs-toggle="collapse" href="#data-induk-collapse" role="button" aria-expanded="false" aria-controls="data-induk-collapse">
-                                <div class="link-dropdown__sidebar">
-                                    <i class="fa-solid fa-book"></i>
-                                    <span>Data Induk</span>
-                                </div>
-                                <i class="fa-solid fa-chevron-down"></i>
+                            <a href="data-induk.html" class="nav__list__link">
+                                <i class="fa-solid fa-book"></i>
+                                <span>Data Induk</span>
                             </a>
-
-                            <!-- dropdown -->
-                            <div class="collapse collapse__dropside" id="data-induk-collapse">
-                                <ul class="sidebar-nav__list-collapse">
-                                    <?php foreach ($unitData as $units) : ?>
-                                        <li>
-                                            <a href="/home/datainduk/<?= $units['unit_id'] ?>" class="nav__list__link-collapse ellipsis__text"><?= $units['nama_unit']; ?></a>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div>
                         </li>
+                        <!-- Nilai SPMI -->
                         <li>
-                            <a class="nav__list__link-dropdown <?php if ($tab == "standar") : echo 'active';
-                                                                endif; ?>" data-bs-toggle="collapse" href="#spmi-collapse" role="button" aria-expanded="false" aria-controls="spmi-collapse">
-                                <div class="link-dropdown__sidebar">
-                                    <i class="fa-solid fa-file-signature"></i>
-                                    <span>Nilai SPMI</span>
-                                </div>
-                                <i class="fa-solid fa-chevron-down"></i>
+                            <a href="spmi.html" class="nav__list__link">
+                                <i class="fa-solid fa-chart-bar"></i>
+                                <span>Nilai SPMI</span>
                             </a>
-
-                            <!-- dropdown -->
-                            <div class="collapse collapse__dropside" id="spmi-collapse">
-                                <ul class="sidebar-nav__list-collapse">
-                                    <?php foreach ($unitData as $units) : ?>
-                                        <li>
-                                            <a href="/home/standar/<?= $units['unit_id'] ?>" class="nav__list__link-collapse ellipsis__text"><?= $units['nama_unit']; ?></a>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div>
                         </li>
+                        <!-- report -->
                         <li>
                             <a href="#" class="nav__list__link <?php if ($tab == "report") : echo 'active';
                                                                 endif; ?>">
@@ -93,6 +71,7 @@
                                 <span>Report</span>
                             </a>
                         </li>
+                        <!-- logout -->
                         <li>
                             <a href="/logout" class="nav__list__link">
                                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -140,16 +119,26 @@
         </footer>
     </div>
 
-    <?php if ($tab == 'datainduk') echo $this->renderSection('modal'); ?>
+    <?php if ($tab == 'datainduk') {
+                                                                    echo $this->renderSection('modal');
+                                                                } ?>
 
     <!-- scripts -->
     <!-- jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
     <!-- fontawesome -->
-    <script defer src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" integrity="sha384-vLLEq/Un/eZFmXAu4Xxf8F00RSSMzPcI7iDiT6hpB4zFpezCEGhb5daeR8PLyrLI" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
+        integrity="sha384-vLLEq/Un/eZFmXAu4Xxf8F00RSSMzPcI7iDiT6hpB4zFpezCEGhb5daeR8PLyrLI" crossorigin="anonymous">
+    </script>
     <!-- custom -->
     <script src="/assets/js/scripts.js"></script>
 
