@@ -212,7 +212,7 @@
               <div class="input-group input-group__photo">
                 <div class="img__input-photo">
                   <div class="img__photo-field">
-                    <img src="assets/img/adi-wibowo-img.png" alt="photo-profile" class="img__input"
+                    <img src="/assets/img/dummy-profile.png" alt="photo-profile" class="img__input"
                       id="img-input-preview" />
                   </div>
                 </div>
