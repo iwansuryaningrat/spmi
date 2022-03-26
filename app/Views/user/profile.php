@@ -351,26 +351,36 @@
       $("#header-main-nav-dropdown").toggleClass("active");
     });
 
-    // active filer button
-    $(function() {
-      $(".filter__btn").click(function() {
-        // remove classes from all
-        $(".filter__btn").removeClass("active");
-        // add class to the one we clicked
-        $(this).addClass("active");
-        // stop the page from jumping to the top
-        return false;
-      });
-    });
+    previewImage = (input) => {
+      const fi = document.getElementById("photo-profile");
+      // Check if any file is selected.
+      if (fi.files.length > 0) {
+        for (const i = 0; i <= fi.files.length - 1; i++) {
+          const fsize = fi.files.item(i).size;
+          const file = Math.round(fsize / 1024);
+          // The size of the file.
+          if (file >= 2048) {
+            const ukuranAsli = file / 1000;
+            document.getElementById("alert-wrong-photo").innerHTML =
+              "<p class='mt-2 color__danger'><i class='fa-solid fa-triangle-exclamation'></i> Ukuran file terlalu besar (<strong>" +
+              ukuranAsli.toFixed(2) +
+              " MB</strong>), pilih foto dengan ukuran dibawah 2 MB</p>";
+          } else {
+            var fileFhoto = $("#photo-profile[type=file]").get(0).files[0];
 
-    // tooltips
-    // progress bar unit
-    const tooltipsEdit = document.querySelectorAll(
-      ".edit__data__induk__icon"
-    );
-    tooltipsEdit.forEach((t) => {
-      new bootstrap.Tooltip(t);
-    });
+            if (fileFhoto) {
+              var reader = new FileReader();
+
+              reader.onload = function() {
+                $("#img-input-preview").attr("src", reader.result);
+              };
+
+              reader.readAsDataURL(fileFhoto);
+            }
+          }
+        }
+      }
+    };
   </script>
 </body>
 
