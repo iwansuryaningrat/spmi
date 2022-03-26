@@ -44,7 +44,8 @@
   margin-bottom: 1.25rem !important;
 }
 
-.login__desc {
+.login__desc,
+.login__desc__unit {
   color: rgba(0, 0, 0, 0.7);
 }
 
@@ -66,7 +67,8 @@
   background-color: var(--dark-main-color);
 }
 
-.form__login .form-control.form__control {
+.form__login .form-control.form__control,
+.form__login .form-select.form__select {
   padding-right: 3rem !important;
 }
 

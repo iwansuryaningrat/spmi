@@ -116,7 +116,8 @@ button,
   color: rgba(0, 0, 0, 0.8);
 }
 
-.form-control.form__control {
+.form-control.form__control,
+.form-select.form__select {
   font-size: 0.875rem;
 
   padding: 0.875rem 1.25rem;

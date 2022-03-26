@@ -184,4 +184,14 @@ class Auth extends BaseController
         $data = password_hash($password, PASSWORD_DEFAULT);
         dd($data);
     }
+
+    // Form Login Unit
+    public function formLoginUnit()
+    {
+        $data = [
+            'title' => 'Login Unit | SPMI UNDIP 2022',
+        ];
+
+        return view('auth/login-unit', $data);
+    }
 }
