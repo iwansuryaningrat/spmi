@@ -208,13 +208,13 @@ class Auth extends BaseController
                 // dd($user_role);
 
                 // Cek apakah yg login merupakan admin
-                if ($user_role[0]['role'] == 'admin') {
+                if ($user_role[0]['role'] == 'admin' || $user_role[0]['role'] == 'pimpinan') {
                     $data = [
                         'email' => $user[0]['email'],
                         'nama' => $user[0]['nama'],
                         'foto' => $user[0]['foto'],
                         'role_id' => $user_role[0]['role_id'],
-                        'role' => 'admin',
+                        'role' => $user_role[0]['role'],
                         'tahun' => $this->getTahun,
                         'isLoggedIn' => true,
                     ];
