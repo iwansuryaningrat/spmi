@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\UsersModel;
 use App\Models\UserUnitModel;
+use App\Models\UserRoleUnitModel;
 use App\Models\UnitsModel;
 use App\Models\RoleModel;
 use App\Models\SupercodeModel;
@@ -13,6 +14,7 @@ class Auth extends BaseController
 {
     protected $usersModel;
     protected $userunitModel;
+    protected $userroleunitModel;
     protected $unitsModel;
     protected $roleModel;
     protected $supercodeModel;
@@ -21,11 +23,13 @@ class Auth extends BaseController
     {
         $this->usersModel = new UsersModel();
         $this->userunitModel = new UserUnitModel();
+        $this->userroleunitModel = new UserRoleUnitModel();
         $this->unitsModel = new UnitsModel();
         $this->roleModel = new RoleModel();
         $this->supercodeModel = new SupercodeModel();
         $this->validation = \Config\Services::validation();
         $this->session = \Config\Services::session();
+        $this->getTahun = (int)date('Y');
     }
 
     public function login()
@@ -188,6 +192,53 @@ class Auth extends BaseController
     // Form Login Unit
     public function formLoginUnit()
     {
+        $email = $this->request->getVar('email');
+        $password = $this->request->getVar('password');
+
+        $user = $this->usersModel->getUserByEmail($email);
+        // dd($user);
+        $tahun = $this->getTahun;
+
+        // Edit lagi bagian session
+        if ($user) {
+            if (password_verify($password, $user['password'])) {
+                $user = $this->userroleunitModel->getUserUnit($email, $tahun);
+                dd($user);
+                // $data = [
+                //     'id_user' => $user['user_id'],
+                //     'email' => $user['email'],
+                //     'role' => $user['role'],
+                //     'nama' => $user['nama'],
+                //     'username' => $user['username'],
+                //     'email' => $user['email'],
+                //     'foto' => $user['foto'],
+                //     'isLoggedIn' => true,
+                // ];
+
+                // $this->session->set($data);
+
+                // if ($user['role'] == 'admin') {
+                //     return redirect()->to('/admin');
+                // } elseif ($user['role'] == 'user') {
+                //     return redirect()->to('/home');
+                // } elseif ($user['role'] == 'auditor') {
+                //     return redirect()->to('/auditor');
+                // } else {
+                //     return redirect()->to('/leader');
+                // }
+                $msg = "PASSWORD BENAR";
+                dd($msg);
+            } else {
+                session()->setFlashdata('gagal', 'Gagal melakukan proses autentikasi. Mohon untuk mengisi password dengan benar.');
+
+                return redirect()->to('/login');
+            }
+        } else {
+            session()->setFlashdata('gagal', 'Gagal melakukan proses autentikasi. Mohon maaf akun belum terdaftar. Silakan menghubungi admin untuk mendaftar.');
+
+            return redirect()->to('/login');
+        }
+
         $data = [
             'title' => 'Login | SIPMPP UNDIP 2022',
         ];

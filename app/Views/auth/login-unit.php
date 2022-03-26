@@ -43,23 +43,7 @@
                             ?>
                         </span>!
                     </p>
-                    <p class="login__desc__unit mb-4">Silahkan pilih unit yang ingin
-                        Anda
-                        kunjungi. Harap masukkan unit sesuai dengan unit Anda!</p>
-
-                    <!-- Mengecek apakah ada flash data -->
-                    <?php if (session()->getFlashdata('gagal')) : ?>
-                        <!-- alert danger -->
-                        <div class="alert alert-danger d-flex alert-dismissible" role="alert" style="padding-right: 2.5rem">
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="padding: 1.25rem"></button>
-                            <i class="bi bi-exclamation-triangle-fill d-block pe-3" style="font-size: 1.25rem"></i>
-                            <div>
-                                <!-- Menampilkan flashdata gagal -->
-                                <?= session()->getFlashdata('gagal'); ?>
-                            </div>
-                        </div>
-                        <!-- end alert danger -->
-                    <?php endif; ?>
+                    <p class="login__desc__unit mb-4">Silahkan pilih unit yang ingin Anda kunjungi. Harap masukkan unit sesuai dengan unit Anda!</p>
 
                     <?php if (session()->getFlashdata('success')) : ?>
                         <!-- alert success -->

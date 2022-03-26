@@ -16,4 +16,16 @@ class UserRoleUnitModel extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+
+    // Join Table User Unit
+    public function getUserUnit($email, $tahun)
+    {
+        return $this->select('user_role_unit.*, users.*, units.*, role.*')
+            ->join('users', 'users.email = user_role_unit.email')
+            ->join('units', 'units.unit_id = user_role_unit.unit_id')
+            ->join('role', 'role.role_id = user_role_unit.role_id')
+            ->where('user_role_unit.email', $email)
+            ->where('user_role_unit.tahun', $tahun)
+            ->findAll();
+    }
 }

@@ -16,4 +16,10 @@ class UsersModel extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+
+    // Get User by email
+    public function getUserByEmail($email)
+    {
+        return $this->where('email', $email)->first();
+    }
 }

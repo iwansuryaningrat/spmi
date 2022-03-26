@@ -60,11 +60,11 @@
                     <?php endif; ?>
 
 
-                    <form class="form__login" method="POST" action="/auth/loginprocess">
+                    <form class="form__login" method="POST" action="/auth/formloginunit">
                         <div class="mb-4 position-relative">
-                            <label for="username" class="form-label form__label">Username</label>
-                            <input type="username" class="form-control form__control shadow-none" name="username" id="username" placeholder="Masukkan username" required />
-                            <i class="fa-solid fa-user icon__form"></i>
+                            <label for="email" class="form-label form__label">Email</label>
+                            <input type="email" class="form-control form__control shadow-none" name="email" id="email" placeholder="Masukkan Email" required />
+                            <i class="fa-solid fa-at icon__form"></i>
                         </div>
                         <div class="mb-5 position-relative">
                             <label for="password" class="form-label form__label">Password</label>
