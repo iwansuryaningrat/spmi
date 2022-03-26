@@ -85,13 +85,14 @@
                         <div class="mb-4 position-relative">
                             <label for="role" class="form-label form__label">Role</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="role" id="base-user" checked>
+                                <input class="form-check-input shadow-none" type="radio" name="role" id="base-user"
+                                    checked>
                                 <label class="form-check-label" for="base-user">
                                     Base user
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="role" id="auditor">
+                                <input class="form-check-input shadow-none" type="radio" name="role" id="auditor">
                                 <label class="form-check-label" for="auditor">
                                     Auditor
                                 </label>
