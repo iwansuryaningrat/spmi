@@ -124,7 +124,7 @@
   <!-- main -->
   <div class="main__content" id="main-content">
     <!-- header main -->
-    <div class="header__main-color header__mini"></div>
+    <div class="header__main-color"></div>
     <div class="container-fluid container__fluid pb-0">
       <div class="header__main-nav">
         <div class="header__main-nav-btn">

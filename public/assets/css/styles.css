@@ -247,6 +247,10 @@ select.form__select {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#98ADEB', endColorstr='#E8EDFA', GradientType=0);
 }
 
+.header__main-color {
+  height: 16rem;
+}
+
 .header__main-color.header__big {
   height: 22.25rem;
 }
