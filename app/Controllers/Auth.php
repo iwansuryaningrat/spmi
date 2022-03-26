@@ -202,10 +202,8 @@ class Auth extends BaseController
         if ($user) {
             if (password_verify($password, $user['password'])) {
                 $user = $this->userroleunitModel->getUserUnit($email, $tahun);
-                // dd($user);
 
                 $user_role = $this->userroleunitModel->getUserRole($email, $tahun);
-                // dd($user_role);
 
                 // Cek apakah yg login merupakan admin
                 if ($user_role[0]['role'] == 'admin' || $user_role[0]['role'] == 'pimpinan') {
