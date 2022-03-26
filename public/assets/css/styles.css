@@ -105,6 +105,19 @@ button,
   border-radius: var(--radius-sm);
 }
 
+.cancel__btn {
+  color: #858585;
+  padding: 9px 1.875rem;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  transition: var(--trans-m);
+}
+
+.cancel__btn:hover {
+  color: var(--black);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
 /************************************/
 /*               Form               */
 /************************************/
@@ -839,19 +852,6 @@ footer .container-fluid.container__fluid {
 
 .modal__form-btn button:first-child {
   margin-right: 1.25rem;
-}
-
-.cancel__btn {
-  color: #858585;
-  padding: 9px 1.875rem;
-  border-radius: var(--radius-sm);
-  font-weight: 500;
-  transition: var(--trans-m);
-}
-
-.cancel__btn:hover {
-  color: var(--black);
-  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .modal__btn {

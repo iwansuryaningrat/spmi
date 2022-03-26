@@ -5,7 +5,6 @@
 <div class="container-fluid container__fluid pb-0">
   <div class="header__main-nav">
     <div class="header__main-nav-btn">
-      <!-- <i class="fi-br-menu-burger" id="header-main-nav-btn-i"></i> -->
       <div id="header-main-nav-btn-i" class="line__humberger">
         <span class="line__menu line-1" id="line1"></span>
         <span class="line__menu line-2" id="line2"></span>
@@ -14,15 +13,19 @@
     </div>
     <div class="header__main-nav-profile">
       <div class="nav-profile__photo">
-        <img src="/profile/<?= $data_user['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
+        <img
+          src="/profile/<?= $data_user['foto']; ?>"
+          alt="profile-picture" id="photo-dropdown" />
       </div>
       <div class="nav-profile__desc">
         <p id="profileName"><?php if ($data_user['nama'] != null && $data_user['nama'] != "") {
-                              echo $data_user['nama'];
-                            } else {
-                              echo $data_user['username'];
-                            } ?></p>
-        <p id="profileEmail" class="ellipsis__text"><?= $data_user['email']; ?></p>
+    echo $data_user['nama'];
+} else {
+    echo $data_user['username'];
+} ?>
+        </p>
+        <p id="profileEmail" class="ellipsis__text"><?= $data_user['email']; ?>
+        </p>
       </div>
       <div class="nav-profile__btn">
         <i class="fi-br-angle-down" id="btn-dropdown"></i>
@@ -66,47 +69,54 @@
 
   <!-- form indikator -->
   <div class="mb-5"></div>
-  <div>
-    <form method="POST" action="/home/saveindikator/<?= $indikator['indikator_id']; ?>" enctype="multipart/form-data">
+  <div class="form__indikator">
+    <form method="POST"
+      action="/home/saveindikator/<?= $indikator['indikator_id']; ?>"
+      enctype="multipart/form-data">
       <div class="row mb-3">
         <label for="indikator" class="col-sm-2 col-form-label form__label">Indikator</label>
         <div class="col-sm-10">
-          <textarea class="form-control form__control" id="indikator" name="indikator" cols="30" rows="3" disabled required><?= $indikator['nama_indikator']; ?></textarea>
+          <textarea class="form-control form__control" id="indikator" name="indikator" cols="30" rows="3" disabled
+            required><?= $indikator['nama_indikator']; ?></textarea>
         </div>
       </div>
       <div class="row mb-3">
         <label for="target" class="col-sm-2 col-form-label form__label">Target</label>
         <div class="col-sm-10">
-          <textarea class="form-control form__control" name="target" id="target" cols="30" rows="3" disabled required><?= $indikator['target']; ?></textarea>
+          <textarea class="form-control form__control" name="target" id="target" cols="30" rows="3" disabled
+            required><?= $indikator['target']; ?></textarea>
         </div>
       </div>
       <div class="row mb-3">
         <label for="data-prodi" class="col-sm-2 col-form-label form__label">Data Prodi</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control form__control" name="dataprodi" id="data-prodi" value="-" disabled required />
+          <input type="text" class="form-control form__control" name="dataprodi" id="data-prodi" value="-" disabled
+            required />
         </div>
       </div>
       <?php if ($indikator['tipe_hasil'] == 'Nilai') : ?>
 
-        <div class="row mb-3">
-          <label for="hasil" class="col-sm-2 col-form-label form__label">Hasil</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control form__control" name="hasil" id="hasil" value="<?= $indikator['hasil'] ?>" required />
-          </div>
+      <div class="row mb-3">
+        <label for="hasil" class="col-sm-2 col-form-label form__label">Hasil</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form__control" name="hasil" id="hasil"
+            value="<?= $indikator['hasil'] ?>"
+            required />
         </div>
+      </div>
 
       <?php else : ?>
 
-        <div class="row mb-3">
-          <label for="hasil" class="col-sm-2 col-form-label form__label">Hasil</label>
-          <div class="col-sm-10">
-            <select class="form-select form__select" name="hasil" id="hasil">
-              <option selected disabled>Pilih hasil data</option>
-              <option value="ADA / ESUAI">ADA / SESUAI</option>
-              <option value="Tidak ADA / TIDAK SESUAI">Tidak ADA / TIDAK SESUAI</option>
-            </select>
-          </div>
+      <div class="row mb-3">
+        <label for="hasil" class="col-sm-2 col-form-label form__label">Hasil</label>
+        <div class="col-sm-10">
+          <select class="form-select form__select" name="hasil" id="hasil">
+            <option selected disabled>Pilih hasil data</option>
+            <option value="ADA / ESUAI">ADA / SESUAI</option>
+            <option value="Tidak ADA / TIDAK SESUAI">Tidak ADA / TIDAK SESUAI</option>
+          </select>
         </div>
+      </div>
 
       <?php endif; ?>
       <div class="row mb-3">
@@ -121,13 +131,15 @@
       <div class="row mb-3">
         <label for="keterangan" class="col-sm-2 col-form-label form__label">Keterangan</label>
         <div class="col-sm-10">
-          <textarea class="form-control form__control" id="keterangan" cols="30" rows="3" name="keterangan"><?= $indikator['keterangan'] ?></textarea>
+          <textarea class="form-control form__control" id="keterangan" cols="30" rows="3"
+            name="keterangan"><?= $indikator['keterangan'] ?></textarea>
         </div>
       </div>
       <div class="row mb-3">
         <label for="catatan" class="col-sm-2 col-form-label form__label">Catatan</label>
         <div class="col-sm-10">
-          <textarea class="form-control form__control" name="catatan" id="catatan" cols="30" rows="3" disabled><?= $indikator['catatan'] ?></textarea>
+          <textarea class="form-control form__control" name="catatan" id="catatan" cols="30" rows="3"
+            disabled><?= $indikator['catatan'] ?></textarea>
         </div>
       </div>
       <button type="submit" class="btn btn-primary">Simpan</button>
@@ -179,4 +191,4 @@
   });
 </script>
 
-<?= $this->endSection(); ?>
+<?= $this->endSection();

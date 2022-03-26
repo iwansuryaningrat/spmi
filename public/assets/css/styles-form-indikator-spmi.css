@@ -1,1 +1,6 @@
 @import url(styles.css);
+
+.form__indikator {
+  width: 80%;
+  margin: auto;
+}
