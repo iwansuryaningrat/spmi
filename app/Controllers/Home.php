@@ -39,14 +39,17 @@ class Home extends BaseController
         $this->usersModel = new UsersModel();
         $this->userunitModel = new UserRoleUnitModel();
         $this->data_user = [
-            'nama' => session()->get('nama'),
-            'role' => session()->get('role'),
             'email' => session()->get('email'),
-            'id_user' => session()->get('id_user'),
+            'nama' => session()->get('nama'),
             'foto' => session()->get('foto'),
+            'unit_id' => session()->get('unit_id'),
+            'unit' => session()->get('unit'),
+            'role' => session()->get('role'),
+            'role_id' => session()->get('role_id'),
+            'tahun' => session()->get('tahun'),
         ];
         $this->tahun = (int)date('Y');
-
+        $this->i = 1;
         $this->session = \Config\Services::session();
     }
 
@@ -104,7 +107,7 @@ class Home extends BaseController
         $data = [
             'title' => 'Data Induk | SIPMPP UNDIP 2022',
             'path' => $path,
-            'tab' => 'datainduk',
+            'tab' => 'induk',
             'header' => 'header__mini',
             'css' => 'styles-data-induk.css',
             'i' => $i,

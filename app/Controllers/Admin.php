@@ -41,12 +41,13 @@ class Admin extends BaseController
         $this->usersModel = new UsersModel();
         $this->userunitModel = new UserUnitModel();
         $this->data_user = [
-            'nama' => session()->get('nama'),
-            'role' => session()->get('role'),
             'email' => session()->get('email'),
-            'username' => session()->get('username'),
-            'id_user' => session()->get('id_user'),
+            'nama' => session()->get('nama'),
             'foto' => session()->get('foto'),
+            'role_id' => session()->get('role_id'),
+            'role' => session()->get('role'),
+            'tahun' => session()->get('tahun'),
+
         ];
         $this->units = $this->unitsModel->findAll();
         $this->i = 1;
@@ -64,9 +65,8 @@ class Admin extends BaseController
             'header' => 'header__big',
             'i' => $this->i,
             'usersession' => $usersession,
-            'units' => $this->units,
-            'kategori' => $this->kategoriModel->findAll(),
             'tahun' => $this->tahunModel->findAll(),
+            'units' => $this->units,
         ];
 
 
