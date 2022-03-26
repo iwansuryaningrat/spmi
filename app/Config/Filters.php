@@ -77,48 +77,48 @@ class Filters extends BaseConfig
      * @var array
      */
     public $filters = [
-        // 'login' => [
-        //     'before' => [
-        //         '/',
-        //         'home',
-        //         'home/*',
-        //         'admin',
-        //         'admin/*',
-        //         'auditor',
-        //         'auditor/*',
-        //         'leader',
-        //         'leader/*',
-        //     ],
-        // ],
-        // 'users' => [
-        //     'before' => [
-        //         '/',
-        //         'home',
-        //         'home/*',
-        //     ],
-        // ],
-        // 'admin' => [
-        //     'before' => [
-        //         'admin',
-        //         'admin/*',
-        //     ],
-        // ],
-        // 'auditor' => [
-        //     'before' => [
-        //         'auditor',
-        //         'auditor/*',
-        //     ],
-        // ],
-        // 'leader' => [
-        //     'before' => [
-        //         'leader',
-        //         'leader/*',
-        //     ],
-        // ],
-        // 'loginpage' => [
-        //     'before' => [
-        //         'login',
-        //     ],
-        // ],
+        'login' => [
+            'before' => [
+                '/',
+                'home',
+                'home/*',
+                'admin',
+                'admin/*',
+                'auditor',
+                'auditor/*',
+                'leader',
+                'leader/*',
+            ],
+        ],
+        'users' => [
+            'before' => [
+                '/',
+                'home',
+                'home/*',
+            ],
+        ],
+        'admin' => [
+            'before' => [
+                'admin',
+                'admin/*',
+            ],
+        ],
+        'auditor' => [
+            'before' => [
+                'auditor',
+                'auditor/*',
+            ],
+        ],
+        'leader' => [
+            'before' => [
+                'leader',
+                'leader/*',
+            ],
+        ],
+        'loginpage' => [
+            'before' => [
+                'login',
+            ],
+        ],
     ];
 }

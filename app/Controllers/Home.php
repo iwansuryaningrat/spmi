@@ -11,7 +11,7 @@ use App\Models\TahunModel;
 use App\Models\UnitIndukTahunModel;
 use App\Models\UnitsModel;
 use App\Models\UsersModel;
-use App\Models\UserUnitModel;
+use App\Models\UserRoleUnitModel;
 
 class Home extends BaseController
 {
@@ -24,7 +24,7 @@ class Home extends BaseController
     protected $unitIndukTahunModel;
     protected $unitsModel;
     protected $usersModel;
-    protected $userunitModel;
+    protected $userroleunitModel;
 
     public function __construct()
     {
@@ -37,16 +37,15 @@ class Home extends BaseController
         $this->unitIndukTahunModel = new UnitIndukTahunModel();
         $this->unitsModel = new UnitsModel();
         $this->usersModel = new UsersModel();
-        $this->userunitModel = new UserUnitModel();
+        $this->userunitModel = new UserRoleUnitModel();
         $this->data_user = [
             'nama' => session()->get('nama'),
             'role' => session()->get('role'),
             'email' => session()->get('email'),
-            'username' => session()->get('username'),
             'id_user' => session()->get('id_user'),
             'foto' => session()->get('foto'),
         ];
-        $this->unitData = $this->transaksiModel->getTransaksiUserJoin($this->data_user['id_user']);
+        $this->tahun = (int)date('Y');
 
         $this->session = \Config\Services::session();
     }
