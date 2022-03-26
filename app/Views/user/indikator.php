@@ -5,7 +5,6 @@
 <div class="container-fluid container__fluid pb-0">
   <div class="header__main-nav">
     <div class="header__main-nav-btn">
-      <!-- <i class="fi-br-menu-burger" id="header-main-nav-btn-i"></i> -->
       <div id="header-main-nav-btn-i" class="line__humberger">
         <span class="line__menu line-1" id="line1"></span>
         <span class="line__menu line-2" id="line2"></span>
@@ -14,15 +13,19 @@
     </div>
     <div class="header__main-nav-profile">
       <div class="nav-profile__photo">
-        <img src="/profile/<?= $data_user['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
+        <img
+          src="/profile/<?= $data_user['foto']; ?>"
+          alt="profile-picture" id="photo-dropdown" />
       </div>
       <div class="nav-profile__desc">
         <p id="profileName"><?php if ($data_user['nama'] != null && $data_user['nama'] != "") {
-                              echo $data_user['nama'];
-                            } else {
-                              echo $data_user['username'];
-                            } ?></p>
-        <p id="profileEmail" class="ellipsis__text"><?= $data_user['email']; ?></p>
+    echo $data_user['nama'];
+} else {
+    echo $data_user['username'];
+} ?>
+        </p>
+        <p id="profileEmail" class="ellipsis__text"><?= $data_user['email']; ?>
+        </p>
       </div>
       <div class="nav-profile__btn">
         <i class="fi-br-angle-down" id="btn-dropdown"></i>
@@ -44,8 +47,8 @@
 
   <div class="header__main-title">
     <div class="header__main-title__pagination">
-      <a href="/">Dashboard</a>
-      / <a href="/home/standar/<?= $unit_id ?>">Nilai SPMI</a> / Indikator
+      <a id="unit-user" href="/" style="font-weight: 600">S1 Informatika</a>
+      / <a href="/">Nilai SPMI</a> / Indikator
     </div>
     <div class="header__main-title__subtitle">
       <div class="title__subtitle-desc">
@@ -72,23 +75,29 @@
             <th class="table__indikator-number">No</th>
             <th class="table__indikator-indikator">Indikator</th>
             <th class="table__indikator-target">Target</th>
+            <th class="table__indikator-nilai">nilai</th>
             <th class="table__indikator-aksi">Aksi</th>
           </tr>
         </thead>
-        <tbody>
+        <!-- <tbody>
           <?php foreach ($indikator as $indikator) : ?>
-            <tr>
-              <td><?= $i; ?></td>
-              <td><?= $indikator['nama_indikator'] ?></td>
-              <td><?= $indikator['target'] ?></td>
-              <td>
-                <a data-bs-placement="top" title="Edit" href="/home/indikatorform/<?= $indikator['indikator_id'] ?>" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
-              </td>
-            </tr>
-          <?php $i++;
+        <tr>
+          <td><?= $i; ?>
+          </td>
+          <td><?= $indikator['nama_indikator'] ?>
+          </td>
+          <td><?= $indikator['target'] ?>
+          </td>
+          <td>
+            <a data-bs-placement="top" title="Edit"
+              href="/home/indikatorform/<?= $indikator['indikator_id'] ?>"
+              class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
+          </td>
+        </tr>
+        <?php $i++;
           endforeach; ?>
 
-        </tbody>
+        </tbody> -->
       </table>
     </div>
   </div>
@@ -138,4 +147,4 @@
   });
 </script>
 
-<?= $this->endSection(); ?>
+<?= $this->endSection();

@@ -5,7 +5,6 @@
 <div class="container-fluid container__fluid pb-0">
   <div class="header__main-nav">
     <div class="header__main-nav-btn">
-      <!-- <i class="fi-br-menu-burger" id="header-main-nav-btn-i"></i> -->
       <div id="header-main-nav-btn-i" class="line__humberger">
         <span class="line__menu line-1" id="line1"></span>
         <span class="line__menu line-2" id="line2"></span>
@@ -14,15 +13,19 @@
     </div>
     <div class="header__main-nav-profile">
       <div class="nav-profile__photo">
-        <img src="/profile/<?= $data_user['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
+        <img
+          src="/profile/<?= $data_user['foto']; ?>"
+          alt="profile-picture" id="photo-dropdown" />
       </div>
       <div class="nav-profile__desc">
         <p id="profileName"><?php if ($data_user['nama'] != null && $data_user['nama'] != "") {
-                              echo $data_user['nama'];
-                            } else {
-                              echo $data_user['username'];
-                            } ?></p>
-        <p id="profileEmail" class="ellipsis__text"><?= $data_user['email']; ?></p>
+    echo $data_user['nama'];
+} else {
+    echo $data_user['username'];
+} ?>
+        </p>
+        <p id="profileEmail" class="ellipsis__text"><?= $data_user['email']; ?>
+        </p>
       </div>
       <div class="nav-profile__btn">
         <i class="fi-br-angle-down" id="btn-dropdown"></i>
@@ -44,7 +47,7 @@
 
   <div class="header__main-title">
     <div class="header__main-title__pagination">
-      <a href="/">Dashboard</a>
+      <a id="unit-user" href="/" style="font-weight: 600">S1 Informatika</a>
       / Nilai SPMI
     </div>
     <div class="header__main-title__subtitle">
@@ -64,7 +67,8 @@
       </p>
     </div>
     <div class="spmi__content-btn">
-      <a href="/home/sendpenilaian/<?= $unit_id . '/' . $tahun; ?>" class="btn kirim__btn">
+      <a href="/home/sendpenilaian/<?= $unit_id . '/' . $tahun; ?>"
+        class="btn kirim__btn">
         <i class="fa-solid fa-file-import"></i>
         Kirim Penilaian
       </a>
@@ -74,20 +78,29 @@
   <!-- filter -->
   <div class="filter__table">
     <div class="nav nav-pills" id="pills-tab" role="tablist">
-      <button class="btn filter__btn me-0 me-md-3 shadow-none active nav-link active" id="pills-spmi-penelitian" data-bs-toggle="pill" data-bs-target="#pills-table-spmi-penelitian" type="button" role="tab" aria-controls="pills-table-spmi-penelitian" aria-selected="true">
+      <button class="btn filter__btn me-0 me-md-3 shadow-none active nav-link active" id="pills-spmi-penelitian"
+        data-bs-toggle="pill" data-bs-target="#pills-table-spmi-penelitian" type="button" role="tab"
+        aria-controls="pills-table-spmi-penelitian" aria-selected="true">
         Penelitian
       </button>
-      <button class="btn filter__btn shadow-none nav-link" id="pills-spmi-pm" data-bs-toggle="pill" data-bs-target="#pills-table-spmi-pm" type="button" role="tab" aria-controls="pills-table-spmi-pm" aria-selected="false">
+      <button class="btn filter__btn shadow-none nav-link" id="pills-spmi-pm" data-bs-toggle="pill"
+        data-bs-target="#pills-table-spmi-pm" type="button" role="tab" aria-controls="pills-table-spmi-pm"
+        aria-selected="false">
         Pengabdian Masyarakat
       </button>
     </div>
 
-    <form class="filter__table-year" method="POST" action="<?= $path; ?>">
+    <form class="filter__table-year" method="POST"
+      action="<?= $path; ?>">
       <label for="year-filter" class="form-label">Tahun</label>
       <select class="form-select shadow-none" aria-label="year-filter" id="year-filter" name="tahun">
         <option selected disabled>Pilih Tahun</option>
         <?php foreach ($dataTahun as $year) : ?>
-          <option value="<?= $year['tahun']; ?>" <?php if ($tahun == $year['tahun']) echo 'selected' ?>><?= $year['tahun']; ?></option>
+        <option value="<?= $year['tahun']; ?>"
+          <?php if ($tahun == $year['tahun']) {
+    echo 'selected';
+} ?>><?= $year['tahun']; ?>
+        </option>
         <?php endforeach; ?>
       </select>
       <button class="btn terapkan__btn shadow-none" type="submit">
@@ -100,7 +113,8 @@
   <div class="tab-content" id="pills-tabContent">
     <?= session()->getFlashdata('message'); ?>
     <!-- penelitian -->
-    <div class="tab-pane fade show active" id="pills-table-spmi-penelitian" role="tabpanel" aria-labelledby="pills-spmi-penelitian">
+    <div class="tab-pane fade show active" id="pills-table-spmi-penelitian" role="tabpanel"
+      aria-labelledby="pills-spmi-penelitian">
       <div class="sipmpp__table">
         <div class="table-responsive">
           <table class="table table__spmi__content sipmpp__table-content table-hover" id="spmi-penelitian">
@@ -117,16 +131,23 @@
             <tbody>
 
               <?php foreach ($penelitian as $penelitian) : ?>
-                <tr>
-                  <td><?= $i; ?></td>
-                  <td class="text-uppercase"><?= $penelitian['kode_standar']; ?></td>
-                  <td><?= $penelitian['nama_standar']; ?></td>
-                  <td><?= $penelitian['status']; ?></td>
-                  <td><?= $penelitian['nilai']; ?></td>
-                  <td>
-                    <a data-bs-placement="top" title="Edit" href="/home/indikator/<?= $unit_id . '/' . $penelitian['standar_id'] . '/' . $tahun ?>" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
-                  </td>
-                </tr>
+              <tr>
+                <td><?= $i; ?>
+                </td>
+                <td class="text-uppercase"><?= $penelitian['kode_standar']; ?>
+                </td>
+                <td><?= $penelitian['nama_standar']; ?>
+                </td>
+                <td><?= $penelitian['status']; ?>
+                </td>
+                <td><?= $penelitian['nilai']; ?>
+                </td>
+                <td>
+                  <a data-bs-placement="top" title="Edit"
+                    href="/home/indikator/<?= $unit_id . '/' . $penelitian['standar_id'] . '/' . $tahun ?>"
+                    class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
+                </td>
+              </tr>
               <?php $i++;
               endforeach; ?>
 
@@ -154,16 +175,23 @@
             <tbody>
 
               <?php foreach ($pengabdian as $pengabdian) : ?>
-                <tr>
-                  <td><?= $i; ?></td>
-                  <td class="text-uppercase"><?= $pengabdian['kode_standar']; ?></td>
-                  <td><?= $pengabdian['nama_standar']; ?></td>
-                  <td><?= $pengabdian['status']; ?></td>
-                  <td><?= $pengabdian['nilai']; ?></td>
-                  <td>
-                    <a data-bs-placement="top" title="Edit" href="/home/indikator/<?= $unit_id . '/' . $penelitian['standar_id'] . '/' . $tahun ?>" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
-                  </td>
-                </tr>
+              <tr>
+                <td><?= $i; ?>
+                </td>
+                <td class="text-uppercase"><?= $pengabdian['kode_standar']; ?>
+                </td>
+                <td><?= $pengabdian['nama_standar']; ?>
+                </td>
+                <td><?= $pengabdian['status']; ?>
+                </td>
+                <td><?= $pengabdian['nilai']; ?>
+                </td>
+                <td>
+                  <a data-bs-placement="top" title="Edit"
+                    href="/home/indikator/<?= $unit_id . '/' . $penelitian['standar_id'] . '/' . $tahun ?>"
+                    class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
+                </td>
+              </tr>
               <?php $i++;
               endforeach; ?>
 
@@ -219,4 +247,4 @@
   });
 </script>
 
-<?= $this->endSection(); ?>
+<?= $this->endSection();
