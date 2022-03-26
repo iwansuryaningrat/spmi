@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Mar 2022 pada 09.17
+-- Waktu pembuatan: 26 Mar 2022 pada 18.07
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 8.0.12
 
@@ -29,12 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `data_induk` (
   `induk_id` int(11) NOT NULL,
-  `kode_induk` varchar(10) NOT NULL,
-  `kategori_id` int(11) NOT NULL,
-  `kebutuhan` varchar(50) NOT NULL,
-  `nilai` int(11) NOT NULL,
-  `tahun_id` int(11) NOT NULL,
-  `unit_id` int(11) NOT NULL,
+  `kategori_id` varchar(10) NOT NULL,
+  `nama_induk` varchar(50) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -43,9 +39,9 @@ CREATE TABLE `data_induk` (
 -- Dumping data untuk tabel `data_induk`
 --
 
-INSERT INTO `data_induk` (`induk_id`, `kode_induk`, `kategori_id`, `kebutuhan`, `nilai`, `tahun_id`, `unit_id`, `created_at`, `updated_at`) VALUES
-(1, 'MKA01', 1, 'Kebutuhan 1', 0, 4, 1, '2022-03-21 05:13:34', '2022-03-21 05:13:34'),
-(2, 'MKA02', 2, 'Kebutuhan 2', 0, 4, 1, '2022-03-21 05:13:34', '2022-03-21 05:13:34');
+INSERT INTO `data_induk` (`induk_id`, `kategori_id`, `nama_induk`, `created_at`, `updated_at`) VALUES
+(1, 'PEN', 'Judul PKM', '2022-03-26 18:04:42', '2022-03-26 18:04:42'),
+(1, 'PPM', 'Judul PKM', '2022-03-26 18:04:42', '2022-03-26 18:04:42');
 
 -- --------------------------------------------------------
 
@@ -55,17 +51,13 @@ INSERT INTO `data_induk` (`induk_id`, `kode_induk`, `kategori_id`, `kebutuhan`, 
 
 CREATE TABLE `indikator` (
   `indikator_id` int(11) NOT NULL,
+  `kategori_id` varchar(10) NOT NULL,
+  `standar_id` varchar(5) NOT NULL,
   `nama_indikator` varchar(255) NOT NULL,
   `target` varchar(255) NOT NULL,
-  `satuan` varchar(15) NOT NULL,
-  `tipe_hasil` varchar(13) NOT NULL,
-  `hasil` varchar(15) NOT NULL,
-  `dokumen` varchar(255) NOT NULL,
+  `nilai_acuan` varchar(15) NOT NULL,
+  `satuan` varchar(20) NOT NULL,
   `keterangan` varchar(255) NOT NULL,
-  `catatan` varchar(255) NOT NULL,
-  `nilai` int(11) NOT NULL,
-  `kriteria` varchar(255) NOT NULL,
-  `standar_id` int(11) NOT NULL,
   `induk_id` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
@@ -75,9 +67,8 @@ CREATE TABLE `indikator` (
 -- Dumping data untuk tabel `indikator`
 --
 
-INSERT INTO `indikator` (`indikator_id`, `nama_indikator`, `target`, `satuan`, `tipe_hasil`, `hasil`, `dokumen`, `keterangan`, `catatan`, `nilai`, `kriteria`, `standar_id`, `induk_id`, `created_at`, `updated_at`) VALUES
-(2, 'Indikator 1', 'Target 1', 'Dokumen', 'Nilai', '', '', '', '', 0, '', 1, 1, '2022-03-21 05:14:29', '2022-03-21 05:14:29'),
-(3, 'Indikator 2', 'Target 2', '', '', '', '', '', '', 0, '', 2, 2, '2022-03-21 05:14:29', '2022-03-21 05:14:29');
+INSERT INTO `indikator` (`indikator_id`, `kategori_id`, `standar_id`, `nama_indikator`, `target`, `nilai_acuan`, `satuan`, `keterangan`, `induk_id`, `created_at`, `updated_at`) VALUES
+(1, 'PEN', 'S1', 'Indikator 1', 'Target 1', '', '', '', 1, '2022-03-26 18:05:35', '2022-03-26 18:05:35');
 
 -- --------------------------------------------------------
 
@@ -86,7 +77,7 @@ INSERT INTO `indikator` (`indikator_id`, `nama_indikator`, `target`, `satuan`, `
 --
 
 CREATE TABLE `kategori` (
-  `kategori_id` int(11) NOT NULL,
+  `kategori_id` varchar(10) NOT NULL,
   `nama_kategori` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -95,8 +86,52 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`kategori_id`, `nama_kategori`) VALUES
-(1, 'Penelitian'),
-(2, 'Pengabdian Masyarakat');
+('PEN', 'Penelitian'),
+('PPM', 'Pengabdian Masyarakat');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `penilaian`
+--
+
+CREATE TABLE `penilaian` (
+  `tahun` int(11) NOT NULL,
+  `unit_id` varchar(20) NOT NULL,
+  `kategori_id` varchar(10) NOT NULL,
+  `standar_id` varchar(5) NOT NULL,
+  `indikator_id` int(11) NOT NULL,
+  `nilai_input` int(11) NOT NULL,
+  `dokumen` varchar(255) NOT NULL,
+  `keterangan` varchar(255) NOT NULL,
+  `catatan` varchar(255) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `hasil` int(11) NOT NULL,
+  `nilai_akhir` float NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `role`
+--
+
+CREATE TABLE `role` (
+  `role_id` int(11) NOT NULL,
+  `role` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `role`
+--
+
+INSERT INTO `role` (`role_id`, `role`) VALUES
+(1, 'user'),
+(2, 'admin'),
+(3, 'auditor'),
+(4, 'pimpinan');
 
 -- --------------------------------------------------------
 
@@ -105,14 +140,9 @@ INSERT INTO `kategori` (`kategori_id`, `nama_kategori`) VALUES
 --
 
 CREATE TABLE `standar` (
-  `standar_id` int(11) NOT NULL,
-  `kode_standar` varchar(10) NOT NULL,
+  `standar_id` varchar(5) NOT NULL,
+  `kategori_id` varchar(20) NOT NULL,
   `nama_standar` varchar(50) NOT NULL,
-  `status` varchar(50) NOT NULL,
-  `nilai` int(11) NOT NULL,
-  `tahun_id` int(11) NOT NULL,
-  `kategori_id` int(11) NOT NULL,
-  `unit_id` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -121,9 +151,9 @@ CREATE TABLE `standar` (
 -- Dumping data untuk tabel `standar`
 --
 
-INSERT INTO `standar` (`standar_id`, `kode_standar`, `nama_standar`, `status`, `nilai`, `tahun_id`, `kategori_id`, `unit_id`, `created_at`, `updated_at`) VALUES
-(1, 'S1', 'Standar 1', 'Belum Diisi', 0, 4, 1, 1, '2022-03-21 05:10:46', '2022-03-21 05:10:46'),
-(2, 'S1', 'Standar 1', 'Belum Diisi', 0, 4, 2, 1, '2022-03-21 05:10:46', '2022-03-21 05:10:46');
+INSERT INTO `standar` (`standar_id`, `kategori_id`, `nama_standar`, `created_at`, `updated_at`) VALUES
+('S1', 'PEN', 'Standar Hasil Penelitian', '2022-03-26 18:03:54', '2022-03-26 18:03:54'),
+('S1', 'PPM', 'Standar Hasil Pengabdian Masyarakat', '2022-03-26 18:03:53', '2022-03-26 18:03:53');
 
 -- --------------------------------------------------------
 
@@ -150,7 +180,6 @@ INSERT INTO `supercode` (`id`, `supercode`) VALUES
 --
 
 CREATE TABLE `tahun` (
-  `tahun_id` int(11) NOT NULL,
   `tahun` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -158,33 +187,11 @@ CREATE TABLE `tahun` (
 -- Dumping data untuk tabel `tahun`
 --
 
-INSERT INTO `tahun` (`tahun_id`, `tahun`) VALUES
-(1, 2019),
-(2, 2020),
-(3, 2021),
-(4, 2022);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `transaksi`
---
-
-CREATE TABLE `transaksi` (
-  `transaksi_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `unit_id` int(11) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `transaksi`
---
-
-INSERT INTO `transaksi` (`transaksi_id`, `user_id`, `unit_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, '2022-03-21 05:10:21', '2022-03-21 05:10:21'),
-(2, 1, 3, '2022-03-22 08:52:00', '2022-03-22 08:52:00');
+INSERT INTO `tahun` (`tahun`) VALUES
+(2019),
+(2020),
+(2021),
+(2022);
 
 -- --------------------------------------------------------
 
@@ -193,7 +200,7 @@ INSERT INTO `transaksi` (`transaksi_id`, `user_id`, `unit_id`, `created_at`, `up
 --
 
 CREATE TABLE `units` (
-  `unit_id` int(11) NOT NULL,
+  `unit_id` varchar(20) NOT NULL,
   `nama_unit` varchar(50) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
@@ -204,31 +211,23 @@ CREATE TABLE `units` (
 --
 
 INSERT INTO `units` (`unit_id`, `nama_unit`, `created_at`, `updated_at`) VALUES
-(1, 'S1 - Informatika', '2022-03-16 08:46:39', '2022-03-16 08:46:39'),
-(3, 'S1 - Matematika', '2022-03-22 08:50:46', '2022-03-22 08:50:46');
+('infor', 'S1 - Informatika', '2022-03-26 17:06:47', '2022-03-26 17:06:47'),
+('lppm', 'LPPM', '2022-03-26 17:06:47', '2022-03-26 17:06:47');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `unit_transaksi`
+-- Struktur dari tabel `unit_induk_tahun`
 --
 
-CREATE TABLE `unit_transaksi` (
-  `id_transunit` int(11) NOT NULL,
-  `id_unit` int(11) NOT NULL,
-  `id_kategori` int(11) NOT NULL,
-  `id_tahun` int(11) NOT NULL,
+CREATE TABLE `unit_induk_tahun` (
+  `tahun` int(11) NOT NULL,
+  `unit_id` varchar(20) NOT NULL,
+  `induk_id` int(11) NOT NULL,
+  `nilai` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `unit_transaksi`
---
-
-INSERT INTO `unit_transaksi` (`id_transunit`, `id_unit`, `id_kategori`, `id_tahun`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 4, '2022-03-21 05:08:59', '2022-03-21 05:08:59'),
-(2, 1, 2, 4, '2022-03-21 05:08:59', '2022-03-21 05:08:59');
 
 -- --------------------------------------------------------
 
@@ -237,14 +236,12 @@ INSERT INTO `unit_transaksi` (`id_transunit`, `id_unit`, `id_kategori`, `id_tahu
 --
 
 CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `nip` int(20) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `role` varchar(20) NOT NULL,
+  `nip` varchar(50) NOT NULL,
+  `telp` varchar(15) NOT NULL,
   `foto` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -253,9 +250,45 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`user_id`, `nama`, `username`, `email`, `nip`, `password`, `role`, `foto`, `created_at`, `updated_at`) VALUES
-(1, 'Iwan Suryaningrat', 'wanss', 'iwansuryaningrat@students.undip.ac.id', 0, '$2y$10$CT.2xUoRBlE.UK3Fi1sdWOcsYICgFSQT9XYNxrxOn3JMxjQuXckIK', 'user', 'default.png', '2022-03-20 14:24:19', '2022-03-20 14:24:19'),
-(2, 'Iwan Suryaningrat', 'sningrat_', 'iwan.suryaningrat28@gmail.com', 0, '$2y$10$rjG8FIDZU9Vo4fuh4TBM9OUvH6hhgKWV8aPc7cXqmhRVRHWifYpxG', 'admin', 'default.png', '2022-03-21 22:09:14', '2022-03-21 22:09:14');
+INSERT INTO `users` (`email`, `nama`, `nip`, `telp`, `foto`, `password`, `created_at`, `updated_at`) VALUES
+('iwan.suryaningrat28@gmail.com', 'Iwan Suryaningrat', '24060119120027', '088802851811', 'default.png', '$2y$10$g6CAZR8cdmPmA4EDDQseGOk0LY3WXVYu5HIc2fOjMWDO/AHl0/Yvy', '2022-03-26 16:51:22', '2022-03-26 16:51:22'),
+('iwansuryaningrat@students.undip.ac.id', 'Iwan Suryaningrat', '', '', 'default.png', '$2y$10$JzUR8.NHn3hQneRiOOFPB.swv9ybNEUIyxOCw8pICREhraWzWbjcO', '2022-03-26 11:59:42', '2022-03-26 11:59:42');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user_role_unit`
+--
+
+CREATE TABLE `user_role_unit` (
+  `email` varchar(100) NOT NULL,
+  `role_id` int(11) NOT NULL,
+  `unit_id` varchar(50) NOT NULL,
+  `tahun` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `user_role_unit`
+--
+
+INSERT INTO `user_role_unit` (`email`, `role_id`, `unit_id`, `tahun`, `created_at`, `updated_at`) VALUES
+('iwan.suryaningrat28@gmail.com', 1, 'infor', 2022, '2022-03-26 17:08:18', '2022-03-26 17:08:18'),
+('iwan.suryaningrat28@gmail.com', 1, 'lppm', 2022, '2022-03-26 17:08:18', '2022-03-26 17:08:18'),
+('iwan.suryaningrat28@gmail.com', 3, 'infor', 2022, '2022-03-26 17:20:20', '2022-03-26 17:20:20'),
+('iwansuryaningrat@students.undip.ac.id', 2, 'lppm', 2022, '2022-03-26 11:59:42', '2022-03-26 11:59:42');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user_unit`
+--
+
+CREATE TABLE `user_unit` (
+  `email` varchar(100) NOT NULL,
+  `unit_id` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -265,18 +298,17 @@ INSERT INTO `users` (`user_id`, `nama`, `username`, `email`, `nip`, `password`, 
 -- Indeks untuk tabel `data_induk`
 --
 ALTER TABLE `data_induk`
-  ADD PRIMARY KEY (`induk_id`),
-  ADD KEY `unit_fk` (`unit_id`),
-  ADD KEY `tahun_fk` (`tahun_id`),
+  ADD PRIMARY KEY (`induk_id`,`kategori_id`),
   ADD KEY `kategori_id` (`kategori_id`);
 
 --
 -- Indeks untuk tabel `indikator`
 --
 ALTER TABLE `indikator`
-  ADD PRIMARY KEY (`indikator_id`),
-  ADD KEY `datainduk_fk` (`induk_id`),
-  ADD KEY `standar_fk` (`standar_id`);
+  ADD PRIMARY KEY (`indikator_id`,`kategori_id`,`standar_id`),
+  ADD KEY `induk_fk` (`induk_id`),
+  ADD KEY `standar_fk` (`standar_id`),
+  ADD KEY `kategori_id` (`kategori_id`);
 
 --
 -- Indeks untuk tabel `kategori`
@@ -285,13 +317,27 @@ ALTER TABLE `kategori`
   ADD PRIMARY KEY (`kategori_id`);
 
 --
+-- Indeks untuk tabel `penilaian`
+--
+ALTER TABLE `penilaian`
+  ADD PRIMARY KEY (`tahun`,`unit_id`,`kategori_id`,`standar_id`,`indikator_id`),
+  ADD KEY `indikator_fk` (`indikator_id`),
+  ADD KEY `unit_id` (`unit_id`),
+  ADD KEY `kategori_id` (`kategori_id`),
+  ADD KEY `standar_id` (`standar_id`);
+
+--
+-- Indeks untuk tabel `role`
+--
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`role_id`);
+
+--
 -- Indeks untuk tabel `standar`
 --
 ALTER TABLE `standar`
-  ADD PRIMARY KEY (`standar_id`),
-  ADD KEY `kategori_fk` (`kategori_id`),
-  ADD KEY `tahun_id` (`tahun_id`),
-  ADD KEY `unit_id` (`unit_id`);
+  ADD PRIMARY KEY (`standar_id`,`kategori_id`),
+  ADD KEY `kategori_fk` (`kategori_id`);
 
 --
 -- Indeks untuk tabel `supercode`
@@ -303,15 +349,7 @@ ALTER TABLE `supercode`
 -- Indeks untuk tabel `tahun`
 --
 ALTER TABLE `tahun`
-  ADD PRIMARY KEY (`tahun_id`);
-
---
--- Indeks untuk tabel `transaksi`
---
-ALTER TABLE `transaksi`
-  ADD PRIMARY KEY (`transaksi_id`),
-  ADD KEY `users_fk` (`user_id`),
-  ADD KEY `units_id` (`unit_id`);
+  ADD PRIMARY KEY (`tahun`);
 
 --
 -- Indeks untuk tabel `units`
@@ -320,47 +358,44 @@ ALTER TABLE `units`
   ADD PRIMARY KEY (`unit_id`);
 
 --
--- Indeks untuk tabel `unit_transaksi`
+-- Indeks untuk tabel `unit_induk_tahun`
 --
-ALTER TABLE `unit_transaksi`
-  ADD PRIMARY KEY (`id_transunit`),
-  ADD KEY `id_unit` (`id_unit`),
-  ADD KEY `id_kategori` (`id_kategori`),
-  ADD KEY `id_tahun` (`id_tahun`);
+ALTER TABLE `unit_induk_tahun`
+  ADD PRIMARY KEY (`tahun`,`unit_id`,`induk_id`),
+  ADD KEY `induk_id` (`induk_id`),
+  ADD KEY `unit_id` (`unit_id`);
 
 --
 -- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`email`);
+
+--
+-- Indeks untuk tabel `user_role_unit`
+--
+ALTER TABLE `user_role_unit`
+  ADD PRIMARY KEY (`email`,`role_id`,`unit_id`,`tahun`),
+  ADD KEY `role_id` (`role_id`),
+  ADD KEY `tahun` (`tahun`),
+  ADD KEY `unit_id` (`unit_id`);
+
+--
+-- Indeks untuk tabel `user_unit`
+--
+ALTER TABLE `user_unit`
+  ADD PRIMARY KEY (`email`,`unit_id`),
+  ADD KEY `unit_fk` (`unit_id`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT untuk tabel `data_induk`
+-- AUTO_INCREMENT untuk tabel `role`
 --
-ALTER TABLE `data_induk`
-  MODIFY `induk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `indikator`
---
-ALTER TABLE `indikator`
-  MODIFY `indikator_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT untuk tabel `kategori`
---
-ALTER TABLE `kategori`
-  MODIFY `kategori_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `standar`
---
-ALTER TABLE `standar`
-  MODIFY `standar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `role`
+  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `supercode`
@@ -372,31 +407,7 @@ ALTER TABLE `supercode`
 -- AUTO_INCREMENT untuk tabel `tahun`
 --
 ALTER TABLE `tahun`
-  MODIFY `tahun_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT untuk tabel `transaksi`
---
-ALTER TABLE `transaksi`
-  MODIFY `transaksi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `units`
---
-ALTER TABLE `units`
-  MODIFY `unit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT untuk tabel `unit_transaksi`
---
-ALTER TABLE `unit_transaksi`
-  MODIFY `id_transunit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `users`
---
-ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `tahun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2023;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -406,39 +417,55 @@ ALTER TABLE `users`
 -- Ketidakleluasaan untuk tabel `data_induk`
 --
 ALTER TABLE `data_induk`
-  ADD CONSTRAINT `data_induk_ibfk_1` FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`kategori_id`),
-  ADD CONSTRAINT `tahun_fk` FOREIGN KEY (`tahun_id`) REFERENCES `tahun` (`tahun_id`),
-  ADD CONSTRAINT `unit_fk` FOREIGN KEY (`unit_id`) REFERENCES `units` (`unit_id`);
+  ADD CONSTRAINT `data_induk_ibfk_1` FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`kategori_id`);
 
 --
 -- Ketidakleluasaan untuk tabel `indikator`
 --
 ALTER TABLE `indikator`
-  ADD CONSTRAINT `datainduk_fk` FOREIGN KEY (`induk_id`) REFERENCES `data_induk` (`induk_id`),
+  ADD CONSTRAINT `indikator_ibfk_1` FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`kategori_id`),
+  ADD CONSTRAINT `induk_fk` FOREIGN KEY (`induk_id`) REFERENCES `data_induk` (`induk_id`),
   ADD CONSTRAINT `standar_fk` FOREIGN KEY (`standar_id`) REFERENCES `standar` (`standar_id`);
+
+--
+-- Ketidakleluasaan untuk tabel `penilaian`
+--
+ALTER TABLE `penilaian`
+  ADD CONSTRAINT `indikator_fk` FOREIGN KEY (`indikator_id`) REFERENCES `indikator` (`indikator_id`),
+  ADD CONSTRAINT `penilaian_ibfk_1` FOREIGN KEY (`unit_id`) REFERENCES `units` (`unit_id`),
+  ADD CONSTRAINT `penilaian_ibfk_2` FOREIGN KEY (`tahun`) REFERENCES `tahun` (`tahun`),
+  ADD CONSTRAINT `penilaian_ibfk_3` FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`kategori_id`),
+  ADD CONSTRAINT `penilaian_ibfk_4` FOREIGN KEY (`standar_id`) REFERENCES `standar` (`standar_id`);
 
 --
 -- Ketidakleluasaan untuk tabel `standar`
 --
 ALTER TABLE `standar`
-  ADD CONSTRAINT `kategori_fk` FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`kategori_id`),
-  ADD CONSTRAINT `standar_ibfk_1` FOREIGN KEY (`tahun_id`) REFERENCES `tahun` (`tahun_id`),
-  ADD CONSTRAINT `standar_ibfk_2` FOREIGN KEY (`unit_id`) REFERENCES `units` (`unit_id`);
+  ADD CONSTRAINT `kategori_fk` FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`kategori_id`);
 
 --
--- Ketidakleluasaan untuk tabel `transaksi`
+-- Ketidakleluasaan untuk tabel `unit_induk_tahun`
 --
-ALTER TABLE `transaksi`
-  ADD CONSTRAINT `units_id` FOREIGN KEY (`unit_id`) REFERENCES `units` (`unit_id`),
-  ADD CONSTRAINT `users_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+ALTER TABLE `unit_induk_tahun`
+  ADD CONSTRAINT `induk_id` FOREIGN KEY (`induk_id`) REFERENCES `data_induk` (`induk_id`),
+  ADD CONSTRAINT `tahun_fk` FOREIGN KEY (`tahun`) REFERENCES `tahun` (`tahun`),
+  ADD CONSTRAINT `unit_induk_tahun_ibfk_1` FOREIGN KEY (`unit_id`) REFERENCES `units` (`unit_id`);
 
 --
--- Ketidakleluasaan untuk tabel `unit_transaksi`
+-- Ketidakleluasaan untuk tabel `user_role_unit`
 --
-ALTER TABLE `unit_transaksi`
-  ADD CONSTRAINT `unit_transaksi_ibfk_1` FOREIGN KEY (`id_unit`) REFERENCES `units` (`unit_id`),
-  ADD CONSTRAINT `unit_transaksi_ibfk_2` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`kategori_id`),
-  ADD CONSTRAINT `unit_transaksi_ibfk_3` FOREIGN KEY (`id_tahun`) REFERENCES `tahun` (`tahun_id`);
+ALTER TABLE `user_role_unit`
+  ADD CONSTRAINT `user_role_unit_ibfk_1` FOREIGN KEY (`email`) REFERENCES `users` (`email`),
+  ADD CONSTRAINT `user_role_unit_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`),
+  ADD CONSTRAINT `user_role_unit_ibfk_3` FOREIGN KEY (`tahun`) REFERENCES `tahun` (`tahun`),
+  ADD CONSTRAINT `user_role_unit_ibfk_4` FOREIGN KEY (`unit_id`) REFERENCES `units` (`unit_id`);
+
+--
+-- Ketidakleluasaan untuk tabel `user_unit`
+--
+ALTER TABLE `user_unit`
+  ADD CONSTRAINT `unit_fk` FOREIGN KEY (`unit_id`) REFERENCES `units` (`unit_id`),
+  ADD CONSTRAINT `user_fk` FOREIGN KEY (`email`) REFERENCES `users` (`email`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
