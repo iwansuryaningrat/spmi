@@ -32,6 +32,7 @@ class Auth extends BaseController
         $this->getTahun = (int)date('Y');
     }
 
+    // Login Page (Done)
     public function login()
     {
         // Check Login status
@@ -54,49 +55,38 @@ class Auth extends BaseController
         return view('auth/login', $data);
     }
 
-    // Valid Login
-    public function loginProcess()
+    // Valid Login (Done)
+    public function loginProcess($email)
     {
-        $username = $this->request->getVar('username');
-        $password = $this->request->getVar('password');
+        $role = $this->request->getVar('role');
+        $unit_id = $this->request->getVar('unit');
+        $tahun = $this->getTahun;
 
-        $user = $this->usersModel->getUserByUsername($username);
-        // dd($user);
+        $data = $this->userroleunitModel->getDataSpec($email, $tahun, $role, $unit_id);
 
-        // Edit lagi bagian session
-        if ($user) {
-            if (password_verify($password, $user['password'])) {
-                $data = [
-                    'id_user' => $user['user_id'],
-                    'email' => $user['email'],
-                    'role' => $user['role'],
-                    'nama' => $user['nama'],
-                    'username' => $user['username'],
-                    'email' => $user['email'],
-                    'foto' => $user['foto'],
-                    'isLoggedIn' => true,
-                ];
+        $data = [
+            'email' => $data['email'],
+            'nama' => $data['nama'],
+            'foto' => $data['foto'],
+            'unit_id' => $data['unit_id'],
+            'unit' => $data['nama_unit'],
+            'role_id' => $data['role_id'],
+            'role' => $data['role'],
+            'tahun' => $data['tahun'],
+            'isLoggedIn' => true,
+        ];
 
-                $this->session->set($data);
+        $this->session->set($data);
 
-                if ($user['role'] == 'admin') {
-                    return redirect()->to('/admin');
-                } elseif ($user['role'] == 'user') {
-                    return redirect()->to('/home');
-                } elseif ($user['role'] == 'auditor') {
-                    return redirect()->to('/auditor');
-                } else {
-                    return redirect()->to('/leader');
-                }
-            } else {
-                session()->setFlashdata('gagal', 'Gagal melakukan proses autentikasi. Mohon untuk mengisi password dengan benar.');
 
-                return redirect()->to('/login');
-            }
+        if ($data['role'] == 'admin') {
+            return redirect()->to('/admin');
+        } elseif ($data['role'] == 'user') {
+            return redirect()->to('/home');
+        } elseif ($data['role'] == 'auditor') {
+            return redirect()->to('/auditor');
         } else {
-            session()->setFlashdata('gagal', 'Gagal melakukan proses autentikasi. Mohon maaf akun belum terdaftar. Silakan menghubungi admin untuk mendaftar.');
-
-            return redirect()->to('/login');
+            return redirect()->to('/leader');
         }
     }
 
@@ -192,66 +182,84 @@ class Auth extends BaseController
         return view('auth/generateUser', $data);
     }
 
+    // Generate Password (Done)
     public function generatepassword($password)
     {
         $data = password_hash($password, PASSWORD_DEFAULT);
         dd($data);
     }
 
-    // Form Login Unit
+    // Form Login Unit (Done)
     public function formLoginUnit()
     {
-        // $email = $this->request->getVar('email');
-        // $password = $this->request->getVar('password');
+        $email = $this->request->getVar('email');
+        $password = $this->request->getVar('password');
 
-        // $user = $this->usersModel->getUserByEmail($email);
-        // dd($user);
-        // $tahun = $this->getTahun;
+        $user = $this->usersModel->getUserByEmail($email);
 
-        // Edit lagi bagian session
-        // if ($user) {
-        //     if (password_verify($password, $user['password'])) {
-        //         $user = $this->userroleunitModel->getUserUnit($email, $tahun);
-        // dd($user);
-        // $data = [
-        //     'id_user' => $user['user_id'],
-        //     'email' => $user['email'],
-        //     'role' => $user['role'],
-        //     'nama' => $user['nama'],
-        //     'username' => $user['username'],
-        //     'email' => $user['email'],
-        //     'foto' => $user['foto'],
-        //     'isLoggedIn' => true,
-        // ];
+        $tahun = $this->getTahun;
 
-        // $this->session->set($data);
+        if ($user) {
+            if (password_verify($password, $user['password'])) {
+                $user = $this->userroleunitModel->getUserUnit($email, $tahun);
+                // dd($user);
 
-        // if ($user['role'] == 'admin') {
-        //     return redirect()->to('/admin');
-        // } elseif ($user['role'] == 'user') {
-        //     return redirect()->to('/home');
-        // } elseif ($user['role'] == 'auditor') {
-        //     return redirect()->to('/auditor');
-        // } else {
-        //     return redirect()->to('/leader');
-        // }
-        // $msg = "PASSWORD BENAR";
-        // dd($msg);
-        //     } else {
-        //         session()->setFlashdata('gagal', 'Gagal melakukan proses autentikasi. Mohon untuk mengisi password dengan benar.');
+                $user_role = $this->userroleunitModel->getUserRole($email, $tahun);
+                // dd($user_role);
 
-        //         return redirect()->to('/login');
-        //     }
-        // } else {
-        //     session()->setFlashdata('gagal', 'Gagal melakukan proses autentikasi. Mohon maaf akun belum terdaftar. Silakan menghubungi admin untuk mendaftar.');
+                // Cek apakah yg login merupakan admin
+                if ($user_role[0]['role'] == 'admin') {
+                    $data = [
+                        'email' => $user[0]['email'],
+                        'nama' => $user[0]['nama'],
+                        'foto' => $user[0]['foto'],
+                        'role_id' => $user_role[0]['role_id'],
+                        'role' => 'admin',
+                        'tahun' => $this->getTahun,
+                        'isLoggedIn' => true,
+                    ];
 
-        //     return redirect()->to('/login');
-        // }
+                    $this->session->set($data);
 
-        $data = [
-            'title' => 'Login | SIPMPP UNDIP 2022',
-        ];
+                    return redirect()->to('/admin');
+                } else {
+                    foreach ($user_role as $role) {
+                        $roles[] = $role['role'];
+                    }
 
-        return view('auth/login-unit', $data);
+                    $roles = array_unique($roles);
+
+                    $data = [
+                        'title' => 'Login | SIPMPP UNDIP 2022',
+                        'nama' => $user[0]['nama'],
+                        'email' => $user[0]['email'],
+                        'userdata' => $user,
+                        'roles' => $roles,
+                    ];
+
+                    return view('auth/login-unit', $data);
+                }
+            } else {
+                session()->setFlashdata('gagal', 'Gagal melakukan proses autentikasi. Mohon untuk mengisi password dengan benar.');
+
+                return redirect()->to('/login');
+            }
+        } else {
+            session()->setFlashdata('gagal', 'Gagal melakukan proses autentikasi. Mohon maaf akun belum terdaftar. Silakan menghubungi admin untuk mendaftar.');
+
+            return redirect()->to('/login');
+        }
+    }
+
+    // Get Unit (Done)
+    public function getUnit($email)
+    {
+        $data = $this->request->getPost();
+        $units = $this->userroleunitModel->getUserUnitRoleTahun($email, $this->getTahun, $data['role']);
+        $option = '<option selected disabled>Pilih Unit</option>';
+        foreach ($units as $unit) {
+            $option .= '<option value="' . $unit['unit_id'] . '">' . $unit['nama_unit'] . '</option>';
+        }
+        return json_encode($option);
     }
 }

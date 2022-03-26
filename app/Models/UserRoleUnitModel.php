@@ -28,4 +28,56 @@ class UserRoleUnitModel extends Model
             ->where('user_role_unit.tahun', $tahun)
             ->findAll();
     }
+
+    // Join Table User Unit Role
+    public function getUserUnitRole($email, $tahun, $role)
+    {
+        return $this->select('user_role_unit.*, users.*, units.*, role.*')
+            ->join('users', 'users.email = user_role_unit.email')
+            ->join('units', 'units.unit_id = user_role_unit.unit_id')
+            ->join('role', 'role.role_id = user_role_unit.role_id')
+            ->where('user_role_unit.email', $email)
+            ->where('user_role_unit.tahun', $tahun)
+            ->where('role.role', $role)
+            ->findAll();
+    }
+
+    // Join Table User Unit Role Tahun
+    public function getUserUnitRoleTahun($email, $tahun, $role)
+    {
+        return $this->select('user_role_unit.unit_id, units.nama_unit')
+            ->join('users', 'users.email = user_role_unit.email')
+            ->join('units', 'units.unit_id = user_role_unit.unit_id')
+            ->join('role', 'role.role_id = user_role_unit.role_id')
+            ->where('user_role_unit.email', $email)
+            ->where('user_role_unit.tahun', $tahun)
+            ->where('role.role', $role)
+            ->findAll();
+    }
+
+    // Get user's role by email and tahun
+    public function getUserRole($email, $tahun)
+    {
+        return $this->select('role.*')
+            ->join('users', 'users.email = user_role_unit.email')
+            ->join('units', 'units.unit_id = user_role_unit.unit_id')
+            ->join('role', 'role.role_id = user_role_unit.role_id')
+            ->where('user_role_unit.email', $email)
+            ->where('user_role_unit.tahun', $tahun)
+            ->findAll();
+    }
+
+    // Join all table for spesific data
+    public function getDataSpec($email, $tahun, $role, $unit_id)
+    {
+        return $this->select('user_role_unit.*, users.*, units.*, role.*')
+            ->join('users', 'users.email = user_role_unit.email')
+            ->join('units', 'units.unit_id = user_role_unit.unit_id')
+            ->join('role', 'role.role_id = user_role_unit.role_id')
+            ->where('user_role_unit.email', $email)
+            ->where('user_role_unit.tahun', $tahun)
+            ->where('role.role', $role)
+            ->where('user_role_unit.unit_id', $unit_id)
+            ->first();
+    }
 }
