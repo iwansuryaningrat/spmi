@@ -173,13 +173,11 @@ class Home extends BaseController
     }
 
     // Indikator Method 
-    public function indikator($unit_id, $standar_id, $tahun)
+    public function indikator($standar_id, $tahun)
     {
         $data_user = $this->data_user;
 
         $unitData = $this->unitData;
-
-        $unit = $this->unitsModel->getUnitId($unit_id);
 
         $tahun = (int)$tahun;
         $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
@@ -194,8 +192,6 @@ class Home extends BaseController
             'title' => 'Indikator | SIPMPP UNDIP 2022',
             'data_user' => $data_user,
             'unitData' => $unitData,
-            'unit' => $unit,
-            'unit_id' => $unit_id,
             'tab' => 'standar',
             'standar' => $standar,
             'i' => $i,

@@ -125,7 +125,7 @@
                     <td><?= $standar['status']; ?></td>
                     <td>0</td>
                     <td>
-                      <a data-bs-placement="top" title="Edit" href="/home/indikator/<?= $data_user['unit_id'] . '/' . $standar['standar_id'] . '/' . $tahun ?>" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
+                      <a data-bs-placement="top" title="Edit" href="/home/indikator/<?= $standar['standar_id'] . '/' . $tahun ?>" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                   </tr>
               <?php $i++;
@@ -165,7 +165,7 @@
                     <td><?= $standar['status']; ?></td>
                     <td>0</td>
                     <td>
-                      <a data-bs-placement="top" title="Edit" href="/home/indikator/<?= $data_user['unit_id'] . '/' . $standar['standar_id'] . '/' . $tahun ?>" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
+                      <a data-bs-placement="top" title="Edit" href="/home/indikator/<?= $standar['standar_id'] . '/' . $tahun ?>" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                   </tr>
               <?php $i++;
