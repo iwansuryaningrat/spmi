@@ -280,7 +280,6 @@ class Auditor extends BaseController
         if (in_array('Belum Diisi', $status) || in_array('Belum Lengkap', $status)) {
             // dd('Belum Lengkap');
             $this->session->setFlashdata('message', '<div class="alert alert-danger" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <strong>Peringatan!</strong> Semua standar belum diisi.
                 </div>');
             return redirect()->to('/home/standar/');
@@ -289,7 +288,6 @@ class Auditor extends BaseController
             $this->penilaianModel->updateStatus($data_user['unit_id'], $tahun, 'Dikirim');
 
             $this->session->setFlashdata('message', '<div class="alert alert-success" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <strong>Berhasil!</strong> Penilaian telah dikirim.
                 </div>');
             return redirect()->to('/home/standar/');

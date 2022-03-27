@@ -291,18 +291,14 @@ class Home extends BaseController
         if (in_array('Belum Diisi', $status) || in_array('Belum Lengkap', $status)) {
             // dd('Belum Lengkap');
             $this->session->setFlashdata('message', '<div class="alert alert-danger" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Peringatan!</strong> Semua standar belum diisi.
-                </div>');
+            <strong>Maaf!</strong> Data penilaian belum lengkap.</div>');
             return redirect()->to('/home/standar/');
         } else {
             // dd('Lengkap');
             $this->penilaianModel->updateStatus($data_user['unit_id'], $tahun, 'Dikirim');
 
             $this->session->setFlashdata('message', '<div class="alert alert-success" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Berhasil!</strong> Penilaian telah dikirim.
-                </div>');
+            <strong>Selamat!</strong> Data penilaian telah dikirim.</div>');
             return redirect()->to('/home/standar/');
         }
     }
@@ -388,27 +384,19 @@ class Home extends BaseController
         if (password_verify($old_password, $user['password'])) {
             // Cek apakah password baru sama dengan password lama
             if ($old_password == $new_password) {
-                $this->session->setFlashdata('message', '<div class="alert alert-danger" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <strong>Peringatan!</strong> Password baru tidak boleh sama dengan password lama.
-                    </div>');
+                $this->session->setFlashdata('message', '<div class="alert alert-danger" role="alert"> <strong>Maaf!</strong> Password baru tidak boleh sama dengan password lama.</div>');
                 return redirect()->to('/home/profile/');
             } else {
                 // Update Password
                 $new_password = password_hash($new_password, PASSWORD_DEFAULT);
                 $this->usersModel->updatePassword($data_user['email'], $new_password);
 
-                $this->session->setFlashdata('message', '<div class="alert alert-success" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <strong>Berhasil!</strong> Password berhasil diubah.
-                    </div>');
+                $this->session->setFlashdata('message', '<div class="alert alert-success" role="alert"><strong>Selamat!</strong> Password berhasil diubah.</div>');
                 return redirect()->to('/home/profile/');
             }
         } else {
             $this->session->setFlashdata('message', '<div class="alert alert-danger" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Peringatan!</strong> Password lama tidak sesuai.
-                </div>');
+            <strong>Maaf!</strong> Password lama tidak sesuai.</div>');
             return redirect()->to('/home/profile/');
         }
     }
@@ -456,9 +444,7 @@ class Home extends BaseController
         $this->session->set($datasession);
 
         $this->session->setFlashdata('message', '<div class="alert alert-success" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <strong>Berhasil!</strong> Profile berhasil diubah.
-            </div>');
+        <strong>Selamat!</strong> Data berhasil diubah.</div>');
         return redirect()->to('/home/profile/');
     }
 }
