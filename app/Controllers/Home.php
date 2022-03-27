@@ -222,6 +222,22 @@ class Home extends BaseController
         return view('user/report', $data);
     }
 
+    // Profile Method
+    public function profile()
+    {
+        $data_user = $this->data_user;
+
+        $data = [
+            'title' => 'Profile | SIPMPP UNDIP 2022',
+            'data_user' => $data_user,
+            'tab' => 'profile',
+            'header' => 'header__big',
+            'css' => 'styles-profile.css'
+        ];
+
+        return view('user/profile', $data);
+    }
+
     // FORM METHOD // 
 
     // Indikator Form Method 

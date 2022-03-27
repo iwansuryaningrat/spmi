@@ -78,7 +78,7 @@
 
           <?php foreach ($datapenilaian as $data) : ?>
             <tr>
-              <td>1</td>
+              <td><?= $i; ?></td>
               <td>
                 Tersedianya pedoman penyusunan profil lulusan program studi
               </td>
