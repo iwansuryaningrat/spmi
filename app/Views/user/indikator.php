@@ -13,16 +13,10 @@
     </div>
     <div class="header__main-nav-profile">
       <div class="nav-profile__photo">
-        <img
-          src="/profile/<?= $data_user['foto']; ?>"
-          alt="profile-picture" id="photo-dropdown" />
+        <img src="/profile/<?= $data_user['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
       </div>
       <div class="nav-profile__desc">
-        <p id="profileName"><?php if ($data_user['nama'] != null && $data_user['nama'] != "") {
-    echo $data_user['nama'];
-} else {
-    echo $data_user['username'];
-} ?>
+        <p id="profileName"><?= $data_user['nama']; ?>
         </p>
         <p id="profileEmail" class="ellipsis__text"><?= $data_user['email']; ?>
         </p>
@@ -47,7 +41,7 @@
 
   <div class="header__main-title">
     <div class="header__main-title__pagination">
-      <a id="unit-user" href="/" style="font-weight: 600">S1 Informatika</a>
+      <a id="unit-user" href="/" style="font-weight: 600"><?= $data_user['unit']; ?></a>
       / <a href="/">Nilai SPMI</a> / Indikator
     </div>
     <div class="header__main-title__subtitle">
@@ -60,10 +54,10 @@
 
   <!--========== body main ==========-->
   <h4 class="title__body__indikator-u">
-    Unit: <span><?= $unit['nama_unit']; ?></span>
+    Unit: <span><?= $data_user['unit']; ?></span>
   </h4>
   <h4 class="title__body__indikator-s">
-    <?= $standar['kode_standar'] . '. ' . $standar['nama_standar'] ?>
+    <?= $standar['standar_id'] . '. ' . $standar['nama_standar'] ?>
   </h4>
 
   <!-- table indikator -->
@@ -79,25 +73,19 @@
             <th class="table__indikator-aksi">Aksi</th>
           </tr>
         </thead>
-        <!-- <tbody>
-          <?php foreach ($indikator as $indikator) : ?>
-        <tr>
-          <td><?= $i; ?>
-          </td>
-          <td><?= $indikator['nama_indikator'] ?>
-          </td>
-          <td><?= $indikator['target'] ?>
-          </td>
-          <td>
-            <a data-bs-placement="top" title="Edit"
-              href="/home/indikatorform/<?= $indikator['indikator_id'] ?>"
-              class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
-          </td>
-        </tr>
-        <?php $i++;
-          endforeach; ?>
+        <tbody>
 
-        </tbody> -->
+          <tr>
+            <td>1</td>
+            <td>S1</td>
+            <td>Target</td>
+            <td>
+              <a data-bs-placement="top" title="Edit" href="/home/indikatorform/" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
+            </td>
+          </tr>
+
+
+        </tbody>
       </table>
     </div>
   </div>

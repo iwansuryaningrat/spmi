@@ -173,32 +173,29 @@ class Home extends BaseController
     }
 
     // Indikator Method 
-    public function indikator($standar_id, $tahun)
+    public function indikator($standar_id, $tahun, $kategori_id)
     {
         $data_user = $this->data_user;
 
-        $unitData = $this->unitData;
-
         $tahun = (int)$tahun;
-        $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
-        $tahun_id = (int)$tahun_id;
 
-        $standar = $this->standarModel->getStandarId($standar_id);
+        $datapenilaian = $this->penilaianModel->getPenilaianSpec($data_user['unit_id'], $standar_id, $tahun, $kategori_id);
+        // dd($datapenilaian);
+
+        $standar = $this->standarModel->getStandar($standar_id);
 
         $i = 1;
-
 
         $data = [
             'title' => 'Indikator | SIPMPP UNDIP 2022',
             'data_user' => $data_user,
-            'unitData' => $unitData,
             'tab' => 'standar',
-            'standar' => $standar,
             'i' => $i,
             'header' => 'header__mini header__indikator',
             'css' => 'styles-indikator.css',
             'tahun' => $tahun,
-            'indikator' => $this->indikatorModel->getIndikatorStandarInduk($standar_id),
+            'datapenilaian' => $datapenilaian,
+            'standar' => $standar,
         ];
 
         return view('user/indikator', $data);

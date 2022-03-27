@@ -141,7 +141,7 @@
                     </td>
                     <td>0</td>
                     <td>
-                      <a data-bs-placement="top" title="Lihat" href="/home/indikator/<?= $standar['standar_id'] . '/' . $tahun ?>" class="edit__data__induk__icon">
+                      <a data-bs-placement="top" title="Lihat" href="/home/indikator/<?= $standar['standar_id'] . '/' . $tahun . '/' . $standar['kategori_id'] ?>" class="edit__data__induk__icon">
                         <i class="fa-solid fa-eye"></i>
                       </a>
                     </td>
@@ -195,7 +195,7 @@
                     </td>
                     <td>0</td>
                     <td>
-                      <a data-bs-placement="top" title="Lihat" href="/home/indikator/<?= $standar['standar_id'] . '/' . $tahun ?>" class="edit__data__induk__icon">
+                      <a data-bs-placement="top" title="Lihat" href="/home/indikator/<?= $standar['standar_id'] . '/' . $tahun . '/' . $standar['kategori_id'] ?>" class="edit__data__induk__icon">
                         <i class="fa-solid fa-eye"></i>
                       </a>
                     </td>
