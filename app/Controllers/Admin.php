@@ -47,9 +47,7 @@ class Admin extends BaseController
             'role_id' => session()->get('role_id'),
             'role' => session()->get('role'),
             'tahun' => session()->get('tahun'),
-
         ];
-        $this->units = $this->unitsModel->findAll();
         $this->i = 1;
     }
 
@@ -57,6 +55,7 @@ class Admin extends BaseController
     public function index()
     {
         $usersession = $this->data_user;
+        $units = $this->unitsModel->findAll();
 
         $data = [
             'title' => 'Dashboard SIPMPP | SIPMPP UNDIP 2022',
@@ -66,7 +65,7 @@ class Admin extends BaseController
             'i' => $this->i,
             'usersession' => $usersession,
             'tahun' => $this->tahunModel->findAll(),
-            'units' => $this->units,
+            'units' => $units,
         ];
 
 
@@ -135,11 +134,7 @@ class Admin extends BaseController
         return view('admin/report');
     }
 
-    //Add user method
-    public function addUser()
-    {
-        return view('admin/add-user');
-    }
+
 
     //Add Unit Method
     public function addUnit()
@@ -186,7 +181,18 @@ class Admin extends BaseController
     //daftar user
     public function daftarUser()
     {
-        return view('admin/daftar-user');
+        $users = $this->usersModel->findAll();
+        $data = [
+            'title' => 'Daftar User | SIPMPP Admin UNDIP',
+            'tab' => 'user',
+            'css' => 'styles-admin-user.css',
+            'header' => 'header__mini',
+            'i' => $this->i,
+            'usersession' => $this->data_user,
+            'users' => $users
+        ];
+
+        return view('admin/daftar-user', $data);
     }
 
     //add leader
@@ -198,6 +204,12 @@ class Admin extends BaseController
     //add basic user
     public function addBasicUser()
     {
-        return view('admin/add-basic-user');
+        return view('admin/add-base-user');
+    }
+
+    //Add user method
+    public function addUser()
+    {
+        return view('admin/add-user');
     }
 }
