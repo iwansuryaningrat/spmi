@@ -222,11 +222,11 @@ class Home extends BaseController
         return view('user/report', $data);
     }
 
-    // Profile Method
+    // Profile Method ()Done)
     public function profile()
     {
         $data_user = $this->data_user;
-        $user = $this->userModel->getUserByEmail($data_user['user_id']);
+        $user = $this->usersModel->getUserByEmail($data_user['email']);
 
         $data = [
             'title' => 'Profile | SIPMPP UNDIP 2022',
