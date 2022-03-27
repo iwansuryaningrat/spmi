@@ -13,7 +13,9 @@
     </div>
     <div class="header__main-nav-profile">
       <div class="nav-profile__photo">
-        <img src="/profile/<?= $data_user['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
+        <img
+          src="/profile/<?= $data_user['foto']; ?>"
+          alt="profile-picture" id="photo-dropdown" />
       </div>
       <div class="nav-profile__desc">
         <p id="profileName"><?= $data_user['nama']; ?>
@@ -42,7 +44,7 @@
   <div class="header__main-title">
     <div class="header__main-title__pagination">
       <a id="unit-user" href="/" style="font-weight: 600"><?= $data_user['unit']; ?></a>
-      / <a href="/">Nilai SPMI</a> / Indikator
+      / <a href="/home/standar">Nilai SPMI</a> / Indikator
     </div>
     <div class="header__main-title__subtitle">
       <div class="title__subtitle-desc">
@@ -54,7 +56,7 @@
 
   <!--========== body main ==========-->
   <h4 class="title__body__indikator-u">
-    Unit: <span><?= $data_user['unit']; ?></span>
+    Kategori: Penelitian
   </h4>
   <h4 class="title__body__indikator-s">
     <?= $standar['standar_id'] . '. ' . $standar['nama_standar'] ?>
@@ -69,6 +71,7 @@
             <th class="table__indikator-number">No</th>
             <th class="table__indikator-indikator">Indikator</th>
             <th class="table__indikator-target">Target</th>
+            <th class="table__indikator-status">status</th>
             <th class="table__indikator-nilai">nilai</th>
             <th class="table__indikator-aksi">Aksi</th>
           </tr>
@@ -77,10 +80,15 @@
 
           <tr>
             <td>1</td>
-            <td>S1</td>
-            <td>Target</td>
             <td>
-              <a data-bs-placement="top" title="Edit" href="/home/indikatorform/" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
+              Tersedianya pedoman penyusunan profil lulusan program studi
+            </td>
+            <td>Tersusunnya profil program studi</td>
+            <td><span class="badge badge__sipmpp badge__danger">Belum diisi</span></td>
+            <td>10%</td>
+            <td>
+              <a data-bs-placement="top" title="Edit" href="/home/indikatorform/" class="edit__data__induk__icon"><i
+                  class="fa-solid fa-pen-to-square"></i></a>
             </td>
           </tr>
 
