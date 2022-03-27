@@ -81,12 +81,10 @@
                             <div class="collapse collapse__dropside" id="user-collapse">
                                 <ul class="sidebar-nav__list-collapse">
                                     <li>
-                                        <a href="/admin/daftarUser" class="nav__list__link-collapse ellipsis__text">Daftar
-                                            User</a>
+                                        <a href="/admin/daftarUser" class="nav__list__link-collapse ellipsis__text">DaftarUser</a>
                                     </li>
                                     <li>
-                                        <a href="/admin/user" class="nav__list__link-collapse ellipsis__text">Base
-                                            User</a>
+                                        <a href="/admin/user" class="nav__list__link-collapse ellipsis__text">BaseUser</a>
                                     </li>
                                     <li>
                                         <a href="/admin/auditor" class="nav__list__link-collapse ellipsis__text">Auditor</a>
