@@ -14,6 +14,7 @@ use App\Models\UnitIndukTahunModel;
 use App\Models\UnitsModel;
 use App\Models\UsersModel;
 use App\Models\UserUnitModel;
+use Config\Validation;
 
 class Admin extends BaseController
 {
@@ -49,6 +50,8 @@ class Admin extends BaseController
             'tahun' => session()->get('tahun'),
         ];
         $this->i = 1;
+
+        $this->session = \Config\Services::session();
     }
 
     // Admin Dashboard Method
@@ -178,7 +181,7 @@ class Admin extends BaseController
         return view('admin/penilaian');
     }
 
-    //daftar user
+    //daftar user (Done)
     public function daftarUser()
     {
         $users = $this->usersModel->findAll();
@@ -195,6 +198,58 @@ class Admin extends BaseController
         return view('admin/daftar-user', $data);
     }
 
+    //Add user form method (Done)
+    public function addUserForm()
+    {
+        $data = [
+            'title' => 'Form Tambah User | SIPMPP Admin UNDIP',
+            'tab' => 'user',
+            'css' => 'styles-admin-add-user.css',
+            'header' => 'header__mini',
+            'i' => $this->i,
+            'usersession' => $this->data_user,
+        ];
+        return view('admin/add-user', $data);
+    }
+
+    // Add user method (Done)
+    public function addUser()
+    {
+        $email = $this->request->getVar('email');
+        $nama = $this->request->getVar('fullname');
+        $password = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
+
+        // Validasi email
+        $validation =  \Config\Services::validation();
+        $valid = $this->validate([
+            'email' => [
+                'label' => 'Email',
+                'rules' => 'required|is_unique[users.email]',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong',
+                    'is_unique' => '{field} sudah terdaftar'
+                ]
+            ],
+        ]);
+
+        if (!$valid) {
+            // Set flashdata gagal dan kirim pesan eror dengan flashdata
+            $this->session->setFlashdata('msg', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Email sudah terdaftar!</div>');
+            return redirect()->to(base_url('admin/adduserform'));
+        } else {
+            $data = [
+                'email' => $email,
+                'nama' => $nama,
+                'password' => $password,
+            ];
+
+            $this->usersModel->insert($data);
+            // Set flashdata gagal dan kirim pesan eror dengan flashdata
+            $this->session->setFlashdata('msg', '<div class="alert alert-success alert-dismissible fade show" role="alert">User berhasil ditambahkan!</div>');
+            return redirect()->to(base_url('admin/daftaruser'));
+        }
+    }
+
     //add leader
     public function addLeader()
     {
@@ -205,11 +260,5 @@ class Admin extends BaseController
     public function addBasicUser()
     {
         return view('admin/add-base-user');
-    }
-
-    //Add user method
-    public function addUser()
-    {
-        return view('admin/add-user');
     }
 }

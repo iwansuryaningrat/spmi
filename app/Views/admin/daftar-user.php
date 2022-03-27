@@ -66,11 +66,14 @@
     <!--========== body main ==========-->
     <div class="title__table__add">
         <h4 class="title__body__user">Daftar User</h4>
-        <a href="/admin/addUser" class="btn shadow-none btn__add btn__dark">
+        <a href="/admin/addUserForm" class="btn shadow-none btn__add btn__dark">
             <i class="fa-solid fa-plus"></i>
             Add User
         </a>
     </div>
+
+    <!-- Menampilkan flashdata -->
+    <?= session()->getFlashdata('msg'); ?>
 
     <!-- table auditor -->
     <div class="sipmpp__table">
