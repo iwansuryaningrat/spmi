@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Mar 2022 pada 18.07
+-- Waktu pembuatan: 27 Mar 2022 pada 10.06
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 8.0.12
 
@@ -68,7 +68,8 @@ CREATE TABLE `indikator` (
 --
 
 INSERT INTO `indikator` (`indikator_id`, `kategori_id`, `standar_id`, `nama_indikator`, `target`, `nilai_acuan`, `satuan`, `keterangan`, `induk_id`, `created_at`, `updated_at`) VALUES
-(1, 'PEN', 'S1', 'Indikator 1', 'Target 1', '', '', '', 1, '2022-03-26 18:05:35', '2022-03-26 18:05:35');
+(1, 'PEN', 'S1', 'Indikator 1', 'Target 1', '', '', '', 1, '2022-03-26 18:05:35', '2022-03-26 18:05:35'),
+(1, 'PPM', 'S1', '', '', '', '', '', 1, '2022-03-27 07:38:44', '2022-03-27 07:38:44');
 
 -- --------------------------------------------------------
 
@@ -112,6 +113,14 @@ CREATE TABLE `penilaian` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `penilaian`
+--
+
+INSERT INTO `penilaian` (`tahun`, `unit_id`, `kategori_id`, `standar_id`, `indikator_id`, `nilai_input`, `dokumen`, `keterangan`, `catatan`, `status`, `hasil`, `nilai_akhir`, `created_at`, `updated_at`) VALUES
+(2022, 'infor', 'PEN', 'S1', 1, 0, '', '', '', 'Dikirim', 0, 0, '2022-03-27 07:26:27', '2022-03-27 02:59:11'),
+(2022, 'infor', 'PPM', 'S1', 1, 1, '', '', '', 'Dikirim', 1, 1, '2022-03-27 07:40:13', '2022-03-27 02:59:11');
+
 -- --------------------------------------------------------
 
 --
@@ -152,8 +161,8 @@ CREATE TABLE `standar` (
 --
 
 INSERT INTO `standar` (`standar_id`, `kategori_id`, `nama_standar`, `created_at`, `updated_at`) VALUES
-('S1', 'PEN', 'Standar Hasil Penelitian', '2022-03-26 18:03:54', '2022-03-26 18:03:54'),
-('S1', 'PPM', 'Standar Hasil Pengabdian Masyarakat', '2022-03-26 18:03:53', '2022-03-26 18:03:53');
+('S1', 'PEN', 'Standar Hasil', '2022-03-26 18:03:54', '2022-03-26 18:03:54'),
+('S1', 'PPM', 'Standar Hasil', '2022-03-26 18:03:53', '2022-03-26 18:03:53');
 
 -- --------------------------------------------------------
 
@@ -229,6 +238,13 @@ CREATE TABLE `unit_induk_tahun` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `unit_induk_tahun`
+--
+
+INSERT INTO `unit_induk_tahun` (`tahun`, `unit_id`, `induk_id`, `nilai`, `created_at`, `updated_at`) VALUES
+(2022, 'infor', 1, 0, '2022-03-27 06:49:21', '2022-03-27 06:49:21');
+
 -- --------------------------------------------------------
 
 --
@@ -252,7 +268,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`email`, `nama`, `nip`, `telp`, `foto`, `password`, `created_at`, `updated_at`) VALUES
 ('iwan.suryaningrat28@gmail.com', 'Iwan Suryaningrat', '24060119120027', '088802851811', 'default.png', '$2y$10$g6CAZR8cdmPmA4EDDQseGOk0LY3WXVYu5HIc2fOjMWDO/AHl0/Yvy', '2022-03-26 16:51:22', '2022-03-26 16:51:22'),
-('iwansuryaningrat@students.undip.ac.id', 'Iwan Suryaningrat', '', '', 'default.png', '$2y$10$JzUR8.NHn3hQneRiOOFPB.swv9ybNEUIyxOCw8pICREhraWzWbjcO', '2022-03-26 11:59:42', '2022-03-26 11:59:42');
+('iwansuryaningrat@students.undip.ac.id', 'Iwan Suryaningrat', '', '', 'default.png', '$2y$10$wRjof3KUnWwBfB3XdELsYuPXtUZKXvMeUG0DturLnU30j2sVbY.jO', '2022-03-26 11:59:42', '2022-03-26 11:59:42');
 
 -- --------------------------------------------------------
 
@@ -276,7 +292,7 @@ CREATE TABLE `user_role_unit` (
 INSERT INTO `user_role_unit` (`email`, `role_id`, `unit_id`, `tahun`, `created_at`, `updated_at`) VALUES
 ('iwan.suryaningrat28@gmail.com', 1, 'infor', 2022, '2022-03-26 17:08:18', '2022-03-26 17:08:18'),
 ('iwan.suryaningrat28@gmail.com', 1, 'lppm', 2022, '2022-03-26 17:08:18', '2022-03-26 17:08:18'),
-('iwan.suryaningrat28@gmail.com', 3, 'infor', 2022, '2022-03-26 17:20:20', '2022-03-26 17:20:20'),
+('iwan.suryaningrat28@gmail.com', 3, 'lppm', 2022, '2022-03-26 21:01:07', '2022-03-26 21:01:07'),
 ('iwansuryaningrat@students.undip.ac.id', 2, 'lppm', 2022, '2022-03-26 11:59:42', '2022-03-26 11:59:42');
 
 -- --------------------------------------------------------
