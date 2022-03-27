@@ -118,7 +118,7 @@
         </footer>
     </div>
 
-    <?php if ($tab == 'datainduk') {
+    <?php if ($tab == 'induk') {
         echo $this->renderSection('modal');
     } ?>
 

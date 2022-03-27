@@ -299,7 +299,7 @@ class Home extends BaseController
         }
     }
 
-    // Edit Data Induk Method (Need Testing)
+    // Edit Data Induk Method (Done)
     public function editDataInduk($unit_id, $tahun)
     {
         $induk_id = $this->request->getVar('induk_id');
