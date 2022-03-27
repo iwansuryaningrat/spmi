@@ -13,7 +13,9 @@
     </div>
     <div class="header__main-nav-profile">
       <div class="nav-profile__photo">
-        <img src="/profile/<?= $data_user['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
+        <img
+          src="/profile/<?= $data_user['foto']; ?>"
+          alt="profile-picture" id="photo-dropdown" />
       </div>
       <div class="nav-profile__desc">
         <p id="profileName"><?= $data_user['nama']; ?>
@@ -41,9 +43,9 @@
 
   <div class="header__main-title">
     <div class="header__main-title__pagination">
-      <a href="/">Dashboard</a>
-      / <a href="spmi.html">Nilai SPMI</a> /
-      <a href="indikator-spmi.html">Indikator</a> / Form Indikator
+      <a id="unit-user" href="/" style="font-weight: 600;"><?= $data_user['unit']; ?></a>
+      / <a href="/home/standar">Nilai SPMI</a> /
+      <a href="/">Indikator</a> / Form Indikator
     </div>
     <div class="header__main-title__subtitle">
       <div class="title__subtitle-desc">
@@ -69,34 +71,40 @@
       <div class="row mb-3">
         <label for="indikator" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Indikator</label>
         <div class="col-lg-6 col-md-9 col-sm-8">
-          <textarea class="form-control form__control shadow-none" id="indikator" name="indikator" cols="30" rows="3" disabled required>SSSS</textarea>
+          <textarea class="form-control form__control shadow-none" id="indikator" name="indikator" cols="30" rows="3"
+            disabled required>SSSS</textarea>
         </div>
       </div>
       <!-- target -->
       <div class="row mb-3">
         <label for="target" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Target</label>
         <div class="col-lg-6 col-md-9 col-sm-8">
-          <textarea class="form-control form__control shadow-none" name="target" id="target" cols="30" rows="3" disabled required>SSSS</textarea>
+          <textarea class="form-control form__control shadow-none" name="target" id="target" cols="30" rows="3" disabled
+            required>SSSS</textarea>
         </div>
       </div>
       <!-- kebutuhan data -->
       <div class="row mb-3 mb-sm-4">
         <label for="kebutuhan-data" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Kebutuhan Data</label>
         <div class="col-lg-6 col-md-9 col-sm-8">
-          <textarea class="form-control form__control shadow-none" id="kebutuhan-data" name="kebutuhan-data" cols="30" rows="3" disabled required> Target jumlah mahasiswa yang terlibat dalam penelitian dan pengabdian kepada masyarakat</textarea>
+          <textarea class="form-control form__control shadow-none" id="kebutuhan-data" name="kebutuhan-data" cols="30"
+            rows="3" disabled
+            required> Target jumlah mahasiswa yang terlibat dalam penelitian dan pengabdian kepada masyarakat</textarea>
         </div>
       </div>
       <!-- satuan -->
       <div class="row mb-3 mb-sm-4">
         <label for="satuan" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Satuan</label>
         <div class="col-lg-6 col-md-9 col-sm-8">
-          <input class="form-control form__control shadow-none" id="satuan" name="satuan" disabled required value="isi satuan" />
+          <input class="form-control form__control shadow-none" id="satuan" name="satuan" disabled required
+            value="isi satuan" />
         </div>
       </div>
 
 
       <div class="row mb-3">
-        <label for="hasil" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Hasil <span class="color__danger">*</span></label>
+        <label for="hasil" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Hasil <span
+            class="color__danger">*</span></label>
         <div class="col-lg-6 col-md-9 col-sm-8">
           <select class="form-select form__select shadow-none" name="hasil" id="hasil">
             <option selected disabled>Pilih hasil data</option>
@@ -108,7 +116,8 @@
 
       <!-- dokumen -->
       <div class="row mb-3">
-        <label for="dokumen" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Dokumen <span class="color__danger">*</span></label>
+        <label for="dokumen" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Dokumen <span
+            class="color__danger">*</span></label>
         <div class="col-lg-6 col-md-9 col-sm-8">
           <div class="input-group">
             <input type="file" class="form-control form__control shadow-none" name="dokumen" id="dokumen" required />
@@ -118,16 +127,19 @@
       </div>
       <!-- keterangan -->
       <div class="row mb-3">
-        <label for="keterangan" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Keterangan <span class="color__danger">*</span></label>
+        <label for="keterangan" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Keterangan <span
+            class="color__danger">*</span></label>
         <div class="col-lg-6 col-md-9 col-sm-8">
-          <textarea class="form-control form__control shadow-none" id="keterangan" cols="30" rows="3" name="keterangan">tytryrty</textarea>
+          <textarea class="form-control form__control shadow-none" id="keterangan" cols="30" rows="3"
+            name="keterangan">tytryrty</textarea>
         </div>
       </div>
       <!-- catatan -->
       <div class="row mb-3">
         <label for="catatan" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Catatan</label>
         <div class="col-lg-6 col-md-9 col-sm-8">
-          <textarea class="form-control form__control shadow-none" name="catatan" id="catatan" cols="30" rows="3" disabled>rtyrt</textarea>
+          <textarea class="form-control form__control shadow-none" name="catatan" id="catatan" cols="30" rows="3"
+            disabled>rtyrt</textarea>
         </div>
       </div>
       <!-- button -->
