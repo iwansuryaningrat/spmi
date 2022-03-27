@@ -22,4 +22,16 @@ class UsersModel extends Model
     {
         return $this->where('email', $email)->first();
     }
+
+    // Update password
+    public function updatePassword($email, $password)
+    {
+        return $this->where('email', $email)->set('password', $password)->update();
+    }
+
+    // Update profile
+    public function updateProfile($email, $data)
+    {
+        return $this->where('email', $email)->set($data)->update();
+    }
 }
