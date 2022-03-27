@@ -904,6 +904,14 @@ footer .container-fluid.container__fluid {
   color: var(--danger-color);
 }
 
+.color__success {
+  color: #31ce36;
+}
+
+.color__warning {
+  color: #f5a623;
+}
+
 /* ========== Radius ========== */
 .radius__lg {
   border-radius: var(--radius-lg);
