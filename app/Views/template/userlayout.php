@@ -48,7 +48,7 @@
                         </li>
                         <!-- data induk -->
                         <li>
-                            <a href="data-induk.html" class="nav__list__link <?php if ($tab == "induk") : echo 'active';
+                            <a href="/home/datainduk" class="nav__list__link <?php if ($tab == "induk") : echo 'active';
                                                                                 endif; ?>">
                                 <i class="fa-solid fa-book"></i>
                                 <span>Data Induk</span>
@@ -56,16 +56,16 @@
                         </li>
                         <!-- Nilai SPMI -->
                         <li>
-                            <a href="spmi.html" class="nav__list__link <?php if ($tab == "standar") : echo 'active';
-                                                                        endif; ?>">
+                            <a href="/homr/standar" class="nav__list__link <?php if ($tab == "standar") : echo 'active';
+                                                                            endif; ?>">
                                 <i class="fa-solid fa-chart-bar"></i>
                                 <span>Nilai SPMI</span>
                             </a>
                         </li>
                         <!-- report -->
                         <li>
-                            <a href="#" class="nav__list__link <?php if ($tab == "report") : echo 'active';
-                                                                endif; ?>">
+                            <a href="/home/report" class="nav__list__link <?php if ($tab == "report") : echo 'active';
+                                                                            endif; ?>">
                                 <i class="fa-solid fa-print"></i>
                                 <span>Report</span>
                             </a>

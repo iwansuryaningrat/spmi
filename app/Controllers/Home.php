@@ -48,7 +48,7 @@ class Home extends BaseController
             'role_id' => session()->get('role_id'),
             'tahun' => session()->get('tahun'),
         ];
-        $this->tahun = (int)date('Y');
+        $this->getTahun = (int)date('Y');
         $this->i = 1;
         $this->session = \Config\Services::session();
     }
@@ -57,14 +57,13 @@ class Home extends BaseController
     public function index()
     {
         $data_user = $this->data_user;
+        // dd($data_user);
 
-        $unitData = $this->unitData;
         $i = 1;
 
         $data = [
             'title' => 'Dashboard SIPMPP | SIPMPP UNDIP 2022',
             'data_user' => $data_user,
-            'unitData' => $unitData,
             'i' => $i,
             'tab' => 'home',
             'header' => 'header__big',
@@ -75,10 +74,9 @@ class Home extends BaseController
     }
 
     // Data Induk Method (Done)
-    public function dataInduk($unit_id)
+    public function dataInduk()
     {
         $tahun = $this->request->getVar('tahun');
-        // dd($tahun);
 
         $data_tahun = $this->tahunModel->findAll();
 
@@ -88,19 +86,16 @@ class Home extends BaseController
 
         $data_user = $this->data_user;
 
-        $unitData = $this->unitData;
-
-        $unit = $this->unitsModel->getUnitId($unit_id);
-
         if ($tahun == null) {
-            $tahun = (int)date('Y');
-            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
-            $tahun_id = (int)$tahun_id;
+            $tahun = $this->getTahun;
         } else {
             $tahun = (int)$tahun;
-            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
-            $tahun_id = (int)$tahun_id;
         }
+
+        $unit_id = $data_user['unit_id'];
+        // dd($unit_id);
+        $data_induk = $this->unitIndukTahunModel->getIndukUnit($unit_id, $tahun);
+        // dd($data_induk);
 
         $i = 1;
 
@@ -112,17 +107,15 @@ class Home extends BaseController
             'css' => 'styles-data-induk.css',
             'i' => $i,
             'data_user' => $data_user,
-            'unit' => $unit,
-            'unitData' => $unitData,
             'tahun' => $tahun,
             'dataTahun' => $data_tahun,
-            'data_induk' => $this->dataIndukModel->getDataIndukJoin($unit_id, $tahun_id),
+            'data_induk' => $this->unitIndukTahunModel->getIndukUnit($unit_id, $tahun),
         ];
 
         return view('user/datainduk', $data);
     }
 
-    // Standar Method (Done)
+    // Standar Method 
     public function standar($unit_id)
     {
         $tahun = $this->request->getVar('tahun');
@@ -195,7 +188,7 @@ class Home extends BaseController
         return view('user/standar', $data);
     }
 
-    // Indikator Method (Done)
+    // Indikator Method 
     public function indikator($unit_id, $standar_id, $tahun)
     {
         $data_user = $this->data_user;
@@ -254,7 +247,7 @@ class Home extends BaseController
 
     // FORM METHOD // 
 
-    // Indikator Form Method (Done)
+    // Indikator Form Method 
     public function indikatorForm($indikator_id)
     {
         $data_user = $this->data_user;
@@ -291,7 +284,7 @@ class Home extends BaseController
 
     // ACTION METHOD // 
 
-    // Send Penilaian Method (Done)
+    // Send Penilaian Method 
     public function sendPenilaian($unit_id, $tahun)
     {
         $data_user = $this->data_user;
@@ -337,29 +330,21 @@ class Home extends BaseController
         }
     }
 
-    // Edit Data Induk Method (Done)
+    // Edit Data Induk Method 
     public function editDataInduk($unit_id, $tahun)
     {
-        $id = $this->request->getVar('induk_id');
-        $id = (int)$id;
+        $induk_id = $this->request->getVar('induk_id');
         $tahun = (int)$tahun;
-        $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
-        $tahun_id = (int)$tahun_id;
-
-        $induk = $this->dataIndukModel->getDataIndukId($id);
-        $induk['nilai'] = (int)$this->request->getVar('nilai');
-        $induk['induk_id'] = (int)$induk['induk_id'];
-        $induk['kategori_id'] = (int)$induk['kategori_id'];
-        $induk['tahun_id'] = (int)$induk['tahun_id'];
-        $induk['unit_id'] = (int)$induk['unit_id'];
+        $unit_id = $unit_id;
+        $nilai = $this->request->getVar('nilai');
 
         // Update Data
-        $this->dataIndukModel->update($id, $induk);
+        $this->unitIndukTahunModel->updateNilai($unit_id, $tahun, $induk_id, $nilai);
 
         return redirect()->to('/home/datainduk/' . $unit_id . '/' . $tahun);
     }
 
-    // Save Indikator Method (Done)
+    // Save Indikator Method 
     public function saveIndikator($indikator_id)
     {
         $indikator_id = (int)$indikator_id;

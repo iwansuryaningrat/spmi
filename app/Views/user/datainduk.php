@@ -17,11 +17,7 @@
         <img src="/profile/<?= $data_user['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
       </div>
       <div class="nav-profile__desc">
-        <p id="profileName"><?php if ($data_user['nama'] != null && $data_user['nama'] != "") {
-                              echo $data_user['nama'];
-                            } else {
-                              echo $data_user['username'];
-                            } ?></p>
+        <p id="profileName"><?= $data_user['nama']; ?></p>
         <p id="profileEmail" class="ellipsis__text"><?= $data_user['email']; ?></p>
       </div>
       <div class="nav-profile__btn">
@@ -58,7 +54,7 @@
   </div>
 
   <!--========== body main ==========-->
-  <h4 class="title__body__main">Unit: <span><?= $unit['nama_unit']; ?></span></h4>
+  <h4 class="title__body__main">Unit: <span><?= $data_user['unit']; ?></span></h4>
 
   <!-- filter -->
   <div class="filter__table">
@@ -95,7 +91,6 @@
             <thead class="bg__light">
               <tr>
                 <th class="table__datainduk-number">No</th>
-                <th class="table__datainduk-kode">Kode</th>
                 <th class="table__datainduk-kategori">Kategori</th>
                 <th class="table__datainduk-kebutuhandata">Kebutuhan Data</th>
                 <th class="table__datainduk-nilai">Nilai</th>
@@ -107,12 +102,11 @@
                 if ($datainduk['nama_kategori'] == 'Penelitian') : ?>
                   <tr>
                     <td><?= $i; ?></td>
-                    <td class="text-uppercase"><?= $datainduk['kode_induk']; ?></td>
                     <td><?= $datainduk['nama_kategori']; ?></td>
-                    <td><?= $datainduk['kebutuhan']; ?></td>
+                    <td><?= $datainduk['nama_induk']; ?></td>
                     <td><?= $datainduk['nilai']; ?></td>
                     <td>
-                      <a role="button" data-bs-toggle="modal" data-bs-placement="top" title="Edit" href="#staticBackdrop" class="edit__data__induk__icon" data-id="<?= $datainduk['induk_id']; ?>" data-kode="<?= $datainduk['kode_induk']; ?>" data-kategori="<?= $datainduk['nama_kategori']; ?>" data-kebutuhan-data="<?= $datainduk['kebutuhan']; ?>" data-nilai="<?= $datainduk['nilai']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                      <a role="button" data-bs-toggle="modal" data-bs-placement="top" title="Edit" href="#staticBackdrop" class="edit__data__induk__icon" data-id="<?= $datainduk['induk_id']; ?>" data-kategori="<?= $datainduk['nama_kategori']; ?>" data-kebutuhan-data="<?= $datainduk['nama_induk']; ?>" data-nilai="<?= $datainduk['nilai']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                   </tr>
               <?php $i++;
@@ -132,7 +126,6 @@
             <thead class="bg__light">
               <tr>
                 <th class="table__datainduk-number">No</th>
-                <th class="table__datainduk-kode">Kode</th>
                 <th class="table__datainduk-kategori">Kategori</th>
                 <th class="table__datainduk-kebutuhandata">Kebutuhan Data</th>
                 <th class="table__datainduk-nilai">Nilai</th>
@@ -140,16 +133,16 @@
               </tr>
             </thead>
             <tbody>
-              <?php foreach ($data_induk as $datainduk) :
+              <?php $i = 1;
+              foreach ($data_induk as $datainduk) :
                 if ($datainduk['nama_kategori'] == 'Pengabdian Masyarakat') : ?>
                   <tr>
                     <td><?= $i; ?></td>
-                    <td class="text-uppercase"><?= $datainduk['kode_induk']; ?></td>
                     <td><?= $datainduk['nama_kategori']; ?></td>
-                    <td><?= $datainduk['kebutuhan']; ?></td>
+                    <td><?= $datainduk['nama_induk']; ?></td>
                     <td><?= $datainduk['nilai']; ?></td>
                     <td>
-                      <a role="button" data-bs-toggle="modal" data-bs-placement="top" title="Edit" href="#staticBackdrop" class="edit__data__induk__icon" data-id="<?= $datainduk['induk_id']; ?>" data-kode="<?= $datainduk['kode_induk']; ?>" data-kategori="<?= $datainduk['nama_kategori']; ?>" data-kebutuhan-data="<?= $datainduk['kebutuhan']; ?>" data-nilai="<?= $datainduk['nilai']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                      <a role="button" data-bs-toggle="modal" data-bs-placement="top" title="Edit" href="#staticBackdrop" class="edit__data__induk__icon" data-id="<?= $datainduk['induk_id']; ?>" data-kategori="<?= $datainduk['nama_kategori']; ?>" data-kebutuhan-data="<?= $datainduk['nama_induk']; ?>" data-nilai="<?= $datainduk['nilai']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                   </tr>
               <?php $i++;
@@ -178,12 +171,10 @@
         <h4 class="modal-title" id="modal-data-induk">Nilai Data Induk</h4>
 
         <!-- form -->
-        <form class="modal__form" method="POST" action="/home/editdatainduk/<?= $unit['unit_id'] . '/' . $tahun ?>">
+        <form class="modal__form" method="POST" action="/home/editdatainduk/<?= $data_user['unit_id'] . '/' . $tahun ?>">
           <div class="modal__form-content">
             <!-- id input -->
             <input type="hidden" id="id" name="induk_id" />
-            <label for="kode" class="form-label form__label">Kode</label>
-            <input type="text" class="form-control shadow-none form__control text-uppercase" id="kode" name="kode" disabled required />
           </div>
           <div class="modal__form-content">
             <label for="kategori" class="form-label form__label">Kategori</label>
@@ -260,13 +251,11 @@
     $(".edit__data__induk__icon").on("click", function() {
       // get data from button edit
       const id = $(this).data("id");
-      const kode = $(this).data("kode");
       const kategori = $(this).data("kategori");
       const kebutuhanData = $(this).data("kebutuhan-data");
       const nilai = $(this).data("nilai");
       // Set data to Form Edit
       $("#id").val(id);
-      $("#kode").val(kode);
       $("#kategori").val(kategori);
       $("#kebutuhan-data").val(kebutuhanData);
       $("#nilai").val(nilai);

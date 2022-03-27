@@ -16,4 +16,27 @@ class UnitIndukTahunModel extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+
+    // Joining Unit anda Induk Table
+    public function getIndukUnit($unit_id, $tahun)
+    {
+        return $this->select('unit_induk_tahun.*, units.*, data_induk.*, tahun.*, kategori.*')
+            ->join('units', 'units.unit_id = unit_induk_tahun.unit_id')
+            ->join('data_induk', 'data_induk.induk_id = unit_induk_tahun.induk_id')
+            ->join('tahun', 'tahun.tahun = unit_induk_tahun.tahun')
+            ->join('kategori', 'kategori.kategori_id = data_induk.kategori_id')
+            ->where('unit_induk_tahun.unit_id', $unit_id)
+            ->where('unit_induk_tahun.tahun', $tahun)
+            ->findAll();
+    }
+
+    // Update field nilai
+    public function updateNilai($unit_id, $tahun, $induk_id, $nilai)
+    {
+        return $this->where('unit_id', $unit_id)
+            ->where('tahun', $tahun)
+            ->where('induk_id', $induk_id)
+            ->set('nilai', $nilai)
+            ->update();
+    }
 }
