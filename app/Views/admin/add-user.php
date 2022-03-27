@@ -19,7 +19,7 @@
   <!-- uicons icon -->
   <link rel="stylesheet" href="/admin/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
   <!-- custom -->
-  <link rel="stylesheet" href="/admin/assets/css/styles-admin-user.css" />
+  <link rel="stylesheet" href="/admin/assets/css/styles-admin-add-user.css" />
 </head>
 
 <body>
@@ -185,85 +185,53 @@
       <!-- form add user -->
       <div class="form__add__user">
         <form method="POST" action="">
-          <!-- fullname -->
-          <div class="mb-3">
-            <label for="fullname" class="form-label form__label">Nama Lengkap</label>
-            <input type="text" class="form-control form__control" id="fullname" name="fullname"
-              placeholder="Masukkan Nama Lengkap" required>
-          </div>
-          <!-- email -->
-          <div class="mb-3">
-            <label for="email" class="form-label form__label">Email</label>
-            <input type="email" class="form-control form__control" id="email" name="email" placeholder="Masukkan Email"
-              required>
-          </div>
-          <!-- nomor telepon -->
-          <div class="mb-3">
-            <label for="telp" class="form-label form__label">Nomor Telepon</label>
-            <input type="text" class="form-control form__control" id="telp" name="telp"
-              placeholder="Masukkan Nomor Telepon" required>
-          </div>
-          <!-- unit -->
-          <div class="mb-3">
-            <label for="unit" class="form-label form__label">Unit</label>
-            <div class="row row-cols-3 m-0" style="width: 100%;">
-              <div class="form-check col">
-                <input class="form-check-input" type="checkbox" value="" id="" name="unit[]">
-                <label class="form-check-label" for="unit">
-                  S1 Teknik Lingkungan
-                </label>
-              </div>
-              <div class="form-check col">
-                <input class="form-check-input" type="checkbox" value="" id="" name="unit[]">
-                <label class="form-check-label" for="unit">
-                  S1 Informatika
-                </label>
-              </div>
-              <div class="form-check col">
-                <input class="form-check-input" type="checkbox" value="" id="" name="unit[]">
-                <label class="form-check-label" for="unit">
-                  S1 Kesehatan Masyarakat
-                </label>
-              </div>
-              <div class="form-check col">
-                <input class="form-check-input" type="checkbox" value="" id="" name="unit[]">
-                <label class="form-check-label" for="unit">
-                  S1 Teknik Lingkungan
-                </label>
-              </div>
-              <div class="form-check col">
-                <input class="form-check-input" type="checkbox" value="" id="" name="unit[]">
-                <label class="form-check-label" for="unit">
-                  S1 Informatika
-                </label>
-              </div>
-              <div class="form-check col">
-                <input class="form-check-input" type="checkbox" value="" id="" name="unit[]">
-                <label class="form-check-label" for="unit">
-                  S1 Kesehatan Masyarakat
-                </label>
-              </div>
-              <div class="form-check col">
-                <input class="form-check-input" type="checkbox" value="" id="" name="unit[]">
-                <label class="form-check-label" for="unit">
-                  S1 Informatika
-                </label>
-              </div>
-              <div class="form-check col">
-                <input class="form-check-input" type="checkbox" value="" id="" name="unit[]">
-                <label class="form-check-label" for="unit">
-                  S1 Kesehatan Masyarakat
-                </label>
-              </div>
+          <!-- User -->
+          <div class="row mb-3 mb-sm-4">
+            <label for="user" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">User <span
+                class="color__danger">*</span></label>
+            <div class="col-lg-6 col-md-9 col-sm-8">
+              <select name="user[]" id="user" class="form-select form__select shadow-none" required>
+                <option disabled selected>Pilih User</option>
+                <option value="">Iwan Suryaningrat</option>
+                <option value="">Adi Wibowo</option>
+              </select>
             </div>
           </div>
-          <!-- password -->
-          <div class="mb-3">
-            <label for="password" class="form-label form__label">Password</label>
-            <input type="password" class="form-control form__control" id="password" name="password"
-              placeholder="Masukkan Password" required>
+          <!-- unit -->
+          <div class="row mb-3 mb-sm-4">
+            <label for="unit" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Unit <span
+                class="color__danger">*</span></label>
+            <div class="col-lg-6 col-md-9 col-sm-8">
+              <select name="unit[]" id="unit" class="form-select form__select shadow-none" required>
+                <option disabled selected>Pilih Unit</option>
+                <option value="">S1-Informatika</option>
+                <option value="">S1-Teknik Lingkungan</option>
+                <option value="">S1-Kesehatan Masyarakat</option>
+              </select>
+            </div>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <!-- tahun -->
+          <div class="row mb-3 mb-sm-4">
+            <label for="tahun" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Tahun <span
+                class="color__danger">*</span></label>
+            <div class="col-lg-6 col-md-9 col-sm-8">
+              <select name="tahun[]" id="tahun" class="form-select form__select shadow-none" required>
+                <option disabled selected>Pilih Tahun</option>
+                <option value="">2019</option>
+                <option value="">2020</option>
+                <option value="">2021</option>
+              </select>
+            </div>
+          </div>
+          <!-- button -->
+          <div class="row">
+            <div class="col-lg-9 col-md-12 col-sm-12 button__section">
+              <a href="#" class="btn form__btn cancel__btn me-4 shadow-none" role="button">Batal</a>
+              <button type="submit" class="btn form__btn btn__dark shadow-none">
+                Simpan
+              </button>
+            </div>
+          </div>
         </form>
       </div>
     </div>

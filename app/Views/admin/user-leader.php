@@ -178,13 +178,13 @@
       <!--========== body main ==========-->
       <div class="title__table__add">
         <h4 class="title__body__user">Daftar Leader</h4>
-        <a href="/admin/addUser" class="btn shadow-none btn__add btn__dark">
+        <a href="/admin/addLeader" class="btn shadow-none btn__add btn__dark">
           <i class="fa-solid fa-plus"></i>
-          Add User
+          Add Leader
         </a>
       </div>
 
-      <!-- table indikator -->
+      <!-- table leader -->
       <div class="sipmpp__table">
         <div class="table-responsive">
           <table class="table table__user__content sipmpp__table-content table-hover">
@@ -192,25 +192,45 @@
               <tr>
                 <th class="table__user-number">no</th>
                 <th class="table__user-fullname">nama lengkap</th>
-                <th class="table__user-username">username</th>
                 <th class="table__user-email">email</th>
-                <th class="table__user-nip">nip</th>
+                <th class="table__user-unit">daftar unit</th>
+                <th class="table__user-telepon">telepon</th>
+                <th class="table__user-aksi">aksi</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>1</td>
                 <td>Adi Wibowo</td>
-                <td>bowo.informatika</td>
                 <td>adiwibowo@lecturer.undip.ac.id</td>
+                <td>
+                  <ol class="list__table__user-unit">
+                    <li>S1-Informatika</li>
+                    <li>S1-Matematika</li>
+                  </ol>
+                </td>
                 <td>2406011912001234</td>
+                <td>
+                  <a data-bs-placement="top" title="Delete" href="#" class="delete__data__induk__icon"><i
+                      class="fa-solid fa-trash"></i></a>
+                </td>
               </tr>
               <tr>
                 <td>2</td>
                 <td>Iwan Budi Kusumaningrat Jayabaya</td>
-                <td>iwanjayabaya.informatika</td>
                 <td>iwanjayabaya@lecturer.undip.ac.id</td>
+                <td>
+                  <ol class="list__table__user-unit">
+                    <li>S1-Informatika</li>
+                    <li>S1-Matematika</li>
+                    <li>S1-Kesehatan Masyarakat</li>
+                  </ol>
+                </td>
                 <td>2406011912001289</td>
+                <td>
+                  <a data-bs-placement="top" title="Delete" href="#" class="delete__data__induk__icon"><i
+                      class="fa-solid fa-trash"></i></a>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -266,6 +286,14 @@
     });
     $("#photo-dropdown").click(() => {
       $("#header-main-nav-dropdown").toggleClass("active");
+    });
+
+    // tooltips
+    const tooltipsDelete = document.querySelectorAll(
+      ".delete__data__induk__icon"
+    );
+    tooltipsDelete.forEach((t) => {
+      new bootstrap.Tooltip(t);
     });
   </script>
 </body>

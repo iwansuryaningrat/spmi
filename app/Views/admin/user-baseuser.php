@@ -13,14 +13,17 @@
     </div>
     <div class="header__main-nav-profile">
       <div class="nav-profile__photo">
-        <img src="/profile/<?= $usersession['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
+        <img
+          src="/profile/<?= $usersession['foto']; ?>"
+          alt="profile-picture" id="photo-dropdown" />
       </div>
       <div class="nav-profile__desc">
         <p id="profileName" class="ellipsis__text"><?php if ($usersession['nama'] != null && $usersession['nama'] != "") {
-                                                      echo $usersession['nama'];
-                                                    } else {
-                                                      echo $usersession['username'];
-                                                    } ?></p>
+    echo $usersession['nama'];
+} else {
+    echo $usersession['username'];
+} ?>
+        </p>
         <p id="profileStatus" class="ellipsis__text">Administrator</p>
       </div>
       <div class="nav-profile__btn">
@@ -50,7 +53,8 @@
       <div class="title__subtitle-desc">
         <h1>Base User</h1>
         <p>
-          Halo <span><?= $usersession['nama']; ?></span>, selamat datang di dashboard base user
+          Halo <span><?= $usersession['nama']; ?></span>, selamat
+          datang di dashboard base user
         </p>
       </div>
     </div>
@@ -61,33 +65,47 @@
     <h4 class="title__body__user">Daftar Base User</h4>
     <a href="/admin/addUser" class="btn shadow-none btn__add btn__dark">
       <i class="fa-solid fa-plus"></i>
-      Add User
+      Add Base User
     </a>
   </div>
 
-  <!-- table indikator -->
+  <!-- table baseuser -->
   <div class="sipmpp__table">
     <div class="table-responsive">
       <table class="table table__user__content sipmpp__table-content table-hover">
         <thead class="bg__light">
           <tr>
-            <th class="table__user-number">No</th>
-            <th class="table__user-fullname">Nama Lengkap</th>
-            <th class="table__user-username">Username</th>
-            <th class="table__user-email">Email</th>
-            <th class="table__user-nip">NIP</th>
+            <th class="table__user-number">no</th>
+            <th class="table__user-fullname">nama lengkap</th>
+            <th class="table__user-email">email</th>
+            <th class="table__user-unit">daftar unit</th>
+            <th class="table__user-telepon">telepon</th>
+            <th class="table__user-aksi">aksi</th>
           </tr>
         </thead>
         <tbody>
 
           <?php foreach ($users as $user) : ?>
-            <tr>
-              <td><?= $i; ?></td>
-              <td><?= $user['nama']; ?></td>
-              <td><?= $user['username']; ?></td>
-              <td><?= $user['email']; ?></td>
-              <td><?= $user['nip']; ?></td>
-            </tr>
+          <tr>
+            <td><?= $i; ?>
+            </td>
+            <td><?= $user['nama']; ?>
+            </td>
+            <td><?= $user['email']; ?>
+            </td>
+            <td>
+              <ol class="list__table__user-unit">
+                <li>S1-Informatika</li>
+                <li>S1-Matematika</li>
+                <li>S1-Kesehatan Masyarakat</li>
+              </ol>
+            </td>
+            <td>2406011912001289</td>
+            <td>
+              <a data-bs-placement="top" title="Delete" href="#" class="delete__data__induk__icon"><i
+                  class="fa-solid fa-trash"></i></a>
+            </td>
+          </tr>
           <?php $i++;
           endforeach; ?>
 
@@ -118,6 +136,14 @@
   $("#photo-dropdown").click(() => {
     $("#header-main-nav-dropdown").toggleClass("active");
   });
+
+  // tooltips
+  const tooltipsDelete = document.querySelectorAll(
+    ".delete__data__induk__icon"
+  );
+  tooltipsDelete.forEach((t) => {
+    new bootstrap.Tooltip(t);
+  });
 </script>
 
-<?= $this->endSection(); ?>
+<?= $this->endSection();
