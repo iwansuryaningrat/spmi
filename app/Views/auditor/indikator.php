@@ -1,4 +1,4 @@
-<?= $this->extend('template/userlayout'); ?>
+<?= $this->extend('template/auditorlayout'); ?>
 
 <?= $this->section('user'); ?>
 
