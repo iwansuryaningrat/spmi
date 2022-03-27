@@ -115,8 +115,8 @@ class Home extends BaseController
         return view('user/datainduk', $data);
     }
 
-    // Standar Method 
-    public function standar($unit_id)
+    // Standar Method (Done)
+    public function standar()
     {
         $tahun = $this->request->getVar('tahun');
 
@@ -127,38 +127,25 @@ class Home extends BaseController
         $path = base_url($path);
         $data_user = $this->data_user;
 
-        $unitData = $this->unitData;
+        $unit_id = $data_user['unit_id'];
 
-        $unit = $this->unitsModel->getUnitId($unit_id);
 
         if ($tahun == null) {
             $tahun = (int)date('Y');
-            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
-            $tahun_id = (int)$tahun_id;
         } else {
             $tahun = (int)$tahun;
-            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
-            $tahun_id = (int)$tahun_id;
         }
+
+        $data = $this->penilaianModel->getPenilaian($unit_id, $tahun);
+        // dd($data);
 
         $i = 1;
 
-        // Penelitian 
-        $penelitian_id = $this->kategoriModel->getKategoriNama('Penelitian')['kategori_id'];
-        $penelitian_id = (int)$penelitian_id;
-        $penelitian = $this->standarModel->getStandarAll($unit_id, $tahun_id, $penelitian_id);
-
-        // Pengabdian Masyarakat
-        $pengabdian_id = $this->kategoriModel->getKategoriNama('Pengabdian Masyarakat')['kategori_id'];
-        $pengabdian_id = (int)$pengabdian_id;
-        $pengabdian = $this->standarModel->getStandarAll($unit_id, $tahun_id, $pengabdian_id);
-
-        $standardata = $this->standarModel->getStandarUnitTahun($unit_id, $tahun_id);
-
         $status = [];
-        foreach ($standardata as $standar) {
+        foreach ($data as $standar) {
             array_push($status, $standar['status']);
         }
+
 
         // Cek apakah semua standar sudah diisi
         if (in_array('Dikirim', $status)) {
@@ -166,13 +153,11 @@ class Home extends BaseController
         } else {
             $status = "Belum Dikirim";
         }
+        // dd($status);
 
         $data = [
             'title' => 'Standar | SIPMPP UNDIP 2022',
             'data_user' => $data_user,
-            'unitData' => $unitData,
-            'unit' => $unit,
-            'unit_id' => $unit_id,
             'path' => $path,
             'tab' => 'standar',
             'header' => 'header__mini',
@@ -181,8 +166,7 @@ class Home extends BaseController
             'i' => $i,
             'status' => $status,
             'dataTahun' => $data_tahun,
-            'penelitian' => $penelitian,
-            'pengabdian' => $pengabdian,
+            'data_standar' => $data,
         ];
 
         return view('user/standar', $data);
@@ -284,53 +268,42 @@ class Home extends BaseController
 
     // ACTION METHOD // 
 
-    // Send Penilaian Method 
-    public function sendPenilaian($unit_id, $tahun)
+    // Send Penilaian Method (Done)
+    public function sendPenilaian($tahun)
     {
+
         $data_user = $this->data_user;
 
-        $unitData = $this->unitData;
 
-        $unit = $this->unitsModel->getUnitId($unit_id);
-
-        $unit_id = (int)$unit_id;
-
-        if ($tahun == null) {
-            $tahun = (int)date('Y');
-            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
-            $tahun_id = (int)$tahun_id;
-        } else {
-            $tahun = (int)$tahun;
-            $tahun_id = $this->tahunModel->getTahunAktif($tahun)['tahun_id'];
-            $tahun_id = (int)$tahun_id;
-        }
-
-        $standar = $this->standarModel->getStandarUnitTahun($unit_id, $tahun_id);
+        $unit_id = $data_user['unit_id'];
+        $standar = $this->penilaianModel->getPenilaian($unit_id, $tahun);
         $status = [];
         foreach ($standar as $s) {
             array_push($status, $s['status']);
         }
+        // dd($status);
 
         // Cek apakah semua standar sudah diisi
         if (in_array('Belum Diisi', $status) || in_array('Belum Lengkap', $status)) {
+            // dd('Belum Lengkap');
             $this->session->setFlashdata('message', '<div class="alert alert-danger" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <strong>Peringatan!</strong> Semua standar belum diisi.
-            </div>');
-            return redirect()->to('/home/standar/' . $unit_id . '/' . $tahun);
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Peringatan!</strong> Semua standar belum diisi.
+                </div>');
+            return redirect()->to('/home/standar/');
         } else {
-            foreach ($standar as $s) {
-                $this->standarModel->updateStatus($s['standar_id'], 'Dikirim');
-            }
+            // dd('Lengkap');
+            $this->penilaianModel->updateStatus($data_user['unit_id'], $tahun, 'Dikirim');
+
             $this->session->setFlashdata('message', '<div class="alert alert-success" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <strong>Berhasil!</strong> Penilaian telah dikirim.
-            </div>');
-            return redirect()->to('/home/standar/' . $unit_id . '/' . $tahun);
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Berhasil!</strong> Penilaian telah dikirim.
+                </div>');
+            return redirect()->to('/home/standar/');
         }
     }
 
-    // Edit Data Induk Method 
+    // Edit Data Induk Method (Need Testing)
     public function editDataInduk($unit_id, $tahun)
     {
         $induk_id = $this->request->getVar('induk_id');
