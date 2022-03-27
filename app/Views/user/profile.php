@@ -136,34 +136,30 @@
       <div class="section-password__border">
         <h5>Ubah Password</h5>
         <hr />
-        <form class="form__change__password" action="" method="POST">
-          <!-- password lama -->
+        <form class="form__change__password" id="formChangePassword" action="" method="POST">
           <div class="mb-3">
-            <label for="old-password" class="form-label form__label">Password Lama <span
+            <label for="oldPassword" class="form-label form__label">Password Lama <span
                 class="color__danger">*</span></label>
-            <input type="password" class="form-control form__control shadow-none" id="old-password" name="old-password"
-              required />
+            <input type="password" class="form-control form__control shadow-none" id="oldPassword" name="oldPassword"
+              autocomplete="off" required />
           </div>
-          <!-- password baru -->
           <div class="mb-3">
-            <label for="new-password" class="form-label form__label">Password Baru <span
+            <label for="newPassword" class="form-label form__label">Password Baru <span
                 class="color__danger">*</span></label>
-            <input type="password" class="form-control form__control shadow-none" id="new-password" name="new-password"
-              required aria-labelledby="new-password-notice" required />
+            <input type="password" class="form-control form__control shadow-none" id="newPassword" name="newPassword"
+              aria-labelledby="new-password-notice" autocomplete="off" required />
             <div id="new-password-notice" class="form-text form__text">
               Gunakan minimal 8 karakter dengan kombinasi huruf dan angka.
             </div>
           </div>
-          <!-- konfirmasi password baru -->
           <div class="mb-3 mb__big">
-            <label for="new-password-confirm" class="form-label form__label">Konfirmasi Password Baru
+            <label for="newPasswordConfirm" class="form-label form__label">Konfirmasi Password Baru
               <span class="color__danger">*</span></label>
-            <input type="password" class="form-control form__control shadow-none" id="new-password-confirm"
-              name="new-password-confirm" required />
+            <input type="password" class="form-control form__control shadow-none" name="newPasswordConfirm"
+              id="newPasswordConfirm" autocomplete="off" required />
           </div>
-          <!-- button -->
           <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn__light shadow-none">
+            <button type="submit" class="btn btn__light" id="btnSubmitChangePassword">
               Ubah Password
             </button>
           </div>
@@ -176,7 +172,10 @@
 <?= $this->endSection(); ?>
 
 <?= $this->section('userscript'); ?>
-
+<!-- jquery validate -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"
+  integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
   // dropdown
   $(document).click((e) => {
@@ -226,6 +225,30 @@
       }
     }
   };
+
+  // validatePassword with JQuery
+  $(document).ready(function() {
+    $("#formChangePassword").validate({
+      rules: {
+        oldPassword: {
+          required: true,
+        },
+        newPassword: {
+          required: true,
+          minlength: 8,
+        },
+        newPasswordConfirm: {
+          required: true,
+          minlength: 8,
+          equalTo: "#newPassword",
+        },
+      },
+    });
+
+    $("#btnSubmitChangePassword").on("click", () => {
+      console.log($("#formChangePassword").valid());
+    });
+  });
 </script>
 
 <?= $this->endSection();
