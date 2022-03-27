@@ -13,12 +13,12 @@
     </div>
     <div class="header__main-nav-profile">
       <div class="nav-profile__photo">
-        <img src="/assets/img/adi-wibowo-img.png" alt="profile-picture" id="photo-dropdown" />
+        <img src="/profile/<?= $data_user['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
       </div>
       <div class="nav-profile__desc">
-        <p id="profileName">Adi Wibowo</p>
+        <p id="profileName"><?= $data_user['nama']; ?></p>
         <p id="profileEmail" class="ellipsis__text">
-          iwansuryaningrat@students.undip.ac.id
+          <?= $data_user['email']; ?>
         </p>
       </div>
       <div class="nav-profile__btn">
@@ -41,13 +41,22 @@
 
   <div class="header__main-title">
     <div class="header__main-title__pagination">
-      <a id="unit-user" href="#" style="font-weight: 600;">S1 Informatika</a>
+      <a id="unit-user" href="/" style="font-weight: 600;">Home</a>
       / Profile
     </div>
     <div class="header__main-title__subtitle">
       <div class="title__subtitle-desc">
         <h1>Profile</h1>
-        <p>Halo <span>Adi</span>, selamat datang di profil Anda</p>
+        <p>Halo <span><?php // uses regex that accepts any word character or hyphen in last name
+                      function split_name($name)
+                      {
+                        $name = trim($name);
+                        $last_name = (strpos($name, ' ') === false) ? '' : preg_replace('#.*\s([\w-]*)$#', '$1', $name);
+                        $first_name = trim(preg_replace('#' . preg_quote($last_name, '#') . '#', '', $name));
+                        return array($first_name, $last_name);
+                      }
+                      echo split_name($data_user['nama'])[0];
+                      ?></span>, selamat datang di profil Anda</p>
       </div>
     </div>
   </div>
@@ -65,7 +74,7 @@
           <div class="input-group input-group__photo">
             <div class="img__input-photo">
               <div class="img__photo-field">
-                <img src="/assets/img/dummy-profile.png" alt="photo-profile" class="img__input" id="img-input-preview" />
+                <img src="/profile/<?= $data_user['foto']; ?>" alt="photo-profile" class="img__input" id="img-input-preview" />
               </div>
             </div>
             <div class="img__input-field">
@@ -81,22 +90,22 @@
         <!-- Nama lengkap -->
         <div class="mb-3">
           <label for="fullname" class="form-label form__label">Nama Lengkap</label>
-          <input type="text" class="form-control form__control shadow-none" id="fullname" value="Adi Wibowo" name="fullname" required />
+          <input type="text" class="form-control form__control shadow-none" id="fullname" value="<?= $data_user['nama']; ?>" name="fullname" required />
         </div>
         <!-- email -->
         <div class="mb-3">
           <label for="email" class="form-label form__label">Email</label>
-          <input type="text" class="form-control form__control shadow-none" id="email" name="email" disabled value="adiwibowo@lecturer.undip.ac.id" required />
+          <input type="text" class="form-control form__control shadow-none" id="email" name="email" disabled value="<?= $data_user['email']; ?>" required />
         </div>
         <!-- nip -->
         <div class="mb-3">
           <label for="nip" class="form-label form__label">NIP</label>
-          <input type="text" class="form-control form__control shadow-none" id="nip" name="nip" value="198203092006041002" required />
+          <input type="text" class="form-control form__control shadow-none" id="nip" name="nip" value="<?= $user['nip']; ?>" required />
         </div>
         <!-- nomor telepon -->
         <div class="mb-3 mb__big">
           <label for="no-telp" class="form-label form__label">Nomor telepon</label>
-          <input type="text" class="form-control form__control shadow-none" id="no-telp" name="no-telp" value="082314497854" required />
+          <input type="text" class="form-control form__control shadow-none" id="no-telp" name="no-telp" value="<?= $user['telp']; ?>" required />
         </div>
         <!-- button -->
         <div class="d-flex justify-content-end">
