@@ -226,10 +226,12 @@ class Home extends BaseController
     public function profile()
     {
         $data_user = $this->data_user;
+        $user = $this->userModel->getUserByEmail($data_user['user_id']);
 
         $data = [
             'title' => 'Profile | SIPMPP UNDIP 2022',
             'data_user' => $data_user,
+            'user' => $user,
             'tab' => 'profile',
             'header' => '',
             'css' => 'styles-profile.css'
