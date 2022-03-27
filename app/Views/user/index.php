@@ -13,7 +13,9 @@
     </div>
     <div class="header__main-nav-profile">
       <div class="nav-profile__photo">
-        <img src="/profile/<?= $data_user['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
+        <img
+          src="/profile/<?= $data_user['foto']; ?>"
+          alt="profile-picture" id="photo-dropdown" />
       </div>
       <div class="nav-profile__desc">
         <p id="profileName" class="ellipsis__text"><?= $data_user['nama']; ?>
@@ -46,7 +48,18 @@
     <div class="header__main-title__subtitle">
       <div class="title__subtitle-desc">
         <h1>Dashboard Overview</h1>
-        <p>Halo <span><?= $data_user['nama']; ?></span>, selamat
+        <p>Halo <span>
+            <?php // uses regex that accepts any word character or hyphen in last name
+            function split_name($name)
+            {
+                $name = trim($name);
+                $last_name = (strpos($name, ' ') === false) ? '' : preg_replace('#.*\s([\w-]*)$#', '$1', $name);
+                $first_name = trim(preg_replace('#' . preg_quote($last_name, '#') . '#', '', $name));
+                return array($first_name, $last_name);
+            }
+            echo split_name($data_user['nama'])[0];
+            ?>
+          </span>, selamat
           datang kembali!</p>
       </div>
       <div class="title__subtitle-btn">
@@ -76,7 +89,9 @@
         </div>
         <div>
           <div class="progress progress__content-progress-bar">
-            <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%" data-bs-toggle="tooltip" data-bs-placement="top" title="72%"></div>
+            <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="72"
+              aria-valuemin="0" aria-valuemax="100" style="width: 72%" data-bs-toggle="tooltip" data-bs-placement="top"
+              title="72%"></div>
           </div>
         </div>
       </div>
@@ -97,7 +112,9 @@
         </div>
         <div>
           <div class="progress progress__content-progress-bar">
-            <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100" style="width: 42%" data-bs-toggle="tooltip" data-bs-placement="top" title="42%"></div>
+            <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="42"
+              aria-valuemin="0" aria-valuemax="100" style="width: 42%" data-bs-toggle="tooltip" data-bs-placement="top"
+              title="42%"></div>
           </div>
         </div>
       </div>
@@ -159,7 +176,9 @@
                 <td><a href="#" class="unit__link">S1 Informatika</a></td>
                 <td>
                   <div class="progress table__unit__progress">
-                    <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%" data-bs-toggle="tooltip" data-bs-placement="top" title="60%"></div>
+                    <div class="progress-bar bg__dark-main unit__progressbar" role="progressbar" aria-valuenow="60"
+                      aria-valuemin="0" aria-valuemax="100" style="width: 60%" data-bs-toggle="tooltip"
+                      data-bs-placement="top" title="60%"></div>
                   </div>
                 </td>
               </tr>

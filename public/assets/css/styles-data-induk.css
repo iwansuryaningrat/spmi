@@ -78,11 +78,9 @@
 .table__datainduk__content tr th:last-child,
 .table__datainduk__content tr td:last-child,
 .table__datainduk__content tr th:nth-child(2),
-.table__datainduk__content tr th:nth-child(3),
-.table__datainduk__content tr th:nth-child(5),
+.table__datainduk__content tr th:nth-child(4),
 .table__datainduk__content tr td:nth-child(2),
-.table__datainduk__content tr td:nth-child(3),
-.table__datainduk__content tr td:nth-child(5) {
+.table__datainduk__content tr td:nth-child(4) {
   text-align: center;
 }
 
@@ -93,17 +91,16 @@
 
 .table__datainduk-number,
 .table__datainduk-nilai,
-.table__datainduk-aksi,
-.table__datainduk-kode {
+.table__datainduk-aksi {
   width: 10%;
 }
 
-.table__datainduk-kategori {
-  width: 15%;
+.table__datainduk-kode {
+  width: 13%;
 }
 
 .table__datainduk-kebutuhandata {
-  width: 45%;
+  width: 57%;
 }
 
 .table__datainduk__content thead tr th,
@@ -114,6 +111,12 @@
 
 .sipmpp__table tr td .edit__data__induk__icon svg {
   color: rgba(21, 114, 232, 1);
+}
+
+#alert-wrong-text .color__danger {
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  background-color: rgba(242, 89, 97, 0.1);
 }
 
 @media screen and (max-width: 1024px) {

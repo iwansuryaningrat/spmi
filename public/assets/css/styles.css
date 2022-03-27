@@ -909,6 +909,34 @@ footer .container-fluid.container__fluid {
   border-radius: var(--radius-lg);
 }
 
+/* ========== Badge ========== */
+.badge__sipmpp {
+  padding: 0.375rem 0.875rem;
+  border-radius: 1.75rem;
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: var(--white);
+}
+
+.badge__success {
+  background-color: #31ce36;
+}
+
+.badge__danger {
+  background-color: var(--danger-color);
+}
+.badge__warning {
+  background-color: #f5a623;
+}
+
+.badge__standar {
+  background-color: var(--dark-main-color);
+  padding: 5px 9px;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
 /******************************************/
 /*               Responsive               */
 /******************************************/
