@@ -56,7 +56,7 @@
                         </li>
                         <!-- Nilai SPMI -->
                         <li>
-                            <a href="/homr/standar" class="nav__list__link <?php if ($tab == "standar") : echo 'active';
+                            <a href="/home/standar" class="nav__list__link <?php if ($tab == "standar") : echo 'active';
                                                                             endif; ?>">
                                 <i class="fa-solid fa-chart-bar"></i>
                                 <span>Nilai SPMI</span>
