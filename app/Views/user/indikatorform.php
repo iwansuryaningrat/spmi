@@ -146,7 +146,7 @@
       <div class="row">
         <div class="col-lg-9 col-md-12 col-sm-12 button__section">
           <a href="#" class="btn form__btn cancel__btn me-4" role="button">Batal</a>
-          <button type="submit" class="btn form__btn btn__dark">
+          <button type="submit" class="btn form__btn btn__dark shadow-none">
             Simpan
           </button>
         </div>

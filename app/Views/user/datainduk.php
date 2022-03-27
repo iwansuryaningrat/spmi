@@ -237,10 +237,10 @@
           </div>
           <div id="alert-wrong-text"></div>
           <div class="modal__form-btn">
-            <button type="button" class="btn cancel__btn" data-bs-dismiss="modal">
+            <button type="button" class="btn cancel__btn shadow-none" data-bs-dismiss="modal">
               Batal
             </button>
-            <button type="submit" class="btn modal__btn">Kirim</button>
+            <button type="submit" class="btn modal__btn shadow-none">Kirim</button>
           </div>
         </form>
       </div>

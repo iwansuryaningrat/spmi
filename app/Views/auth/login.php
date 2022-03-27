@@ -103,7 +103,7 @@
                                 id="password" placeholder="Masukkan password" required />
                             <i class="fa-solid fa-lock icon__form"></i>
                         </div>
-                        <button type="submit" class="btn login__btn">Login</button>
+                        <button type="submit" class="btn login__btn shadow-none">Login</button>
                     </form>
                 </div>
             </div>

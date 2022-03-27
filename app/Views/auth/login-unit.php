@@ -80,7 +80,7 @@
                                 <option selected disabled>Pilih Unit</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn login__btn">Login</button>
+                        <button type="submit" class="btn login__btn shadow-none">Login</button>
                     </form>
                 </div>
             </div>
