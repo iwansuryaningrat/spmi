@@ -49,7 +49,16 @@
     <div class="header__main-title__subtitle">
       <div class="title__subtitle-desc">
         <h1>Report Overview</h1>
-        <p>Halo <span><?= $data_user['nama']; ?></span>, selamat datang kembali!</p>
+        <p>Halo <span><?php // uses regex that accepts any word character or hyphen in last name
+                      function split_name($name)
+                      {
+                        $name = trim($name);
+                        $last_name = (strpos($name, ' ') === false) ? '' : preg_replace('#.*\s([\w-]*)$#', '$1', $name);
+                        $first_name = trim(preg_replace('#' . preg_quote($last_name, '#') . '#', '', $name));
+                        return array($first_name, $last_name);
+                      }
+                      echo split_name($data_user['nama'])[0];
+                      ?></span>, selamat datang kembali!</p>
       </div>
     </div>
   </div>
