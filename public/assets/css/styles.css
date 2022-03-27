@@ -936,6 +936,9 @@ footer .container-fluid.container__fluid {
 .badge__warning {
   background-color: #f5a623;
 }
+.badge__primary {
+  background-color: #1572e8;
+}
 
 .badge__standar {
   background-color: var(--dark-main-color);

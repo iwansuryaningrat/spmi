@@ -225,34 +225,16 @@ class Home extends BaseController
     // FORM METHOD // 
 
     // Indikator Form Method 
-    public function indikatorForm($indikator_id)
+    public function indikatorForm()
     {
         $data_user = $this->data_user;
 
-        $unitData = $this->unitData;
-
-        // Data Indikator
-        $indikator = $this->indikatorModel->getIndikatorStandar($indikator_id);
-
-        // Data Standar
-        $standar_id = (int)$indikator['standar_id'];
-        $standar = $this->standarModel->getStandarId($standar_id);
-
-        // Data Unit 
-        $unit_id = (int)$standar['unit_id'];
-        $unit = $this->unitsModel->getUnitId($unit_id);
-
         $data = [
-            'title' => 'Form Indikator SPMI - ' . $unit['nama_unit'] . ' | SIPMPP UNDIP',
+            'title' => 'Form Indikator SPMI | SIPMPP UNDIP',
             'data_user' => $data_user,
-            'unitData' => $unitData,
-            'unit' => $unit,
-            'unit_id' => $unit_id,
             'tab' => 'standar',
-            'standar' => $standar,
             'header' => 'header__mini header__indikator',
             'css' => 'styles-form-indikator-spmi.css',
-            'indikator' => $indikator,
         ];
 
         return view('user/indikatorform', $data);

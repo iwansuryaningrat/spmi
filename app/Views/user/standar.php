@@ -131,8 +131,10 @@
                     <td><?= $standar['nama_standar']; ?>
                     </td>
                     <td>
-                      <span class="badge badge__sipmpp <?php if ($standar['status'] == 'Dikirim' || $standar['status'] == 'Diaudit') {
+                      <span class="badge badge__sipmpp <?php if ($standar['status'] == 'Diaudit') {
                                                           echo 'badge__success';
+                                                        } else if ($standar['status'] == 'Dikirim') {
+                                                          echo 'badge__primary';
                                                         } else if ($standar['status'] == 'Belum Diisi') {
                                                           echo 'badge__danger';
                                                         } else {

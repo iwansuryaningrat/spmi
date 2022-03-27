@@ -13,9 +13,7 @@
     </div>
     <div class="header__main-nav-profile">
       <div class="nav-profile__photo">
-        <img
-          src="/profile/<?= $data_user['foto']; ?>"
-          alt="profile-picture" id="photo-dropdown" />
+        <img src="/profile/<?= $data_user['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
       </div>
       <div class="nav-profile__desc">
         <p id="profileName"><?= $data_user['nama']; ?>
@@ -78,19 +76,28 @@
         </thead>
         <tbody>
 
-          <tr>
-            <td>1</td>
-            <td>
-              Tersedianya pedoman penyusunan profil lulusan program studi
-            </td>
-            <td>Tersusunnya profil program studi</td>
-            <td><span class="badge badge__sipmpp badge__danger">Belum diisi</span></td>
-            <td>10%</td>
-            <td>
-              <a data-bs-placement="top" title="Edit" href="/home/indikatorform/" class="edit__data__induk__icon"><i
-                  class="fa-solid fa-pen-to-square"></i></a>
-            </td>
-          </tr>
+          <?php foreach ($datapenilaian as $data) : ?>
+            <tr>
+              <td>1</td>
+              <td>
+                Tersedianya pedoman penyusunan profil lulusan program studi
+              </td>
+              <td>Tersusunnya profil program studi</td>
+              <td><span class="badge badge__sipmpp <?php if ($standar['status'] == 'Diaudit') {
+                                                      echo 'badge__success';
+                                                    } else if ($standar['status'] == 'Dikirim') {
+                                                      echo 'badge__primary';
+                                                    } else if ($standar['status'] == 'Belum Diisi') {
+                                                      echo 'badge__danger';
+                                                    } else {
+                                                      echo 'badge__warning';
+                                                    } ?>">Belum diisi</span></td>
+              <td>10%</td>
+              <td>
+                <a data-bs-placement="top" title="Edit" href="/home/indikatorform/" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
+              </td>
+            </tr>
+          <?php endforeach; ?>
 
 
         </tbody>
