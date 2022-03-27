@@ -222,7 +222,7 @@ class Home extends BaseController
         return view('user/report', $data);
     }
 
-    // Profile Method ()Done)
+    // Profile Method (Done)
     public function profile()
     {
         $data_user = $this->data_user;
@@ -257,7 +257,6 @@ class Home extends BaseController
 
         return view('user/indikatorform', $data);
     }
-
 
     // ACTION METHOD //
 
@@ -348,5 +347,92 @@ class Home extends BaseController
         $this->indikatorModel->updateUser($indikator_id, $status, $hasil, $keterangan, $namadokumen);
 
         return redirect()->to('/home/indikator/' . $unit_id . '/' . $standar_id . '/' . $tahun);
+    }
+
+    // Edit Password Method (Done)
+    public function editPassword()
+    {
+        $data_user = $this->data_user;
+        $user = $this->usersModel->getUserByEmail($data_user['email']);
+
+        $old_password = $this->request->getVar('old-password');
+        $new_password = $this->request->getVar('new-password');
+
+        // Cek apakah password lama sama dengan password lama
+        if (password_verify($old_password, $user['password'])) {
+            // Cek apakah password baru sama dengan password lama
+            if ($old_password == $new_password) {
+                $this->session->setFlashdata('message', '<div class="alert alert-danger" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Peringatan!</strong> Password baru tidak boleh sama dengan password lama.
+                    </div>');
+                return redirect()->to('/home/profile/');
+            } else {
+                // Update Password
+                $new_password = password_hash($new_password, PASSWORD_DEFAULT);
+                $this->usersModel->updatePassword($data_user['email'], $new_password);
+
+                $this->session->setFlashdata('message', '<div class="alert alert-success" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Berhasil!</strong> Password berhasil diubah.
+                    </div>');
+                return redirect()->to('/home/profile/');
+            }
+        } else {
+            $this->session->setFlashdata('message', '<div class="alert alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Peringatan!</strong> Password lama tidak sesuai.
+                </div>');
+            return redirect()->to('/home/profile/');
+        }
+    }
+
+    // Edit Profile Method (Done)
+    public function editProfile()
+    {
+        $data_user = $this->data_user;
+        $user = $this->usersModel->getUserByEmail($data_user['email']);
+
+        // Mengambil foto profil
+        $foto = $this->request->getFile('photo-profile');
+        if ($foto->getError() == 4) {
+            $namafoto = $user['foto'];
+        } else {
+            // Hapus foto lama
+            $namafoto = $user['foto'];
+            unlink('profile/' . $namafoto);
+            // set nama foto baru
+            $namafoto = 'foto-' . $user['email'] . '.' . $foto->getExtension();
+            $foto->move('profile/', $namafoto);
+        };
+
+        $data = [
+            'nama' => $this->request->getVar('fullname'),
+            'nip' => $this->request->getVar('nip'),
+            'telp' => $this->request->getVar('no-telp'),
+            'foto' => $namafoto,
+        ];
+
+        // Update Data
+        $this->usersModel->updateProfile($data_user['email'], $data);
+
+        // Update Session
+        $datasession = [
+            'email' => $user['email'],
+            'nama' => $data['nama'],
+            'foto' => $data['foto'],
+            'role_id' => $data_user['role_id'],
+            'role' => $data_user['role'],
+            'tahun' => $this->getTahun,
+            'isLoggedIn' => true,
+        ];
+
+        $this->session->set($datasession);
+
+        $this->session->setFlashdata('message', '<div class="alert alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Berhasil!</strong> Profile berhasil diubah.
+            </div>');
+        return redirect()->to('/home/profile/');
     }
 }
