@@ -5,19 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?= $title; ?>
-    </title>
-
-    <!-- meta data -->
-    <meta name="title" content="SIPMPP UNDIP">
-    <meta name="description"
-        content="SIPMPP merupakan Sistem Informasi Penjaminan Mutu Penelitian dan Pengabdian Universitas Diponegoro.">
-    <meta name="keywords" content="sipmpp, sipma, undip, penelitian, pengabdian, mutu">
-    <meta name="robots" content="index, follow">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="language" content="English">
-    <meta name="author" content="teamsipmppundip2019">
-    <meta name="copyright" content="© 2022 teamsipmpppundip">
+    <title>Daftar User | SIPMPP Admin UNDIP</title>
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -31,19 +19,7 @@
     <!-- uicons icon -->
     <link rel="stylesheet" href="/admin/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
     <!-- custom -->
-    <link rel="stylesheet" href="/admin/assets/css/<?= $css; ?>" />
-
-    <!-- appletochicon -->
-    <link rel="shortcut icon" href="/assets/img/icon/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="apple-touch-icon" sizes="57x57" href="/assets/img/icon/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/icon/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/icon/apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/icon/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/icon/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/icon/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/icon/apple-touch-icon-152x152.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/icon/apple-touch-icon-180x180.png" />
+    <link rel="stylesheet" href="/admin/assets/css/styles-admin-daftar-user.css" />
 </head>
 
 <body>
@@ -63,20 +39,16 @@
                 <!-- navigation -->
                 <div class="sidebar__content-nav">
                     <ul class="sidebar-nav__list">
-                        <!-- dashboard -->
                         <li>
-                            <a href="/admin/index" class="nav__list__link <?php if ($tab == "home") : echo 'active';
-                                                                            endif; ?>">
+                            <a href="/admin/index" class="nav__list__link">
                                 <i class="fa-solid fa-house"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
-                        <!-- user -->
+
                         <li>
-                            <a class="nav__list__link-dropdown <?php if ($tab == "user") : echo 'active';
-                                                                endif; ?>"
-                                data-bs-toggle="collapse" href="#user-collapse" role="button" aria-expanded="false"
-                                aria-controls="user-collapse">
+                            <a class="nav__list__link-dropdown active" data-bs-toggle="collapse" href="#user-collapse"
+                                role="button" aria-expanded="false" aria-controls="user-collapse">
                                 <div class="link-dropdown__sidebar">
                                     <i class="fa-solid fa-id-card-clip"></i>
                                     <span>User</span>
@@ -87,11 +59,6 @@
                             <!-- dropdown -->
                             <div class="collapse collapse__dropside" id="user-collapse">
                                 <ul class="sidebar-nav__list-collapse">
-                                    <li>
-                                        <a href="/admin/daftarUser"
-                                            class="nav__list__link-collapse ellipsis__text">Daftar
-                                            User</a>
-                                    </li>
                                     <li>
                                         <a href="/admin/user" class="nav__list__link-collapse ellipsis__text">Base
                                             User</a>
@@ -107,46 +74,30 @@
                                 </ul>
                             </div>
                         </li>
-                        <!-- unit -->
                         <li>
-                            <a href="/admin/units" class="nav__list__link <?php if ($tab == "unit") : echo 'active';
-                                                                            endif; ?>">
+                            <a href="/admin/units" class="nav__list__link">
                                 <i class="fa-solid fa-building-columns"></i>
                                 <span>Unit</span>
                             </a>
                         </li>
-                        <!-- data induk -->
                         <li>
-                            <a href="/admin/dataInduk" class="nav__list__link <?php if ($tab == "induk") : echo 'active';
-                                                                                endif; ?>">
+                            <a href="/admin/dataInduk" class="nav__list__link">
                                 <i class="fa-solid fa-book"></i>
                                 <span>Data Induk</span>
                             </a>
                         </li>
-                        <!-- standar -->
                         <li>
-                            <a href="/admin/standar" class="nav__list__link <?php if ($tab == "standar") : echo 'active';
-                                                                            endif; ?>">
+                            <a href="/admin/standar" class="nav__list__link">
                                 <i class="fa-solid fa-chart-pie"></i>
                                 <span>Standar</span>
                             </a>
                         </li>
-                        <!-- penilaian -->
                         <li>
-                            <a href="/admin/penilaian" class="nav__list__link <?php if ($tab == "penilaian") : echo 'active';
-                                                                                endif; ?>">
-                                <i class="fa-solid fa-chart-bar"></i>
-                                <span>Penilaian</span>
-                            </a>
-                            <!-- report -->
-                        <li>
-                            <a href="/admin/report" class="nav__list__link <?php if ($tab == "report") : echo 'active';
-                                                                            endif; ?>">
+                            <a href="/admin/report" class="nav__list__link">
                                 <i class="fa-solid fa-print"></i>
                                 <span>Report</span>
                             </a>
                         </li>
-                        <!-- logout -->
                         <li>
                             <a href="/logout" class="nav__list__link">
                                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -176,9 +127,99 @@
     <!-- main -->
     <div class="main__content" id="main-content">
         <!-- header main -->
-        <div class="header__main-color <?= $header; ?>"></div>
+        <div class="header__main-color header__mini"></div>
+        <div class="container-fluid container__fluid pb-0">
+            <div class="header__main-nav">
+                <div class="header__main-nav-btn">
+                    <div id="header-main-nav-btn-i" class="line__humberger">
+                        <span class="line__menu line-1" id="line1"></span>
+                        <span class="line__menu line-2" id="line2"></span>
+                        <span class="line__menu line-3" id="line3"></span>
+                    </div>
+                </div>
+                <div class="header__main-nav-profile">
+                    <div class="nav-profile__photo">
+                        <img src="/admin/assets/img/adi-wibowo-img.png" alt="profile-picture" id="photo-dropdown" />
+                    </div>
+                    <div class="nav-profile__desc">
+                        <p id="profileName" class="ellipsis__text">Adi Wibowo</p>
+                        <p id="profileStatus" class="ellipsis__text">
+                            Administrator
+                        </p>
+                    </div>
+                    <div class="nav-profile__btn">
+                        <i class="fi-br-angle-down" id="btn-dropdown"></i>
+                    </div>
+                </div>
 
-        <?= $this->renderSection('admin'); ?>
+                <div class="header__main-nav-dropdown" id="header-main-nav-dropdown">
+                    <p class="nav-dropdown__title">Pengaturan Profil</p>
+                    <p class="d-flex align-items-center">
+                        <a href="/admin/profile" class="d-block">Lihat Profil</a>
+                    </p>
+                    <hr />
+                    <p class="d-flex align-items-center">
+                        <i class="fa-solid fa-arrow-right-from-bracket d-flex"></i>
+                        <a href="/logout" class="d-block">Log out</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="header__main-title">
+                <div class="header__main-title__pagination">
+                    <a href="/admin/index">Dashboard</a>
+                    / Daftar User
+                </div>
+                <div class="header__main-title__subtitle">
+                    <div class="title__subtitle-desc">
+                        <h1>Daftar User</h1>
+                        <p>Halo <span>Adi</span>, selamat datang di dashboard Daftar User</p>
+                    </div>
+                </div>
+            </div>
+
+            <!--========== body main ==========-->
+            <div class="title__table__add">
+                <h4 class="title__body__user">Daftar User</h4>
+                <a href="/admin/addBasicUser" class="btn shadow-none btn__add btn__dark">
+                    <i class="fa-solid fa-plus"></i>
+                    Add User
+                </a>
+            </div>
+
+            <!-- table auditor -->
+            <div class="sipmpp__table">
+                <div class="table-responsive">
+                    <table class="table table__daftar-user__content sipmpp__table-content table-hover">
+                        <thead class="bg__light">
+                            <tr>
+                                <th class="table__user-number">no</th>
+                                <th class="table__user-fullname">nama lengkap</th>
+                                <th class="table__user-email">email</th>
+                                <th class="table__user-telepon">telepon</th>
+                                <th class="table__user-nip">nip</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Adi Wibowo</td>
+                                <td>adiwibowo@lecturer.undip.ac.id</td>
+                                <td>082314457895</td>
+                                <td>2406011912001234</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Iwan Budi Kusumaningrat Jayabaya</td>
+                                <td>iwanjayabaya@lecturer.undip.ac.id</td>
+                                <td>082311478987</td>
+                                <td>2406011912001289</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
         <!-- footer -->
         <footer>
@@ -186,7 +227,7 @@
             <div class="container-fluid container__fluid">
                 <div class="footer__caption">
                     <p class="mb-0">
-                        2019, made with <i class="fa-solid fa-heart"></i> by
+                        2022, made with <i class="fa-solid fa-heart"></i> by
                         <span style="font-weight: 600">teamsipmppundip</span>
                     </p>
                 </div>
@@ -212,8 +253,24 @@
     </script>
     <!-- custom -->
     <script src="/admin/assets/js/scripts-admin.js"></script>
-
-    <?= $this->renderSection('script'); ?>
+    <script>
+        // dropdown
+        $(document).click((e) => {
+            if (
+                e.target.id !== "header-main-nav-dropdown" &&
+                e.target.id !== "btn-dropdown" &&
+                e.target.id !== "photo-dropdown"
+            ) {
+                $("#header-main-nav-dropdown").removeClass("active");
+            }
+        });
+        $("#btn-dropdown").click(() => {
+            $("#header-main-nav-dropdown").toggleClass("active");
+        });
+        $("#photo-dropdown").click(() => {
+            $("#header-main-nav-dropdown").toggleClass("active");
+        });
+    </script>
 </body>
 
 </html>

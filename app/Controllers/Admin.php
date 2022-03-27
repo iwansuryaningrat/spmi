@@ -176,4 +176,28 @@ class Admin extends BaseController
     {
         return view('admin/view-indikator');
     }
+
+    //penilaian
+    public function penilaian()
+    {
+        return view('admin/penilaian');
+    }
+
+    //daftar user
+    public function daftarUser()
+    {
+        return view('admin/daftar-user');
+    }
+
+    //add leader
+    public function addLeader()
+    {
+        return view('admin/add-leader');
+    }
+
+    //add basic user
+    public function addBasicUser()
+    {
+        return view('admin/add-basic-user');
+    }
 }
