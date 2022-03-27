@@ -138,10 +138,24 @@ class Admin extends BaseController
         return view('admin/user-leader', $data);
     }
 
-    // Auditor Method
+    // Auditor Method (Done)
     public function auditor()
     {
-        return view('admin/user-auditor');
+        $usersession = $this->data_user;
+        $users = $this->userroleunitModel->getData();
+        // dd($users);
+
+        $data = [
+            'title' => 'Auditor | SIPMPP Admin UNDIP',
+            'tab' => 'user',
+            'css' => 'styles-admin-user.css',
+            'header' => 'header__mini',
+            'i' => $this->i,
+            'usersession' => $usersession,
+            'users' => $users
+        ];
+
+        return view('admin/user-auditor', $data);
     }
 
     // units Method
@@ -238,22 +252,40 @@ class Admin extends BaseController
         return view('admin/add-base-user', $data);
     }
 
-    // add auditor Form
+    // add auditor Form (Done)
     public function addAuditor()
     {
-        return view('admin/add-auditor');
+        $users = $this->usersModel->findAll();
+        $units = $this->unitsModel->findAll();
+        $tahun = $this->tahunModel->findAll();
+        $role = $this->roleModel->getRole('auditor');
+        // dd($role, $tahun, $units, $users);
+        $data = [
+            'title' => 'Form Tambah Auditor | SIPMPP Admin UNDIP',
+            'tab' => 'user',
+            'css' => 'styles-admin-add-user.css',
+            'header' => 'header__mini',
+            'i' => $this->i,
+            'usersession' => $this->data_user,
+            'users' => $users,
+            'units' => $units,
+            'tahun' => $tahun,
+            'role' => $role,
+        ];
+
+        return view('admin/add-auditor', $data);
     }
 
-    // add leader Form
+    // add leader Form (Done)
     public function addLeader()
     {
         $users = $this->usersModel->findAll();
         $units = $this->unitsModel->findAll();
         $tahun = $this->tahunModel->findAll();
-        $role = $this->roleModel->getRole('user');
+        $role = $this->roleModel->getRole('pimpinan');
         // dd($role, $tahun, $units, $users);
         $data = [
-            'title' => 'Form Tambah User | SIPMPP Admin UNDIP',
+            'title' => 'Form Tambah User Pimpinan | SIPMPP Admin UNDIP',
             'tab' => 'user',
             'css' => 'styles-admin-add-user.css',
             'header' => 'header__mini',

@@ -57,7 +57,7 @@
               return array($first_name, $last_name);
             }
             echo split_name($usersession['nama'])[0];
-            ?><< /span>, selamat datang di dashboard Leader</p>
+            ?></span>, selamat datang di dashboard Leader</p>
       </div>
     </div>
   </div>
