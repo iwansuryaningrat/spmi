@@ -172,7 +172,7 @@ class Home extends BaseController
         return view('user/standar', $data);
     }
 
-    // Indikator Method 
+    // Indikator Method
     public function indikator($standar_id, $tahun, $kategori_id)
     {
         $data_user = $this->data_user;
@@ -231,16 +231,16 @@ class Home extends BaseController
             'title' => 'Profile | SIPMPP UNDIP 2022',
             'data_user' => $data_user,
             'tab' => 'profile',
-            'header' => 'header__big',
+            'header' => '',
             'css' => 'styles-profile.css'
         ];
 
         return view('user/profile', $data);
     }
 
-    // FORM METHOD // 
+    // FORM METHOD //
 
-    // Indikator Form Method 
+    // Indikator Form Method
     public function indikatorForm()
     {
         $data_user = $this->data_user;
@@ -257,12 +257,11 @@ class Home extends BaseController
     }
 
 
-    // ACTION METHOD // 
+    // ACTION METHOD //
 
     // Send Penilaian Method (Done)
     public function sendPenilaian($tahun)
     {
-
         $data_user = $this->data_user;
 
 
@@ -308,7 +307,7 @@ class Home extends BaseController
         return redirect()->to('/home/datainduk/' . $unit_id . '/' . $tahun);
     }
 
-    // Save Indikator Method 
+    // Save Indikator Method
     public function saveIndikator($indikator_id)
     {
         $indikator_id = (int)$indikator_id;
@@ -339,7 +338,7 @@ class Home extends BaseController
         $tahun_id = (int)$standar['tahun_id'];
         $tahun = $this->tahunModel->getTahunId($tahun_id)['tahun'];
 
-        // Data Unit 
+        // Data Unit
         $unit_id = (int)$standar['unit_id'];
         $unit = $this->unitsModel->getUnitId($unit_id);
 
