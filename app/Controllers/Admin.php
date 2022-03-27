@@ -118,10 +118,24 @@ class Admin extends BaseController
         return view('admin/user-baseuser', $data);
     }
 
-    // Leader Method
+    // Leader Method (Kurang parsing data units)
     public function leader()
     {
-        return view('admin/user-leader');
+        $usersession = $this->data_user;
+        $users = $this->userroleunitModel->getData();
+        // dd($users);
+
+        $data = [
+            'title' => 'Pimpinan | SIPMPP Admin UNDIP',
+            'tab' => 'user',
+            'css' => 'styles-admin-user.css',
+            'header' => 'header__mini',
+            'i' => $this->i,
+            'usersession' => $usersession,
+            'users' => $users
+        ];
+
+        return view('admin/user-leader', $data);
     }
 
     // Auditor Method
@@ -170,7 +184,9 @@ class Admin extends BaseController
     public function penilaian()
     {
         return view('admin/penilaian');
-    } // Profile Method
+    }
+
+    // Profile Method
     public function profile()
     {
         return view('admin/profile');
@@ -218,6 +234,7 @@ class Admin extends BaseController
             'tahun' => $tahun,
             'role' => $role,
         ];
+
         return view('admin/add-base-user', $data);
     }
 
@@ -230,7 +247,25 @@ class Admin extends BaseController
     // add leader Form
     public function addLeader()
     {
-        return view('admin/add-leader');
+        $users = $this->usersModel->findAll();
+        $units = $this->unitsModel->findAll();
+        $tahun = $this->tahunModel->findAll();
+        $role = $this->roleModel->getRole('user');
+        // dd($role, $tahun, $units, $users);
+        $data = [
+            'title' => 'Form Tambah User | SIPMPP Admin UNDIP',
+            'tab' => 'user',
+            'css' => 'styles-admin-add-user.css',
+            'header' => 'header__mini',
+            'i' => $this->i,
+            'usersession' => $this->data_user,
+            'users' => $users,
+            'units' => $units,
+            'tahun' => $tahun,
+            'role' => $role,
+        ];
+
+        return view('admin/add-leader', $data);
     }
 
     //Add Unit Method
@@ -292,13 +327,18 @@ class Admin extends BaseController
         }
     }
 
-    // Add user role unit method
+    // Add user role unit method (Done)
     public function addBasicUser($role)
     {
         $email = $this->request->getVar('user');
         $role_id = $this->roleModel->getRole($role);
         $role_id = (int)$role_id['role_id'];
-        $unit = $this->request->getVar('unit');
+
+        if ($role == 'pimpinan') {
+            $unit = 'lppm';
+        } else {
+            $unit = $this->request->getVar('unit');
+        }
         $tahun = (int)$this->request->getVar('tahun');
 
         $data = [
