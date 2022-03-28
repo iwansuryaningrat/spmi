@@ -217,8 +217,22 @@ class Admin extends BaseController
     }
 
     //view indikator
-    public function viewIndikator()
+    public function viewIndikator($standar_id, $kategori_id)
     {
+        $usersession = $this->data_user;
+        $indikator = $this->indikatorModel->getIndikator($kategori_id, $standar_id);
+
+        // dd($indikator);
+        $data = [
+            'title' => 'Daftar Indikator | SIPMPP Admin UNDIP',
+            'tab' => 'standar',
+            'css' => 'styles-admin-standar.css',
+            'header' => 'header__mini',
+            'i' => $this->i,
+            'usersession' => $usersession,
+            'indikator' => $indikator
+        ];
+
         return view('admin/view-indikator');
     }
 

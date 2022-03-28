@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Mar 2022 pada 10.06
+-- Waktu pembuatan: 28 Mar 2022 pada 09.51
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 8.0.12
 
@@ -55,7 +55,7 @@ CREATE TABLE `indikator` (
   `standar_id` varchar(5) NOT NULL,
   `nama_indikator` varchar(255) NOT NULL,
   `target` varchar(255) NOT NULL,
-  `nilai_acuan` varchar(15) NOT NULL,
+  `nilai_acuan` int(15) NOT NULL,
   `satuan` varchar(20) NOT NULL,
   `keterangan` varchar(255) NOT NULL,
   `induk_id` int(11) NOT NULL,
@@ -68,8 +68,8 @@ CREATE TABLE `indikator` (
 --
 
 INSERT INTO `indikator` (`indikator_id`, `kategori_id`, `standar_id`, `nama_indikator`, `target`, `nilai_acuan`, `satuan`, `keterangan`, `induk_id`, `created_at`, `updated_at`) VALUES
-(1, 'PEN', 'S1', 'Indikator 1', 'Target 1', '', '', '', 1, '2022-03-26 18:05:35', '2022-03-26 18:05:35'),
-(1, 'PPM', 'S1', '', '', '', '', '', 1, '2022-03-27 07:38:44', '2022-03-27 07:38:44');
+(1, 'PEN', 'S1', 'Indikator 1', 'Target 1', 0, '', '', 1, '2022-03-26 18:05:35', '2022-03-26 18:05:35'),
+(1, 'PPM', 'S1', '', '', 0, '', '', 1, '2022-03-27 07:38:44', '2022-03-27 07:38:44');
 
 -- --------------------------------------------------------
 
@@ -118,8 +118,8 @@ CREATE TABLE `penilaian` (
 --
 
 INSERT INTO `penilaian` (`tahun`, `unit_id`, `kategori_id`, `standar_id`, `indikator_id`, `nilai_input`, `dokumen`, `keterangan`, `catatan`, `status`, `hasil`, `nilai_akhir`, `created_at`, `updated_at`) VALUES
-(2022, 'infor', 'PEN', 'S1', 1, 0, '', '', '', 'Dikirim', 0, 0, '2022-03-27 07:26:27', '2022-03-27 02:59:11'),
-(2022, 'infor', 'PPM', 'S1', 1, 1, '', '', '', 'Dikirim', 1, 1, '2022-03-27 07:40:13', '2022-03-27 02:59:11');
+(2022, 'infor', 'PEN', 'S1', 1, 1, 'dokumen-1-S1-infor-PEN-2022pdf', 'ksdskjui', '', 'Dikirim', 100, 100, '2022-03-27 07:26:27', '2022-03-27 15:28:27'),
+(2022, 'infor', 'PPM', 'S1', 1, 1, '', '', '', 'Dikirim', 1, 1, '2022-03-27 07:40:13', '2022-03-27 15:28:27');
 
 -- --------------------------------------------------------
 
@@ -162,7 +162,8 @@ CREATE TABLE `standar` (
 
 INSERT INTO `standar` (`standar_id`, `kategori_id`, `nama_standar`, `created_at`, `updated_at`) VALUES
 ('S1', 'PEN', 'Standar Hasil', '2022-03-26 18:03:54', '2022-03-26 18:03:54'),
-('S1', 'PPM', 'Standar Hasil', '2022-03-26 18:03:53', '2022-03-26 18:03:53');
+('S1', 'PPM', 'Standar Hasil', '2022-03-26 18:03:53', '2022-03-26 18:03:53'),
+('S6', 'PEN', '', '2022-03-28 01:32:36', '2022-03-28 01:32:36');
 
 -- --------------------------------------------------------
 
@@ -221,7 +222,8 @@ CREATE TABLE `units` (
 
 INSERT INTO `units` (`unit_id`, `nama_unit`, `created_at`, `updated_at`) VALUES
 ('infor', 'S1 - Informatika', '2022-03-26 17:06:47', '2022-03-26 17:06:47'),
-('lppm', 'LPPM', '2022-03-26 17:06:47', '2022-03-26 17:06:47');
+('lppm', 'LPPM', '2022-03-26 17:06:47', '2022-03-26 17:06:47'),
+('mesin', 'S1 Teknik Mesin', '2022-03-27 23:36:54', '2022-03-27 23:36:54');
 
 -- --------------------------------------------------------
 
@@ -243,7 +245,7 @@ CREATE TABLE `unit_induk_tahun` (
 --
 
 INSERT INTO `unit_induk_tahun` (`tahun`, `unit_id`, `induk_id`, `nilai`, `created_at`, `updated_at`) VALUES
-(2022, 'infor', 1, 0, '2022-03-27 06:49:21', '2022-03-27 06:49:21');
+(2022, 'infor', 1, 90, '2022-03-27 06:49:21', '2022-03-27 07:25:42');
 
 -- --------------------------------------------------------
 
@@ -267,7 +269,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`email`, `nama`, `nip`, `telp`, `foto`, `password`, `created_at`, `updated_at`) VALUES
-('iwan.suryaningrat28@gmail.com', 'Iwan Suryaningrat', '24060119120027', '088802851811', 'default.png', '$2y$10$g6CAZR8cdmPmA4EDDQseGOk0LY3WXVYu5HIc2fOjMWDO/AHl0/Yvy', '2022-03-26 16:51:22', '2022-03-26 16:51:22'),
+('email@gmail.com', 'orang', '', '', '', '$2y$10$onlYvVTD4vaRJScd4TMuo.UI9.r5YJXdeswxlqEmhIBUDJASEz5B6', '2022-03-27 16:20:22', '2022-03-27 16:20:22'),
+('irul@gmail.com', 'Irul', '', '', '', '$2y$10$SlMNeWp/xB.gxiy94CQ/V.IW57mcOrTajXQHbrvGIatOvnCCzP8A6', '2022-03-27 16:04:02', '2022-03-27 16:04:02'),
+('iwan.suryaningrat28@gmail.com', 'Iwan Suryaningrat', '24060119120027', '088802851811', 'foto-iwan.suryaningrat28@gmail.com.jpg', '$2y$10$RIEP4l5cJ/mxXFTM/IuWROc.TQV1Gk4yQI3dfFNy6B6Z01IO.SN5y', '2022-03-26 16:51:22', '2022-03-27 11:40:24'),
+('iwan@gmail.com', 'iwan', '', '', '', '$2y$10$TzX.4wpax5LmfpMgzgUQ4OpJ6fqDEr2bYvW97LnySVVX6HpQ96aE6', '2022-03-27 16:18:45', '2022-03-27 16:18:45'),
 ('iwansuryaningrat@students.undip.ac.id', 'Iwan Suryaningrat', '', '', 'default.png', '$2y$10$wRjof3KUnWwBfB3XdELsYuPXtUZKXvMeUG0DturLnU30j2sVbY.jO', '2022-03-26 11:59:42', '2022-03-26 11:59:42');
 
 -- --------------------------------------------------------
@@ -290,6 +295,8 @@ CREATE TABLE `user_role_unit` (
 --
 
 INSERT INTO `user_role_unit` (`email`, `role_id`, `unit_id`, `tahun`, `created_at`, `updated_at`) VALUES
+('email@gmail.com', 3, 'infor', 2019, '2022-03-27 18:29:54', '2022-03-27 18:29:54'),
+('iwan.suryaningrat28@gmail.com', 1, 'infor', 2021, '2022-03-27 17:47:26', '2022-03-27 17:47:26'),
 ('iwan.suryaningrat28@gmail.com', 1, 'infor', 2022, '2022-03-26 17:08:18', '2022-03-26 17:08:18'),
 ('iwan.suryaningrat28@gmail.com', 1, 'lppm', 2022, '2022-03-26 17:08:18', '2022-03-26 17:08:18'),
 ('iwan.suryaningrat28@gmail.com', 3, 'lppm', 2022, '2022-03-26 21:01:07', '2022-03-26 21:01:07'),

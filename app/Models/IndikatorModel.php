@@ -16,4 +16,13 @@ class IndikatorModel extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+
+    // Get Indikator data by kategori_id and standar_id
+    public function getIndikator($kategori_id, $standar_id)
+    {
+        return $this->select('indikator.*')
+            ->where('indikator.kategori_id', $kategori_id)
+            ->where('indikator.standar_id', $standar_id)
+            ->findAll();
+    }
 }
