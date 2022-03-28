@@ -469,7 +469,8 @@ class Admin extends BaseController
     // Add Unit method
     public function addunit()
     {
-        $unit = $this->request->getVar('nama_unit');
+        $nama_unit = $this->request->getVar('nama_unit');
+        // dd($unit);
 
         function split_name($name)
         {
@@ -479,10 +480,10 @@ class Admin extends BaseController
             return array($first_name, $last_name);
         }
 
-        if (split_name($unit)[1] != '') {
-            $id = strtolower(split_name($unit)[1]);
+        if (split_name($nama_unit)[1] != '') {
+            $id = strtolower(split_name($nama_unit)[1]);
         } else {
-            $id = strtolower(split_name($unit)[0]);
+            $id = strtolower(split_name($nama_unit)[0]);
         }
         // dd($id);
 
@@ -496,7 +497,7 @@ class Admin extends BaseController
         } else {
             $data = [
                 'unit_id' => $id,
-                'nama_unit' => $unit,
+                'nama_unit' => $nama_unit,
             ];
 
             $this->unitsModel->insert($data);
