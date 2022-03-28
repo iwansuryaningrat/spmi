@@ -19,7 +19,7 @@
     <!-- uicons icon -->
     <link rel="stylesheet" href="/admin/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
     <!-- custom -->
-    <link rel="stylesheet" href="/admin/assets/css/styles-admin-user.css" />
+    <link rel="stylesheet" href="/admin/assets/css/styles-admin-add-units.css" />
 </head>
 
 <body>
@@ -189,49 +189,39 @@
             <div class="form__add__unit">
                 <form method="POST" action="">
                     <!-- nama unit -->
-                    <div class="mb-3">
-                        <label for="nama-unit" class="form-label form__label">Nama Unit</label>
-                        <input type="text" class="form-control form__control" id="nama-unit" name="nama-unit"
-                            placeholder="Masukkan Nama Unit" required>
-                    </div>
-                    <!-- kategor -->
-                    <div class="mb-3">
-                        <label for="kategori" class="form-label form__label">Kategori</label>
-                        <select class="form-select form__select" id="kategori" name="kategori">
-                            <option selected disabled>Pilih Kategori</option>
-                            <option>Penelitian</option>
-                            <option>Pengabdian Masyarakat</option>
-                        </select>
-                    </div>
-                    <!-- tahun -->
-                    <div class="mb-3">
-                        <label for="tahun" class="form-label form__label">Tahun</label>
-                        <select class="form-select form__select" id="tahun" name="tahun">
-                            <option selected disabled>Pilih Tahun</option>
-                            <option>2019</option>
-                            <option>2020</option>
-                            <option>2021</option>
-                            <option>2022</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="row mb-3 mb-sm-4">
+                        <label for="unit" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Nama Unit
+                            <span class="color__danger">*</span></label>
+                        <div class="col-lg-6 col-md-9 col-sm-8">
+                            <input class="form-control form__control shadow-none" id="unit" name="unit" required
+                                autocomplete="off" />
+                        </div>
+                        <!-- button -->
+                        <div class="row">
+                            <div class="col-lg-9 col-md-12 col-sm-12 button__section">
+                                <a href="#" class="btn form__btn cancel__btn me-4 shadow-none" role="button">Batal</a>
+                                <button type="submit" class="btn form__btn btn__dark shadow-none">
+                                    Simpan
+                                </button>
+                            </div>
+                        </div>
                 </form>
             </div>
         </div>
-
-        <!-- footer -->
-        <footer>
-            <hr class="footer__line" />
-            <div class="container-fluid container__fluid">
-                <div class="footer__caption">
-                    <p class="mb-0">
-                        2022, made with <i class="fa-solid fa-heart"></i> by
-                        <span style="font-weight: 600">teamsipmppundip</span>
-                    </p>
-                </div>
-            </div>
-        </footer>
     </div>
+
+    <!-- footer -->
+    <footer>
+        <hr class="footer__line" />
+        <div class="container-fluid container__fluid">
+            <div class="footer__caption">
+                <p class="mb-0">
+                    2022, made with <i class="fa-solid fa-heart"></i> by
+                    <span style="font-weight: 600">teamsipmppundip</span>
+                </p>
+            </div>
+        </div>
+    </footer>
 
     <!-- scripts -->
     <!-- jquery -->

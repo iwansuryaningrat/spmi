@@ -7,9 +7,7 @@
 .table__unit__content tr th:first-child,
 .table__unit__content tr td:first-child,
 .table__unit__content tr th:last-child,
-.table__unit__content tr td:last-child,
-.table__unit__content tr th:nth-child(3),
-.table__unit__content tr td:nth-child(3) {
+.table__unit__content tr td:last-child {
   text-align: center;
 }
 
@@ -24,15 +22,22 @@
   border-bottom-style: hidden;
 }
 
-.table__unit-number,
-.table__unit-tahun {
+.table__unit-number {
   width: 10%;
 }
 
-.table__unit-kategori {
-  width: 30%;
+.table__unit-aksi {
+  width: 20%;
 }
 
 .table__unit-namaunit {
-  width: 50%;
+  width: 70%;
+}
+
+.sipmpp__table tr td .edit__data__induk__icon svg {
+  color: rgba(21, 114, 232, 1);
+}
+
+.sipmpp__table tr td .delete__data__induk__icon svg {
+  color: var(--danger-color);
 }

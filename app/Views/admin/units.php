@@ -77,6 +77,12 @@
                 <span>Unit</span>
               </a>
             </li>
+            <!-- kategori -->
+            <li>
+              <a href="/admin/kategori" class="nav__list__link">
+                <i class="fa-solid fa-list-alt"></i>
+                <span>Kategori</span>
+              </a>
             <li>
               <a href="/admin/dataInduk" class="nav__list__link">
                 <i class="fa-solid fa-book"></i>
@@ -178,7 +184,8 @@
       <!--========== body main ==========-->
       <div class="title__table__add">
         <h4 class="title__body__user">Daftar Unit</h4>
-        <a href="/admin/addUnit" class="btn shadow-none btn__add btn__dark">
+        <a href="/admin/addUnit" class="btn shadow-none btn__add btn__dark add__unit__icon" role="button"
+          data-bs-toggle="modal" href="#staticBackdrop2">
           <i class="fa-solid fa-plus"></i>
           Add Unit
         </a>
@@ -192,28 +199,20 @@
               <tr>
                 <th class="table__unit-number">no</th>
                 <th class="table__unit-namaunit">nama unit</th>
-                <th class="table__unit-kategori">kategori</th>
-                <th class="table__unit-tahun">tahun</th>
+                <th class="table__unit-aksi">aksi</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>1</td>
                 <td>S1 Informatika</td>
-                <td>Penelitian</td>
-                <td>2019</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>S1 Teknik Lingkungan</td>
-                <td>Pengabdian Masyarakat</td>
-                <td>2022</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>S1 Kesehatan Masyarakat</td>
-                <td>Pengabdian Masyarakat</td>
-                <td>2022</td>
+                <td>
+                  <a role="button" data-bs-toggle="modal" data-bs-placement="top" title="Edit" href="#staticBackdrop"
+                    class="edit__data__induk__icon me-3 me-md-5"><i class="fa-solid fa-pen-to-square"
+                      data-unit="S1 Informatika" data-id="1"></i></a>
+                  <a data-bs-placement="top" title="Delete" href="#" class="delete__data__induk__icon"><i
+                      class="fa-solid fa-trash"></i></a>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -233,6 +232,74 @@
         </div>
       </div>
     </footer>
+  </div>
+
+  <!-- Modal edit -->
+  <div class="modal fade edit__unit__modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="modal-unit" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal__content">
+        <div class="modal-header modal__header">
+          <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body modal__body">
+          <h4 class="modal-title" id="modal-data-induk">Edit Unit</h4>
+
+          <!-- form -->
+          <form class="modal__form">
+            <!-- id input -->
+            <input type="hidden" id="idEdit" />
+            <!-- unit -->
+            <div class="modal__form-content">
+              <label for="unitEdit" class="form-label form__label">Unit <span class="color__danger">*</span></label>
+              <input type="text" class="form-control shadow-none form__control" id="unitEdit" required
+                autocomplete="off" />
+            </div>
+            <!-- Button -->
+            <div class="modal__form-btn">
+              <button type="button" class="btn cancel__btn shadow-none" data-bs-dismiss="modal">
+                Batal
+              </button>
+              <button type="submit" class="btn modal__btn shadow-none">Kirim</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal add -->
+  <div class="modal fade add__unit__modal" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="modal-unit" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal__content">
+        <div class="modal-header modal__header">
+          <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body modal__body">
+          <h4 class="modal-title" id="modal-data-induk">Add Unit</h4>
+
+          <!-- form -->
+          <form class="modal__form">
+            <!-- id input -->
+            <input type="hidden" id="idAdd" />
+            <!-- unit -->
+            <div class="modal__form-content">
+              <label for="unitAdd" class="form-label form__label">Unit <span class="color__danger">*</span></label>
+              <input type="text" class="form-control shadow-none form__control" id="unitAdd" required
+                autocomplete="off" />
+            </div>
+            <!-- Button -->
+            <div class="modal__form-btn">
+              <button type="button" class="btn cancel__btn shadow-none" data-bs-dismiss="modal">
+                Batal
+              </button>
+              <button type="submit" class="btn modal__btn shadow-none">Kirim</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- scripts -->
@@ -269,6 +336,26 @@
     });
     $("#photo-dropdown").click(() => {
       $("#header-main-nav-dropdown").toggleClass("active");
+    });
+
+    // data trigger
+    $(document).ready(() => {
+      // get Edit Product
+      $(".edit__data__induk__icon").on("click", function() {
+        // get data from button edit
+        const id = $(this).data("id");
+        const unit = $(this).data("unit");
+        // Set data to Form Edit
+        $("#idEdit").val(id);
+        $("#unitEdit").val(unit);
+        // Call Modal Edit
+        $(".edit__unit__modal").modal("show");
+      });
+
+      $(".add__unit__icon").on("click", function() {
+        // Call Modal Edit
+        $(".add__unit__modal").modal("show");
+      });
     });
   </script>
 </body>
