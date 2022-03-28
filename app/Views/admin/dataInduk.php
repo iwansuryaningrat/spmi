@@ -88,7 +88,7 @@
                             <td class="text-uppercase"><?= $induk['induk_id'] ?></td>
                             <td><?= $induk['nama_induk'] ?></td>
                             <td>
-                                <a role="button" data-bs-placement="top" title="Edit" href="/admin/editDataInduk" class="edit__data__induk__icon me-3 me-md-5"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a role="button" data-bs-placement="top" title="Edit" href="/admin/editDataInduk/<?= $induk['induk_id'] . '/' . $induk['kategori_id'] ?>" class="edit__data__induk__icon me-3 me-md-5"><i class="fa-solid fa-pen-to-square"></i></a>
                                 <a data-bs-placement="top" title="Delete" href="#" class="delete__data__induk__icon"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>

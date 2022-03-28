@@ -733,9 +733,45 @@ class Admin extends BaseController
     }
 
     //edit data induk page
-    public function editDataInduk()
+    public function editDataInduk($induk_id, $kategori_id)
     {
-        return view('admin/edit-dataInduk');
+        $usersession = $this->data_user;
+        $datainduk = $this->dataIndukModel->getIndukById($induk_id, $kategori_id);
+        // dd($datainduk);
+        $kategori = $this->kategoriModel->findAll();
+
+        $data = [
+            'title' => 'Form Edit Data Induk | SIPMPP Admin UNDIP',
+            'tab' => 'induk',
+            'css' => 'styles-admin-add-datainduk.css',
+            'header' => 'header__mini',
+            'i' => $this->i,
+            'usersession' => $usersession,
+            'induk' => $datainduk,
+            'kategori' => $kategori
+        ];
+
+        return view('admin/edit-dataInduk', $data);
+    }
+
+    // Update data induk
+    public function updateInduk()
+    {
+        $induk_id = $this->request->getVar('induk_id');
+        $kategori_id = $this->request->getVar('kategori_id');
+        $nama_induk = $this->request->getVar('nama_induk');
+
+        $data = [
+            'induk_id' => $induk_id,
+            'kategori_id' => $kategori_id,
+            'nama_induk' => $nama_induk,
+        ];
+
+        $this->dataIndukModel->update($induk_id, $data);
+
+        // Set flashdata gagal dan kirim pesan eror dengan flashdata
+        $this->session->setFlashdata('msg', '<div class="alert alert-success alert-dismissible fade show" role="alert">Data Induk berhasil diubah!</div>');
+        return redirect()->to(base_url('admin/induk'));
     }
 
     // Profile Method (Done)
