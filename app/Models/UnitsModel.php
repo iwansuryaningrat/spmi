@@ -16,4 +16,11 @@ class UnitsModel extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+
+    // Get unit by unit_id
+    public function getUnit($unit_id)
+    {
+        return $this->where('unit_id', $unit_id)
+            ->first();
+    }
 }

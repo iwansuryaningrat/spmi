@@ -158,14 +158,14 @@ class Admin extends BaseController
         return view('admin/user-auditor', $data);
     }
 
-    // units Method
+    // units Method (Done)
     public function units()
     {
         $usersession = $this->data_user;
         $units = $this->unitsModel->findAll();
 
         $data = [
-            'title' => 'Daftar | SIPMPP Admin UNDIP',
+            'title' => 'Daftar Unit | SIPMPP Admin UNDIP',
             'tab' => 'unit',
             'css' => 'styles-admin-unit.css',
             'header' => 'header__mini',
@@ -313,12 +313,6 @@ class Admin extends BaseController
         return view('admin/add-leader', $data);
     }
 
-    //Add Unit Method
-    public function addUnit()
-    {
-        return view('admin/add-units');
-    }
-
     //add data induk method
     public function addDataInduk()
     {
@@ -399,6 +393,74 @@ class Admin extends BaseController
         // Set flashdata gagal dan kirim pesan eror dengan flashdata
         $this->session->setFlashdata('msg', '<div class="alert alert-success alert-dismissible fade show" role="alert">User berhasil ditambahkan!</div>');
         return redirect()->to(base_url('admin/daftaruser'));
+    }
+
+    // Add Unit method
+    public function addunit()
+    {
+        $unit = $this->request->getVar('nama_unit');
+
+        function split_name($name)
+        {
+            $name = trim($name);
+            $last_name = (strpos($name, ' ') === false) ? '' : preg_replace('#.*\s([\w-]*)$#', '$1', $name);
+            $first_name = trim(preg_replace('#' . preg_quote($last_name, '#') . '#', '', $name));
+            return array($first_name, $last_name);
+        }
+
+        if (split_name($unit)[1] != '') {
+            $id = strtolower(split_name($unit)[1]);
+        } else {
+            $id = strtolower(split_name($unit)[0]);
+        }
+        // dd($id);
+
+        // Get unit by id
+        $unit = $this->unitsModel->getUnit($id);
+        // dd($unit);
+
+        if ($unit != null) {
+            $this->session->setFlashdata('msg', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Unit telah ada! Silakan menambahkan unit lain.</div>');
+            return redirect()->to(base_url('admin/units'));
+        } else {
+            $data = [
+                'unit_id' => $id,
+                'nama_unit' => $unit,
+            ];
+
+            $this->unitsModel->insert($data);
+
+            // Set flashdata gagal dan kirim pesan eror dengan flashdata
+            $this->session->setFlashdata('msg', '<div class="alert alert-success alert-dismissible fade show" role="alert">Unit berhasil ditambahkan!</div>');
+            return redirect()->to(base_url('admin/units'));
+        }
+    }
+
+    // Edit unit method (Done)
+    public function editunit()
+    {
+        $unit_id = $this->request->getVar('unit_id');
+        $nama_unit = $this->request->getVar('nama_unit');
+
+        $unit = $this->unitsModel->getUnit($unit_id);
+
+        if ($unit != null) {
+            $data = [
+                'unit_id' => $unit_id,
+                'nama_unit' => $nama_unit,
+            ];
+
+            dd($data);
+
+            $this->unitsModel->update($unit_id, $data);
+
+            // Set flashdata gagal dan kirim pesan eror dengan flashdata
+            $this->session->setFlashdata('msg', '<div class="alert alert-success alert-dismissible fade show" role="alert">Unit berhasil diubah!</div>');
+            return redirect()->to(base_url('admin/units'));
+        } else {
+            $this->session->setFlashdata('msg', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Unit tidak ditemukan!</div>');
+            return redirect()->to(base_url('admin/units'));
+        }
     }
 
     // GENERATOR
