@@ -213,12 +213,6 @@ class Admin extends BaseController
         return view('admin/penilaian');
     }
 
-    // Profile Method
-    public function profile()
-    {
-        return view('admin/profile');
-    }
-
     // Report Method
     public function report()
     {
@@ -533,5 +527,102 @@ class Admin extends BaseController
     public function editDataInduk()
     {
         return view('admin/edit-dataInduk');
+    }
+
+
+
+    // Profile Method (Done)
+    public function profile()
+    {
+        $data_user = $this->data_user;
+        $user = $this->usersModel->getUserByEmail($data_user['email']);
+
+        $data = [
+            'title' => 'Profile | SIPMPP UNDIP 2022',
+            'data_user' => $data_user,
+            'user' => $user,
+            'tab' => 'profile',
+            'header' => '',
+            'css' => 'styles-admin-profile.css'
+        ];
+
+        return view('admin/profile', $data);
+    }
+
+    // Edit Password Method (Done)
+    public function editPassword()
+    {
+        $data_user = $this->data_user;
+        $user = $this->usersModel->getUserByEmail($data_user['email']);
+
+        $old_password = $this->request->getVar('old-password');
+        $new_password = $this->request->getVar('new-password');
+
+        // Cek apakah password lama sama dengan password lama
+        if (password_verify($old_password, $user['password'])) {
+            // Cek apakah password baru sama dengan password lama
+            if ($old_password == $new_password) {
+                $this->session->setFlashdata('message', '<div class="alert alert-danger" role="alert"> <strong>Maaf!</strong> Password baru tidak boleh sama dengan password lama.</div>');
+                return redirect()->to('/admin/profile/');
+            } else {
+                // Update Password
+                $new_password = password_hash($new_password, PASSWORD_DEFAULT);
+                $this->usersModel->updatePassword($data_user['email'], $new_password);
+
+                $this->session->setFlashdata('message', '<div class="alert alert-success" role="alert"><strong>Selamat!</strong> Password berhasil diubah.</div>');
+                return redirect()->to('/admin/profile/');
+            }
+        } else {
+            $this->session->setFlashdata('message', '<div class="alert alert-danger" role="alert">
+            <strong>Maaf!</strong> Password lama tidak sesuai.</div>');
+            return redirect()->to('/admin/profile/');
+        }
+    }
+
+    // Edit Profile Method (Done)
+    public function editProfile()
+    {
+        $data_user = $this->data_user;
+        $user = $this->usersModel->getUserByEmail($data_user['email']);
+
+        // Mengambil foto profil
+        $foto = $this->request->getFile('photo-profile');
+        if ($foto->getError() == 4) {
+            $namafoto = $user['foto'];
+        } else {
+            // Hapus foto lama
+            $namafoto = $user['foto'];
+            unlink('profile/' . $namafoto);
+            // set nama foto baru
+            $namafoto = 'foto-' . $user['email'] . '.' . $foto->getExtension();
+            $foto->move('profile/', $namafoto);
+        };
+
+        $data = [
+            'nama' => $this->request->getVar('fullname'),
+            'nip' => $this->request->getVar('nip'),
+            'telp' => $this->request->getVar('no-telp'),
+            'foto' => $namafoto,
+        ];
+
+        // Update Data
+        $this->usersModel->updateProfile($data_user['email'], $data);
+
+        // Update Session
+        $datasession = [
+            'email' => $user['email'],
+            'nama' => $data['nama'],
+            'foto' => $data['foto'],
+            'role_id' => $data_user['role_id'],
+            'role' => $data_user['role'],
+            'tahun' => $this->getTahun,
+            'isLoggedIn' => true,
+        ];
+
+        $this->session->set($datasession);
+
+        $this->session->setFlashdata('message', '<div class="alert alert-success" role="alert">
+        <strong>Selamat!</strong> Data berhasil diubah.</div>');
+        return redirect()->to('/admin/profile/');
     }
 }
