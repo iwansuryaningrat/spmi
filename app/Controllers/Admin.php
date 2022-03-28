@@ -88,7 +88,7 @@ class Admin extends BaseController
         $data = [
             'title' => 'Daftar User | SIPMPP Admin UNDIP',
             'tab' => 'user',
-            'css' => 'styles-admin-user.css',
+            'css' => 'styles-admin-daftar-user.css',
             'header' => 'header__mini',
             'i' => $this->i,
             'usersession' => $this->data_user,
