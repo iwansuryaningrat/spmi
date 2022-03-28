@@ -114,7 +114,14 @@
                                 <span>Unit</span>
                             </a>
                         </li>
-                        <!-- data induk -->
+                        <!-- kategori -->
+                        <li>
+                            <a href="/admin/kategori" class="nav__list__link <?php if ($tab == "kategori") : echo 'active';
+                                                                                endif; ?>">
+                                <i class="fa-solid fa-list-alt"></i>
+                                <span>Kategori</span>
+                            </a>
+                            <!-- data induk -->
                         <li>
                             <a href="/admin/dataInduk" class="nav__list__link <?php if ($tab == "induk") : echo 'active';
                                                                                 endif; ?>">

@@ -13,10 +13,12 @@
         </div>
         <div class="header__main-nav-profile">
             <div class="nav-profile__photo">
-                <img src="/profile/<?= $usersession['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
+                <img src="/profile/<?= $usersession['foto']; ?>"
+                    alt="profile-picture" id="photo-dropdown" />
             </div>
             <div class="nav-profile__desc">
-                <p id="profileName" class="ellipsis__text"><?= $usersession['nama']; ?> </p>
+                <p id="profileName" class="ellipsis__text"><?= $usersession['nama']; ?>
+                </p>
                 <p id="profileStatus" class="ellipsis__text">Administrator</p>
             </div>
             <div class="nav-profile__btn">
@@ -67,7 +69,8 @@
                 <label for="fullname" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Nama Lengkap
                     <span class="color__danger">*</span></label>
                 <div class="col-lg-6 col-md-9 col-sm-8">
-                    <input class="form-control form__control shadow-none" id="fullname" name="fullname" required autocomplete="off" />
+                    <input class="form-control form__control shadow-none" id="fullname" name="fullname" required
+                        autocomplete="off" placeholder="Masukkan nama lengkap" />
                 </div>
             </div>
             <!-- email -->
@@ -75,7 +78,8 @@
                 <label for="email" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Email
                     <span class="color__danger">*</span></label>
                 <div class="col-lg-6 col-md-9 col-sm-8">
-                    <input class="form-control form__control shadow-none" id="email" name="email" required autocomplete="off" />
+                    <input class="form-control form__control shadow-none" id="email" name="email" required
+                        autocomplete="off" placeholder="Masukkan email" />
                 </div>
             </div>
             <!-- password -->
@@ -83,7 +87,8 @@
                 <label for="password" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Password
                     <span class="color__danger">*</span></label>
                 <div class="col-lg-6 col-md-9 col-sm-8">
-                    <input class="form-control form__control shadow-none" type="password" id="password" name="password" required autocomplete="off" />
+                    <input class="form-control form__control shadow-none" type="password" id="password" name="password"
+                        required autocomplete="off" placeholder="Masukkan password" />
                 </div>
             </div>
             <!-- button -->

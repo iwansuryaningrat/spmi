@@ -19,7 +19,7 @@
     <!-- uicons icon -->
     <link rel="stylesheet" href="/admin/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
     <!-- custom -->
-    <link rel="stylesheet" href="/admin/assets/css/styles-admin-data-induk.css" />
+    <link rel="stylesheet" href="/admin/assets/css/styles-admin-standar.css" />
 </head>
 
 <body>
@@ -181,50 +181,51 @@
             <!--========== body main ==========-->
             <div class="title__table__add">
                 <h4 class="title__body__user">Daftar Standar</h4>
+                <a href="/admin/addStandar" class="btn shadow-none btn__add btn__dark add__unit__icon" role="button">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Standar
+                </a>
             </div>
 
             <!-- table indikator -->
             <div class="sipmpp__table">
                 <div class="table-responsive">
-                    <table class="table table__datainduk__content sipmpp__table-content table-hover">
+                    <table class="table table__standar__content sipmpp__table-content table-hover">
                         <thead class="bg__light">
                             <tr>
-                                <th class="table__user-number">no</th>
-                                <th class="table__user-namaunit">nama Unit</th>
-                                <th class="table__user-kategori">kategori</th>
-                                <th class="table__user-tahun">tahun</th>
-                                <th class="table__user-aksi">aksi</th>
+                                <th class="table__standar-number">no</th>
+                                <th class="table__standar-kode">kode</th>
+                                <th class="table__standar-standar">standar</th>
+                                <th class="table__standar-aksi">aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>S1 Informatika</td>
-                                <td>Penelitian</td>
-                                <td>2019</td>
+                                <td>S1</td>
+                                <td>Standar Sarana dan Prasarana Pembelajaran</td>
                                 <td>
-                                    <a data-bs-placement="top" title="Lihat" href="/admin/viewStandar"
-                                        class="lihat__data__induk__icon"><i class="fa-solid fa-eye"></i></a>
+                                    <a data-bs-placement="top" title="lihat" href="/admin/viewIndikator"
+                                        class="edit__data__induk__icon me-4"><i class="fa-solid fa-eye"></i></a>
+                                    <a data-bs-placement="top" title="Edit" href="#"
+                                        class="edit__data__induk__icon me-4"><i
+                                            class="fa-solid fa-pen-to-square"></i></a>
+                                    <a data-bs-placement="top" title="Delete" href="#"
+                                        class="delete__data__induk__icon"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td>S1 Teknik Lingkungan</td>
-                                <td>Pengabdian Masyarakat</td>
-                                <td>2021</td>
+                                <td>S2</td>
+                                <td>Standar Kerjasama Pendidikan</td>
                                 <td>
-                                    <a data-bs-placement="top" title="Lihat" href="/admin/viewStandar"
-                                        class="lihat__data__induk__icon"><i class="fa-solid fa-eye"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>S1 Kesehatan Masyarakat</td>
-                                <td>Penelitian</td>
-                                <td>2020</td>
-                                <td>
-                                    <a data-bs-placement="top" title="Lihat" href="/admin/viewStandar"
-                                        class="lihat__data__induk__icon"><i class="fa-solid fa-eye"></i></a>
+                                    <a data-bs-placement="top" title="lihat" href="/admin/viewIndikator"
+                                        class="edit__data__induk__icon me-4"><i class="fa-solid fa-eye"></i></a>
+                                    <a data-bs-placement="top" title="Edit" href="#"
+                                        class="edit__data__induk__icon me-4"><i
+                                            class="fa-solid fa-pen-to-square"></i></a>
+                                    <a data-bs-placement="top" title="Delete" href="#"
+                                        class="delete__data__induk__icon"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                         </tbody>

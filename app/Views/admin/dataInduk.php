@@ -181,6 +181,10 @@
             <!--========== body main ==========-->
             <div class="title__table__add">
                 <h4 class="title__body__user">Daftar Data Induk</h4>
+                <a href="/admin/addDataInduk" class="btn shadow-none btn__add btn__dark" role="button">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Data Induk
+                </a>
             </div>
 
             <!-- table indikator -->
@@ -189,42 +193,36 @@
                     <table class="table table__datainduk__content sipmpp__table-content table-hover">
                         <thead class="bg__light">
                             <tr>
-                                <th class="table__user-number">no</th>
-                                <th class="table__user-namaunit">nama Unit</th>
-                                <th class="table__user-kategori">kategori</th>
-                                <th class="table__user-tahun">tahun</th>
-                                <th class="table__user-aksi">aksi</th>
+                                <th class="table__datainduk-number">no</th>
+                                <th class="table__datainduk-kode">kode</th>
+                                <th class="table__datainduk-kebutuhan-data">kebutuhan data</th>
+                                <th class="table__datainduk-aksi">aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>S1 Informatika</td>
-                                <td>Penelitian</td>
-                                <td>2019</td>
+                                <td class="text-uppercase">mk</td>
+                                <td>Mata Kuliah</td>
                                 <td>
-                                    <a data-bs-placement="top" title="Lihat" href="/admin/viewDataInduk"
-                                        class="lihat__data__induk__icon"><i class="fa-solid fa-eye"></i></a>
+                                    <a role="button" data-bs-placement="top" title="Edit" href="/admin/editDataInduk"
+                                        class="edit__data__induk__icon me-3 me-md-5"><i
+                                            class="fa-solid fa-pen-to-square"></i></a>
+                                    <a data-bs-placement="top" title="Delete" href="#"
+                                        class="delete__data__induk__icon"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td>S1 Teknik Lingkungan</td>
-                                <td>Pengabdian Masyarakat</td>
-                                <td>2021</td>
+                                <td class="text-uppercase">perpus</td>
+                                <td>Target jumlah mahasiswa yang terlibat dalam penelitian dan pengabdian kepada
+                                    masyarakat</td>
                                 <td>
-                                    <a data-bs-placement="top" title="Lihat" href="/admin/viewDataInduk"
-                                        class="lihat__data__induk__icon"><i class="fa-solid fa-eye"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>S1 Kesehatan Masyarakat</td>
-                                <td>Penelitian</td>
-                                <td>2020</td>
-                                <td>
-                                    <a data-bs-placement="top" title="Lihat" href="/admin/viewDataInduk"
-                                        class="lihat__data__induk__icon"><i class="fa-solid fa-eye"></i></a>
+                                    <a role="button" data-bs-placement="top" title="Edit" href="/admin/editDataInduk"
+                                        class="edit__data__induk__icon me-3 me-md-5"><i
+                                            class="fa-solid fa-pen-to-square"></i></a>
+                                    <a data-bs-placement="top" title="Delete" href="#"
+                                        class="delete__data__induk__icon"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -284,11 +282,17 @@
         });
 
         // tooltips
-        // progress bar unit
         const tooltipsEdit = document.querySelectorAll(
-            ".lihat__data__induk__icon"
+            ".edit__data__induk__icon"
         );
         tooltipsEdit.forEach((t) => {
+            new bootstrap.Tooltip(t);
+        });
+
+        const tooltipsDelete = document.querySelectorAll(
+            ".delete__data__induk__icon"
+        );
+        tooltipsDelete.forEach((t) => {
             new bootstrap.Tooltip(t);
         });
     </script>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form Add Standar | SIPMPP Admin UNDIP</title>
+    <title>Form Edit Data Induk | SIPMPP Admin UNDIP</title>
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -19,7 +19,7 @@
     <!-- uicons icon -->
     <link rel="stylesheet" href="/admin/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
     <!-- custom -->
-    <link rel="stylesheet" href="/admin/assets/css/styles-admin-add-standar.css" />
+    <link rel="stylesheet" href="/admin/assets/css/styles-admin-add-datainduk.css" />
 </head>
 
 <body>
@@ -81,13 +81,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/admin/dataInduk" class="nav__list__link">
+                            <a href="/admin/dataInduk" class="nav__list__link active">
                                 <i class="fa-solid fa-book"></i>
                                 <span>Data Induk</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/admin/standar" class="nav__list__link active">
+                            <a href="/admin/standar" class="nav__list__link">
                                 <i class="fa-solid fa-chart-pie"></i>
                                 <span>Standar</span>
                             </a>
@@ -168,14 +168,13 @@
             <div class="header__main-title">
                 <div class="header__main-title__pagination">
                     <a href="/admin">Dashboard</a>
-                    / <a href="/admin/standar">Standar</a>
-                    / Form Add Standar
+                    / <a href="/admin/dataInduk">Data Induk</a> / Form Edit Data Induk
                 </div>
                 <div class="header__main-title__subtitle">
                     <div class="title__subtitle-desc">
-                        <h1>Add Standar</h1>
+                        <h1>Edit Data Induk</h1>
                         <p>
-                            Form untuk menambahkan data standar
+                            Form untuk mengubahkan data induk
                         </p>
                     </div>
                 </div>
@@ -183,18 +182,18 @@
 
             <!--========== body main ==========-->
             <div class="title__table__add">
-                <h4 class="title__body__user">Form Add Standar</h4>
+                <h4 class="title__body__user">Form Edit Data Induk</h4>
             </div>
 
-            <!-- form add standar -->
-            <div class="form__add__standar">
+            <!-- form Edit Data Induk -->
+            <div class="form__add__datainduk">
                 <form method="POST" action="">
                     <!-- kategori -->
                     <div class="row mb-3 mb-sm-4">
                         <label for="kategori" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Kategori
                             <span class="color__danger">*</span></label>
                         <div class="col-lg-6 col-md-9 col-sm-8">
-                            <select class="form-select form__select shadow-none" name="kategori" id="kategori" required
+                            <select name="kategori" id="kategori" class="form-select form__select shadow-none" required
                                 autocomplete="off">
                                 <option disabled selected>Pilih Kategori</option>
                                 <option value="">Penelitian</option>
@@ -208,20 +207,21 @@
                             <span class="color__danger">*</span></label>
                         <div class="col-lg-6 col-md-9 col-sm-8">
                             <input class="form-control form__control shadow-none" id="kode" name="kode" required
-                                autocomplete="off" placeholder="Masukkan kode" />
+                                autocomplete="off" placeholder="Masukkan kode data induk" />
                         </div>
                     </div>
-                    <!-- namaStandar -->
+                    <!-- kebutuhan data -->
                     <div class="row mb-3 mb-sm-4">
-                        <label for="namaStandar" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Nama
-                            Standar
+                        <label for="kebutuhanData"
+                            class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Kebutuhan
+                            Data
                             <span class="color__danger">*</span></label>
                         <div class="col-lg-6 col-md-9 col-sm-8">
-                            <input class="form-control form__control shadow-none" id="namaStandar" name="namaStandar"
-                                required autocomplete="off" placeholder="Masukkan nama standar" />
+                            <input class="form-control form__control shadow-none" id="kebutuhanData"
+                                name="kebutuhanData" required autocomplete="off"
+                                placeholder="Masukkan kebutuhan data" />
                         </div>
                     </div>
-
                     <!-- button -->
                     <div class="row">
                         <div class="col-lg-9 col-md-12 col-sm-12 button__section">

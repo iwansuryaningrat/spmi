@@ -8,10 +8,8 @@
 .table__datainduk__content tr td:first-child,
 .table__datainduk__content tr th:last-child,
 .table__datainduk__content tr td:last-child,
-.table__datainduk__content tr th:nth-child(3),
-.table__datainduk__content tr th:nth-child(4),
-.table__datainduk__content tr td:nth-child(3),
-.table__datainduk__content tr td:nth-child(4) {
+.table__datainduk__content tr th:nth-child(2),
+.table__datainduk__content tr td:nth-child(2) {
   text-align: center;
 }
 
@@ -20,18 +18,20 @@
   border-bottom-style: hidden;
 }
 
-.table__datainduk-number,
-.table__datainduk-tahun,
-.table__datainduk-aksi {
+.table__datainduk-number {
   width: 10%;
 }
 
-.table__datainduk-kategori {
+.table__datainduk-kode {
+  width: 15%;
+}
+
+.table__datainduk-aksi {
   width: 20%;
 }
 
-.table__datainduk-namaunit {
-  width: 50%;
+.table__datainduk-kebutuhan-data {
+  width: 55%;
 }
 
 .table__datainduk__content thead tr th,
@@ -40,8 +40,12 @@
   padding-left: 1.5rem;
 }
 
-.sipmpp__table tr td .lihat__data__induk__icon svg {
+.sipmpp__table tr td .edit__data__induk__icon svg {
   color: rgba(21, 114, 232, 1);
+}
+
+.sipmpp__table tr td .delete__data__induk__icon svg {
+  color: var(--danger-color);
 }
 
 @media screen and (max-width: 1024px) {

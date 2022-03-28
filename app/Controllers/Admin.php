@@ -460,4 +460,16 @@ class Admin extends BaseController
         $this->session->setFlashdata('msg', '<div class="alert alert-success alert-dismissible fade show" role="alert">Standar berhasil digenerate setiap unit!</div>');
         return redirect()->to(base_url('admin/standar'));
     }
+
+    //kategori page
+    public function kategori()
+    {
+        return view('admin/kategori');
+    }
+
+    //edit data induk page
+    public function editDataInduk()
+    {
+        return view('admin/edit-dataInduk');
+    }
 }

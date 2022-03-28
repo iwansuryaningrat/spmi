@@ -19,7 +19,7 @@
     <!-- uicons icon -->
     <link rel="stylesheet" href="/admin/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
     <!-- custom -->
-    <link rel="stylesheet" href="/admin/assets/css/styles-admin-user.css" />
+    <link rel="stylesheet" href="/admin/assets/css/styles-admin-add-datainduk.css" />
 </head>
 
 <body>
@@ -168,8 +168,7 @@
             <div class="header__main-title">
                 <div class="header__main-title__pagination">
                     <a href="/admin">Dashboard</a>
-                    / <a href="/admin/dataInduk">Data Induk</a> / <a href="/admin/viewDataInduk">Kategori Data Induk</a>
-                    / Form Add Data Induk
+                    / <a href="/admin/dataInduk">Data Induk</a> / Form Add Data Induk
                 </div>
                 <div class="header__main-title__subtitle">
                     <div class="title__subtitle-desc">
@@ -189,39 +188,49 @@
             <!-- form add data induk -->
             <div class="form__add__datainduk">
                 <form method="POST" action="">
-                    <!-- kode -->
-                    <div class="mb-3">
-                        <label for="kode" class="form-label form__label">Kode</label>
-                        <input type="text" class="form-control form__control" id="kode"
-                            placeholder="Masukkan Kode Data Induk" name="kode" required>
-                    </div>
                     <!-- kategori -->
-                    <div class="mb-3">
-                        <label for="kategori" class="form-label form__label">Kategori</label>
-                        <select class="form-select form__select" id="kategori" name="kategori">
-                            <option selected disabled>Pilih Kategori</option>
-                            <option>Penelitian</option>
-                            <option>Pengabdian Masyarakat</option>
-                        </select>
+                    <div class="row mb-3 mb-sm-4">
+                        <label for="kategori" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Kategori
+                            <span class="color__danger">*</span></label>
+                        <div class="col-lg-6 col-md-9 col-sm-8">
+                            <select name="kategori" id="kategori" class="form-select form__select shadow-none" required
+                                autocomplete="off">
+                                <option disabled selected>Pilih Kategori</option>
+                                <option value="">Penelitian</option>
+                                <option value="">Pengabdian Masyarakat</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- kode -->
+                    <div class="row mb-3 mb-sm-4">
+                        <label for="kode" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Kode
+                            <span class="color__danger">*</span></label>
+                        <div class="col-lg-6 col-md-9 col-sm-8">
+                            <input class="form-control form__control shadow-none" id="kode" name="kode" required
+                                autocomplete="off" placeholder="Masukkan kode data induk" />
+                        </div>
                     </div>
                     <!-- kebutuhan data -->
-                    <div class="mb-3">
-                        <label for="kebutuhan-data" class="form-label form__label">Kebutuhan Data</label>
-                        <input type="text" class="form-control form__control" id="kebutuhan-data" name="kebutuhan-data"
-                            placeholder="Masukkan Kebutuhan Data" required>
+                    <div class="row mb-3 mb-sm-4">
+                        <label for="kebutuhanData"
+                            class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Kebutuhan
+                            Data
+                            <span class="color__danger">*</span></label>
+                        <div class="col-lg-6 col-md-9 col-sm-8">
+                            <input class="form-control form__control shadow-none" id="kebutuhanData"
+                                name="kebutuhanData" required autocomplete="off"
+                                placeholder="Masukkan kebutuhan data" />
+                        </div>
                     </div>
-                    <!-- tahun -->
-                    <div class="mb-3">
-                        <label for="tahun" class="form-label form__label">Tahun</label>
-                        <select class="form-select form__select" id="tahun" name="tahun">
-                            <option selected disabled>Pilih Tahun</option>
-                            <option>2019</option>
-                            <option>2020</option>
-                            <option>2021</option>
-                            <option>2022</option>
-                        </select>
+                    <!-- button -->
+                    <div class="row">
+                        <div class="col-lg-9 col-md-12 col-sm-12 button__section">
+                            <a href="#" class="btn form__btn cancel__btn me-4 shadow-none" role="button">Batal</a>
+                            <button type="submit" class="btn form__btn btn__dark shadow-none">
+                                Simpan
+                            </button>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>

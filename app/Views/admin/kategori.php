@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form Add Standar | SIPMPP Admin UNDIP</title>
+    <title>Kategori | SIPMPP Admin UNDIP</title>
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -19,7 +19,7 @@
     <!-- uicons icon -->
     <link rel="stylesheet" href="/admin/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
     <!-- custom -->
-    <link rel="stylesheet" href="/admin/assets/css/styles-admin-add-standar.css" />
+    <link rel="stylesheet" href="/admin/assets/css/styles-admin-kategori.css" />
 </head>
 
 <body>
@@ -30,7 +30,7 @@
             <div>
                 <!-- brand -->
                 <div class="sidebar__content-brand">
-                    <a href="/admin" class="d-flex align-items-center">
+                    <a href="/admin/index" class="d-flex align-items-center">
                         <img src="/admin/assets/img/undip-logo-color.png" alt="logo-undip" />
                         <h4>SIPMPP UNDIP</h4>
                     </a>
@@ -40,7 +40,7 @@
                 <div class="sidebar__content-nav">
                     <ul class="sidebar-nav__list">
                         <li>
-                            <a href="/admin" class="nav__list__link">
+                            <a href="/admin/index" class="nav__list__link">
                                 <i class="fa-solid fa-house"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -74,12 +74,20 @@
                                 </ul>
                             </div>
                         </li>
+                        <!-- unit -->
                         <li>
                             <a href="/admin/units" class="nav__list__link">
                                 <i class="fa-solid fa-building-columns"></i>
                                 <span>Unit</span>
                             </a>
                         </li>
+                        <!-- kategori -->
+                        <li>
+                            <a href="/admin/kategori" class="nav__list__link active">
+                                <i class="fa-solid fa-list-alt"></i>
+                                <span>Kategori</span>
+                            </a>
+                            <!-- data induk -->
                         <li>
                             <a href="/admin/dataInduk" class="nav__list__link">
                                 <i class="fa-solid fa-book"></i>
@@ -87,7 +95,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/admin/standar" class="nav__list__link active">
+                            <a href="/admin/standar" class="nav__list__link">
                                 <i class="fa-solid fa-chart-pie"></i>
                                 <span>Standar</span>
                             </a>
@@ -167,71 +175,66 @@
 
             <div class="header__main-title">
                 <div class="header__main-title__pagination">
-                    <a href="/admin">Dashboard</a>
-                    / <a href="/admin/standar">Standar</a>
-                    / Form Add Standar
+                    <a href="/admin/index">Dashboard</a>
+                    / Kategori
                 </div>
                 <div class="header__main-title__subtitle">
                     <div class="title__subtitle-desc">
-                        <h1>Add Standar</h1>
-                        <p>
-                            Form untuk menambahkan data standar
-                        </p>
+                        <h1>Kategori</h1>
+                        <p>Halo <span>Adi</span>, selamat datang di dashboard Kategori</p>
                     </div>
                 </div>
             </div>
 
             <!--========== body main ==========-->
             <div class="title__table__add">
-                <h4 class="title__body__user">Form Add Standar</h4>
+                <h4 class="title__body__user">Daftar Kategori</h4>
+                <a href="#" class="btn shadow-none btn__add btn__dark add__unit__icon" role="button"
+                    data-bs-toggle="modal" href="#staticBackdrop2">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Kategori
+                </a>
             </div>
 
-            <!-- form add standar -->
-            <div class="form__add__standar">
-                <form method="POST" action="">
-                    <!-- kategori -->
-                    <div class="row mb-3 mb-sm-4">
-                        <label for="kategori" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Kategori
-                            <span class="color__danger">*</span></label>
-                        <div class="col-lg-6 col-md-9 col-sm-8">
-                            <select class="form-select form__select shadow-none" name="kategori" id="kategori" required
-                                autocomplete="off">
-                                <option disabled selected>Pilih Kategori</option>
-                                <option value="">Penelitian</option>
-                                <option value="">Pengabdian Masyarakat</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- kode -->
-                    <div class="row mb-3 mb-sm-4">
-                        <label for="kode" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Kode
-                            <span class="color__danger">*</span></label>
-                        <div class="col-lg-6 col-md-9 col-sm-8">
-                            <input class="form-control form__control shadow-none" id="kode" name="kode" required
-                                autocomplete="off" placeholder="Masukkan kode" />
-                        </div>
-                    </div>
-                    <!-- namaStandar -->
-                    <div class="row mb-3 mb-sm-4">
-                        <label for="namaStandar" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Nama
-                            Standar
-                            <span class="color__danger">*</span></label>
-                        <div class="col-lg-6 col-md-9 col-sm-8">
-                            <input class="form-control form__control shadow-none" id="namaStandar" name="namaStandar"
-                                required autocomplete="off" placeholder="Masukkan nama standar" />
-                        </div>
-                    </div>
-
-                    <!-- button -->
-                    <div class="row">
-                        <div class="col-lg-9 col-md-12 col-sm-12 button__section">
-                            <a href="#" class="btn form__btn cancel__btn me-4 shadow-none" role="button">Batal</a>
-                            <button type="submit" class="btn form__btn btn__dark shadow-none">
-                                Simpan
-                            </button>
-                        </div>
-                    </div>
-                </form>
+            <!-- table indikator -->
+            <div class="sipmpp__table">
+                <div class="table-responsive">
+                    <table class="table table__kategori__content sipmpp__table-content table-hover">
+                        <thead class="bg__light">
+                            <tr>
+                                <th class="table__user-number">no</th>
+                                <th class="table__user-kategori">nama kategori</th>
+                                <th class="table__user-aksi">aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Penelitian</td>
+                                <td>
+                                    <a role="button" data-bs-toggle="modal" data-bs-placement="top" title="Edit"
+                                        href="#staticBackdrop" class="edit__data__induk__icon me-3 me-md-5"><i
+                                            class="fa-solid fa-pen-to-square" data-kategori="S1 Informatika"
+                                            data-id="1"></i></a>
+                                    <a data-bs-placement="top" title="Delete" href="#"
+                                        class="delete__data__induk__icon"><i class="fa-solid fa-trash"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Pengabdian Masyarakat</td>
+                                <td>
+                                    <a role="button" data-bs-toggle="modal" data-bs-placement="top" title="Edit"
+                                        href="#staticBackdrop" class="edit__data__induk__icon me-3 me-md-5"><i
+                                            class="fa-solid fa-pen-to-square" data-kategori="S1 Informatika"
+                                            data-id="1"></i></a>
+                                    <a data-bs-placement="top" title="Delete" href="#"
+                                        class="delete__data__induk__icon"><i class="fa-solid fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -247,6 +250,78 @@
                 </div>
             </div>
         </footer>
+    </div>
+
+    <!-- Modal edit -->
+    <div class="modal fade edit__kategori__modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="modal-unit" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal__content">
+                <div class="modal-header modal__header">
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal__body">
+                    <h4 class="modal-title" id="modal-data-induk">Edit Kategori</h4>
+
+                    <!-- form -->
+                    <form class="modal__form">
+                        <!-- id input -->
+                        <input type="hidden" id="idEdit" />
+                        <!-- unit -->
+                        <div class="modal__form-content">
+                            <label for="kategoriEdit" class="form-label form__label">Kategori <span
+                                    class="color__danger">*</span></label>
+                            <input type="text" class="form-control shadow-none form__control" id="kategoriEdit" required
+                                autocomplete="off" />
+                        </div>
+                        <!-- Button -->
+                        <div class="modal__form-btn">
+                            <button type="button" class="btn cancel__btn shadow-none" data-bs-dismiss="modal">
+                                Batal
+                            </button>
+                            <button type="submit" class="btn modal__btn shadow-none">Kirim</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal add -->
+    <div class="modal fade add__kategori__modal" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="modal-unit" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal__content">
+                <div class="modal-header modal__header">
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal__body">
+                    <h4 class="modal-title" id="modal-data-induk">Add Kategori</h4>
+
+                    <!-- form -->
+                    <form class="modal__form">
+                        <!-- id input -->
+                        <input type="hidden" id="idAdd" />
+                        <!-- unit -->
+                        <div class="modal__form-content">
+                            <label for="kategoriAdd" class="form-label form__label">Kategori <span
+                                    class="color__danger">*</span></label>
+                            <input type="text" class="form-control shadow-none form__control" id="kategoriAdd" required
+                                autocomplete="off" />
+                        </div>
+                        <!-- Button -->
+                        <div class="modal__form-btn">
+                            <button type="button" class="btn cancel__btn shadow-none" data-bs-dismiss="modal">
+                                Batal
+                            </button>
+                            <button type="submit" class="btn modal__btn shadow-none">Kirim</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- scripts -->
@@ -283,6 +358,40 @@
         });
         $("#photo-dropdown").click(() => {
             $("#header-main-nav-dropdown").toggleClass("active");
+        });
+
+        // tooltips
+        const tooltipsEdit = document.querySelectorAll(
+            ".edit__data__induk__icon"
+        );
+        tooltipsEdit.forEach((t) => {
+            new bootstrap.Tooltip(t);
+        });
+        const tooltipsDelete = document.querySelectorAll(
+            ".delete__data__induk__icon"
+        );
+        tooltipsDelete.forEach((t) => {
+            new bootstrap.Tooltip(t);
+        });
+
+        // data trigger
+        $(document).ready(() => {
+            // get Edit Product
+            $(".edit__data__induk__icon").on("click", function() {
+                // get data from button edit
+                const id = $(this).data("id");
+                const kategori = $(this).data("kategori");
+                // Set data to Form Edit
+                $("#idEdit").val(id);
+                $("#kategoriEdit").val(unit);
+                // Call Modal Edit
+                $(".edit__kategori__modal").modal("show");
+            });
+
+            $(".add__unit__icon").on("click", function() {
+                // Call Modal Edit
+                $(".add__kategori__modal").modal("show");
+            });
         });
     </script>
 </body>

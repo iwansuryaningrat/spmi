@@ -194,17 +194,18 @@
                             <span class="color__danger">*</span></label>
                         <div class="col-lg-6 col-md-9 col-sm-8">
                             <input class="form-control form__control shadow-none" id="unit" name="unit" required
-                                autocomplete="off" />
+                                autocomplete="off" placeholder="Masukkan nama unit" />
                         </div>
-                        <!-- button -->
-                        <div class="row">
-                            <div class="col-lg-9 col-md-12 col-sm-12 button__section">
-                                <a href="#" class="btn form__btn cancel__btn me-4 shadow-none" role="button">Batal</a>
-                                <button type="submit" class="btn form__btn btn__dark shadow-none">
-                                    Simpan
-                                </button>
-                            </div>
+                    </div>
+                    <!-- button -->
+                    <div class="row">
+                        <div class="col-lg-9 col-md-12 col-sm-12 button__section">
+                            <a href="#" class="btn form__btn cancel__btn me-4 shadow-none" role="button">Batal</a>
+                            <button type="submit" class="btn form__btn btn__dark shadow-none">
+                                Simpan
+                            </button>
                         </div>
+                    </div>
                 </form>
             </div>
         </div>
