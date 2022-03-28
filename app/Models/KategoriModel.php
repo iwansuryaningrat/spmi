@@ -16,4 +16,10 @@ class KategoriModel extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
+
+    // Get Kategori by kategori_id
+    public function getKategoriById($kategori_id)
+    {
+        return $this->where('kategori_id', $kategori_id)->first();
+    }
 }
