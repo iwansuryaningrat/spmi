@@ -400,4 +400,64 @@ class Admin extends BaseController
         $this->session->setFlashdata('msg', '<div class="alert alert-success alert-dismissible fade show" role="alert">User berhasil ditambahkan!</div>');
         return redirect()->to(base_url('admin/daftaruser'));
     }
+
+    // GENERATOR
+
+    // Generate data induk method (Need Testing)
+    public function generateDataInduk($tahun = null)
+    {
+        if ($tahun == null) {
+            $tahun = (int)date('Y');
+        }
+
+        $datainduk = $this->dataIndukModel->findAll();
+        $units = $this->unitsModel->findAll();
+
+        foreach ($units as $unit) {
+            foreach ($datainduk as $induk) {
+                $data = [
+                    'unit_id' => $unit['unit_id'],
+                    'tahun' => $tahun,
+                    'induk_id' => $induk['induk_id'],
+                    'nilai' => 0,
+                ];
+
+                $this->unitIndukTahunModel->insert($data);
+            }
+        }
+
+        // Set flashdata sukses
+        $this->session->setFlashdata('msg', '<div class="alert alert-success alert-dismissible fade show" role="alert">Data Induk berhasil digenerate setiap unit!</div>');
+        return redirect()->to(base_url('admin/datainduk'));
+    }
+
+    // Generate standar method (Need Testing)
+    public function generateStandar($tahun = null)
+    {
+        if ($tahun == null) {
+            $tahun = (int)date('Y');
+        }
+
+        $units = $this->unitsModel->findAll();
+        $indikator = $this->indikatorModel->findAll();
+
+        foreach ($units as $unit) {
+            foreach ($indikator as $stand) {
+                $data = [
+                    'tahun' => $tahun,
+                    'kategori_id' => $stand['kategori_id'],
+                    'standar_id' => $stand['standar_id'],
+                    'indikator_id' => $stand['indikator_id'],
+                    'unit_id' => $unit['unit_id'],
+                    'status' => 'Belum Diisi',
+                ];
+
+                $this->penilaianModel->insert($data);
+            }
+        }
+
+        // Set flashdata sukses
+        $this->session->setFlashdata('msg', '<div class="alert alert-success alert-dismissible fade show" role="alert">Standar berhasil digenerate setiap unit!</div>');
+        return redirect()->to(base_url('admin/standar'));
+    }
 }
