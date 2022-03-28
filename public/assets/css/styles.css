@@ -399,11 +399,15 @@ select.form__select {
 }
 .nav-profile__photo {
   width: 3rem;
+  height: 3rem;
   margin-right: 1rem;
 }
 
 .nav-profile__photo img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 
   clip-path: circle(50%);
 }
@@ -1078,6 +1082,7 @@ footer .container-fluid.container__fluid {
 
   .nav-profile__photo {
     width: 2.5rem;
+    height: 2.5rem;
   }
 
   .header__main-nav-dropdown {

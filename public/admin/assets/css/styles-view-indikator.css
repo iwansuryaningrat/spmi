@@ -1,5 +1,9 @@
 @import url(styles-admin.css);
 /* ========== table ========== */
+.sipmpp__table.table-responsive {
+  min-width: 6.5rem;
+}
+
 .table__indikator__content tbody tr:hover {
   background-color: rgba(38, 48, 77, 0.1) !important;
 }
@@ -7,9 +11,7 @@
 .table__indikator__content tr th:first-child,
 .table__indikator__content tr td:first-child,
 .table__indikator__content tr th:last-child,
-.table__indikator__content tr td:last-child,
-.table__indikator__content tr th:nth-child(4),
-.table__indikator__content tr td:nth-child(4) {
+.table__indikator__content tr td:last-child {
   text-align: center;
 }
 
@@ -18,15 +20,20 @@
   border-bottom-style: hidden;
 }
 
-.table__indikator-number,
-.table__indikator-aksi,
-.table__indikator-nilai {
-  width: 10%;
+.table__indikator-number {
+  width: 8%;
+}
+.table__indikator-aksi {
+  width: 15%;
 }
 
 .table__indikator-indikator,
 .table__indikator-target {
-  width: 35%;
+  width: 28.5%;
+}
+
+.table__indikator-kebutuhan-data {
+  width: 20%;
 }
 
 .table__indikator__content thead tr th,
@@ -37,6 +44,10 @@
 
 .sipmpp__table tr td .edit__data__induk__icon svg {
   color: rgba(21, 114, 232, 1);
+}
+
+.sipmpp__table tr td .delete__data__induk__icon svg {
+  color: var(--danger-color);
 }
 
 @media screen and (max-width: 1024px) {

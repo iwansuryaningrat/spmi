@@ -206,7 +206,6 @@ class Admin extends BaseController
     // Standar Method
     public function standar()
     {
-
         $usersession = $this->data_user;
         $standar = $this->standarModel->getAllStandar();
         // dd($standar);
@@ -715,7 +714,6 @@ class Admin extends BaseController
         $datakategori = $this->kategoriModel->getKategoriById($id);
 
         if ($datakategori != null) {
-
             $data = [
                 'kategori_id' => $id,
                 'nama_kategori' => $kategori,
@@ -867,5 +865,22 @@ class Admin extends BaseController
         $this->session->setFlashdata('message', '<div class="alert alert-success" role="alert">
         <strong>Selamat!</strong> Data berhasil diubah.</div>');
         return redirect()->to('/admin/profile/');
+    }
+
+    //Edit standar method (not yet checked)
+    public function editStandar()
+    {
+        return view('admin/edit-standar');
+    }
+
+    //Add indikator method (not yet checked)
+    public function addIndikator()
+    {
+        return view('admin/add-indikator');
+    }
+    //Edit indikator method (not yet checked)
+    public function editIndikator()
+    {
+        return view('admin/edit-indikator');
     }
 }

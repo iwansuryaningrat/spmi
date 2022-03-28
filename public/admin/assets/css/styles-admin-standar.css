@@ -48,6 +48,37 @@
   color: var(--danger-color);
 }
 
+/* ========== filter btn ========== */
+.filter__table {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.filter__btn {
+  padding: 0.75rem 1rem !important;
+  border-radius: var(--radius-sm) !important;
+  background-color: var(--light-color) !important;
+  border: var(--border-sm) !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.filter__btn:hover {
+  color: var(--black) !important;
+}
+
+.filter__btn.active {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 500 !important;
+  background-color: rgba(38, 48, 77, 0.9) !important;
+}
+
+.filter__btn.active:hover {
+  color: var(--white) !important;
+  background-color: var(--dark-main-color) !important;
+}
+
 @media screen and (max-width: 1024px) {
 }
 

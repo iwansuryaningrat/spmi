@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Indikator | SIPMPP Admin UNDIP</title>
+    <title>Report | SIPMPP Admin UNDIP</title>
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -19,7 +19,7 @@
     <!-- uicons icon -->
     <link rel="stylesheet" href="/admin/assets/vendor/uicons-bold-rounded/css/uicons-bold-rounded.css" />
     <!-- custom -->
-    <link rel="stylesheet" href="/admin/assets/css/styles-view-indikator.css" />
+    <link rel="stylesheet" href="/admin/assets/css/styles-admin-add-standar.css" />
 </head>
 
 <body>
@@ -188,77 +188,66 @@
             <div class="header__main-title">
                 <div class="header__main-title__pagination">
                     <a href="/admin/index">Dashboard</a>
-                    / <a href="/admin/standar">Standar</a> / <a href="/admin/viewStandar">Kategori Standar</a> /
-                    Indikator
+                    / <a href="/admin/standar">Standar</a> / Form Edit Standar
                 </div>
                 <div class="header__main-title__subtitle">
                     <div class="title__subtitle-desc">
-                        <h1>Indikator</h1>
-                        <p>Halo <span>Adi</span>, selamat datang di dashboard Indikator</p>
+                        <h1>Edit Standar</h1>
+                        <p>Form untuk mengubah data standar</p>
                     </div>
                 </div>
             </div>
 
             <!--========== body main ==========-->
             <div class="title__table__add">
-                <div>
-                    <h4 class="title__body__user mb-3">Kategori <span>Pengabdian Masyarakat</span></h4>
-                    <h4 class="title__body__user"><span>S12</span>. <span>Standar Sarana dan Prasarana
-                            Pembelajaran</span></h4>
-                </div>
-                <div>
-                    <a href="/admin/addIndikator" class="btn shadow-none btn__add btn__dark">
-                        <i class="fa-solid fa-plus"></i>
-                        Add Indikator
-                    </a>
-                </div>
+                <h4 class="title__body__user">Form Add Standar</h4>
             </div>
 
-            <!-- table indikator -->
-            <div class="sipmpp__table">
-                <div class="table-responsive">
-                    <table class="table table__indikator__content sipmpp__table-content table-hover">
-                        <thead class="bg__light">
-                            <tr>
-                                <th class="table__indikator-number">no</th>
-                                <th class="table__indikator-indikator">indikator</th>
-                                <th class="table__indikator-target">target</th>
-                                <th class="table__indikator-kebutuhan-data">kebutuhan data</th>
-                                <th class="table__indikator-aksi">aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Tersedianya pedoman penyusunan profil lulusan program studi</td>
-                                <td>Tersusunnya profil program studi</td>
-                                <td>Judul PKM</td>
-                                <td>
-                                    <a data-bs-placement="top" title="Edit" href="/admin/editIndikator"
-                                        class="edit__data__induk__icon me-3 me-md-5"><i
-                                            class="fa-solid fa-pen-to-square"></i></a>
-                                    <a data-bs-placement="top" title="Delete" href="#"
-                                        class="delete__data__induk__icon"><i class="fa-solid fa-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Tersedia pedoman rumusan kualifikasi lulusan berupa Capaian Pembelajaran Lulusan
-                                    (CPL) mencakup aspek sikap, pengetahuan, dan keterampilan</td>
-                                <td>Adanya dokumen Capaian Pembelajaran Lulusan sesuai dengan SKL berdasarkan jenis dan
-                                    jenjang pendidikan berdasarkan KKNI serta SN-DIKTI</td>
-                                <td>Jumlah Dosen</td>
-                                <td>
-                                    <a data-bs-placement="top" title="Edit" href="/admin/editIndikator"
-                                        class="edit__data__induk__icon me-3 me-md-5"><i
-                                            class="fa-solid fa-pen-to-square"></i></a>
-                                    <a data-bs-placement="top" title="Delete" href="#"
-                                        class="delete__data__induk__icon"><i class="fa-solid fa-trash"></i></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <!-- form add standar -->
+            <div class="form__add__standar">
+                <form method="POST" action="#">
+                    <!-- kategori -->
+                    <div class="row mb-3 mb-sm-4">
+                        <label for="kategori" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Kategori
+                            <span class="color__danger">*</span></label>
+                        <div class="col-lg-6 col-md-9 col-sm-8">
+                            <select class="form-select form__select shadow-none" name="kategori_id" id="kategori"
+                                required autocomplete="off">
+                                <option disabled selected>Pilih Kategori</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- kode -->
+                    <div class="row mb-3 mb-sm-4">
+                        <label for="kode" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Kode
+                            <span class="color__danger">*</span></label>
+                        <div class="col-lg-6 col-md-9 col-sm-8">
+                            <input class="form-control form__control shadow-none" id="kode" name="kode" required
+                                autocomplete="off" placeholder="Masukkan kode" />
+                        </div>
+                    </div>
+                    <!-- namaStandar -->
+                    <div class="row mb-3 mb-sm-4">
+                        <label for="namaStandar" class="col-lg-3 col-md-3 col-sm-4 col-form-label form__label">Nama
+                            Standar
+                            <span class="color__danger">*</span></label>
+                        <div class="col-lg-6 col-md-9 col-sm-8">
+                            <input class="form-control form__control shadow-none" id="namaStandar" name="namaStandar"
+                                required autocomplete="off" placeholder="Masukkan nama standar" />
+                        </div>
+                    </div>
+
+                    <!-- button -->
+                    <div class="row">
+                        <div class="col-lg-9 col-md-12 col-sm-12 button__section">
+                            <a href="/admin/standar" class="btn form__btn cancel__btn me-4 shadow-none"
+                                role="button">Batal</a>
+                            <button type="submit" class="btn form__btn btn__dark shadow-none">
+                                Simpan
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
 
@@ -310,21 +299,6 @@
         });
         $("#photo-dropdown").click(() => {
             $("#header-main-nav-dropdown").toggleClass("active");
-        });
-
-        // tooltips
-        const tooltipsEdit = document.querySelectorAll(
-            ".edit__data__induk__icon"
-        );
-        const tooltipsDelete = document.querySelectorAll(
-            ".delete__data__induk__icon"
-        );
-
-        tooltipsEdit.forEach((t) => {
-            new bootstrap.Tooltip(t);
-        });
-        tooltipsDelete.forEach((t) => {
-            new bootstrap.Tooltip(t);
         });
     </script>
 </body>
