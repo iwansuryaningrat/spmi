@@ -524,7 +524,7 @@ class Admin extends BaseController
         $kategori = $this->kategoriModel->findAll();
         $data = [
             'title' => 'Daftar Unit | SIPMPP Admin UNDIP',
-            'tab' => 'unit',
+            'tab' => 'kategori',
             'css' => 'styles-admin-kategori.css',
             'header' => 'header__mini',
             'i' => $this->i,
@@ -532,7 +532,7 @@ class Admin extends BaseController
             'kategori' => $kategori
         ];
 
-        return view('admin/kategori');
+        return view('admin/kategori', $data);
     }
 
     // Add kategori method (Done)
