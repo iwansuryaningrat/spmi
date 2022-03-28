@@ -80,21 +80,21 @@
             <tr>
               <td><?= $i; ?></td>
               <td>
-                Tersedianya pedoman penyusunan profil lulusan program studi
+                <?= $data['nama_indikator']; ?>
               </td>
-              <td>Tersusunnya profil program studi</td>
-              <td><span class="badge badge__sipmpp <?php if ($standar['status'] == 'Diaudit') {
+              <td><?= $data['target']; ?></td>
+              <td><span class="badge badge__sipmpp <?php if ($data['status'] == 'Diaudit') {
                                                       echo 'badge__success';
-                                                    } else if ($standar['status'] == 'Dikirim') {
+                                                    } else if ($data['status'] == 'Dikirim') {
                                                       echo 'badge__primary';
-                                                    } else if ($standar['status'] == 'Belum Diisi') {
+                                                    } else if ($data['status'] == 'Belum Diisi') {
                                                       echo 'badge__danger';
                                                     } else {
                                                       echo 'badge__warning';
-                                                    } ?>">Belum diisi</span></td>
-              <td>10%</td>
+                                                    } ?>"><?= $data['status']; ?></span></td>
+              <td><?= $data['nilai_akhir']; ?></td>
               <td>
-                <a data-bs-placement="top" title="Edit" href="/home/indikatorform/" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
+                <a data-bs-placement="top" title="Edit" href="/home/indikatorform/<?= $tahun . '/' . $data['unit_id'] . '/' . $data['kategori_id'] . '/' . $data['standar_id'] . '/' . $data['indikator_id']; ?>" class="edit__data__induk__icon"><i class="fa-solid fa-pen-to-square"></i></a>
               </td>
             </tr>
           <?php endforeach; ?>

@@ -13,16 +13,11 @@
     </div>
     <div class="header__main-nav-profile">
       <div class="nav-profile__photo">
-        <img
-          src="/profile/<?= $usersession['foto']; ?>"
-          alt="profile-picture" id="photo-dropdown" />
+        <img src="/profile/<?= $usersession['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
       </div>
       <div class="nav-profile__desc">
-        <p id="profileName" class="ellipsis__text"><?php if ($usersession['nama'] != null && $usersession['nama'] != "") {
-    echo $usersession['nama'];
-} else {
-    echo $usersession['username'];
-} ?>
+        <p id="profileName" class="ellipsis__text">
+          <?= $usersession['nama']; ?>
         </p>
         <p id="profileStatus" class="ellipsis__text">Administrator</p>
       </div>
@@ -53,8 +48,17 @@
       <div class="title__subtitle-desc">
         <h1>Base User</h1>
         <p>
-          Halo <span><?= $usersession['nama']; ?></span>, selamat
-          datang di dashboard base user
+          Halo <span>
+            <?php // uses regex that accepts any word character or hyphen in last name
+            function split_name($name)
+            {
+              $name = trim($name);
+              $last_name = (strpos($name, ' ') === false) ? '' : preg_replace('#.*\s([\w-]*)$#', '$1', $name);
+              $first_name = trim(preg_replace('#' . preg_quote($last_name, '#') . '#', '', $name));
+              return array($first_name, $last_name);
+            }
+            echo split_name($usersession['nama'])[0];
+            ?></span>, selamat datang di dashboard base user
         </p>
       </div>
     </div>
@@ -63,7 +67,7 @@
   <!--========== body main ==========-->
   <div class="title__table__add">
     <h4 class="title__body__user">Daftar Base User</h4>
-    <a href="/admin/addUser" class="btn shadow-none btn__add btn__dark">
+    <a href="/admin/addBasicUserform" class="btn shadow-none btn__add btn__dark">
       <i class="fa-solid fa-plus"></i>
       Add Base User
     </a>
@@ -85,28 +89,25 @@
         </thead>
         <tbody>
 
-          <?php foreach ($users as $user) : ?>
-          <tr>
-            <td><?= $i; ?>
-            </td>
-            <td><?= $user['nama']; ?>
-            </td>
-            <td><?= $user['email']; ?>
-            </td>
-            <td>
-              <ol class="list__table__user-unit">
-                <li>S1-Informatika</li>
-                <li>S1-Matematika</li>
-                <li>S1-Kesehatan Masyarakat</li>
-              </ol>
-            </td>
-            <td>2406011912001289</td>
-            <td>
-              <a data-bs-placement="top" title="Delete" href="#" class="delete__data__induk__icon"><i
-                  class="fa-solid fa-trash"></i></a>
-            </td>
-          </tr>
+          <?php foreach ($users as $user) :
+            if ($user['role'] == 'user') : ?>
+              <tr>
+                <td><?= $i; ?>
+                </td>
+                <td><?= $user['nama']; ?></td>
+                <td><?= $user['email']; ?></td>
+                <td><?= $user['nama_unit']; ?>
+                  <!-- <ol class="list__table__user-unit">
+                    <li></li>
+                  </ol> -->
+                </td>
+                <td><?= $user['telp']; ?></td>
+                <td>
+                  <a data-bs-placement="top" title="Delete" href="#" class="delete__data__induk__icon"><i class="fa-solid fa-trash"></i></a>
+                </td>
+              </tr>
           <?php $i++;
+            endif;
           endforeach; ?>
 
         </tbody>

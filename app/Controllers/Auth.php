@@ -159,29 +159,6 @@ class Auth extends BaseController
         return redirect()->to('/login');
     }
 
-    // Generate User
-    public function generateUser()
-    {
-        $data = [
-            'username' => $this->request->getVar('username'),
-            'email' => $this->request->getVar('email'),
-            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-            'role' => $this->request->getVar('role'),
-            'foto' => 'default.png',
-        ];
-        $this->usersModel->insert($data);
-    }
-
-    // Form Generate User
-    public function formGenerateUser()
-    {
-        $data = [
-            'title' => 'Generate User | SIPMPP UNDIP 2022',
-        ];
-
-        return view('auth/generateUser', $data);
-    }
-
     // Generate Password (Done)
     public function generatepassword($password)
     {

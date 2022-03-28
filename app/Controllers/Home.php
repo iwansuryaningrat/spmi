@@ -142,14 +142,16 @@ class Home extends BaseController
         $i = 1;
 
         $status = [];
-        foreach ($data as $standar) {
-            array_push($status, $standar['status']);
+        foreach ($data as $s) {
+            array_push($status, $s['status']);
         }
 
 
         // Cek apakah semua standar sudah diisi
         if (in_array('Dikirim', $status)) {
             $status = "Sudah Dikirim";
+        } else if (in_array('Diaudit', $status)) {
+            $status = "Sudah Diaudit";
         } else {
             $status = "Belum Dikirim";
         }
@@ -172,7 +174,7 @@ class Home extends BaseController
         return view('user/standar', $data);
     }
 
-    // Indikator Method
+    // Indikator Method (Done)
     public function indikator($standar_id, $tahun, $kategori_id)
     {
         $data_user = $this->data_user;
@@ -183,6 +185,7 @@ class Home extends BaseController
         // dd($datapenilaian);
 
         $standar = $this->standarModel->getStandar($standar_id);
+        // dd($standar);
 
         $i = 1;
 
@@ -242,10 +245,16 @@ class Home extends BaseController
 
     // FORM METHOD //
 
-    // Indikator Form Method
-    public function indikatorForm()
+    // Indikator Form Method (Done)
+    public function indikatorForm($tahun, $unit_id, $kategori_id, $standar_id, $indikator_id)
     {
         $data_user = $this->data_user;
+
+        $datapenilaian = $this->penilaianModel->getPenilaianSpec($unit_id, $standar_id, $tahun, $kategori_id);
+        $standar = $this->standarModel->getStandar($standar_id);
+        // dd($datapenilaian, $standar);
+        $induk = $this->unitIndukTahunModel->getIndukUnitSpec($unit_id, $tahun, $datapenilaian[0]['indikator_id'], $kategori_id);
+        // dd($induk);
 
         $data = [
             'title' => 'Form Indikator SPMI | SIPMPP UNDIP',
@@ -253,6 +262,10 @@ class Home extends BaseController
             'tab' => 'standar',
             'header' => 'header__mini header__indikator',
             'css' => 'styles-form-indikator-spmi.css',
+            'datapenilaian' => $datapenilaian,
+            'standar' => $standar,
+            'induk' => $induk,
+            'tahun' => $tahun,
         ];
 
         return view('user/indikatorform', $data);
@@ -278,18 +291,14 @@ class Home extends BaseController
         if (in_array('Belum Diisi', $status) || in_array('Belum Lengkap', $status)) {
             // dd('Belum Lengkap');
             $this->session->setFlashdata('message', '<div class="alert alert-danger" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Peringatan!</strong> Semua standar belum diisi.
-                </div>');
+            <strong>Maaf!</strong> Data penilaian belum lengkap.</div>');
             return redirect()->to('/home/standar/');
         } else {
             // dd('Lengkap');
             $this->penilaianModel->updateStatus($data_user['unit_id'], $tahun, 'Dikirim');
 
             $this->session->setFlashdata('message', '<div class="alert alert-success" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Berhasil!</strong> Penilaian telah dikirim.
-                </div>');
+            <strong>Selamat!</strong> Data penilaian telah dikirim.</div>');
             return redirect()->to('/home/standar/');
         }
     }
@@ -308,45 +317,58 @@ class Home extends BaseController
         return redirect()->to('/home/datainduk/' . $unit_id . '/' . $tahun);
     }
 
-    // Save Indikator Method
-    public function saveIndikator($indikator_id)
+    // Save Indikator Method (Done)
+    public function saveIndikator($indikator_id, $tahun, $standar_id, $unit_id, $kategori_id)
     {
         $indikator_id = (int)$indikator_id;
-        $hasil = $this->request->getVar('hasil');
+        $nilai_input = $this->request->getVar('hasil');
         $keterangan = $this->request->getVar('keterangan');
         $status = "Diisi";
+
+        $datapenilaian = $this->penilaianModel->getPenilaianSpec($unit_id, $standar_id, $tahun, $kategori_id);
+
+        if ($nilai_input == 'ADA / SESUAI') {
+            $nilai_input = 1;
+            $hasil = 100;
+            $nilai_akhir = $hasil;
+        } else if ($nilai_input == 'TIDAK ADA / SESUAI') {
+            $nilai_input = 0;
+            $hasil = 0;
+            $nilai_akhir = $hasil;
+        } else {
+            $nilai_input = (int)$nilai_input;
+            $nilai_acuan = (int)$datapenilaian[0]['nilai_acuan'];
+            $nilai_induk = (int)$datapenilaian[0]['nilai'];
+            $hasil = $nilai_input / $nilai_induk;
+            if ($hasil >= $nilai_acuan) {
+                $nilai_akhir = 100;
+            } else {
+                $nilai_akhir = $hasil / $nilai_acuan * 100;
+            }
+        }
+
 
         // Dokumen handler
         $dokumen = $this->request->getFile('dokumen');
         if ($dokumen->getError() == 4) {
             return redirect()->to('/home/indikatorform/' . $indikator_id);
         } else {
-            $namadokumen = 'dokumen-' . $indikator_id;
+            $namadokumen = 'dokumen-' . $indikator_id . '-' . $standar_id . '-' . $unit_id . '-' . $kategori_id . '-' . $tahun . $dokumen->getExtension();
             $dokumen->move('dokumen/', $namadokumen);
         };
 
-        // Ambil data dari database berdasarkan indikator_id
-        $indikator = $this->indikatorModel->getIndikatorStandar($indikator_id);
-        $indikator['indikator_id'] = (int)$indikator['indikator_id'];
-        $indikator['standar_id'] = (int)$indikator['standar_id'];
-        $indikator['induk_id'] = (int)$indikator['induk_id'];
+        $data = [
+            'nilai_input' => $nilai_input,
+            'dokumen' => $namadokumen,
+            'keterangan' => $keterangan,
+            'status' => $status,
+            'hasil' => $hasil,
+            'nilai_akhir' => $nilai_akhir
+        ];
 
-        // Data Standar
-        $standar_id = (int)$indikator['standar_id'];
-        $standar = $this->standarModel->getStandarId($standar_id);
+        $this->penilaianModel->updatePenilaian($unit_id, $tahun, $standar_id, $kategori_id, $indikator_id, $data);
 
-        // Tahun
-        $tahun_id = (int)$standar['tahun_id'];
-        $tahun = $this->tahunModel->getTahunId($tahun_id)['tahun'];
-
-        // Data Unit
-        $unit_id = (int)$standar['unit_id'];
-        $unit = $this->unitsModel->getUnitId($unit_id);
-
-        // Update Data
-        $this->indikatorModel->updateUser($indikator_id, $status, $hasil, $keterangan, $namadokumen);
-
-        return redirect()->to('/home/indikator/' . $unit_id . '/' . $standar_id . '/' . $tahun);
+        return redirect()->to('/home/indikator/' . $standar_id . '/' . $tahun . '/' . $kategori_id);
     }
 
     // Edit Password Method (Done)
@@ -362,27 +384,19 @@ class Home extends BaseController
         if (password_verify($old_password, $user['password'])) {
             // Cek apakah password baru sama dengan password lama
             if ($old_password == $new_password) {
-                $this->session->setFlashdata('message', '<div class="alert alert-danger" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <strong>Peringatan!</strong> Password baru tidak boleh sama dengan password lama.
-                    </div>');
+                $this->session->setFlashdata('message', '<div class="alert alert-danger" role="alert"> <strong>Maaf!</strong> Password baru tidak boleh sama dengan password lama.</div>');
                 return redirect()->to('/home/profile/');
             } else {
                 // Update Password
                 $new_password = password_hash($new_password, PASSWORD_DEFAULT);
                 $this->usersModel->updatePassword($data_user['email'], $new_password);
 
-                $this->session->setFlashdata('message', '<div class="alert alert-success" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <strong>Berhasil!</strong> Password berhasil diubah.
-                    </div>');
+                $this->session->setFlashdata('message', '<div class="alert alert-success" role="alert"><strong>Selamat!</strong> Password berhasil diubah.</div>');
                 return redirect()->to('/home/profile/');
             }
         } else {
             $this->session->setFlashdata('message', '<div class="alert alert-danger" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Peringatan!</strong> Password lama tidak sesuai.
-                </div>');
+            <strong>Maaf!</strong> Password lama tidak sesuai.</div>');
             return redirect()->to('/home/profile/');
         }
     }
@@ -430,9 +444,7 @@ class Home extends BaseController
         $this->session->set($datasession);
 
         $this->session->setFlashdata('message', '<div class="alert alert-success" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <strong>Berhasil!</strong> Profile berhasil diubah.
-            </div>');
+        <strong>Selamat!</strong> Data berhasil diubah.</div>');
         return redirect()->to('/home/profile/');
     }
 }

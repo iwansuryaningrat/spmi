@@ -16,8 +16,7 @@
         <img src="/profile/<?= $usersession['foto']; ?>" alt="profile-picture" id="photo-dropdown" />
       </div>
       <div class="nav-profile__desc">
-        <p id="profileName" class="ellipsis__text"><?= $usersession['nama']; ?>
-        </p>
+        <p id="profileName" class="ellipsis__text"><?= $usersession['nama']; ?> </p>
         <p id="profileStatus" class="ellipsis__text">Administrator</p>
       </div>
       <div class="nav-profile__btn">
@@ -40,7 +39,7 @@
 
   <div class="header__main-title">
     <div class="header__main-title__pagination">
-      <span id="unit-user" style="font-weight: 600">S1 Informatika</span>
+      <a href="/admin/index">Dashboard</a>
     </div>
     <div class="header__main-title__subtitle">
       <div class="title__subtitle-desc">

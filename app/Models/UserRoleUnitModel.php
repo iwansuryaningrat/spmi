@@ -80,4 +80,14 @@ class UserRoleUnitModel extends Model
             ->where('user_role_unit.unit_id', $unit_id)
             ->first();
     }
+
+    // Joining All table to find all data
+    public function getData()
+    {
+        return $this->select('user_role_unit.*, users.*, units.*, role.*')
+            ->join('users', 'users.email = user_role_unit.email')
+            ->join('units', 'units.unit_id = user_role_unit.unit_id')
+            ->join('role', 'role.role_id = user_role_unit.role_id')
+            ->findAll();
+    }
 }
