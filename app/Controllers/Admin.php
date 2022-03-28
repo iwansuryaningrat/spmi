@@ -180,7 +180,21 @@ class Admin extends BaseController
     // Data Induk Method
     public function dataInduk()
     {
-        return view('admin/dataInduk');
+        $usersession = $this->data_user;
+        $induk = $this->dataIndukModel->getInduk();
+        // dd($induk);
+
+        $data = [
+            'title' => 'Data Induk | SIPMPP Admin UNDIP',
+            'tab' => 'induk',
+            'css' => 'styles-admin-data-induk.css',
+            'header' => 'header__mini',
+            'i' => $this->i,
+            'usersession' => $usersession,
+            'induk' => $induk
+        ];
+
+        return view('admin/dataInduk', $data);
     }
 
     //view data induk method
@@ -233,7 +247,7 @@ class Admin extends BaseController
             'indikator' => $indikator
         ];
 
-        return view('admin/view-indikator');
+        return view('admin/view-indikator', $data);
     }
 
     //penilaian
@@ -336,10 +350,49 @@ class Admin extends BaseController
         return view('admin/add-leader', $data);
     }
 
-    //add data induk method
-    public function addDataInduk()
+    //add data induk method (Done)
+    public function addDataIndukForm()
     {
-        return view('admin/add-dataInduk');
+        $usersession = $this->data_user;
+        $induk = $this->dataIndukModel->getInduk();
+        $kategori = $this->kategoriModel->findAll();
+
+        $data = [
+            'title' => 'Form Add Data Induk | SIPMPP Admin UNDIP',
+            'tab' => 'induk',
+            'css' => 'styles-admin-add-datainduk.css',
+            'header' => 'header__mini',
+            'i' => $this->i,
+            'usersession' => $usersession,
+            'induk' => $induk,
+            'kategori' => $kategori
+        ];
+
+        return view('admin/add-dataInduk', $data);
+    }
+
+    // Add data induk method (Done)
+    public function adddatainduk()
+    {
+        $kategori_id = $this->request->getVar('kategori_id');
+        $induk_id = $this->request->getVar('induk_id');
+        $nama_induk = $this->request->getVar('nama_induk');
+
+        $data = $this->dataIndukModel->getIndukById($induk_id, $kategori_id);
+        // dd($data);
+        if ($data) {
+            session()->setFlashdata('message', '<div class="alert alert-danger" role="alert">Data Induk sudah ada!</div>');
+            return redirect()->to(base_url('admin/dataInduk'));
+        } else {
+            $data = [
+                'induk_id' => (int)$induk_id,
+                'kategori_id' => $kategori_id,
+                'nama_induk' => $nama_induk
+            ];
+            $this->dataIndukModel->insert($data);
+            session()->setFlashdata('message', '<div class="alert alert-success" role="alert">Data Induk berhasil ditambahkan!</div>');
+            return redirect()->to(base_url('admin/dataInduk'));
+        }
     }
 
     //Add standar method (Done)
